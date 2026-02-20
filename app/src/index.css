@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 94%;
+    --card: 0 0% 14%;
+    --card-foreground: 0 0% 94%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 94%;
+    --primary: 38 35% 61%;
+    --primary-foreground: 0 0% 10%;
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 94%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 63%;
+    --accent: 38 35% 61%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 38 35% 61%;
+    --radius: 0.5rem;
+    
+    --gold: #c4a574;
+    --gold-light: #d4b584;
+    --gold-dark: #a08554;
+    --charcoal: #1a1a1a;
+    --charcoal-light: #252525;
+    --charcoal-dark: #0a0a0a;
+    --text-primary: #f0f0f0;
+    --text-secondary: #a0a0a0;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[#1a1a1a] text-[#f0f0f0] antialiased;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer components {
+  .gold-text {
+    color: var(--gold);
+  }
+  
+  .gold-bg {
+    background-color: var(--gold);
+  }
+  
+  .charcoal-bg {
+    background-color: var(--charcoal);
+  }
+  
+  .btn-gold {
+    @apply px-8 py-3 border border-[#c4a574] text-[#c4a574] bg-transparent 
+           transition-all duration-300 ease-out
+           hover:bg-[#c4a574] hover:text-[#1a1a1a] hover:shadow-lg hover:shadow-[#c4a574]/20;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  
+  .btn-gold-filled {
+    @apply px-8 py-3 bg-[#c4a574] text-[#1a1a1a] 
+           transition-all duration-300 ease-out
+           hover:bg-[#d4b584] hover:shadow-lg hover:shadow-[#c4a574]/30;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+  
+  .container-wide {
+    @apply w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20;
+  }
+  
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #c4a574 0%, #d4b584 50%, #a08554 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .divider-gold {
+    @apply w-16 h-px bg-[#c4a574] mx-auto mt-6;
+  }
+  
+  .feature-icon {
+    @apply w-12 h-12 rounded-xl bg-[#252525] border border-[#333] flex items-center justify-center
+           transition-all duration-300 hover:border-[#c4a574] hover:bg-[#c4a574]/10;
+  }
+  
+  .product-card {
+    @apply relative overflow-hidden transition-all duration-500;
+  }
+  
+  .product-card:hover .product-image {
+    @apply scale-105;
+  }
+  
+  .product-card:hover .product-overlay {
+    @apply opacity-100;
+  }
+  
+  .quote-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    line-height: 1;
+    color: var(--gold);
+    opacity: 0.3;
+  }
+  
+  .scroll-indicator {
+    @apply absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2;
+  }
+  
+  .scroll-line {
+    @apply w-px h-16 bg-gradient-to-b from-[#c4a574] to-transparent;
+    animation: scrollBounce 2s ease-in-out infinite;
+  }
+  
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(10px); opacity: 0.5; }
+  }
+  
+  .nav-link {
+    @apply relative text-[#a0a0a0] hover:text-[#f0f0f0] transition-colors duration-300;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-0 h-px bg-[#c4a574] transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .testimonial-card {
+    @apply p-8 md:p-12 bg-gradient-to-b from-[#252525] to-[#1f1f1f] rounded-2xl border border-[#333]
+           transition-all duration-500 hover:border-[#c4a574]/30;
+  }
+  
+  /* Image reveal mask for hero */
+  .image-reveal-mask {
+    transform-origin: top;
+  }
+  
+  /* Radial gradient background */
+  .bg-gradient-radial {
+    background: radial-gradient(circle at center, var(--tw-gradient-stops));
+  }
+  
+  /* Tab transitions */
+  .tab-content-wrapper {
+    will-change: transform, opacity;
+  }
+  
+  /* Carousel transitions */
+  .duration-600 {
+    transition-duration: 600ms;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252525;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c4a574;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(196, 165, 116, 0.3);
+  color: #f0f0f0;
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .container-wide {
+    @apply px-4;
+  }
+  
+  h1 {
+    @apply text-3xl;
+  }
+  
+  h2 {
+    @apply text-2xl;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
