@@ -1,0 +1,36 @@
+Product: Classic High-Neck Puff Jacket
+===========================================
+
+Required Images (3:4 aspect ratio - e.g., 900x1200px):
+
+Gallery Images (5 required):
+□ main.jpg - Front view, centered, full product
+□ side.jpg - Side angle view
+□ back.jpg - Back view
+□ detail.jpg - Close-up of collar/texture/zipper details
+□ lifestyle.jpg - Product being worn/styled
+
+Additional Styling Images (5 optional):
+□ styling-1.jpg - Lifestyle shot 1
+□ styling-2.jpg - Lifestyle shot 2
+□ styling-3.jpg - Lifestyle shot 3
+□ styling-4.jpg - Lifestyle shot 4
+□ styling-5.jpg - Lifestyle shot 5
+
+Total: 10 images needed
+
+Image Specifications:
+- Aspect Ratio: 3:4 (portrait)
+- Recommended Size: 900×1200px or 1200×1600px
+- Format: JPG
+- File Size: < 300KB each (optimized)
+- Background: White or neutral
+- Lighting: Consistent, professional
+
+This product is used in:
+- product-a.html (main product page)
+- product-b.html (variant with side rail)
+- product-c.html (variant layout)
+- All shop pages (shop.html, shop-wide.html, etc.)
+- Homepage featured products
+- Related products sections

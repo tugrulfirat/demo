@@ -1,0 +1,44 @@
+Product: Rose Printed Hoodie (Variable Product - Multiple Colors)
+===================================================================
+
+This product has COLOR VARIATIONS. Each color needs its own images.
+
+Color Variants:
+1. Red (folder: red/)
+2. Blue (folder: blue/)
+3. Green (folder: green/)
+
+Required Images Per Color (3:4 aspect ratio - e.g., 900x1200px):
+
+For each color folder:
+□ main.jpg - Front view in that specific color
+□ detail.jpg - Close-up of rose print in that color (optional)
+
+Directory Structure:
+hoodie-rose-printed/
+├── red/
+│   ├── main.jpg ← Red hoodie front view
+│   └── detail.jpg (optional)
+├── blue/
+│   ├── main.jpg ← Blue hoodie front view
+│   └── detail.jpg (optional)
+└── green/
+    ├── main.jpg ← Green hoodie front view
+    └── detail.jpg (optional)
+
+Total: 3-6 images (1-2 per color × 3 colors)
+
+Image Specifications:
+- Aspect Ratio: 3:4 (portrait)
+- Recommended Size: 900×1200px
+- Format: JPG
+- File Size: < 300KB each
+- Background: White or neutral
+- Same model/pose for all colors (for consistency)
+
+This product is used in:
+- shop-variable.html (color swatches switch between images)
+- shop.html, shop-wide.html (product grids)
+- Homepage featured products
+- Related products sections
+- product-b.html (recently viewed rail)

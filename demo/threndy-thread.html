@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendyThread - Fashion Store</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+    <link rel="stylesheet" href="tt-assets/css/threndy-thread.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header__top">
+            <p>New-Season Offer! 30% Off Select Styles</p>
+        </div>
+        <div class="header__main">
+            <div class="header__container">
+                <a href="/" class="header__logo">TRENDYTHREAD</a>
+                <nav class="header__nav">
+                    <a href="/">Home</a>
+                    <a href="shop.html">Shop</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Pages</a>
+                    <a href="#">Media</a>
+                    <a href="#">Contact</a>
+                </nav>
+                <div class="header__icons">
+                    <button class="header__icon" aria-label="Search">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <circle cx="9" cy="9" r="6.5"/>
+                        <path d="M14 14l5 5"/>
+                    </svg>
+                </button>
+                    <a href="login.html" class="header__icon" aria-label="Account">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <circle cx="11" cy="7" r="3.5"/>
+                        <path d="M4 19c0-3.5 3-6.5 7-6.5s7 3 7 6.5"/>
+                    </svg>
+                </a>
+                    <a href="wishlist.html" class="header__icon" aria-label="Wishlist">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <path d="M11 19l-7-7c-2-2-2-5 0-7 2-2 5-2 7 0 2-2 5-2 7 0 2 2 2 5 0 7z"/>
+                    </svg>
+                </a>
+                    <a href="cart-single.html" class="header__icon header__cart-badge" aria-label="Shopping Cart">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <circle cx="9" cy="19" r="1.5" fill="currentColor" stroke="none"/>
+                        <circle cx="17" cy="19" r="1.5" fill="currentColor" stroke="none"/>
+                        <path d="M1 1h3.5l2.5 13h11l3-9H7"/>
+                    </svg>
+                </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero__video-container">
+            <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1617331140180-e843d63d3771?q=80&w=3024&auto=format&fit=crop">
+                <source src="tt-assets/images/hero/hero-video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="container">
+            <div class="hero__content">
+                <div class="hero__text">
+                    <span class="hero__hook">Modern Essentials</span>
+                    <h1 class="hero__title">New Spring Collection 2026</h1>
+                    <p class="hero__description">Fresh silhouettes, airy fabrics, and effortless layers for the new season. Build a capsule wardrobe that moves with you.</p>
+                    <div class="hero__cta-wrapper">
+                        <a href="#" class="btn">Shop New Arrivals</a>
+                    </div>
+                </div>
+                <div class="hero__images">
+                    <div class="hero__image" style="background-image: url('tt-assets/images/hero/hero-main.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="hero__image" style="background-image: url('tt-assets/images/hero/hero-main-2.jpg'); background-size: cover; background-position: center;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- USP STRIP -->
+    <div class="usp">
+        <div class="container">
+            <ul class="usp__list">
+                <li class="usp__item">Free Delivery over $75</li>
+                <li class="usp__item">30-Day Returns</li>
+                <li class="usp__item">24/7 Support</li>
+                <li class="usp__item">Premium Natural Fabrics</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- BENEFITS ROW -->
+    <section class="benefits-row">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-item__icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg></div>
+                    <h3 class="benefit-item__title">Free Shipping</h3>
+                    <p class="benefit-item__text">Free shipping for orders over $130.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-item__icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+                    <h3 class="benefit-item__title">Money Guarantee</h3>
+                    <p class="benefit-item__text">30-day returns or exchange.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-item__icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>
+                    <h3 class="benefit-item__title">Online Support</h3>
+                    <p class="benefit-item__text">We're here 24/7.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-item__icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></div>
+                    <h3 class="benefit-item__title">Flexible Payment</h3>
+                    <p class="benefit-item__text">Pay with multiple cards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TREND PRODUCTS -->
+    <section id="trend-products" class="trend-products">
+        <div class="container">
+            <div class="trend-products__header">
+                <h2>Trend products</h2>
+            </div>
+            <div class="trend-grid">
+                <!-- Trend Card 1 -->
+                <article class="trend-card" style="background-image: url('tt-assets/images/trend/look-01.png'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/trend/look-01.jpg'); background-size: cover; background-position: center;">
+                    <!-- Hotspots -->
+                    <button class="hotspot" style="top: 30%; left: 22%;" aria-label="Knit Top" title="Knit Top"></button>
+                    <button class="hotspot" style="top: 55%; left: 68%;" aria-label="Skirt" title="Skirt"></button>
+                </article>
+
+                <!-- Trend Card 2 -->
+                <article class="trend-card" style="background-image: url('tt-assets/images/trend/look-02.png'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/trend/look-02.jpg'); background-size: cover; background-position: center;">
+                    <!-- Hotspots -->
+                    <button class="hotspot" style="top: 34%; left: 60%;" aria-label="Blazer" title="Blazer"></button>
+                    <button class="hotspot" style="top: 78%; left: 40%;" aria-label="Trousers" title="Trousers"></button>
+                </article>
+
+                <!-- Trend Card 3 -->
+                <article class="trend-card" style="background-image: url('tt-assets/images/trend/look-03.png'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/trend/look-03.jpg'); background-size: cover; background-position: center;">
+                    <!-- Hotspots -->
+                    <button class="hotspot" style="top: 46%; left: 28%;" aria-label="Sunglasses" title="Sunglasses"></button>
+                    <button class="hotspot" style="top: 84%; left: 78%;" aria-label="Sandals" title="Sandals"></button>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSTAGRAM -->
+    <section id="instagram" class="instagram">
+        <div class="container">
+            <div class="instagram__header">
+                <p class="instagram__handle">@trendythread</p>
+            </div>
+            <div class="instagram-grid">
+                <div class="ig-tile" style="background-image: url('tt-assets/images/insta/01.jpg'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/insta/01.jpg'); background-size: cover; background-position: center;">
+                    <img src="" alt="Instagram photo 1">
+                </div>
+                <div class="ig-tile" style="background-image: url('tt-assets/images/insta/02.jpg'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/insta/02.jpg'); background-size: cover; background-position: center;">
+                    <img src="" alt="Instagram photo 2">
+                </div>
+                <div class="ig-tile" style="background-image: url('tt-assets/images/insta/03.jpg'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/insta/03.jpg'); background-size: cover; background-position: center;">
+                    <img src="" alt="Instagram photo 3">
+                </div>
+                <div class="ig-tile" style="background-image: url('tt-assets/images/insta/04.jpg'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/insta/04.jpg'); background-size: cover; background-position: center;">
+                    <img src="" alt="Instagram photo 4">
+                </div>
+                <div class="ig-tile" style="background-image: url('tt-assets/images/insta/05.jpg'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/insta/05.jpg'); background-size: cover; background-position: center;">
+                    <img src="" alt="Instagram photo 5">
+                </div>
+                <div class="ig-tile" style="background-image: url('tt-assets/images/insta/06.jpg'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/insta/06.jpg'); background-size: cover; background-position: center;">
+                    <img src="" alt="Instagram photo 6">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BIG SALES / PRODUCTS -->
+    <section class="big-sales">
+        <div class="container">
+            <div class="big-sales__header">
+                <h2>Big Sales</h2>
+                <div class="big-sales__tabs">
+                    <span class="big-sales__tab">Women</span>
+                    <span class="big-sales__tab">Men</span>
+                    <span class="big-sales__tab">Kids</span>
+                    <span class="big-sales__tab">Accessories</span>
+                </div>
+            </div>
+            <div class="products">
+                <!-- Product 1 -->
+                <article class="product-card">
+                    <div class="product-card__image" style="background-image: url('tt-assets/images/products/aurelia-bias-satin-midi.jpg'); background-size: cover; background-position: center;">
+                        <button class="product-card__wishlist" aria-label="Add to wishlist">
+                            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                                <path d="M11 19l-7-7c-2-2-2-5 0-7 2-2 5-2 7 0 2-2 5-2 7 0 2 2 2 5 0 7z"/>
+                            </svg>
+                        </button>
+                        <div class="product-card__badges">
+                            <span class="badge badge--discount">-21%</span>
+                            <span class="badge">Best Seller</span>
+                        </div>
+                        <div class="product-card__quick-view">
+                            <button class="product-card__quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-card__info">
+                        <p class="product-card__brand">Aurelia Studio</p>
+                        <h3 class="product-card__title">Soft Drape Knit Dress</h3>
+                        <div class="product-card__price">
+                            <span>$149.00</span>
+                            <span class="product-card__old-price">$189.00</span>
+                        </div>
+                        <div class="product-card__colors">
+                            <span class="color-dot color-dot--ivory"></span>
+                            <span class="color-dot color-dot--champagne"></span>
+                            <span class="color-dot color-dot--ink"></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="product-card">
+                    <div class="product-card__image" style="background-image: url('tt-assets/images/products/urbanmuse-crepe-shift.jpg'); background-size: cover; background-position: center;">
+                        <button class="product-card__wishlist" aria-label="Add to wishlist">
+                            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                                <path d="M11 19l-7-7c-2-2-2-5 0-7 2-2 5-2 7 0 2-2 5-2 7 0 2 2 2 5 0 7z"/>
+                            </svg>
+                        </button>
+                        <div class="product-card__badges">
+                            <span class="badge badge--discount">-31%</span>
+                        </div>
+                        <div class="product-card__quick-view">
+                            <button class="product-card__quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-card__info">
+                        <p class="product-card__brand">UrbanMuse</p>
+                        <h3 class="product-card__title">Pleated Breeze Midi Skirt</h3>
+                        <div class="product-card__price">
+                            <span>$89.00</span>
+                            <span class="product-card__old-price">$129.00</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 3 -->
+                <article class="product-card">
+                    <div class="product-card__image" style="background-image: url('tt-assets/images/products/luxeline-knit-gown.jpg'); background-size: cover; background-position: center;">
+                        <button class="product-card__wishlist" aria-label="Add to wishlist">
+                            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                                <path d="M11 19l-7-7c-2-2-2-5 0-7 2-2 5-2 7 0 2-2 5-2 7 0 2 2 2 5 0 7z"/>
+                            </svg>
+                        </button>
+                        <div class="product-card__badges">
+                            <span class="badge badge--discount">-25%</span>
+                        </div>
+                        <div class="product-card__quick-view">
+                            <button class="product-card__quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-card__info">
+                        <p class="product-card__brand">LuxeLine</p>
+                        <h3 class="product-card__title">Structured Satin Slip Dress</h3>
+                        <div class="product-card__price">
+                            <span>$165.00</span>
+                            <span class="product-card__old-price">$219.00</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 4 -->
+                <article class="product-card">
+                    <div class="product-card__image" style="background-image: url('tt-assets/images/products/coastclay-fleece-quarterzip.jpg'); background-size: cover; background-position: center;">
+                        <button class="product-card__wishlist" aria-label="Add to wishlist">
+                            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                                <path d="M11 19l-7-7c-2-2-2-5 0-7 2-2 5-2 7 0 2-2 5-2 7 0 2 2 2 5 0 7z"/>
+                            </svg>
+                        </button>
+                        <div class="product-card__badges">
+                            <span class="badge badge--discount">-19%</span>
+                        </div>
+                        <div class="product-card__quick-view">
+                            <button class="product-card__quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-card__info">
+                        <p class="product-card__brand">Coast & Clay</p>
+                        <h3 class="product-card__title">Cozy Brushed Knit Pullover</h3>
+                        <div class="product-card__price">
+                            <span>$79.00</span>
+                            <span class="product-card__old-price">$98.00</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 5 -->
+                <article class="product-card">
+                    <div class="product-card__image" style="background-image: url('tt-assets/images/products/threadco-rawhem-shorts.jpg'); background-size: cover; background-position: center;">
+                        <button class="product-card__wishlist" aria-label="Add to wishlist">
+                            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                                <path d="M11 19l-7-7c-2-2-2-5 0-7 2-2 5-2 7 0 2-2 5-2 7 0 2 2 2 5 0 7z"/>
+                            </svg>
+                        </button>
+                        <div class="product-card__badges">
+                            <span class="badge badge--discount">-38%</span>
+                        </div>
+                        <div class="product-card__quick-view">
+                            <button class="product-card__quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-card__info">
+                        <p class="product-card__brand">Thread & Co.</p>
+                        <h3 class="product-card__title">Raw-Hem Summer Denim Shorts</h3>
+                        <div class="product-card__price">
+                            <span>$49.00</span>
+                            <span class="product-card__old-price">$79.00</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 6 -->
+                <article class="product-card">
+                    <div class="product-card__image" style="background-image: url('tt-assets/images/products/aurelia-linen-blazer.jpg'); background-size: cover; background-position: center;">
+                        <button class="product-card__wishlist" aria-label="Add to wishlist">
+                            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                                <path d="M11 19l-7-7c-2-2-2-5 0-7 2-2 5-2 7 0 2-2 5-2 7 0 2 2 2 5 0 7z"/>
+                            </svg>
+                        </button>
+                        <div class="product-card__badges">
+                            <span class="badge">New In</span>
+                        </div>
+                        <div class="product-card__quick-view">
+                            <button class="product-card__quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-card__info">
+                        <p class="product-card__brand">Aurelia Studio</p>
+                        <h3 class="product-card__title">Oversized Linen Blend Blazer</h3>
+                        <div class="product-card__price">
+                            <span>$189.00</span>
+                        </div>
+                        <div class="product-card__colors">
+                            <span class="color-dot" style="background: #E8DCC8;"></span>
+                            <span class="color-dot color-dot--ink"></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 7 -->
+                <article class="product-card">
+                    <div class="product-card__image" style="background-image: url('tt-assets/images/products/luxeline-silk-blouse.jpg'); background-size: cover; background-position: center;">
+                        <button class="product-card__wishlist" aria-label="Add to wishlist">
+                            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                                <path d="M11 19l-7-7c-2-2-2-5 0-7 2-2 5-2 7 0 2-2 5-2 7 0 2 2 2 5 0 7z"/>
+                            </svg>
+                        </button>
+                        <div class="product-card__badges">
+                            <span class="badge badge--discount">-27%</span>
+                        </div>
+                        <div class="product-card__quick-view">
+                            <button class="product-card__quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-card__info">
+                        <p class="product-card__brand">LuxeLine</p>
+                        <h3 class="product-card__title">Silk Touch Charmeuse Blouse</h3>
+                        <div class="product-card__price">
+                            <span>$145.00</span>
+                            <span class="product-card__old-price">$199.00</span>
+                        </div>
+                        <div class="product-card__colors">
+                            <span class="color-dot" style="background: #F5F5DC;"></span>
+                            <span class="color-dot" style="background: #8B7355;"></span>
+                            <span class="color-dot" style="background: #2F4F4F;"></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 8 -->
+                <article class="product-card">
+                    <div class="product-card__image" style="background-image: url('tt-assets/images/products/coastclay-cotton-tee.jpg'); background-size: cover; background-position: center;">
+                        <button class="product-card__wishlist" aria-label="Add to wishlist">
+                            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                                <path d="M11 19l-7-7c-2-2-2-5 0-7 2-2 5-2 7 0 2-2 5-2 7 0 2 2 2 5 0 7z"/>
+                            </svg>
+                        </button>
+                        <div class="product-card__badges">
+                            <span class="badge badge--discount">-22%</span>
+                        </div>
+                        <div class="product-card__quick-view">
+                            <button class="product-card__quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-card__info">
+                        <p class="product-card__brand">Coast & Clay</p>
+                        <h3 class="product-card__title">Organic Essential Crew Tee</h3>
+                        <div class="product-card__price">
+                            <span>$35.00</span>
+                            <span class="product-card__old-price">$45.00</span>
+                        </div>
+                        <div class="product-card__colors">
+                            <span class="color-dot" style="background: #FFFFFF; border: 1px solid #ddd;"></span>
+                            <span class="color-dot" style="background: #000000;"></span>
+                            <span class="color-dot" style="background: #A9A9A9;"></span>
+                            <span class="color-dot" style="background: #C8B899;"></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 9 (Filler for grid balance) -->
+                <article class="product-card">
+                    <div class="product-card__image" style="background-image: url('https://images.unsplash.com/photo-1552902865-b72c031ac5ea?q=80&w=800&auto=format&fit=crop'); background-size: cover; background-position: center;">
+                        <button class="product-card__wishlist" aria-label="Add to wishlist">
+                            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                                <path d="M11 19l-7-7c-2-2-2-5 0-7 2-2 5-2 7 0 2-2 5-2 7 0 2 2 2 5 0 7z"/>
+                            </svg>
+                        </button>
+                        <div class="product-card__quick-view">
+                            <button class="product-card__quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-card__info">
+                        <p class="product-card__brand">Thread & Co.</p>
+                        <h3 class="product-card__title">Tech Utility Cargo Pants</h3>
+                        <div class="product-card__price">
+                            <span>$89.00</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMO SPLIT -->
+    <section class="promo-split">
+        <div class="container">
+            <div class="promo-split__grid">
+                <!-- Left Card -->
+                <a href="#" class="promo-card" style="background-image: url('tt-assets/images/promo/summer-left.jpg'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/promo/summer-left.jpg'); background-size: cover; background-position: center;">
+                    <div class="promo-card__content">
+                        <p class="promo-card__eyebrow">Summer Collection</p>
+                        <h2 class="promo-card__title">Show your best sweatshirt of your life</h2>
+                        <p class="promo-card__text">Don't miss the opportunity.</p>
+                        <span class="promo-card__cta">Shop Collection</span>
+                    </div>
+                </a>
+
+                <!-- Right Card -->
+                <a href="#" class="promo-card" style="background-image: url('tt-assets/images/promo/summer-right.jpg'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/promo/summer-right.jpg'); background-size: cover; background-position: center;">
+                    <div class="promo-card__content">
+                        <p class="promo-card__eyebrow">New Season Sale</p>
+                        <h2 class="promo-card__title">Up to 70% Off</h2>
+                        <p class="promo-card__text">Don't miss the opportunity.</p>
+                        <span class="promo-card__cta">Shop Collection</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMO BANNERS -->
+    <section class="promo-banners">
+        <div class="container">
+            <div class="banners">
+                <a href="#" class="banner" style="background-image: url('tt-assets/images/banners/bnr-leather-bags.jpg'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/banners/bnr-leather-bags.jpg'); background-size: cover; background-position: center;">
+                    <div class="banner__content">
+                        <h3 class="banner__title">Vegetable-Tanned Leather Bags</h3>
+                        <span class="banner__cta">Shop Bags</span>
+                    </div>
+                </a>
+                <a href="#" class="banner" style="background-image: url('tt-assets/images/banners/bnr-sunglasses.jpg'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/banners/bnr-sunglasses.jpg'); background-size: cover; background-position: center;">
+                    <div class="banner__content">
+                        <h3 class="banner__title">Statement Sunglasses 2025</h3>
+                        <span class="banner__cta">Shop Shades</span>
+                    </div>
+                </a>
+                <a href="#" class="banner" style="background-image: url('tt-assets/images/banners/bnr-summer-linen.jpg'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/banners/bnr-summer-linen.jpg'); background-size: cover; background-position: center;">
+                    <div class="banner__content">
+                        <h3 class="banner__title">Summer Linen Capsule</h3>
+                        <span class="banner__cta">Explore Capsule</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRAND STATEMENT -->
+    <section class="brand-statement">
+        <div class="container">
+            <p class="brand-statement__text">At TrendyThread, we design pieces that feel good and last longer—modern fits, natural materials, and thoughtful details.</p>
+        </div>
+    </section>
+
+    <!-- CATEGORY MOSAIC -->
+    <section class="category-mosaic">
+        <div class="container">
+            <div class="category-mosaic__header">
+                <h2>Explore by Category</h2>
+            </div>
+            <div class="mosaic-grid">
+                <!-- Women - Large Tile (2x2) -->
+                <a href="#" class="mosaic-tile mosaic-tile--large" style="background-image: url('tt-assets/images/cats/women.jpg'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/cats/women.jpg'); background-size: cover; background-position: center;">
+                    <div class="mosaic-tile__content">
+                        <h3 class="mosaic-tile__label">Women</h3>
+                        <p class="mosaic-tile__count">54 items</p>
+                        <div class="mosaic-tile__links">
+                            <span class="mosaic-tile__link">Blazers</span>
+                            <span class="mosaic-tile__link">Blouses & shirts</span>
+                            <span class="mosaic-tile__link">Dresses</span>
+                            <span class="mosaic-tile__link">Jackets & coats</span>
+                            <span class="mosaic-tile__link">Jeans</span>
+                            <span class="mosaic-tile__link">Knit</span>
+                            <span class="mosaic-tile__link">Pants</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Men - Medium Tile (2x1) -->
+                <a href="#" class="mosaic-tile mosaic-tile--medium" style="background-image: url('tt-assets/images/cats/men.jpg'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/cats/men.jpg'); background-size: cover; background-position: center;">
+                    <div class="mosaic-tile__content">
+                        <h3 class="mosaic-tile__label">Men</h3>
+                        <p class="mosaic-tile__count">23 items</p>
+                        <div class="mosaic-tile__links">
+                            <span class="mosaic-tile__link">Pants</span>
+                            <span class="mosaic-tile__link">Shirts</span>
+                            <span class="mosaic-tile__link">Shorts</span>
+                            <span class="mosaic-tile__link">Sweatshirts & Hoodies</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Shoes - Small Tile (1x1) -->
+                <a href="#" class="mosaic-tile mosaic-tile--small" style="background-image: url('tt-assets/images/cats/shoes.jpg'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/cats/shoes.jpg'); background-size: cover; background-position: center;">
+                    <div class="mosaic-tile__content">
+                        <h3 class="mosaic-tile__label">Shoes</h3>
+                        <p class="mosaic-tile__count">1 item</p>
+                    </div>
+                </a>
+
+                <!-- Accessories - Small Tile (1x1) -->
+                <a href="#" class="mosaic-tile mosaic-tile--small" style="background-image: url('tt-assets/images/cats/accessories.jpg'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/cats/accessories.jpg'); background-size: cover; background-position: center;">
+                    <div class="mosaic-tile__content">
+                        <h3 class="mosaic-tile__label">Accessories</h3>
+                        <p class="mosaic-tile__count">3 items</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews">
+        <div class="container">
+            <div class="reviews__header">
+                <h2>What Our Customers Say</h2>
+            </div>
+            <div class="reviews__list">
+                <div class="review-card">
+                    <p class="review-card__text">Quality fabrics and flattering cuts. Customer support was quick and helpful.</p>
+                    <p class="review-card__author">Maya Collins</p>
+                </div>
+                <div class="review-card">
+                    <p class="review-card__text">Fast shipping and the sizing guide was on point. Will shop again.</p>
+                    <p class="review-card__author">Nina K.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRANDS -->
+    <section class="brands">
+        <div class="container">
+            <ul class="brands__list">
+                <li class="brands__item">Aurelia Studio</li>
+                <li class="brands__item">UrbanMuse</li>
+                <li class="brands__item">LuxeLine</li>
+                <li class="brands__item">Coast & Clay</li>
+                <li class="brands__item">Thread & Co.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- BLOG SECTION -->
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <div class="blog-section__header">
+                <h2>From the Journal</h2>
+            </div>
+            <p class="blog-section__intro">Stories, styling tips, and the thoughtful details behind each collection. Discover the craft, care, and conscious choices that shape modern wardrobes.</p>
+
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-card__image" style="background-image: url('tt-assets/images/blog/blog-sustainable-fabrics.jpg'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/blog/blog-sustainable-fabrics.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <span class="blog-card__category">Sustainability</span>
+                            <span class="blog-card__date">March 15, 2025</span>
+                        </div>
+                        <h3 class="blog-card__title">
+                            <a href="#">The Journey of Natural Fabrics: From Field to Wardrobe</a>
+                        </h3>
+                        <p class="blog-card__excerpt">Explore how organic cotton, linen, and hemp transform from raw materials into the soft, breathable pieces you love—with minimal impact on our planet.</p>
+                        <a href="#" class="blog-card__read-more">Read More</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-card__image" style="background-image: url('tt-assets/images/blog/blog-capsule-wardrobe.jpg'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/blog/blog-capsule-wardrobe.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <span class="blog-card__category">Style Guide</span>
+                            <span class="blog-card__date">March 10, 2025</span>
+                        </div>
+                        <h3 class="blog-card__title">
+                            <a href="#">Building a Capsule Wardrobe That Works All Year</a>
+                        </h3>
+                        <p class="blog-card__excerpt">Curate a versatile collection of 20 essential pieces that transition effortlessly across seasons, occasions, and moods with timeless elegance.</p>
+                        <a href="#" class="blog-card__read-more">Read More</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-card__image" style="background-image: url('tt-assets/images/blog/blog-spring-trends.jpg'); background-size: cover; background-position: center;" style="background-image: url('tt-assets/images/blog/blog-spring-trends.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <span class="blog-card__category">Trends</span>
+                            <span class="blog-card__date">March 5, 2025</span>
+                        </div>
+                        <h3 class="blog-card__title">
+                            <a href="#">Spring 2025: Soft Silhouettes and Earthy Tones</a>
+                        </h3>
+                        <p class="blog-card__excerpt">This season celebrates relaxed tailoring, flowing cuts, and a warm palette inspired by nature. Discover how to style the new collection with ease.</p>
+                        <a href="#" class="blog-card__read-more">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <!-- Newsletter -->
+        <div class="footer__newsletter">
+            <div class="container">
+                <div class="footer__newsletter-content">
+                    <p class="footer__newsletter-text">Join and get 10% off your first order. Be the first to know about drops, restocks, and exclusives.</p>
+                    <form class="footer__newsletter-form">
+                        <input type="email" class="footer__newsletter-input" placeholder="Enter your email" required>
+                        <button type="submit" class="footer__newsletter-button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Footer -->
+        <div class="footer__main">
+            <div class="container">
+                <div class="footer__grid">
+                    <!-- Links -->
+                    <div class="footer__section">
+                        <h3>Quick Links</h3>
+                        <div class="footer__links">
+                            <a href="#" class="footer__link">Shop</a>
+                            <a href="#" class="footer__link">FAQ</a>
+                            <a href="#" class="footer__link">Shipping</a>
+                            <a href="#" class="footer__link">Returns</a>
+                            <a href="#" class="footer__link">Careers</a>
+                            <a href="#" class="footer__link">Terms & Conditions</a>
+                            <a href="#" class="footer__link">Privacy Policy</a>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="footer__section">
+                        <h3>Contact</h3>
+                        <div class="footer__contact-item">
+                            <a href="mailto:support@trendythread.com">support@trendythread.com</a>
+                        </div>
+                        <div class="footer__contact-item">
+                            <a href="tel:+14155550199">+1 (415) 555-0199</a>
+                        </div>
+                        <div class="footer__contact-item">
+                            1350 Market St<br>San Francisco, CA 94103
+                        </div>
+                    </div>
+
+                    <!-- Social -->
+                    <div class="footer__section">
+                        <h3>Follow Us</h3>
+                        <div class="footer__socials">
+                            <a href="#" class="footer__social">IG</a>
+                            <a href="#" class="footer__social">TT</a>
+                            <a href="#" class="footer__social">PI</a>
+                            <a href="#" class="footer__social">FB</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom -->
+        <div class="footer__bottom">
+            <div class="container">
+                <div class="footer__bottom-content">
+                    <p class="footer__copyright">© 2025 TrendyThread. All rights reserved.</p>
+                    <div class="footer__payments">
+                        <span class="footer__payment">AMEX</span>
+                        <span class="footer__payment">PayPal</span>
+                        <span class="footer__payment">MC</span>
+                        <span class="footer__payment">Visa</span>
+                        <span class="footer__payment">Apple Pay</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

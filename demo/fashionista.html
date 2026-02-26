@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashionista - Luxury Fashion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fashionista-assets/css/fashionista.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <button class="nav-hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <a href="index.html" class="nav-logo">FASHIONISTA</a>
+
+            <div class="nav-icons">
+                <button class="nav-icon" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <circle cx="8" cy="8" r="6" />
+                        <path d="M12.5 12.5L17 17" />
+                    </svg>
+                </button>
+                <a href="#" class="nav-icon" aria-label="Wishlist">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path
+                            d="M10 17.5L2.5 10C0.833 8.333 0.833 5.667 2.5 4C4.167 2.333 6.833 2.333 8.5 4L10 5.5L11.5 4C13.167 2.333 15.833 2.333 17.5 4C19.167 5.667 19.167 8.333 17.5 10L10 17.5Z" />
+                    </svg>
+                    <span class="nav-badge">0</span>
+                </a>
+                <a href="#" class="nav-icon" aria-label="Shopping Cart">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M1 1H4L6 13H16L19 4H5" />
+                        <circle cx="7" cy="17" r="1.5" />
+                        <circle cx="15" cy="17" r="1.5" />
+                    </svg>
+                    <span class="nav-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-content">
+            <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
+            <nav class="mobile-menu-nav">
+                <a href="#" class="mobile-menu-link">New Arrivals</a>
+                <a href="#" class="mobile-menu-link">Women</a>
+                <a href="#" class="mobile-menu-link">Men</a>
+                <a href="#" class="mobile-menu-link">Accessories</a>
+                <a href="#" class="mobile-menu-link">Sale</a>
+                <a href="#" class="mobile-menu-link">About</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home">
+        <div class="hero-text-side">
+            <div class="hero-content">
+                <span class="hero-subtitle">Spring Summer 2026</span>
+                <h1 class="hero-title">Timeless<br>Elegance</h1>
+                <a href="shop.html" class="hero-cta">Explore Collection</a>
+                <div class="hero-scroll-indicator">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 5v14M19 12l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image-side">
+            <img src="fashionista-assets/images/luxury_evening_wear_style_1770032060892.png" alt="Editorial Fashion"
+                loading="eager">
+        </div>
+    </section>
+
+    <!-- Featured Collection -->
+    <section class="featured">
+        <div class="container">
+            <h2 class="section-title">Featured Collection</h2>
+            <div class="carousel">
+                <div class="carousel-track">
+                    <div class="product-card">
+                        <a href="product.html" class="product-link"
+                            style="display: block; text-decoration: none; color: inherit;">
+                            <div class="product-image">
+                                <div class="product-slider">
+                                    <div class="slider-hint-label">Multi-view</div>
+                                    <div class="product-slider-track">
+                                        <div class="product-slide"><img src="fashionista-assets/images/silk_blouse_1.png"
+                                                alt="Silk Blouse View 1"></div>
+                                        <div class="product-slide"><img src="fashionista-assets/images/silk_blouse_2.png"
+                                                alt="Silk Blouse View 2"></div>
+                                        <div class="product-slide"><img src="fashionista-assets/images/silk_blouse_3.png"
+                                                alt="Silk Blouse View 3"></div>
+                                    </div>
+                                    <div class="view-indicators">
+                                        <div class="view-dot"></div>
+                                        <div class="view-dot"></div>
+                                        <div class="view-dot"></div>
+                                    </div>
+                                    <div class="slider-progress-bar">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                </div>
+                                <button class="product-wishlist" aria-label="Add to wishlist"
+                                    onclick="event.preventDefault()">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                        stroke-width="1.5">
+                                        <path
+                                            d="M10 17.5L2.5 10C0.833 8.333 0.833 5.667 2.5 4C4.167 2.333 6.833 2.333 8.5 4L10 5.5L11.5 4C13.167 2.333 15.833 2.333 17.5 4C19.167 5.667 19.167 8.333 17.5 10L10 17.5Z" />
+                                    </svg>
+                                </button>
+                                <button class="product-quickview" onclick="event.preventDefault()">Quick View</button>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Silk Blouse</h3>
+                                <p class="product-price">$189</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="fashionista-assets/images/luxury_linen_dress_1770030168773.png" alt="Linen Dress"
+                                loading="lazy">
+                            <button class="product-wishlist" aria-label="Add to wishlist">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path
+                                        d="M10 17.5L2.5 10C0.833 8.333 0.833 5.667 2.5 4C4.167 2.333 6.833 2.333 8.5 4L10 5.5L11.5 4C13.167 2.333 15.833 2.333 17.5 4C19.167 5.667 19.167 8.333 17.5 10L10 17.5Z" />
+                                </svg>
+                            </button>
+                            <button class="product-quickview">Quick View</button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Linen Dress</h3>
+                            <p class="product-price">$245</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="fashionista-assets/images/luxury_cashmere_sweater_1770030360865.png" alt="Cashmere Sweater"
+                                loading="lazy">
+                            <button class="product-wishlist" aria-label="Add to wishlist">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path
+                                        d="M10 17.5L2.5 10C0.833 8.333 0.833 5.667 2.5 4C4.167 2.333 6.833 2.333 8.5 4L10 5.5L11.5 4C13.167 2.333 15.833 2.333 17.5 4C19.167 5.667 19.167 8.333 17.5 10L10 17.5Z" />
+                                </svg>
+                            </button>
+                            <button class="product-quickview">Quick View</button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Cashmere Sweater</h3>
+                            <p class="product-price">$320</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="fashionista-assets/images/luxury_tailored_blazer_brown_1770030403918.png"
+                                alt="Tailored Blazer" loading="lazy">
+                            <button class="product-wishlist" aria-label="Add to wishlist">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path
+                                        d="M10 17.5L2.5 10C0.833 8.333 0.833 5.667 2.5 4C4.167 2.333 6.833 2.333 8.5 4L10 5.5L11.5 4C13.167 2.333 15.833 2.333 17.5 4C19.167 5.667 19.167 8.333 17.5 10L10 17.5Z" />
+                                </svg>
+                            </button>
+                            <button class="product-quickview">Quick View</button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Tailored Blazer</h3>
+                            <p class="product-price">$425</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-dots">
+                    <button class="carousel-dot active" aria-label="Slide 1"></button>
+                    <button class="carousel-dot" aria-label="Slide 2"></button>
+                    <button class="carousel-dot" aria-label="Slide 3"></button>
+                    <button class="carousel-dot" aria-label="Slide 4"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Grid -->
+    <section class="categories">
+        <div class="container">
+            <div class="category-grid">
+                <a href="#" class="category-card">
+                    <img src="fashionista-assets/images/luxury_hero_editorial_1770030110931.png" alt="Women's Collection"
+                        loading="lazy">
+                    <div class="category-overlay">
+                        <h3 class="category-title">Women</h3>
+                    </div>
+                </a>
+                <a href="#" class="category-card">
+                    <img src="fashionista-assets/images/luxury_leather_jacket_v2_1770030822682.png" alt="Men's Collection"
+                        loading="lazy">
+                    <div class="category-overlay">
+                        <h3 class="category-title">Men</h3>
+                    </div>
+                </a>
+                <a href="#" class="category-card">
+                    <img src="fashionista-assets/images/luxury_accessories_gold_jewelry_1770031139208.png" alt="Accessories"
+                        loading="lazy">
+                    <div class="category-overlay">
+                        <h3 class="category-title">Accessories</h3>
+                    </div>
+                </a>
+                <a href="#" class="category-card">
+                    <img src="fashionista-assets/images/luxury_pleated_skirt_1770030486812.png" alt="Sale" loading="lazy">
+                    <div class="category-overlay">
+                        <h3 class="category-title">Sale</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section class="new-arrivals">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">New Arrivals</h2>
+                <a href="#" class="section-link">View All</a>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="fashionista-assets/images/luxury_pleated_skirt_1770030486812.png" alt="Pleated Midi Skirt"
+                            loading="lazy">
+                        <span class="product-badge">New</span>
+                        <button class="product-wishlist" aria-label="Add to wishlist">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M10 17.5L2.5 10C0.833 8.333 0.833 5.667 2.5 4C4.167 2.333 6.833 2.333 8.5 4L10 5.5L11.5 4C13.167 2.333 15.833 2.333 17.5 4C19.167 5.667 19.167 8.333 17.5 10L10 17.5Z" />
+                            </svg>
+                        </button>
+                        <button class="product-quickview">Quick View</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Pleated Midi Skirt</h3>
+                        <p class="product-price">$165</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="fashionista-assets/images/luxury_oversized_blazer_1770030719368.png" alt="Oversized Blazer"
+                            loading="lazy">
+                        <span class="product-badge">New</span>
+                        <button class="product-wishlist" aria-label="Add to wishlist">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M10 17.5L2.5 10C0.833 8.333 0.833 5.667 2.5 4C4.167 2.333 6.833 2.333 8.5 4L10 5.5L11.5 4C13.167 2.333 15.833 2.333 17.5 4C19.167 5.667 19.167 8.333 17.5 10L10 17.5Z" />
+                            </svg>
+                        </button>
+                        <button class="product-quickview">Quick View</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Oversized Blazer</h3>
+                        <p class="product-price">$385</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="fashionista-assets/images/luxury_casual_chic_1770031862681.png" alt="Knit Cardigan"
+                            loading="lazy">
+                        <span class="product-badge">New</span>
+                        <button class="product-wishlist" aria-label="Add to wishlist">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M10 17.5L2.5 10C0.833 8.333 0.833 5.667 2.5 4C4.167 2.333 6.833 2.333 8.5 4L10 5.5L11.5 4C13.167 2.333 15.833 2.333 17.5 4C19.167 5.667 19.167 8.333 17.5 10L10 17.5Z" />
+                            </svg>
+                        </button>
+                        <button class="product-quickview">Quick View</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Silk Lounge Set</h3>
+                        <p class="product-price">$210</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="fashionista-assets/images/luxury_power_dressing_1770031762578.png" alt="Wide Leg Trousers"
+                            loading="lazy">
+                        <span class="product-badge">New</span>
+                        <button class="product-wishlist" aria-label="Add to wishlist">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M10 17.5L2.5 10C0.833 8.333 0.833 5.667 2.5 4C4.167 2.333 6.833 2.333 8.5 4L10 5.5L11.5 4C13.167 2.333 15.833 2.333 17.5 4C19.167 5.667 19.167 8.333 17.5 10L10 17.5Z" />
+                            </svg>
+                        </button>
+                        <button class="product-quickview">Quick View</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Wide Leg Trousers</h3>
+                        <p class="product-price">$195</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="fashionista-assets/images/luxury_romantic_style_1770031564124.png" alt="Satin Camisole"
+                            loading="lazy">
+                        <span class="product-badge">New</span>
+                        <button class="product-wishlist" aria-label="Add to wishlist">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M10 17.5L2.5 10C0.833 8.333 0.833 5.667 2.5 4C4.167 2.333 6.833 2.333 8.5 4L10 5.5L11.5 4C13.167 2.333 15.833 2.333 17.5 4C19.167 5.667 19.167 8.333 17.5 10L10 17.5Z" />
+                            </svg>
+                        </button>
+                        <button class="product-quickview">Quick View</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Silk Evening Gown</h3>
+                        <p class="product-price">$125</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="fashionista-assets/images/luxury_leather_jacket_v2_1770030822682.png" alt="Leather Jacket"
+                            loading="lazy">
+                        <span class="product-badge">New</span>
+                        <button class="product-wishlist" aria-label="Add to wishlist">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M10 17.5L2.5 10C0.833 8.333 0.833 5.667 2.5 4C4.167 2.333 6.833 2.333 8.5 4L10 5.5L11.5 4C13.167 2.333 15.833 2.333 17.5 4C19.167 5.667 19.167 8.333 17.5 10L10 17.5Z" />
+                            </svg>
+                        </button>
+                        <button class="product-quickview">Quick View</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Leather Jacket</h3>
+                        <p class="product-price">$595</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="fashionista-assets/images/luxury_hero_editorial_1770030110931.png" alt="Ribbed Turtleneck"
+                            loading="lazy">
+                        <span class="product-badge">New</span>
+                        <button class="product-wishlist" aria-label="Add to wishlist">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M10 17.5L2.5 10C0.833 8.333 0.833 5.667 2.5 4C4.167 2.333 6.833 2.333 8.5 4L10 5.5L11.5 4C13.167 2.333 15.833 2.333 17.5 4C19.167 5.667 19.167 8.333 17.5 10L10 17.5Z" />
+                            </svg>
+                        </button>
+                        <button class="product-quickview">Quick View</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Ivory Tailored Suit</h3>
+                        <p class="product-price">$145</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="fashionista-assets/images/luxury_evening_wear_style_1770032060892.png" alt="Wool Coat"
+                            loading="lazy">
+                        <span class="product-badge">New</span>
+                        <button class="product-wishlist" aria-label="Add to wishlist">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M10 17.5L2.5 10C0.833 8.333 0.833 5.667 2.5 4C4.167 2.333 6.833 2.333 8.5 4L10 5.5L11.5 4C13.167 2.333 15.833 2.333 17.5 4C19.167 5.667 19.167 8.333 17.5 10L10 17.5Z" />
+                            </svg>
+                        </button>
+                        <button class="product-quickview">Quick View</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Formal Floor-Length Gown</h3>
+                        <p class="product-price">$485</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Limited Edition Highlight -->
+    <section class="limited-edition">
+        <div class="limited-content">
+            <span class="limited-label">Limited Edition</span>
+            <h2 class="limited-title">Silk Evening Gown</h2>
+            <p class="limited-description">Hand-crafted from the finest Italian silk. Only 50 pieces available
+                worldwide.</p>
+            <div class="limited-price">$1,250</div>
+            <a href="#" class="limited-cta">Discover</a>
+        </div>
+    </section>
+
+    <!-- Bestsellers -->
+    <section class="bestsellers">
+        <div class="container">
+            <h2 class="section-title">Bestsellers</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="fashionista-assets/images/luxury_white_shirt_v2_1770030992228.png" alt="Classic White Shirt"
+                            loading="lazy">
+                        <span class="product-badge bestseller">Bestseller</span>
+                        <button class="product-wishlist" aria-label="Add to wishlist">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M10 17.5L2.5 10C0.833 8.333 0.833 5.667 2.5 4C4.167 2.333 6.833 2.333 8.5 4L10 5.5L11.5 4C13.167 2.333 15.833 2.333 17.5 4C19.167 5.667 19.167 8.333 17.5 10L10 17.5Z" />
+                            </svg>
+                        </button>
+                        <button class="product-quickview">Quick View</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Classic White Shirt</h3>
+                        <p class="product-price">$175</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(127)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="fashionista-assets/images/luxury_evening_wear_style_1770032060892.png" alt="Black Midi Dress"
+                            loading="lazy">
+                        <span class="product-badge bestseller">Bestseller</span>
+                        <button class="product-wishlist" aria-label="Add to wishlist">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M10 17.5L2.5 10C0.833 8.333 0.833 5.667 2.5 4C4.167 2.333 6.833 2.333 8.5 4L10 5.5L11.5 4C13.167 2.333 15.833 2.333 17.5 4C19.167 5.667 19.167 8.333 17.5 10L10 17.5Z" />
+                            </svg>
+                        </button>
+                        <button class="product-quickview">Quick View</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Black Maxi Gown</h3>
+                        <p class="product-price">$295</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(203)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="fashionista-assets/images/luxury_cashmere_sweater_1770030360865.png" alt="Merino Wool Sweater"
+                            loading="lazy">
+                        <span class="product-badge bestseller">Bestseller</span>
+                        <button class="product-wishlist" aria-label="Add to wishlist">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M10 17.5L2.5 10C0.833 8.333 0.833 5.667 2.5 4C4.167 2.333 6.833 2.333 8.5 4L10 5.5L11.5 4C13.167 2.333 15.833 2.333 17.5 4C19.167 5.667 19.167 8.333 17.5 10L10 17.5Z" />
+                            </svg>
+                        </button>
+                        <button class="product-quickview">Quick View</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Merino Wool Sweater</h3>
+                        <p class="product-price">$265</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(189)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="fashionista-assets/images/luxury_power_dressing_1770031762578.png" alt="Linen Pants"
+                            loading="lazy">
+                        <span class="product-badge bestseller">Bestseller</span>
+                        <button class="product-wishlist" aria-label="Add to wishlist">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M10 17.5L2.5 10C0.833 8.333 0.833 5.667 2.5 4C4.167 2.333 6.833 2.333 8.5 4L10 5.5L11.5 4C13.167 2.333 15.833 2.333 17.5 4C19.167 5.667 19.167 8.333 17.5 10L10 17.5Z" />
+                            </svg>
+                        </button>
+                        <button class="product-quickview">Quick View</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Tailored Trousers</h3>
+                        <p class="product-price">$185</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(156)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editorial Section -->
+    <section class="editorial">
+        <div class="editorial-image">
+            <img src="fashionista-assets/images/luxury_hero_editorial_1770030110931.png" alt="Editorial" loading="lazy">
+        </div>
+        <div class="editorial-content">
+            <h2 class="editorial-title">Crafted for the Modern Woman</h2>
+            <p class="editorial-text">Each piece in our collection is thoughtfully designed to embody timeless elegance
+                and contemporary sophistication. We believe in quality over quantity, creating garments that transcend
+                seasons and trends.</p>
+            <a href="#" class="editorial-link">Our Story</a>
+        </div>
+    </section>
+
+    <!-- Shop by Style -->
+    <section class="shop-by-style">
+        <div class="container">
+            <h2 class="section-title">Shop by Style</h2>
+            <div class="style-grid">
+                <a href="#" class="style-card">
+                    <img src="fashionista-assets/images/luxury_hero_editorial_1770030110931.png" alt="Minimalist" loading="lazy">
+                    <div class="style-overlay">
+                        <h3 class="style-title">Minimalist</h3>
+                        <p class="style-description">Clean lines, neutral tones</p>
+                    </div>
+                </a>
+                <a href="#" class="style-card">
+                    <img src="fashionista-assets/images/luxury_romantic_style_1770031564124.png" alt="Romantic" loading="lazy">
+                    <div class="style-overlay">
+                        <h3 class="style-title">Romantic</h3>
+                        <p class="style-description">Soft, feminine details</p>
+                    </div>
+                </a>
+                <a href="#" class="style-card">
+                    <img src="fashionista-assets/images/luxury_power_dressing_1770031762578.png" alt="Power Dressing"
+                        loading="lazy">
+                    <div class="style-overlay">
+                        <h3 class="style-title">Power Dressing</h3>
+                        <p class="style-description">Bold, structured pieces</p>
+                    </div>
+                </a>
+                <a href="#" class="style-card">
+                    <img src="fashionista-assets/images/luxury_casual_chic_1770031862681.png" alt="Casual Chic" loading="lazy">
+                    <div class="style-overlay">
+                        <h3 class="style-title">Casual Chic</h3>
+                        <p class="style-description">Effortless elegance</p>
+                    </div>
+                </a>
+                <a href="#" class="style-card">
+                    <img src="fashionista-assets/images/luxury_evening_wear_style_1770032060892.png" alt="Evening Wear"
+                        loading="lazy">
+                    <div class="style-overlay">
+                        <h3 class="style-title">Evening Wear</h3>
+                        <p class="style-description">Sophisticated glamour</p>
+                    </div>
+                </a>
+                <a href="#" class="style-card">
+                    <img src="fashionista-assets/images/luxury_oversized_blazer_1770030719368.png" alt="Outerwear" loading="lazy">
+                    <div class="style-overlay">
+                        <h3 class="style-title">Outerwear</h3>
+                        <p class="style-description">Functional yet refined</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2 class="newsletter-title">Stay in Touch</h2>
+            <p class="newsletter-text">Subscribe to receive updates on new arrivals and exclusive offers.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4 class="footer-title">Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Women</a></li>
+                        <li><a href="#">Men</a></li>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="#">Sale</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Help</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">About</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Follow Us</h4>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Pinterest">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2024 Fashionista. All rights reserved.</p>
+                <div class="footer-payment">
+                    <span>We accept:</span>
+                    <svg width="40" height="24" viewBox="0 0 40 24" fill="none">
+                        <rect width="40" height="24" rx="4" fill="#1A1F71" />
+                        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white"
+                            font-size="10" font-weight="bold">VISA</text>
+                    </svg>
+                    <svg width="40" height="24" viewBox="0 0 40 24" fill="none">
+                        <rect width="40" height="24" rx="4" fill="#EB001B" />
+                        <circle cx="15" cy="12" r="7" fill="#FF5F00" />
+                        <circle cx="25" cy="12" r="7" fill="#F79E1B" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="fashionista-assets/js/fashionista.js"></script>
+</body>
+
+</html>
