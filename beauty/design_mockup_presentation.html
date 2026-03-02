@@ -1,0 +1,444 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumière Beauty - Design System Mockup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #121417 0%, #2a2c35 100%);
+            color: white;
+            padding: 60px 20px;
+            border-radius: 12px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .design-system {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 80px;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .design-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #121417;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+        }
+
+        .color-item {
+            text-align: center;
+        }
+
+        .color-box {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+        }
+
+        .color-item p {
+            font-size: 12px;
+            color: #666;
+            word-break: break-word;
+        }
+
+        .font-examples {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .font-example {
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            border-left: 4px solid #b8945f;
+        }
+
+        .font-example p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .pages-section {
+            margin-bottom: 80px;
+        }
+
+        .pages-section h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #121417;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #b8945f;
+        }
+
+        .category {
+            margin-bottom: 60px;
+        }
+
+        .category h3 {
+            font-size: 22px;
+            color: #b8945f;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .page-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .page-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .page-screenshot {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+
+        .page-info {
+            padding: 20px;
+        }
+
+        .page-info h4 {
+            font-size: 16px;
+            color: #121417;
+            margin-bottom: 5px;
+        }
+
+        .page-info p {
+            font-size: 13px;
+            color: #999;
+        }
+
+        .annotation {
+            background: #fffbea;
+            border-left: 4px solid #b8945f;
+            padding: 15px;
+            margin-top: 30px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .annotation strong {
+            color: #b8945f;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+            border-top: 1px solid #eee;
+            margin-top: 80px;
+        }
+
+        @media (max-width: 768px) {
+            .design-system {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lumière Beauty</h1>
+            <p>Premium E-Commerce Design System & Mockups</p>
+        </header>
+
+        <!-- Design System -->
+        <div class="design-system">
+            <div class="design-section">
+                <h2>Color Palette</h2>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-box" style="background-color: #121417"></div>
+                        <p><strong>Navy-Black</strong><br>#121417<br><small>Authority, trust</small></p>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-box" style="background-color: #b8945f"></div>
+                        <p><strong>Muted Gold</strong><br>#b8945f<br><small>Luxury, elegance</small></p>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-box" style="background-color: #fbfaf8"></div>
+                        <p><strong>Ivory</strong><br>#fbfaf8<br><small>Sophisticated bg</small></p>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-box" style="background-color: #f4f1ed"></div>
+                        <p><strong>Warm Stone</strong><br>#f4f1ed<br><small>Subtle sections</small></p>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-box" style="background-color: #5f666e"></div>
+                        <p><strong>Text Light</strong><br>#5f666e<br><small>Secondary text</small></p>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-box" style="background-color: #4caf50"></div>
+                        <p><strong>Success</strong><br>#4caf50<br><small>Confirmations</small></p>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-box" style="background-color: #f44336"></div>
+                        <p><strong>Error</strong><br>#f44336<br><small>Alerts</small></p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="design-section">
+                <h2>Typography</h2>
+                <div class="font-examples">
+
+                    <div class="font-example" style="font-family: 'Playfair Display', serif;">
+                        <p>Headings – Editorial & Sophisticated</p>
+                        <div style="font-size: 20px; font-weight: 600;">Playfair Display</div>
+                    </div>
+
+                    <div class="font-example" style="font-family: 'Inter', -apple-system, sans-serif;">
+                        <p>Body – Clean & Modern</p>
+                        <div style="font-size: 16px; font-weight: 400;">Inter (San Serif)</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Pages Section -->
+        <div class="pages-section">
+            <h2>Design Pages</h2>
+
+            <div class="category">
+                <h3>Core Pages</h3>
+                <div class="pages-grid">
+
+                    <div class="page-card">
+                        <img src="screenshots/index.png" alt="Homepage" class="page-screenshot">
+                        <div class="page-info">
+                            <h4>Homepage</h4>
+                            <p>Desktop view @ 1440px</p>
+                        </div>
+                    </div>
+
+                    <div class="page-card">
+                        <img src="screenshots/cart.png" alt="Shopping Cart" class="page-screenshot">
+                        <div class="page-info">
+                            <h4>Shopping Cart</h4>
+                            <p>Desktop view @ 1440px</p>
+                        </div>
+                    </div>
+
+                    <div class="page-card">
+                        <img src="screenshots/checkout.png" alt="Checkout" class="page-screenshot">
+                        <div class="page-info">
+                            <h4>Checkout</h4>
+                            <p>Desktop view @ 1440px</p>
+                        </div>
+                    </div>
+
+                    <div class="page-card">
+                        <img src="screenshots/product.png" alt="Product Details" class="page-screenshot">
+                        <div class="page-info">
+                            <h4>Product Details</h4>
+                            <p>Desktop view @ 1440px</p>
+                        </div>
+                    </div>
+
+                    <div class="page-card">
+                        <img src="screenshots/shop.png" alt="Shop/Products" class="page-screenshot">
+                        <div class="page-info">
+                            <h4>Shop/Products</h4>
+                            <p>Desktop view @ 1440px</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="category">
+                <h3>Category Pages</h3>
+                <div class="pages-grid">
+
+                    <div class="page-card">
+                        <img src="screenshots/haircare.png" alt="Haircare Category" class="page-screenshot">
+                        <div class="page-info">
+                            <h4>Haircare Category</h4>
+                            <p>Desktop view @ 1440px</p>
+                        </div>
+                    </div>
+
+                    <div class="page-card">
+                        <img src="screenshots/makeup.png" alt="Makeup Category" class="page-screenshot">
+                        <div class="page-info">
+                            <h4>Makeup Category</h4>
+                            <p>Desktop view @ 1440px</p>
+                        </div>
+                    </div>
+
+                    <div class="page-card">
+                        <img src="screenshots/skincare.png" alt="Skincare Category" class="page-screenshot">
+                        <div class="page-info">
+                            <h4>Skincare Category</h4>
+                            <p>Desktop view @ 1440px</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="category">
+                <h3>User Experience</h3>
+                <div class="pages-grid">
+
+                    <div class="page-card">
+                        <img src="screenshots/account.png" alt="My Account" class="page-screenshot">
+                        <div class="page-info">
+                            <h4>My Account</h4>
+                            <p>Desktop view @ 1440px</p>
+                        </div>
+                    </div>
+
+                    <div class="page-card">
+                        <img src="screenshots/order-confirmation.png" alt="Order Confirmation" class="page-screenshot">
+                        <div class="page-info">
+                            <h4>Order Confirmation</h4>
+                            <p>Desktop view @ 1440px</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="category">
+                <h3>Information</h3>
+                <div class="pages-grid">
+
+                    <div class="page-card">
+                        <img src="screenshots/about.png" alt="About Us" class="page-screenshot">
+                        <div class="page-info">
+                            <h4>About Us</h4>
+                            <p>Desktop view @ 1440px</p>
+                        </div>
+                    </div>
+
+                    <div class="page-card">
+                        <img src="screenshots/blog.png" alt="Blog" class="page-screenshot">
+                        <div class="page-info">
+                            <h4>Blog</h4>
+                            <p>Desktop view @ 1440px</p>
+                        </div>
+                    </div>
+
+                    <div class="page-card">
+                        <img src="screenshots/contact.png" alt="Contact" class="page-screenshot">
+                        <div class="page-info">
+                            <h4>Contact</h4>
+                            <p>Desktop view @ 1440px</p>
+                        </div>
+                    </div>
+
+                    <div class="page-card">
+                        <img src="screenshots/faq.png" alt="FAQ" class="page-screenshot">
+                        <div class="page-info">
+                            <h4>FAQ</h4>
+                            <p>Desktop view @ 1440px</p>
+                        </div>
+                    </div>
+
+                    <div class="page-card">
+                        <img src="screenshots/search.png" alt="Search Results" class="page-screenshot">
+                        <div class="page-info">
+                            <h4>Search Results</h4>
+                            <p>Desktop view @ 1440px</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Annotations -->
+        <div class="annotation">
+            <strong>📋 Design System Notes:</strong><br>
+            • All pages feature a clean, luxury aesthetic with muted tones<br>
+            • Consistent navigation and footer across all pages<br>
+            • Responsive design optimized for mobile, tablet, and desktop<br>
+            • Component library includes buttons, cards, forms, and modals<br>
+            • Color scheme uses warm neutrals with gold accents for premium feel
+        </div>
+
+        <footer>
+            <p>Lumière Beauty Design System</p>
+            <p>Professional mockup presentation for design and development reference</p>
+        </footer>
+    </div>
+</body>
+</html>
