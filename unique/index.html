@@ -13,11 +13,41 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        /* Animation States & Helpers */
+        .reveal-wrapper {
+            overflow: hidden;
+            display: block;
+        }
+
+        .will-animate {
+            will-change: transform, opacity, clip-path;
+        }
+
+        .img-reveal-wrapper {
+            overflow: hidden;
+            display: block;
+            position: relative;
+        }
+
+        /* Initial states to avoid flash */
+        .stagger-item,
+        .section-title,
+        .eyebrow,
+        .huge-title {
+            opacity: 0;
+        }
+
+        /* Parallax depth */
+        .parallax-depth {
+            z-index: 10;
+        }
+    </style>
 </head>
 
 <body>
 
-    <header>
+    <header class="will-animate">
         <div class="container header-inner">
             <a href="index.html" class="logo">
                 <img src="assets/icons/Logo.png" alt="UNIQUE logo" class="logo-icon">
@@ -40,43 +70,50 @@
         <section class="hero">
             <div class="container hero-grid">
                 <div class="hero-content">
-                    <span class="eyebrow">For Discerning Homeowners</span>
-                    <h1 class="huge-title serif">INTERIORS THAT<br>ELEVATE YOUR<br>LIFESTYLE</h1>
-                    <p
+                    <span class="eyebrow will-animate">For Discerning Homeowners</span>
+                    <h1 class="huge-title serif will-animate">INTERIORS THAT<br>ELEVATE YOUR<br>LIFESTYLE</h1>
+                    <p class="will-animate"
                         style="margin-bottom: 3rem; font-weight: 300; line-height: 1.8; color: var(--color-text-muted); max-width: 500px;">
                         Transform your home into a sanctuary of sophistication. We create timeless, personalized spaces
                         that reflect your unique story—without the overwhelm.
                     </p>
-                    <div style="display: flex; gap: 1.5rem;">
-                        <a href="#" class="btn btn-primary">Book a Consultation</a>
-                        <a href="#" class="btn btn-outline">View Portfolio</a>
+                    <!-- Buttons Unified via single CSS `.btn` standard -->
+                    <div class="stagger-item-container" style="display: flex; gap: 1.5rem;">
+                        <a href="#" class="btn btn-primary stagger-item will-animate">Book a Consultation</a>
+                        <a href="#" class="btn btn-outline stagger-item will-animate">View Portfolio</a>
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <img src="assets/images/hero_main_room_1769081777487.png" alt="Luxury interior design showcase"
-                        class="hero-main-img">
+                    <div class="img-reveal-wrapper">
+                        <img src="assets/images/hero_main_room_1769081777487.png" alt="Luxury interior design showcase"
+                            class="hero-main-img will-animate scale-img">
+                    </div>
                     <div class="hero-thumbs">
-                        <img src="assets/images/portfolio_thumb_1_1769082243623.png" class="hero-thumb"
-                            alt="Project preview 1">
-                        <img src="assets/images/portfolio_thumb_2_1769082296801.png" class="hero-thumb"
-                            alt="Project preview 2">
-                        <img src="assets/images/portfolio_thumb_3_1769082348662.png" class="hero-thumb"
-                            alt="Project preview 3">
-                        <img src="assets/images/portfolio_thumb_4_1769082388389.png" class="hero-thumb"
-                            alt="Project preview 4">
-                        <img src="assets/images/portfolio_thumb_5_1769082460921.png" class="hero-thumb"
-                            alt="Project preview 5">
+                        <img src="assets/images/portfolio_thumb_1_1769082243623.png"
+                            class="hero-thumb will-animate stagger-item" alt="Project preview 1">
+                        <img src="assets/images/portfolio_thumb_2_1769082296801.png"
+                            class="hero-thumb will-animate stagger-item" alt="Project preview 2">
+                        <img src="assets/images/portfolio_thumb_3_1769082348662.png"
+                            class="hero-thumb will-animate stagger-item" alt="Project preview 3">
+                        <img src="assets/images/portfolio_thumb_4_1769082388389.png"
+                            class="hero-thumb will-animate stagger-item" alt="Project preview 4">
+                        <img src="assets/images/portfolio_thumb_5_1769082460921.png"
+                            class="hero-thumb will-animate stagger-item" alt="Project preview 5">
+                        <img src="assets/images/portfolio_thumb_6.png" class="hero-thumb will-animate stagger-item"
+                            alt="Project preview 6">
+                        <img src="assets/images/portfolio_thumb_7.png" class="hero-thumb will-animate stagger-item"
+                            alt="Project preview 7">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- PROBLEM STATEMENT -->
-        <section class="problem-statement">
+        <!-- PROBLEM STATEMENT (Color Blocked for Visual Closure) -->
+        <section class="problem-statement section-alt">
             <div class="container">
-                <span class="eyebrow">The Challenge</span>
-                <h2 class="section-title">YOUR HOME SHOULD<br>INSPIRE YOU DAILY</h2>
-                <p class="gallery-text" style="max-width: 700px; margin: 0 auto;">
+                <span class="eyebrow will-animate">The Challenge</span>
+                <h2 class="section-title will-animate">YOUR HOME SHOULD<br>INSPIRE YOU DAILY</h2>
+                <p class="gallery-text will-animate" style="max-width: 700px; margin: 0 auto;">
                     Too many homeowners settle for spaces that feel generic, cluttered, or mismatched. You deserve an
                     interior that reflects your personality, maximizes functionality, and creates lasting emotional
                     impact—without the stress of managing contractors, sourcing, and endless decisions.
@@ -89,11 +126,11 @@
         <!-- DESIGN PHILOSOPHY -->
         <section class="section-alt has-marginalia">
             <div class="marginalia-wrapper">
-                <span class="marginalia-text">We believe great design starts with understanding you.</span>
+                <span class="marginalia-text will-animate">We believe great design starts with understanding you.</span>
             </div>
             <div class="container gallery-block">
                 <div class="image-stack">
-                    <div class="blue-shelf-decor">
+                    <div class="blue-shelf-decor parallax-depth will-animate">
                         <!-- Custom Architectural SVG for the "Shelf" effect -->
                         <svg viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="0.5" />
@@ -102,33 +139,35 @@
                             <line x1="25" y1="50" x2="75" y2="50" stroke="currentColor" stroke-width="0.5" />
                         </svg>
                     </div>
-                    <img src="assets/images/home_interior_gallery_1769081804313.png" alt="Curated home interior"
-                        class="image-stack-main">
+                    <div class="img-reveal-wrapper">
+                        <img src="assets/images/home_interior_gallery_1769081804313.png" alt="Curated home interior"
+                            class="image-stack-main will-animate scale-img">
+                    </div>
                 </div>
                 <div class="gallery-content">
-                    <span class="eyebrow">Our Philosophy</span>
-                    <h2 class="section-title">TIMELESS DESIGN,<br>PERSONAL TOUCH</h2>
-                    <p class="gallery-text">
+                    <span class="eyebrow will-animate">Our Philosophy</span>
+                    <h2 class="section-title will-animate">TIMELESS DESIGN,<br>PERSONAL TOUCH</h2>
+                    <p class="gallery-text will-animate">
                         Every piece tells a story. We create homes that are uniquely yours—blending contemporary design
                         with functional elegance, curated to reflect your lifestyle and aspirations.
                     </p>
-                    <a href="#" class="btn btn-primary">Our Approach</a>
+                    <a href="#" class="btn btn-primary will-animate stagger-item">Our Approach</a>
                 </div>
             </div>
         </section>
 
 
 
-        <!-- SPACE SAVING SOLUTIONS -->
-        <section class="service-explanation has-marginalia">
+        <!-- SPACE SAVING SOLUTIONS (Color Blocked for Visual Closure) -->
+        <section class="service-explanation section-alt has-marginalia">
             <div class="marginalia-wrapper">
-                <span class="marginalia-text">From concept to completion, we handle every detail.</span>
+                <span class="marginalia-text will-animate">From concept to completion, we handle every detail.</span>
             </div>
             <div class="container">
                 <div class="service-explanation__header">
-                    <span class="eyebrow">Innovation</span>
-                    <h2 class="section-title">SPACE SAVING SOLUTIONS</h2>
-                    <p class="service-explanation__copy">
+                    <span class="eyebrow will-animate">Innovation</span>
+                    <h2 class="section-title will-animate">SPACE SAVING SOLUTIONS</h2>
+                    <p class="service-explanation__copy will-animate">
                         Maximize your sanctuary. We specialize in magnificent furniture that transforms compact spaces
                         into expansive living environments. Our solutions are engineered to harmonize with your home’s
                         architectural DNA.
@@ -137,46 +176,57 @@
 
                 <div class="service-explanation__visuals">
                     <div class="visual-proof">
-                        <img src="assets/images/space_saving_main_1769081832415.png" alt="Integrated architecture"
-                            class="visual-proof__img">
-                        <span class="visual-proof__caption">Architectural Framing</span>
+                        <div class="img-reveal-wrapper">
+                            <img src="assets/images/space_saving_main_1769081832415.png" alt="Integrated architecture"
+                                class="visual-proof__img will-animate scale-img">
+                        </div>
+                        <span class="visual-proof__caption will-animate">Architectural Framing</span>
                     </div>
                     <div class="visual-proof">
-                        <img src="assets/images/space_saving_cozy_1769081862959.png" alt="Micro-living lounge"
-                            class="visual-proof__img">
-                        <span class="visual-proof__caption">Curated Neutrals</span>
+                        <div class="img-reveal-wrapper">
+                            <img src="assets/images/space_saving_cozy_1769081862959.png" alt="Micro-living lounge"
+                                class="visual-proof__img will-animate scale-img">
+                        </div>
+                        <span class="visual-proof__caption will-animate">Curated Neutrals</span>
                     </div>
                     <div class="visual-proof">
-                        <img src="assets/images/portfolio_thumb_2_1769082296801.png" alt="Modern kitchen space"
-                            class="visual-proof__img">
-                        <span class="visual-proof__caption">Optimized Efficiency</span>
+                        <div class="img-reveal-wrapper">
+                            <img src="assets/images/portfolio_thumb_2_1769082296801.png" alt="Modern kitchen space"
+                                class="visual-proof__img will-animate scale-img">
+                        </div>
+                        <span class="visual-proof__caption will-animate">Optimized Efficiency</span>
                     </div>
                 </div>
 
                 <div class="service-explanation__footer">
-                    <a href="services.html" class="btn btn-outline">Explore Solutions</a>
+                    <a href="services.html" class="btn btn-outline will-animate stagger-item">Explore Solutions</a>
                 </div>
             </div>
         </section>
 
 
 
-        <!-- INTERIOR STYLES (Interactive Cards) -->
-        <section class="section-alt has-marginalia">
+        <!-- INTERIOR STYLES (Interactive Cards - White Background) -->
+        <section class="has-marginalia">
             <div class="marginalia-wrapper">
-                <span class="marginalia-text">Discover the aesthetic that speaks to you.</span>
+                <span class="marginalia-text will-animate">Discover the aesthetic that speaks to you.</span>
             </div>
             <div class="container">
                 <div style="text-align: center; margin-bottom: 5rem;">
-                    <span class="eyebrow">Aesthetics</span>
-                    <h2 class="section-title">EXPLORE OUR<br>SIGNATURE STYLES</h2>
-                    <p style="font-weight: 300; opacity: 0.7; max-width: 600px; margin: 1.5rem auto 0;">Each style tells
+                    <span class="eyebrow will-animate">Aesthetics</span>
+                    <h2 class="section-title will-animate">EXPLORE OUR<br>SIGNATURE STYLES</h2>
+                    <p class="will-animate"
+                        style="font-weight: 300; opacity: 0.7; max-width: 600px; margin: 1.5rem auto 0;">Each style
+                        tells
                         a different story. Find the one that resonates with your vision.</p>
                 </div>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
-                    <div class="style-card-interactive">
-                        <img src="assets/images/interior_styles_central_1769081895330.png"
-                            alt="Scandinavian interior style" class="style-card-interactive__img">
+                    <div class="style-card-interactive will-animate stagger-item">
+                        <div class="img-reveal-wrapper">
+                            <img src="assets/images/interior_styles_central_1769081895330.png"
+                                alt="Scandinavian interior style"
+                                class="style-card-interactive__img will-animate scale-img">
+                        </div>
                         <div class="style-card-interactive__content">
                             <h3 class="style-card-interactive__title">SCANDINAVIAN</h3>
                             <p class="style-card-interactive__desc">Clean lines, natural textures, and functional
@@ -185,9 +235,11 @@
                                 →</a>
                         </div>
                     </div>
-                    <div class="style-card-interactive">
-                        <img src="assets/images/simplicity_lights_1769081931650.png" alt="Italian interior style"
-                            class="style-card-interactive__img">
+                    <div class="style-card-interactive will-animate stagger-item">
+                        <div class="img-reveal-wrapper">
+                            <img src="assets/images/simplicity_lights_1769081931650.png" alt="Italian interior style"
+                                class="style-card-interactive__img will-animate scale-img">
+                        </div>
                         <div class="style-card-interactive__content">
                             <h3 class="style-card-interactive__title">ITALIAN</h3>
                             <p class="style-card-interactive__desc">Bold craftsmanship meets timeless elegance. For
@@ -195,9 +247,11 @@
                             <a href="style-guide.html#milanese" class="style-card-interactive__cta">Explore Style →</a>
                         </div>
                     </div>
-                    <div class="style-card-interactive">
-                        <img src="assets/images/simplicity_dining_next_1769081983966.png" alt="Minimal interior style"
-                            class="style-card-interactive__img">
+                    <div class="style-card-interactive will-animate stagger-item">
+                        <div class="img-reveal-wrapper">
+                            <img src="assets/images/simplicity_dining_next_1769081983966.png"
+                                alt="Minimal interior style" class="style-card-interactive__img will-animate scale-img">
+                        </div>
                         <div class="style-card-interactive__content">
                             <h3 class="style-card-interactive__title">MINIMAL</h3>
                             <p class="style-card-interactive__desc">The ultimate sophistication in simplicity. Ideal for
@@ -215,48 +269,51 @@
         <!-- TESTIMONIALS (High Contrast) -->
         <section class="testimonial-block has-marginalia">
             <div class="marginalia-wrapper">
-                <span class="marginalia-text" style="color: rgba(255,255,255,0.4);">See what our clients are
-                    saying.</span>
+                <span class="marginalia-text will-animate" style="color: rgba(255,255,255,0.4);">See what our clients
+                    are saying.</span>
             </div>
             <div class="testimonial-img-wrapper">
                 <img src="assets/images/testimonial_woman_1769082036042.png" alt="Happy client testimonial"
-                    class="testimonial-img">
+                    class="testimonial-img will-animate scale-img">
             </div>
             <div class="testimonial-content">
-                <span class="eyebrow" style="color: white; opacity: 0.5;">Client Voices</span>
-                <span class="quote-mark">"</span>
-                <blockquote class="quote-text">
+                <span class="eyebrow will-animate" style="color: white; opacity: 0.5;">Client Voices</span>
+                <span class="quote-mark will-animate">"</span>
+                <blockquote class="quote-text will-animate">
                     Working with UNIQUE <span class="quote-highlight">transformed not just our space, but our entire
                         lifestyle.</span> The attention to detail is truly unparalleled.
                 </blockquote>
-                <div class="author-meta">
+                <div class="author-meta will-animate">
                     <div>
                         <span class="author-name">Lauren G.</span>
                         <span class="author-role">Creative Director</span>
                     </div>
                     <div class="pagination">01 / 05</div>
                 </div>
-                <a href="contact.html" class="btn btn-light" style="margin-top: 3rem;">Start Your Project</a>
+                <!-- Unified button class applied here -->
+                <a href="contact.html" class="btn btn-light will-animate stagger-item" style="margin-top: 3rem;">Start
+                    Your Project</a>
             </div>
         </section>
 
         <!-- FINAL CTA -->
         <section class="final-cta">
             <div class="container" style="text-align: center;">
-                <span class="eyebrow" style="color: white; opacity: 0.6;">Ready to Transform Your Space?</span>
-                <h2 class="section-title" style="color: white; margin: 1.5rem 0;">LET'S CREATE<br>SOMETHING
+                <span class="eyebrow will-animate" style="color: white; opacity: 0.6;">Ready to Transform Your
+                    Space?</span>
+                <h2 class="section-title will-animate" style="color: white; margin: 1.5rem 0;">LET'S CREATE<br>SOMETHING
                     EXTRAORDINARY</h2>
-                <p
+                <p class="will-animate"
                     style="color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 3rem; font-size: 1.1rem; line-height: 1.7;">
                     Book a complimentary consultation to discuss your vision. We'll show you how we can bring your dream
                     interior to life.
                 </p>
-                <a href="contact.html" class="btn btn-light">Book Your Free Consultation</a>
+                <a href="contact.html" class="btn btn-light will-animate stagger-item">Book Your Free Consultation</a>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="will-animate">
         <div class="container header-inner"
             style="margin-bottom: 6rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 3rem;">
             <div class="logo footer-logo">
@@ -315,6 +372,145 @@
         </div>
     </footer>
 
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Architectural Reveal (Headings & Eyebrows) ---
+            const reveals = document.querySelectorAll('.huge-title, .section-title, .eyebrow');
+
+            reveals.forEach(el => {
+                // Wrap text in hidden overflow for reveal effect
+                const text = el.innerHTML;
+                el.innerHTML = `<span class="reveal-wrapper"><span class="reveal-content" style="display: inline-block;">${text}</span></span>`;
+
+                const content = el.querySelector('.reveal-content');
+
+                gsap.fromTo(content,
+                    { y: "105%", opacity: 0 },
+                    {
+                        y: "0%",
+                        opacity: 1,
+                        duration: 1.8,
+                        ease: "expo.out",
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 85%",
+                            toggleActions: "play none none none"
+                        }
+                    }
+                );
+
+                // Set initial opacity for the parent once wrapped
+                gsap.set(el, { opacity: 1 });
+            });
+
+            // --- Soft Image Scaling ---
+            const images = document.querySelectorAll('.scale-img');
+            images.forEach(img => {
+                gsap.fromTo(img,
+                    { scale: 1.15 },
+                    {
+                        scale: 1,
+                        duration: 2,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: img,
+                            start: "top 95%",
+                        }
+                    }
+                );
+            });
+
+            // --- Staggered Content ---
+            const staggerGroups = [
+                '.stagger-item-container',
+                '.hero-thumbs',
+                '.service-explanation__visuals',
+                '.service-explanation__footer',
+                'div[style*="display: grid"]', // Style cards container
+                '.testimonial-content',
+                '.final-cta .container'
+            ];
+
+            staggerGroups.forEach(groupSelector => {
+                const group = document.querySelector(groupSelector);
+                if (!group) return;
+
+                const items = group.querySelectorAll('.stagger-item, .visual-proof, .style-card-interactive, .author-meta, .quote-text, .quote-mark, .btn-light, p');
+
+                gsap.fromTo(items,
+                    { y: 60, rotationX: 5, opacity: 0 },
+                    {
+                        y: 0,
+                        rotationX: 0,
+                        opacity: 1,
+                        duration: 1.5,
+                        stagger: 0.15,
+                        ease: "power4.out",
+                        scrollTrigger: {
+                            trigger: group,
+                            start: "top 85%",
+                        }
+                    }
+                );
+            });
+
+            // --- Smooth Scrub Parallax ---
+            gsap.to('.hero-main-img', {
+                y: -50,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: '.hero',
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+
+            gsap.to('.blue-shelf-decor', {
+                y: -100,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: '.section-alt',
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1
+                }
+            });
+
+            // Hero thumbnails parallax
+            gsap.to('.hero-thumbs', {
+                x: -30,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: '.hero',
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: 1
+                }
+            });
+
+            // Fade in header & footer
+            gsap.from('header', { opacity: 0, y: -20, duration: 1.5, ease: "expo.out" });
+            gsap.from('footer', {
+                opacity: 0,
+                y: 50,
+                duration: 1.5,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: 'footer',
+                    start: "top 90%"
+                }
+            });
+
+        });
+    </script>
 </body>
 
 </html>
