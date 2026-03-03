@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concierge & Contact | NobleLiving Private Inquiries</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Design Tokens */
+            --font-family-serif: "Playfair Display", serif;
+            --font-family-base: "Plus Jakarta Sans", sans-serif;
+
+            --font-weight-regular: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+
+            --font-size-xs: 12px;
+            --font-size-sm: 14px;
+            --font-size-md: 16px;
+            --font-size-lg: 18px;
+            --font-size-xl: 20px;
+            --font-size-h1: 8rem;
+            --font-size-h2: 4rem;
+            --font-size-h3: 2.25rem;
+            --font-size-h4: 1.5rem;
+
+            --lh-body: 1.625;
+            --lh-heading: 1.1;
+
+            --color-primary: #0A6EFF;
+            --color-primary-dark: #004FCC;
+            --color-accent: #D4AF37;
+            --color-bg: #F9F8F6;
+            --color-surface: #FFFFFF;
+            --color-charcoal: #1A1A1A;
+            --color-muted: #6C6863;
+            --color-border: rgba(26, 26, 26, 0.1);
+
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-section-lg: 8rem;
+
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.08);
+
+            --transition-cinematic: 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-ui: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background-color: var(--color-bg);
+            color: var(--color-charcoal);
+            line-height: 1.625;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Noise Texture */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3BaseFilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/feTurbulence%3E%3C/baseFilter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-family-serif);
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 64px;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-family: var(--font-family-serif);
+            font-size: 24px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-charcoal);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav__link {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--color-muted);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-charcoal);
+            color: white;
+            padding: var(--space-section-lg) 0 40px;
+        }
+
+        .footer__grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 80px;
+        }
+
+        .footer__brand {
+            max-width: 300px;
+        }
+
+        .footer__logo {
+            font-size: 32px;
+            margin-bottom: 24px;
+            display: block;
+            color: white;
+        }
+
+        .footer__text {
+            font-size: var(--font-size-sm);
+            opacity: 0.6;
+            margin-bottom: 32px;
+        }
+
+        .footer__title {
+            font-size: var(--font-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 32px;
+            color: var(--color-accent);
+        }
+
+        .footer__list {
+            list-style: none;
+        }
+
+        .footer__item {
+            margin-bottom: 16px;
+        }
+
+        .footer__link {
+            font-size: var(--font-size-sm);
+            opacity: 0.6;
+            color: white;
+        }
+
+        .footer__link:hover {
+            opacity: 1;
+            padding-left: 8px;
+            color: var(--color-accent);
+        }
+
+        .footer__bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            font-size: var(--font-size-xs);
+            opacity: 0.4;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .nav__link:hover {
+            color: var(--color-accent);
+        }
+
+        .nav__link--active {
+            color: var(--color-charcoal);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .header__actions {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 48px;
+            padding: 0 32px;
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .btn--primary {
+            background: var(--color-charcoal);
+            color: white;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            text-decoration: none;
+        }
+
+        .btn--primary span {
+            position: relative;
+            z-index: 10;
+        }
+
+        .btn--primary::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--color-accent);
+            transition: var(--transition-ui);
+            z-index: 1;
+        }
+
+        .btn--primary:hover::after {
+            left: 0;
+        }
+
+        .btn--primary:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            color: black;
+        }
+
+        /* Contact Layout */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 100px;
+            padding: 100px 0;
+        }
+
+        .contact-info__overline {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            color: var(--color-accent);
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .contact-info__title {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 32px;
+        }
+
+        .contact-info__text {
+            font-size: 18px;
+            color: var(--color-muted);
+            margin-bottom: 64px;
+        }
+
+        .contact-details {
+            margin-bottom: 64px;
+        }
+
+        .contact-item {
+            margin-bottom: 32px;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 24px;
+        }
+
+        .contact-item__label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--color-accent);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .contact-item__value {
+            font-size: 24px;
+            font-family: var(--font-family-serif);
+        }
+
+        /* Form */
+        .contact-form-wrap {
+            background: var(--color-charcoal);
+            color: white;
+            padding: 64px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-title {
+            font-size: 2rem;
+            margin-bottom: 48px;
+            color: var(--color-accent);
+        }
+
+        .form-group {
+            margin-bottom: 40px;
+        }
+
+        .form-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            display: block;
+            margin-bottom: 12px;
+            opacity: 0.6;
+        }
+
+        .form-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 0;
+            font-family: inherit;
+            font-size: 16px;
+            outline: none;
+            transition: var(--transition-ui);
+        }
+
+        .form-input:focus {
+            border-bottom-color: var(--color-accent);
+        }
+
+        .form-input::placeholder {
+            font-family: var(--font-family-serif);
+            font-style: italic;
+            opacity: 0.3;
+        }
+
+        .btn-submit {
+            width: 100%;
+            height: 64px;
+            background: var(--color-accent);
+            color: black;
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            cursor: pointer;
+            transition: var(--transition-ui);
+        }
+
+        .btn-submit:hover {
+            background: white;
+            transform: translateY(-4px);
+        }
+
+
+        @media (max-width: 1100px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .contact-info__title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contact-form-wrap {
+                padding: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="home.html" class="logo">NobleLiving</a>
+            <nav class="nav">
+                <a href="home.html" class="nav__link">Home</a>
+                <a href="grid-results.html" class="nav__link">Search</a>
+                <a href="map-list.html" class="nav__link">Rentals</a>
+                <a href="neighborhoods.html" class="nav__link">Neighborhoods</a>
+                <a href="journal.html" class="nav__link">Journal</a>
+                <a href="about.html" class="nav__link">Vision</a>
+                <a href="contact.html" class="nav__link nav__link--active">Contact</a>
+            </nav>
+            <div class="header__actions">
+                <span
+                    style="font-size: 10px; letter-spacing: 0.2em; color: var(--color-muted); text-transform: uppercase;">EN
+                    | FR</span>
+                <a href="contact.html" class="btn btn--primary"><span>Book Viewing</span></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="contact-layout">
+                <section class="contact-info">
+                    <span class="contact-info__overline">Personalized Service</span>
+                    <h1 class="contact-info__title">The <em>Concierge</em> Experience.</h1>
+                    <p class="contact-info__text">Whether you are searching for your next residence or looking to
+                        represent
+                        a property of architectural distinction, our concierge team provides unparalleled expertise and
+                        discretion.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-item__label">General Inquiries</span>
+                            <span class="contact-item__value">hello@nobleliving.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-item__label">Private Bookings</span>
+                            <span class="contact-item__value">+1 (800) NOBLE-RES</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-item__label">Our Office</span>
+                            <span class="contact-item__value">12 Yorkville Ave, Toronto</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="contact-form-wrap">
+                    <h2 class="form-title">Private Request</h2>
+                    <form>
+                        <div class="form-group">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-input" placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Purpose</label>
+                            <select class="form-input" style="background: var(--color-charcoal);">
+                                <option>Request a Viewing</option>
+                                <option>List a Property</option>
+                                <option>Consultation</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-input" placeholder="email@address.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-input" rows="4" placeholder="How can we assist you?"
+                                style="resize:none;"></textarea>
+                        </div>
+                        <button type="button" class="btn-submit">Submit Inquiry</button>
+                        <p style="font-size:10px; opacity:0.3; margin-top:24px; text-align:center;">Your data is handled
+                            with uncompromising discretion.</p>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="#" class="logo footer__logo">NobleLiving</a>
+                    <p class="footer__text">The leading editorial-first luxury real estate platform. Curating the finest
+                        living spaces across the nation with a commitment to transparency and architectural excellence.
+                    </p>
+                    <div style="display: flex; gap: 16px;">
+                        <a href="#" class="footer__link">IG</a>
+                        <a href="#" class="footer__link">TW</a>
+                        <a href="#" class="footer__link">FB</a>
+                        <a href="#" class="footer__link">LI</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer__title">Rentals</h4>
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="#" class="footer__link">Toronto Rentals</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Vancouver Rentals</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Montreal Rentals</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Calgary Rentals</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__title">Philosophy</h4>
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="neighborhoods.html" class="footer__link">Neighborhoods</a>
+                        </li>
+                        <li class="footer__item"><a href="journal.html" class="footer__link">The Journal</a></li>
+                        <li class="footer__item"><a href="about.html" class="footer__link">Our Vision</a></li>
+                        <li class="footer__item"><a href="contact.html" class="footer__link">Concierge</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__title">Support</h4>
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="#" class="footer__link">Help Centre</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Terms of Service</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Privacy Policy</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 NobleLiving Real Estate Platform. All rights reserved.</p>
+                <p>Designed with architectural precision.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

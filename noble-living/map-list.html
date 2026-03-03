@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rentals in Toronto | NobleLiving Split View</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Design Tokens */
+            --font-family-serif: "Playfair Display", serif;
+            --font-family-base: "Plus Jakarta Sans", sans-serif;
+
+            --font-weight-regular: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+
+            --font-size-xs: 12px;
+            --font-size-sm: 14px;
+            --font-size-md: 16px;
+            --font-size-lg: 18px;
+            --font-size-xl: 20px;
+            --font-size-h1: 8rem;
+            --font-size-h2: 4rem;
+            --font-size-h3: 2.25rem;
+            --font-size-h4: 1.5rem;
+
+            --lh-body: 1.625;
+            --lh-heading: 1.1;
+
+            --color-primary: #0A6EFF;
+            --color-primary-dark: #004FCC;
+            --color-accent: #D4AF37;
+            --color-bg: #F9F8F6;
+            --color-surface: #FFFFFF;
+            --color-charcoal: #1A1A1A;
+            --color-muted: #6C6863;
+            --color-border: rgba(26, 26, 26, 0.1);
+
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-section-lg: 8rem;
+
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.08);
+
+            --transition-cinematic: 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-ui: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+            --header-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background: var(--color-bg);
+            color: var(--color-charcoal);
+            overflow: hidden;
+            /* Main window usually fixed in split view */
+        }
+
+        /* Noise Texture Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3BaseFilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/feTurbulence%3E%3C/baseFilter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-family-serif);
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 64px;
+        }
+
+        .logo {
+            font-family: var(--font-family-serif);
+            font-size: 24px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-charcoal);
+            letter-spacing: -0.02em;
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav__link {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--color-muted);
+        }
+
+        .nav__link:hover {
+            color: var(--color-accent);
+        }
+
+        .nav__link--active {
+            color: var(--color-charcoal);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .header__actions {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 48px;
+            padding: 0 32px;
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .btn--primary {
+            background: var(--color-charcoal);
+            color: white;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn--primary span {
+            position: relative;
+            z-index: 10;
+        }
+
+        .btn--primary::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--color-accent);
+            transition: var(--transition-ui);
+            z-index: 1;
+        }
+
+        .btn--primary:hover::after {
+            left: 0;
+        }
+
+        .btn--primary:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            color: black;
+            transform: none;
+        }
+
+        .main {
+            display: flex;
+            height: calc(100vh - var(--header-height));
+        }
+
+        /* Map Column */
+        .map-panel {
+            flex: 1;
+            position: relative;
+            background: #eef2f5;
+            overflow: hidden;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: #cbdadd;
+            background-image: url('images/noble-living/map-toronto-urban.png');
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(0.5) contrast(1.1);
+        }
+
+        /* Price Pins on Map */
+        .map-pin {
+            position: absolute;
+            background: var(--color-surface);
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: var(--transition-ui);
+            z-index: 10;
+        }
+
+        .map-pin:hover {
+            background: var(--color-charcoal);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .map-pin--active {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .map-search-overlay {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            right: 24px;
+            z-index: 20;
+        }
+
+        .compact-search {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            padding: 4px;
+            box-shadow: var(--shadow-hover);
+            max-width: 800px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .compact-search__input {
+            flex: 1;
+            border: none;
+            padding: 12px 20px;
+            font-family: inherit;
+            outline: none;
+        }
+
+        /* List Column */
+        .list-panel {
+            width: 450px;
+            background: var(--color-bg);
+            overflow-y: auto;
+            border-left: 1px solid var(--color-border);
+            padding: 24px;
+        }
+
+        .list-header {
+            margin-bottom: 32px;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 24px;
+        }
+
+        .breadcrumb {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--color-muted);
+            margin-bottom: 12px;
+        }
+
+        .results-count {
+            font-size: var(--font-size-sm);
+            color: var(--color-muted);
+            margin-top: 8px;
+        }
+
+        /* Property Card (Compact Version) */
+        .card {
+            background: var(--color-surface);
+            margin-bottom: 24px;
+            transition: var(--transition-ui);
+            border-top: 1px solid var(--color-charcoal);
+            padding-top: 24px;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card__image-wrap {
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .card__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(1);
+            transition: var(--transition-cinematic);
+        }
+
+        .card:hover .card__image {
+            filter: grayscale(0);
+            transform: scale(1.05);
+        }
+
+        .card__tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: white;
+            padding: 4px 8px;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        .card__price {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .card__title {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .card__meta {
+            font-size: 12px;
+            color: var(--color-muted);
+            margin-bottom: 16px;
+        }
+
+        .card__actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            height: 40px;
+            padding: 0 16px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn--primary {
+            background: var(--color-charcoal);
+            color: white;
+            flex: 1;
+        }
+
+        .btn--outline {
+            border: 1px solid var(--color-border);
+            background: transparent;
+            flex: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .list-panel {
+                width: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main {
+                flex-direction: column;
+                overflow-y: auto;
+                height: auto;
+            }
+
+            .map-panel {
+                height: 400px;
+            }
+
+            .list-panel {
+                width: 100%;
+                border-left: none;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-charcoal);
+            color: white;
+            padding: 40px 0;
+            margin: 40px -24px -24px;
+        }
+
+        .footer__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            padding: 0 24px;
+        }
+
+        .footer__brand {
+            max-width: 100%;
+        }
+
+        .footer__logo {
+            font-size: 28px;
+            margin-bottom: 16px;
+            display: block;
+            color: white;
+        }
+
+        .footer__text {
+            font-size: 13px;
+            opacity: 0.6;
+            margin-bottom: 24px;
+        }
+
+        .footer__title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 20px;
+            color: var(--color-accent);
+        }
+
+        .footer__list {
+            list-style: none;
+        }
+
+        .footer__item {
+            margin-bottom: 12px;
+        }
+
+        .footer__link {
+            font-size: 13px;
+            opacity: 0.6;
+            color: white;
+        }
+
+        .footer__link:hover {
+            opacity: 1;
+            padding-left: 8px;
+            color: var(--color-accent);
+        }
+
+        .footer__bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 24px;
+            font-size: 10px;
+            opacity: 0.4;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="home.html" class="logo">NobleLiving</a>
+            <nav class="nav">
+                <a href="home.html" class="nav__link">Home</a>
+                <a href="grid-results.html" class="nav__link">Search</a>
+                <a href="map-list.html" class="nav__link nav__link--active">Rentals</a>
+                <a href="neighborhoods.html" class="nav__link">Neighborhoods</a>
+                <a href="journal.html" class="nav__link">Journal</a>
+                <a href="about.html" class="nav__link">Vision</a>
+                <a href="contact.html" class="nav__link">Contact</a>
+            </nav>
+            <div class="header__actions">
+                <span
+                    style="font-size: 10px; letter-spacing: 0.2em; color: var(--color-muted); text-transform: uppercase;">EN
+                    | FR</span>
+                <a href="contact.html" class="btn btn--primary"><span>Book Viewing</span></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="map-panel">
+            <div class="map-search-overlay">
+                <div class="compact-search">
+                    <input type="text" class="compact-search__input" placeholder="Search neighborhood...">
+                    <button class="btn btn--primary" style="height: 50px; flex: 0 0 100px;">Search</button>
+                </div>
+                <div style="margin-top: 12px; display: flex; gap: 8px;">
+                    <div
+                        style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(8px); padding: 8px 16px; font-size: 10px; letter-spacing: 0.1em; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; color: var(--color-charcoal);">
+                        Type: Apartment ▼</div>
+                    <div
+                        style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(8px); padding: 8px 16px; font-size: 10px; letter-spacing: 0.1em; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; color: var(--color-charcoal);">
+                        Beds: 2+ ▼</div>
+                    <div
+                        style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(8px); padding: 8px 16px; font-size: 10px; letter-spacing: 0.1em; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; color: var(--color-charcoal);">
+                        Price: $2,000 - $4,000 ▼</div>
+                </div>
+            </div>
+
+            <!-- Fake Map with Pins -->
+            <div class="map-placeholder"></div>
+
+            <div class="map-pin" style="top: 30%; left: 40%;">$2,450</div>
+            <div class="map-pin map-pin--active" style="top: 45%; left: 55%;">$3,100</div>
+            <div class="map-pin" style="top: 60%; left: 35%;">$1,890</div>
+            <div class="map-pin" style="top: 25%; left: 65%;">$4,200</div>
+            <div class="map-pin" style="top: 70%; left: 50%;">$2,150</div>
+            <div class="map-pin" style="top: 40%; left: 25%;">$2,700</div>
+        </section>
+
+        <section class="list-panel">
+            <header class="list-header">
+                <div class="breadcrumb">Home / Ontario / Toronto</div>
+                <h1 style="font-size: 28px;">Toronto <em>Rentals</em></h1>
+                <p class="results-count">142 properties found for your search</p>
+            </header>
+
+            <div class="card">
+                <div class="card__image-wrap">
+                    <div class="card__tag">Verified</div>
+                    <img src="images/noble-living/property-azure-suites.png"
+                        alt="Luxury residence in Yorkville with modern interior" class="card__image">
+                </div>
+                <div class="card__price">$3,100 /mo</div>
+                <h3 class="card__title">The Yorkville Residence</h3>
+                <p class="card__meta">2 Beds — 2 Baths — Downtown</p>
+                <div class="card__actions">
+                    <a href="property-detail.html" class="btn btn--primary"
+                        style="display:flex; align-items:center; justify-content:center;">Details</a>
+                    <button class="btn btn--outline">Contact</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card__image-wrap">
+                    <img src="images/noble-living/property-liberty-lofts.png"
+                        alt="Spacious industrial loft with large windows" class="card__image">
+                </div>
+                <div class="card__price">$2,450 /mo</div>
+                <h3 class="card__title">Liberty Village Loft</h3>
+                <p class="card__meta">1 Bed — 1 Bath — West End</p>
+                <div class="card__actions">
+                    <a href="property-detail.html" class="btn btn--primary"
+                        style="display:flex; align-items:center; justify-content:center;">Details</a>
+                    <button class="btn btn--outline">Contact</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card__image-wrap">
+                    <div class="card__tag">New</div>
+                    <img src="images/noble-living/property-harbourfront.png"
+                        alt="High-end penthouse overlooking the Toronto waterfront" class="card__image">
+                </div>
+                <div class="card__price">$4,200 /mo</div>
+                <h3 class="card__title">Harbourfront Penthouse</h3>
+                <p class="card__meta">3 Beds — 3 Baths — Waterfront</p>
+                <div class="card__actions">
+                    <a href="property-detail.html" class="btn btn--primary"
+                        style="display:flex; align-items:center; justify-content:center;">Details</a>
+                    <button class="btn btn--outline">Contact</button>
+                </div>
+            </div>
+
+            <footer class="footer">
+                <div class="footer__grid">
+                    <div class="footer__brand">
+                        <a href="#" class="logo footer__logo">NobleLiving</a>
+                        <p class="footer__text">The leading editorial-first luxury real estate platform. Curating the
+                            finest living spaces across the nation.</p>
+                        <div style="display: flex; gap: 16px;">
+                            <a href="#" class="footer__link">IG</a>
+                            <a href="#" class="footer__link">TW</a>
+                            <a href="#" class="footer__link">FB</a>
+                            <a href="#" class="footer__link">LI</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="footer__title">Philosophy</h4>
+                        <ul class="footer__list">
+                            <li class="footer__item"><a href="neighborhoods.html" class="footer__link">Neighborhoods</a>
+                            </li>
+                            <li class="footer__item"><a href="journal.html" class="footer__link">The Journal</a></li>
+                            <li class="footer__item"><a href="about.html" class="footer__link">Our Vision</a></li>
+                            <li class="footer__item"><a href="contact.html" class="footer__link">Concierge</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <p>&copy; 2026 NobleLiving. Precision in every frame.</p>
+                </div>
+            </footer>
+
+        </section>
+    </main>
+</body>
+
+</html>

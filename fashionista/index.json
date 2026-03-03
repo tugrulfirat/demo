@@ -1,0 +1,315 @@
+{
+  "site_info": {
+    "title": "Fashionista - Luxury Fashion",
+    "language": "en",
+    "charset": "UTF-8"
+  },
+  "theme": {
+    "colors": {
+      "black": "#000000",
+      "white": "#FFFFFF",
+      "blush": "#F4E4E6",
+      "sage": "#D4E4D8",
+      "lavender": "#E6E4F4",
+      "cream": "#F8F6F0",
+      "rose": "#E8D4D8",
+      "accent": "#C9A0A8",
+      "text_primary": "#1A1A1A",
+      "text_secondary": "#6A6A6A"
+    },
+    "fonts": {
+      "primary": "Bodoni Moda, Didot, serif",
+      "secondary": "Montserrat, Helvetica Neue, sans-serif"
+    }
+  },
+  "header": {
+    "logo_text": "FASHIONISTA",
+    "nav_icons": [
+      { "name": "search", "has_badge": false },
+      { "name": "wishlist", "has_badge": true, "count": 0 },
+      { "name": "cart", "has_badge": true, "count": 0 }
+    ],
+    "mobile_menu": [
+      { "label": "New Arrivals", "url": "#" },
+      { "label": "Women", "url": "#" },
+      { "label": "Men", "url": "#" },
+      { "label": "Accessories", "url": "#" },
+      { "label": "Sale", "url": "#" },
+      { "label": "About", "url": "#" }
+    ]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "type": "hero_banner",
+      "content": {
+        "title": "Timeless Elegance",
+        "subtitle": "Spring Collection 2024",
+        "cta_text": "Discover Now",
+        "cta_url": "#"
+      }
+    },
+    {
+      "id": "featured",
+      "type": "product_carousel",
+      "title": "Featured Collection",
+      "items": [
+        {
+          "name": "Silk Blouse",
+          "price": 189.00,
+          "currency": "USD",
+          "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=800&fit=crop",
+          "actions": ["wishlist", "quickview"]
+        },
+        {
+          "name": "Linen Dress",
+          "price": 245.00,
+          "currency": "USD",
+          "image": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&h=800&fit=crop",
+          "actions": ["wishlist", "quickview"]
+        },
+        {
+          "name": "Cashmere Sweater",
+          "price": 320.00,
+          "currency": "USD",
+          "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=800&fit=crop",
+          "actions": ["wishlist", "quickview"]
+        },
+        {
+          "name": "Tailored Blazer",
+          "price": 425.00,
+          "currency": "USD",
+          "image": "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=600&h=800&fit=crop",
+          "actions": ["wishlist", "quickview"]
+        }
+      ]
+    },
+    {
+      "id": "categories",
+      "type": "category_grid",
+      "items": [
+        {
+          "title": "Women",
+          "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=1000&fit=crop",
+          "url": "#"
+        },
+        {
+          "title": "Men",
+          "image": "https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=800&h=1000&fit=crop",
+          "url": "#"
+        },
+        {
+          "title": "Accessories",
+          "image": "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800&h=1000&fit=crop",
+          "url": "#"
+        },
+        {
+          "title": "Sale",
+          "image": "https://images.unsplash.com/photo-1558769132-cb1aea3c8565?w=800&h=1000&fit=crop",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "new_arrivals",
+      "type": "product_grid",
+      "title": "New Arrivals",
+      "header_link": { "text": "View All", "url": "#" },
+      "items": [
+        {
+          "name": "Pleated Midi Skirt",
+          "price": 165.00,
+          "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop",
+          "badge": "New"
+        },
+        {
+          "name": "Oversized Blazer",
+          "price": 385.00,
+          "image": "https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=600&h=800&fit=crop",
+          "badge": "New"
+        },
+        {
+          "name": "Knit Cardigan",
+          "price": 210.00,
+          "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=800&fit=crop",
+          "badge": "New"
+        },
+        {
+          "name": "Wide Leg Trousers",
+          "price": 195.00,
+          "image": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&h=800&fit=crop",
+          "badge": "New"
+        },
+        {
+          "name": "Satin Camisole",
+          "price": 125.00,
+          "image": "https://images.unsplash.com/photo-1617922001439-4a2e6562f328?w=600&h=800&fit=crop",
+          "badge": "New"
+        },
+        {
+          "name": "Leather Jacket",
+          "price": 595.00,
+          "image": "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=600&h=800&fit=crop",
+          "badge": "New"
+        },
+        {
+          "name": "Ribbed Turtleneck",
+          "price": 145.00,
+          "image": "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=600&h=800&fit=crop",
+          "badge": "New"
+        },
+        {
+          "name": "Wool Coat",
+          "price": 485.00,
+          "image": "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=600&h=800&fit=crop",
+          "badge": "New"
+        }
+      ]
+    },
+    {
+      "id": "limited_edition",
+      "type": "spotlight_banner",
+      "content": {
+        "label": "Limited Edition",
+        "title": "Silk Evening Gown",
+        "description": "Hand-crafted from the finest Italian silk. Only 50 pieces available worldwide.",
+        "price_display": "$1,250",
+        "cta_text": "Discover",
+        "cta_url": "#"
+      }
+    },
+    {
+      "id": "bestsellers",
+      "type": "product_grid",
+      "title": "Bestsellers",
+      "items": [
+        {
+          "name": "Classic White Shirt",
+          "price": 175.00,
+          "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=800&fit=crop",
+          "badge": "Bestseller",
+          "rating": 5,
+          "review_count": 127
+        },
+        {
+          "name": "Black Midi Dress",
+          "price": 295.00,
+          "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop",
+          "badge": "Bestseller",
+          "rating": 5,
+          "review_count": 203
+        },
+        {
+          "name": "Merino Wool Sweater",
+          "price": 265.00,
+          "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=800&fit=crop",
+          "badge": "Bestseller",
+          "rating": 5,
+          "review_count": 189
+        },
+        {
+          "name": "Linen Pants",
+          "price": 185.00,
+          "image": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&h=800&fit=crop",
+          "badge": "Bestseller",
+          "rating": 5,
+          "review_count": 156
+        }
+      ]
+    },
+    {
+      "id": "editorial",
+      "type": "content_split",
+      "content": {
+        "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600&h=900&fit=crop",
+        "title": "Crafted for the Modern Woman",
+        "text": "Each piece in our collection is thoughtfully designed to embody timeless elegance and contemporary sophistication. We believe in quality over quantity, creating garments that transcend seasons and trends.",
+        "link_text": "Our Story",
+        "link_url": "#"
+      }
+    },
+    {
+      "id": "shop_by_style",
+      "type": "style_grid",
+      "title": "Shop by Style",
+      "items": [
+        {
+          "title": "Minimalist",
+          "description": "Clean lines, neutral tones",
+          "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1000&h=1200&fit=crop",
+          "is_large": true
+        },
+        {
+          "title": "Romantic",
+          "description": "Soft, feminine details",
+          "image": "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=600&h=800&fit=crop",
+          "is_large": false
+        },
+        {
+          "title": "Power Dressing",
+          "description": "Bold, structured pieces",
+          "image": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&h=800&fit=crop",
+          "is_large": false
+        },
+        {
+          "title": "Casual Chic",
+          "description": "Effortless elegance",
+          "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=800&fit=crop",
+          "is_large": false
+        },
+        {
+          "title": "Evening Wear",
+          "description": "Sophisticated glamour",
+          "image": "https://images.unsplash.com/photo-1558769132-cb1aea3c8565?w=600&h=800&fit=crop",
+          "is_large": false
+        }
+      ]
+    },
+    {
+      "id": "newsletter",
+      "type": "form_newsletter",
+      "content": {
+        "title": "Stay in Touch",
+        "text": "Subscribe to receive updates on new arrivals and exclusive offers.",
+        "placeholder": "Your email address",
+        "button_text": "Subscribe"
+      }
+    }
+  ],
+  "footer": {
+    "columns": [
+      {
+        "title": "Shop",
+        "links": [
+          { "text": "New Arrivals", "url": "#" },
+          { "text": "Women", "url": "#" },
+          { "text": "Men", "url": "#" },
+          { "text": "Accessories", "url": "#" },
+          { "text": "Sale", "url": "#" }
+        ]
+      },
+      {
+        "title": "Help",
+        "links": [
+          { "text": "Contact Us", "url": "#" },
+          { "text": "Shipping", "url": "#" },
+          { "text": "Returns", "url": "#" },
+          { "text": "Size Guide", "url": "#" },
+          { "text": "FAQ", "url": "#" }
+        ]
+      },
+      {
+        "title": "About",
+        "links": [
+          { "text": "Our Story", "url": "#" },
+          { "text": "Sustainability", "url": "#" },
+          { "text": "Careers", "url": "#" },
+          { "text": "Press", "url": "#" }
+        ]
+      }
+    ],
+    "social_media": ["Instagram", "Facebook", "Pinterest"],
+    "copyright": "© 2024 Fashionista. All rights reserved.",
+    "payment_methods": ["Visa", "Mastercard"]
+  }
+}

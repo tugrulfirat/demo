@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Toronto Apartments | NobleLiving Grid Results</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Design Tokens */
+            --font-family-serif: "Playfair Display", serif;
+            --font-family-base: "Plus Jakarta Sans", sans-serif;
+
+            --font-weight-regular: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+
+            --font-size-xs: 12px;
+            --font-size-sm: 14px;
+            --font-size-md: 16px;
+            --font-size-lg: 18px;
+            --font-size-xl: 20px;
+            --font-size-h1: 8rem;
+            --font-size-h2: 4rem;
+            --font-size-h3: 2.25rem;
+            --font-size-h4: 1.5rem;
+
+            --lh-body: 1.625;
+            --lh-heading: 1.1;
+
+            --color-primary: #0A6EFF;
+            --color-primary-dark: #004FCC;
+            --color-accent: #D4AF37;
+            --color-bg: #F9F8F6;
+            --color-surface: #FFFFFF;
+            --color-charcoal: #1A1A1A;
+            --color-muted: #6C6863;
+            --color-border: rgba(26, 26, 26, 0.1);
+
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-section-lg: 8rem;
+
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.08);
+
+            --transition-cinematic: 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-ui: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background: var(--color-bg);
+            color: var(--color-charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Noise Texture Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3BaseFilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/feTurbulence%3E%3C/baseFilter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-family-serif);
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 64px;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-family: var(--font-family-serif);
+            font-size: 24px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-charcoal);
+            letter-spacing: -0.02em;
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav__link {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--color-muted);
+        }
+
+        .nav__link:hover {
+            color: var(--color-accent);
+        }
+
+        .nav__link--active {
+            color: var(--color-charcoal);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .header__actions {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 48px;
+            padding: 0 32px;
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .btn--primary {
+            background: var(--color-charcoal);
+            color: white;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn--primary span {
+            position: relative;
+            z-index: 10;
+        }
+
+        .btn--primary::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--color-accent);
+            transition: var(--transition-ui);
+            z-index: 1;
+        }
+
+        .btn--primary:hover::after {
+            left: 0;
+        }
+
+        .btn--primary:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            color: black;
+        }
+
+        .breadcrumb-bar {
+            padding: 40px 0 20px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--color-muted);
+        }
+
+        .page-title-row {
+            margin-bottom: 40px;
+        }
+
+        .page-title {
+            font-size: 48px;
+            margin-bottom: 8px;
+        }
+
+        .page-subtitle {
+            font-size: 14px;
+            color: var(--color-muted);
+        }
+
+        .layout-cols {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        /* Grid */
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        @media (min-width: 1400px) {
+            .property-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Property Card */
+        .card {
+            background: var(--color-surface);
+            transition: var(--transition-ui);
+            border-top: 1px solid var(--color-charcoal);
+            padding-top: 24px;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card__image-wrap {
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .card__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(1);
+            transition: var(--transition-cinematic);
+        }
+
+        .card:hover .card__image {
+            filter: grayscale(0);
+            transform: scale(1.05);
+        }
+
+        .card__price {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .card__title {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .card__meta {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-muted);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .sidebar-block {
+            margin-bottom: 48px;
+        }
+
+        .sidebar-title {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+        }
+
+        .filter-list {
+            list-style: none;
+        }
+
+        .filter-item {
+            margin-bottom: 12px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .filter-count {
+            font-size: 10px;
+            color: var(--color-muted);
+            border: 1px solid var(--color-border);
+            padding: 2px 6px;
+        }
+
+        .featured-listing {
+            background: var(--color-charcoal);
+            color: white;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-listing::after {
+            content: "FEAT";
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            transform: rotate(45deg);
+            background: var(--color-accent);
+            color: black;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 40px;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 60px;
+        }
+
+        .pagination__item {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-border);
+            font-size: 12px;
+            transition: var(--transition-ui);
+        }
+
+        .pagination__item--active {
+            background: var(--color-charcoal);
+            color: white;
+            border-color: var(--color-charcoal);
+        }
+
+        .pagination__item:hover:not(.pagination__item--active) {
+            border-color: var(--color-charcoal);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-charcoal);
+            color: white;
+            padding: var(--space-section-lg) 0 40px;
+        }
+
+        .footer__grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 80px;
+        }
+
+        .footer__brand {
+            max-width: 300px;
+        }
+
+        .footer__logo {
+            font-size: 32px;
+            margin-bottom: 24px;
+            display: block;
+            color: white;
+        }
+
+        .footer__text {
+            font-size: var(--font-size-sm);
+            opacity: 0.6;
+            margin-bottom: 32px;
+        }
+
+        .footer__title {
+            font-size: var(--font-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 32px;
+            color: var(--color-accent);
+        }
+
+        .footer__list {
+            list-style: none;
+        }
+
+        .footer__item {
+            margin-bottom: 16px;
+        }
+
+        .footer__link {
+            font-size: var(--font-size-sm);
+            opacity: 0.6;
+            color: white;
+        }
+
+        .footer__link:hover {
+            opacity: 1;
+            padding-left: 8px;
+            color: var(--color-accent);
+        }
+
+        .footer__bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            font-size: var(--font-size-xs);
+            opacity: 0.4;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .layout-cols {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                margin-top: 60px;
+            }
+
+            .property-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="home.html" class="logo">NobleLiving</a>
+            <nav class="nav">
+                <a href="home.html" class="nav__link">Home</a>
+                <a href="grid-results.html" class="nav__link nav__link--active">Search</a>
+                <a href="map-list.html" class="nav__link">Rentals</a>
+                <a href="neighborhoods.html" class="nav__link">Neighborhoods</a>
+                <a href="journal.html" class="nav__link">Journal</a>
+                <a href="about.html" class="nav__link">Vision</a>
+                <a href="contact.html" class="nav__link">Contact</a>
+            </nav>
+            <div class="header__actions">
+                <span
+                    style="font-size: 10px; letter-spacing: 0.2em; color: var(--color-muted); text-transform: uppercase;">EN
+                    | FR</span>
+                <a href="contact.html" class="btn btn--primary"><span>Book Viewing</span></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="breadcrumb-bar">Home / Ontario / Toronto / Apartments</div>
+
+        <div class="page-title-row">
+            <h1 class="page-title">Toronto <em>Apartments</em></h1>
+            <p class="page-subtitle">Showing 1–12 of 84 high-end properties</p>
+        </div>
+
+        <div class="layout-cols">
+            <section>
+                <div class="property-grid">
+                    <!-- Cards 1-6 -->
+                    <div class="card">
+                        <div class="card__image-wrap">
+                            <img src="images/noble-living/property-azure-suites.png"
+                                alt="Modern luxury penthouse suite with floor-to-ceiling windows" class="card__image">
+                        </div>
+                        <div class="card__price">$3,400 /mo</div>
+                        <h3 class="card__title"><a href="property-detail.html">The Azure Sky Suites</a></h3>
+                        <p class="card__meta">2 Beds — 2 Baths — Downtown</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__image-wrap">
+                            <img src="images/noble-living/property-liberty-lofts.png"
+                                alt="Industrial loft space with exposed brick and high ceilings" class="card__image">
+                        </div>
+                        <div class="card__price">$2,100 /mo</div>
+                        <h3 class="card__title"><a href="property-detail.html">Liberty Lofts</a></h3>
+                        <p class="card__meta">1 Bed — 1 Bath — West End</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__image-wrap">
+                            <img src="images/noble-living/property-harbourfront.png"
+                                alt="Modern waterfront condo with panoramic harbor views" class="card__image">
+                        </div>
+                        <div class="card__price">$4,800 /mo</div>
+                        <h3 class="card__title"><a href="property-detail.html">Harbourfront Penthouse</a></h3>
+                        <p class="card__meta">3 Beds — 3 Baths — Waterfront</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__image-wrap">
+                            <img src="images/noble-living/property-annex-studio.png"
+                                alt="Premium studio apartment with elegant minimalist design" class="card__image">
+                        </div>
+                        <div class="card__price">$1,950 /mo</div>
+                        <h3 class="card__title"><a href="property-detail.html">Annex Studio</a></h3>
+                        <p class="card__meta">Studio — 1 Bath — Midtown</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__image-wrap">
+                            <img src="images/noble-living/property-distillery-flat.png"
+                                alt="Historic flat with modern luxury interior and timber beams" class="card__image">
+                        </div>
+                        <div class="card__price">$3,100 /mo</div>
+                        <h3 class="card__title"><a href="property-detail.html">The Distillery Flat</a></h3>
+                        <p class="card__meta">2 Beds — 2 Baths — East End</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__image-wrap">
+                            <img src="images/noble-living/property-st-regis.png"
+                                alt="High-end classic luxury suite with marble and crystal details" class="card__image">
+                        </div>
+                        <div class="card__price">$6,200 /mo</div>
+                        <h3 class="card__title"><a href="property-detail.html">St. Regis Residence</a></h3>
+                        <p class="card__meta">3 Beds — 4 Baths — Financial District</p>
+                    </div>
+                </div>
+
+                <div class="pagination">
+                    <a href="#" class="pagination__item pagination__item--active">1</a>
+                    <a href="#" class="pagination__item">2</a>
+                    <a href="#" class="pagination__item">3</a>
+                    <a href="#" class="pagination__item">&rsaquo;</a>
+                </div>
+            </section>
+
+            <aside class="sidebar">
+                <div class="sidebar-block">
+                    <h4 class="sidebar-title">Property Type</h4>
+                    <ul class="filter-list">
+                        <li class="filter-item"><span>Apartment</span> <span class="filter-count">42</span></li>
+                        <li class="filter-item"><span>Condo</span> <span class="filter-count">28</span></li>
+                        <li class="filter-item"><span>Studio</span> <span class="filter-count">12</span></li>
+                        <li class="filter-item"><span>Loft</span> <span class="filter-count">2</span></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-block">
+                    <h4 class="sidebar-title">Neighborhoods</h4>
+                    <ul class="filter-list">
+                        <li class="filter-item"><span>Downtown</span> <span class="filter-count">24</span></li>
+                        <li class="filter-item"><span>Midtown</span> <span class="filter-count">15</span></li>
+                        <li class="filter-item"><span>West End</span> <span class="filter-count">12</span></li>
+                        <li class="filter-item"><span>Waterfront</span> <span class="filter-count">9</span></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-block">
+                    <div class="featured-listing">
+                        <p
+                            style="font-size:10px; text-transform:uppercase; letter-spacing:0.3em; margin-bottom:12px; color:var(--color-accent);">
+                            Editor's Choice</p>
+                        <h3 style="font-size:24px; margin-bottom:20px;">The Glass House <br>at Rosedale</h3>
+                        <p style="font-size:13px; opacity:0.7; margin-bottom:24px;">Extraordinary architectural
+                            achievement in Toronto's most prestigious neighborhood.</p>
+                        <a href="property-detail.html"
+                            style="font-size:11px; text-transform:uppercase; letter-spacing:0.2em; border-bottom:1px solid var(--color-accent); padding-bottom:4px; color:var(--color-accent);">View
+                            Exclusive &rarr;</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="#" class="logo footer__logo">NobleLiving</a>
+                    <p class="footer__text">The leading editorial-first luxury real estate platform. Curating the finest
+                        living spaces across the nation with a commitment to transparency and architectural excellence.
+                    </p>
+                    <div style="display: flex; gap: 16px;">
+                        <a href="#" class="footer__link">IG</a>
+                        <a href="#" class="footer__link">TW</a>
+                        <a href="#" class="footer__link">FB</a>
+                        <a href="#" class="footer__link">LI</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer__title">Rentals</h4>
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="#" class="footer__link">Toronto Rentals</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Vancouver Rentals</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Montreal Rentals</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Calgary Rentals</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__title">Philosophy</h4>
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="neighborhoods.html" class="footer__link">Neighborhoods</a>
+                        </li>
+                        <li class="footer__item"><a href="journal.html" class="footer__link">The Journal</a></li>
+                        <li class="footer__item"><a href="about.html" class="footer__link">Our Vision</a></li>
+                        <li class="footer__item"><a href="contact.html" class="footer__link">Concierge</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__title">Support</h4>
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="#" class="footer__link">Help Centre</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Terms of Service</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Privacy Policy</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 NobleLiving Real Estate Platform. All rights reserved.</p>
+                <p>Designed with architectural precision.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashionista - Brand Identity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* Variables */
+        :root {
+            --color-black: #000000;
+            --color-white: #FFFFFF;
+            --color-blush: #F4E4E6;
+            --color-sage: #D4E4D8;
+            --color-lavender: #E6E4F4;
+            --color-cream: #F8F6F0;
+            --color-rose: #E8D4D8;
+            --color-accent: #C9A0A8;
+            --color-text-primary: #1A1A1A;
+            --color-text-secondary: #6A6A6A;
+            
+            --font-primary: 'Bodoni Moda', 'Didot', serif;
+            --font-secondary: 'Montserrat', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            font-family: var(--font-secondary);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            background: var(--color-white);
+        }
+        
+        /* Hero */
+        .brand-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--color-blush) 0%, var(--color-lavender) 100%);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .brand-logo {
+            font-family: var(--font-primary);
+            font-size: clamp(4rem, 12vw, 8rem);
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+        }
+        
+        .brand-tagline {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            font-weight: 300;
+            color: var(--color-text-secondary);
+        }
+        
+        /* Section */
+        .section {
+            padding: 8rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: var(--font-primary);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            text-align: center;
+            max-width: 600px;
+            margin: -2rem auto 4rem;
+            line-height: 1.8;
+        }
+        
+        /* Colors */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .color-card {
+            text-align: center;
+        }
+        
+        .color-swatch {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .color-name {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .color-hex {
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+        }
+        
+        /* Typography */
+        .type-specimen {
+            margin-bottom: 4rem;
+        }
+        
+        .type-display {
+            font-family: var(--font-primary);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+        
+        .type-heading {
+            font-family: var(--font-primary);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        
+        .type-body {
+            font-family: var(--font-secondary);
+            font-size: 1.125rem;
+            line-height: 1.8;
+            max-width: 700px;
+        }
+        
+        .type-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Principles */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .principle-card {
+            padding: 3rem;
+            background: var(--color-cream);
+            border-radius: 8px;
+        }
+        
+        .principle-number {
+            font-family: var(--font-primary);
+            font-size: 4rem;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+        }
+        
+        .principle-title {
+            font-family: var(--font-primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .principle-description {
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+        }
+        
+        /* Imagery */
+        .imagery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .imagery-card {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .imagery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .imagery-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+            color: white;
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+        }
+        
+        /* Voice */
+        .voice-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .voice-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .voice-column h3 {
+            font-family: var(--font-primary);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--color-accent);
+        }
+        
+        .voice-item {
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+            border-left: 2px solid var(--color-accent);
+        }
+        
+        .voice-item strong {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        .brand-footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: var(--color-black);
+            color: var(--color-white);
+        }
+        
+        .brand-footer p {
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="brand-hero">
+        <div>
+            <h1 class="brand-logo">FASHIONISTA</h1>
+            <p class="brand-tagline">Timeless Elegance</p>
+        </div>
+    </section>
+
+    <!-- Brand Story -->
+    <section class="section" style="background: var(--color-white);">
+        <h2 class="section-title">Our Story</h2>
+        <p class="section-subtitle">
+            Fashionista embodies the intersection of timeless elegance and contemporary sophistication. 
+            We believe in quality over quantity, creating pieces that transcend seasons and trends.
+        </p>
+    </section>
+
+    <!-- Color Palette -->
+    <section class="section" style="background: var(--color-cream);">
+        <h2 class="section-title">Color Palette</h2>
+        <p class="section-subtitle">
+            Our pastel luxury palette evokes warmth, femininity, and timeless elegance. 
+            Each color is carefully selected to create a cohesive, sophisticated brand experience.
+        </p>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background: #F4E4E6;"></div>
+                <div class="color-name">Blush</div>
+                <div class="color-hex">#F4E4E6</div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background: #D4E4D8;"></div>
+                <div class="color-name">Sage</div>
+                <div class="color-hex">#D4E4D8</div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background: #E6E4F4;"></div>
+                <div class="color-name">Lavender</div>
+                <div class="color-hex">#E6E4F4</div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background: #F8F6F0;"></div>
+                <div class="color-name">Cream</div>
+                <div class="color-hex">#F8F6F0</div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background: #E8D4D8;"></div>
+                <div class="color-name">Rose</div>
+                <div class="color-hex">#E8D4D8</div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background: #C9A0A8;"></div>
+                <div class="color-name">Accent</div>
+                <div class="color-hex">#C9A0A8</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Typography -->
+    <section class="section" style="background: var(--color-white);">
+        <h2 class="section-title">Typography</h2>
+        <p class="section-subtitle">
+            Bodoni Moda brings elegance and sophistication, while Montserrat provides clean readability. 
+            Together, they create a perfect balance of luxury and accessibility.
+        </p>
+        
+        <div class="type-specimen">
+            <div class="type-label">Primary - Bodoni Moda</div>
+            <div class="type-display">Timeless Elegance</div>
+            <div class="type-heading">The Art of Sophistication</div>
+        </div>
+        
+        <div class="type-specimen">
+            <div class="type-label">Secondary - Montserrat</div>
+            <p class="type-body">
+                Each piece in our collection is thoughtfully designed to embody timeless elegance and contemporary sophistication. 
+                We believe in quality over quantity, creating garments that transcend seasons and trends.
+            </p>
+        </div>
+    </section>
+
+    <!-- Design Principles -->
+    <section class="section" style="background: var(--color-blush);">
+        <h2 class="section-title">Design Principles</h2>
+        <div class="principles-grid">
+            <div class="principle-card">
+                <div class="principle-number">01</div>
+                <h3 class="principle-title">Luxury Through Restraint</h3>
+                <p class="principle-description">
+                    Generous whitespace creates breathing room and elevates content. 
+                    Minimal UI elements allow products and photography to shine.
+                </p>
+            </div>
+            <div class="principle-card">
+                <div class="principle-number">02</div>
+                <h3 class="principle-title">Bold Typography</h3>
+                <p class="principle-description">
+                    Large, confident headings establish visual hierarchy. 
+                    Typography becomes a design element, not just communication.
+                </p>
+            </div>
+            <div class="principle-card">
+                <div class="principle-number">03</div>
+                <h3 class="principle-title">Pastel Elegance</h3>
+                <p class="principle-description">
+                    Soft, muted colors create warmth without overwhelming. 
+                    Our palette evokes luxury, femininity, and timelessness.
+                </p>
+            </div>
+            <div class="principle-card">
+                <div class="principle-number">04</div>
+                <h3 class="principle-title">Editorial Photography</h3>
+                <p class="principle-description">
+                    Lifestyle imagery shows products in aspirational contexts. 
+                    Photography creates emotional connection and tells stories.
+                </p>
+            </div>
+            <div class="principle-card">
+                <div class="principle-number">05</div>
+                <h3 class="principle-title">Mobile-First</h3>
+                <p class="principle-description">
+                    Touch interactions feel natural and responsive. 
+                    Desktop enhances rather than replaces the mobile experience.
+                </p>
+            </div>
+            <div class="principle-card">
+                <div class="principle-number">06</div>
+                <h3 class="principle-title">Elegant Motion</h3>
+                <p class="principle-description">
+                    Smooth animations (300-400ms) feel refined, never flashy. 
+                    Every transition is purposeful and enhances the experience.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Imagery Style -->
+    <section class="section" style="background: var(--color-white);">
+        <h2 class="section-title">Imagery Style</h2>
+        <p class="section-subtitle">
+            Our photography balances lifestyle and product shots, creating an editorial feel 
+            that's both aspirational and authentic.
+        </p>
+        <div class="imagery-grid">
+            <div class="imagery-card">
+                <img src="assets/images/luxury_hero_editorial_1770030110931.png" alt="Lifestyle">
+                <div class="imagery-label">Lifestyle</div>
+            </div>
+            <div class="imagery-card">
+                <img src="assets/images/luxury_silk_blouse_1770030139179.png" alt="Editorial">
+                <div class="imagery-label">Editorial</div>
+            </div>
+            <div class="imagery-card">
+                <img src="assets/images/luxury_hero_editorial_1770030110931.png" alt="Contextual">
+                <div class="imagery-label">Contextual</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Voice -->
+    <section class="section" style="background: var(--color-sage);">
+        <h2 class="section-title">Brand Voice</h2>
+        <div class="voice-grid">
+            <div class="voice-column">
+                <h3>We Are</h3>
+                <div class="voice-item">
+                    <strong>Sophisticated</strong>
+                    <p>Refined language that reflects our luxury positioning</p>
+                </div>
+                <div class="voice-item">
+                    <strong>Confident</strong>
+                    <p>Bold statements about quality and timelessness</p>
+                </div>
+                <div class="voice-item">
+                    <strong>Warm</strong>
+                    <p>Approachable and welcoming, never cold or distant</p>
+                </div>
+                <div class="voice-item">
+                    <strong>Thoughtful</strong>
+                    <p>Every word is intentional and meaningful</p>
+                </div>
+            </div>
+            <div class="voice-column">
+                <h3>We Are Not</h3>
+                <div class="voice-item">
+                    <strong>Trendy</strong>
+                    <p>We avoid fleeting fashion jargon</p>
+                </div>
+                <div class="voice-item">
+                    <strong>Excessive</strong>
+                    <p>No hyperbole or over-the-top claims</p>
+                </div>
+                <div class="voice-item">
+                    <strong>Casual</strong>
+                    <p>We maintain elegance in all communications</p>
+                </div>
+                <div class="voice-item">
+                    <strong>Complicated</strong>
+                    <p>Clarity and simplicity guide our messaging</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="brand-footer">
+        <p>&copy; 2024 Fashionista. All rights reserved.</p>
+        <p style="margin-top: 1rem; opacity: 0.7;">Timeless Elegance</p>
+    </footer>
+</body>
+</html>

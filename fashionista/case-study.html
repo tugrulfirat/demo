@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Fashionista — Conversion-Focused Luxury E-commerce</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-black: #000000;
+            --color-white: #FFFFFF;
+            --color-cream: #F8F6F0;
+            --color-accent: #C9A0A8;
+            --color-text-primary: #1A1A1A;
+            --color-text-secondary: #6A6A6A;
+            --font-primary: 'Bodoni Moda', serif;
+            --font-secondary: 'Montserrat', sans-serif;
+            --space-xl: 4rem;
+            --space-2xl: 6rem;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-secondary); color: var(--color-text-primary); line-height: 1.6; background: var(--color-white); overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        
+        /* Typography */
+        h1, h2, h3 { font-family: var(--font-primary); font-weight: 400; letter-spacing: 0.05em; }
+        p { margin-bottom: 1.5rem; color: var(--color-text-secondary); font-size: 1.1rem; }
+        
+        /* Header / Hero */
+        .hero { padding: var(--space-2xl) 0; text-align: center; background: var(--color-cream); position: relative; }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; line-height: 1.2; }
+        .hero-meta { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-text-secondary); margin-bottom: 3rem; }
+        .hero-image { margin-top: 3rem; box-shadow: 0 30px 60px rgba(0,0,0,0.1); border-radius: 4px; overflow: hidden; }
+        .hero-image img { width: 100%; display: block; }
+
+        /* Sections */
+        section { padding: var(--space-2xl) 0; }
+        .section-title { font-size: 2.5rem; margin-bottom: 2rem; position: relative; display: inline-block; }
+        .section-title::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 60px; height: 1px; background: var(--color-accent); }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .image-box { background: var(--color-cream); padding: 2rem; border-radius: 8px; }
+        .image-box img { width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .caption { font-size: 0.85rem; color: var(--color-text-secondary); margin-top: 1rem; text-align: center; font-style: italic; }
+
+        /* Challenges / Goals */
+        .highlight-box { background: var(--color-cream); padding: 3rem; border-radius: 12px; margin-bottom: 2rem; }
+        .highlight-box ul { list-style: none; }
+        .highlight-box li { margin-bottom: 1rem; padding-left: 1.5rem; position: relative; }
+        .highlight-box li::before { content: '→'; position: absolute; left: 0; color: var(--color-accent); }
+
+        /* Key Screens */
+        .full-width-image { margin: 3rem 0; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+        .full-width-image img { width: 100%; display: block; }
+
+        /* Step Process */
+        .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .step { background: var(--color-cream); padding: 2rem; border-radius: 8px; }
+        .step-num { font-family: var(--font-primary); font-size: 2rem; color: var(--color-accent); margin-bottom: 1rem; }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; gap: 2rem; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-meta">Role: Lead UI/UX Designer • Tools: Figma • Status: Shipped</div>
+            <h1>Fashionista — Conversion-Focused Luxury E‑commerce Website (UI/UX + Design System)</h1>
+            <div class="hero-image">
+                <img src="case-study-assets/homepage-hero.png" alt="Fashionista Homepage Hero">
+                <div class="caption">“Final homepage (grid-focused) — luxury aesthetic with conversion-first hierarchy.”</div>
+            </div>
+        </div>
+    </header>
+
+    <section class="overview">
+        <div class="container">
+            <div class="grid">
+                <div>
+                    <h2 class="section-title">Overview</h2>
+                    <p>Designed a luxury fashion e‑commerce experience for a client under NDA, balancing premium brand feel with clear purchase paths. The goal was to increase conversion by improving first-impression clarity, product discovery, and checkout confidence.</p>
+                </div>
+                <div class="image-box">
+                    <img src="case-study-assets/homepage-full.png" alt="Homepage overview">
+                    <div class="caption">“Above-the-fold: clear value proposition, primary CTA, and immediate product context.”</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="challenge" style="background: var(--color-cream);">
+        <div class="container">
+            <div class="grid">
+                <div class="image-box" style="background: #fff;">
+                    <img src="case-study-assets/shop-grid.png" alt="Product Listing Page">
+                    <div class="caption">“Key conversion risks addressed: hierarchy, CTA clarity, and decision support.”</div>
+                </div>
+                <div>
+                    <h2 class="section-title">The Challenge</h2>
+                    <p>Luxury e‑commerce often looks premium but loses customers through:</p>
+                    <div class="highlight-box" style="background: #fff;">
+                        <ul>
+                            <li>unclear hierarchy and weak CTAs</li>
+                            <li>slow product discovery (too much browsing friction)</li>
+                            <li>checkout uncertainty (shipping/returns/payment clarity)</li>
+                        </ul>
+                    </div>
+                    <p><strong>Outcome I targeted:</strong> reduce hesitation and increase “add to cart” and checkout completion through clarity and momentum.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="goals">
+        <div class="container">
+            <h2 class="section-title">Goals (Conversion-Driven)</h2>
+            <div class="grid">
+                <div>
+                    <ul>
+                        <li>Make the offer understandable within 5 seconds (what it is, who it’s for, why it’s worth it)</li>
+                        <li>Improve product scanning and category entry</li>
+                        <li>Increase PDP → Add to Cart intent through clearer product presentation</li>
+                        <li>Reduce checkout drop-off with step clarity and reassurance</li>
+                    </ul>
+                </div>
+                <div class="image-box">
+                    <!-- Goals slide / Diagram placeholder -->
+                    <div style="padding: 2rem; border: 1px solid var(--color-accent); text-align: center;">
+                        <h3 style="margin-bottom: 1rem;">Conversion Metrics</h3>
+                        <p style="font-size: 0.9rem;">Translated into concrete UX requirements.</p>
+                    </div>
+                    <div class="caption">“Conversion goals translated into concrete UX requirements.”</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process" style="background: var(--color-cream);">
+        <div class="container">
+            <h2 class="section-title">Process</h2>
+            <div class="step-grid">
+                <div class="step">
+                    <div class="step-num">01</div>
+                    <h3>Layout Strategy</h3>
+                    <p>Selected a grid-focused homepage to support fast scanning and predictable browsing behavior.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">02</div>
+                    <h3>Hierarchy</h3>
+                    <p>Structured the page so users quickly understand what's featured and where to go next.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">03</div>
+                    <h3>Discovery</h3>
+                    <p>Product cards designed for quick comparison and consistent scanning rhythm.</p>
+                </div>
+            </div>
+            
+            <div class="full-width-image" style="background: #fff; padding: 2rem;">
+                 <img src="case-study-assets/shop-grid.png" alt="Shop Hierarchy">
+                 <div class="caption">“Homepage section order designed to create momentum: discover → evaluate → act.”</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="key-screens">
+        <div class="container">
+            <h2 class="section-title">Key Screens</h2>
+            
+            <div class="screen-item">
+                <h3>Homepage (Final)</h3>
+                <p>Grid-focused layout with conversion-first hierarchy and premium visual rhythm.</p>
+                <div class="full-width-image">
+                    <img src="case-study-assets/homepage-full.png" alt="Final Homepage">
+                </div>
+                <div class="caption">“Final homepage: fast scanning, clear CTAs, premium spacing/typography.”</div>
+            </div>
+
+            <div class="grid" style="margin-top: 4rem;">
+                <div>
+                    <h3>Product Detail Page (PDP)</h3>
+                    <p>Designed to increase Add-to-Cart confidence through clear product information structure and purchase actions.</p>
+                    <div class="image-box">
+                        <img src="case-study-assets/pdp.png" alt="PDP Screen">
+                    </div>
+                    <div class="caption">“PDP: purchase actions + product details prioritized for low-friction decisions.”</div>
+                </div>
+                <div>
+                    <h3>Cart</h3>
+                    <p>Cart designed to keep momentum with clear totals, strong checkout CTA, and minimal distractions.</p>
+                    <div class="image-box">
+                        <img src="case-study-assets/cart.png" alt="Cart Screen">
+                    </div>
+                    <div class="caption">“Cart: reduce hesitation and keep the path to checkout obvious.”</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="checkout" style="background: var(--color-cream);">
+        <div class="container">
+            <h2 class="section-title">Checkout (Step-by-step)</h2>
+            <p>Checkout structured as a guided flow to reduce uncertainty and drop-off.</p>
+            
+            <div class="step-grid">
+                <div class="image-box" style="background: #fff;">
+                    <img src="case-study-assets/checkout-shipping.png" alt="Shipping">
+                    <div class="caption">“Step 1: Shipping captured with minimal friction.”</div>
+                </div>
+                <div class="image-box" style="background: #fff;">
+                    <img src="case-study-assets/checkout-review.png" alt="Review">
+                    <div class="caption">“Step 2: Review builds confidence before payment.”</div>
+                </div>
+                <div class="image-box" style="background: #fff;">
+                    <img src="case-study-assets/checkout-payment.png" alt="Payment">
+                    <div class="caption">“Step 3: Payment clarity + reassurance.”</div>
+                </div>
+                <div class="image-box" style="background: #fff;">
+                    <img src="case-study-assets/checkout-confirmation.png" alt="Confirmation">
+                    <div class="caption">“Confirmation: Clear success state.”</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding: 4rem 0; text-align: center; color: var(--color-text-secondary); border-top: 1px solid var(--color-cream);">
+        <div class="container">
+            <p>&copy; 2024 Lead UI/UX Designer — Portfolio Case Study</p>
+        </div>
+    </footer>
+
+</body>
+</html>

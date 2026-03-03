@@ -1,0 +1,154 @@
+/* ===================================
+   WIREFRAME SYSTEM (Hand-drawn B&W)
+   =================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Indie+Flower&display=swap');
+
+:root {
+  --wire-black: #000000;
+  --wire-white: #ffffff;
+  --wire-gray: #666666;
+  --wire-border: #000000;
+  --font-sketch: 'Architects Daughter', cursive;
+  --font-sketch-alt: 'Indie Flower', cursive;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sketch);
+  background-color: var(--wire-white);
+  color: var(--wire-black);
+  line-height: 1.4;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Sketchy Borders */
+.sketch-box {
+  border: 2px solid var(--wire-border);
+  position: relative;
+  background: white;
+  margin-bottom: 20px;
+}
+
+/* Giving it that slightly irregular look */
+.sketch-box::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid var(--wire-border);
+  pointer-events: none;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  opacity: 0.8;
+}
+
+/* Image Placeholder */
+.image-placeholder {
+  background: #f0f0f0;
+  border: 2px solid var(--wire-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 150px;
+}
+
+.image-placeholder::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to top right, transparent calc(50% - 1px), var(--wire-border), transparent calc(50% + 1px)),
+    linear-gradient(to bottom right, transparent calc(50% - 1px), var(--wire-border), transparent calc(50% + 1px));
+  opacity: 0.3;
+}
+
+/* Buttons */
+.sketch-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid var(--wire-border);
+  background: white;
+  font-family: var(--font-sketch-alt);
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  border-radius: 10% 20% 5% 15% / 20% 5% 15% 10%;
+  transition: transform 0.1s;
+}
+
+.sketch-btn:hover {
+  transform: rotate(-1deg) scale(1.05);
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: var(--font-sketch-alt);
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+hr {
+  border: none;
+  border-bottom: 2px solid var(--wire-border);
+  margin: 20px 0;
+  opacity: 0.5;
+}
+
+/* Navigation */
+nav {
+  border-bottom: 2px solid var(--wire-border);
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+/* Grid System */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-sidebar { grid-template-columns: 250px 1fr; }
+
+@media (max-width: 768px) {
+  .grid-3, .grid-4, .grid-sidebar {
+    grid-template-columns: 1fr;
+  }
+}

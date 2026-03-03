@@ -1,0 +1,61 @@
+{
+  "project": "Lumi\u00e8re Beauty - E-commerce Design System",
+  "pages": {
+    "index.html": "Homepage",
+    "about.html": "About Us",
+    "account.html": "My Account",
+    "blog.html": "Blog",
+    "cart.html": "Shopping Cart",
+    "checkout.html": "Checkout",
+    "contact.html": "Contact",
+    "faq.html": "FAQ",
+    "haircare.html": "Haircare Category",
+    "makeup.html": "Makeup Category",
+    "order-confirmation.html": "Order Confirmation",
+    "product.html": "Product Details",
+    "search.html": "Search Results",
+    "shop.html": "Shop/Products",
+    "skincare.html": "Skincare Category"
+  },
+  "design_system": {
+    "colors": {
+      "primary": "#b8945f",
+      "bg": "#f4f1ed",
+      "text": "#5f666e",
+      "text-light": "rgba(18",
+      "success": "#f44336"
+    },
+    "fonts": [
+      "Playfair Display"
+    ],
+    "page_count": 15,
+    "total_pages": 15
+  },
+  "categories": {
+    "core_pages": [
+      "Homepage",
+      "Shop/Products",
+      "Product Details",
+      "Shopping Cart",
+      "Checkout"
+    ],
+    "category_pages": [
+      "Skincare Category",
+      "Makeup Category",
+      "Haircare Category"
+    ],
+    "info_pages": [
+      "About Us",
+      "Contact",
+      "Blog",
+      "FAQ"
+    ],
+    "user_pages": [
+      "My Account",
+      "Order Confirmation"
+    ],
+    "utility_pages": [
+      "Search Results"
+    ]
+  }
+}

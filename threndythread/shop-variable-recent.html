@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop — Variable Products</title>
+    <meta name="description" content="Browse styles with color and size variations. Hover a swatch to preview.">
+    <link rel="canonical" href="/shop-variable">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Typography */
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Work Sans', sans-serif;
+
+            /* Colors */
+            --color-text: #222222;
+            --color-text-secondary: #333333;
+            --color-bg: #ffffff;
+            --color-primary: #000000;
+            --color-accent: #E63946;
+            --color-border: #e5e5e5;
+
+            /* Spacing */
+            --container-max: 1200px;
+            --section-padding: 80px;
+            --grid-gap: 24px;
+
+            /* Effects */
+            --card-radius: 12px;
+            --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--color-text);
+            background: var(--color-bg);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h3 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-weight: 400;
+            line-height: 1.3;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            position: sticky;
+            top: 0;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+        }
+
+        .header__top {
+            background: var(--color-primary);
+            color: var(--color-bg);
+            text-align: center;
+            padding: 8px 20px;
+            font-size: 0.875rem;
+        }
+
+        .header__main {
+            padding: 20px 0;
+        }
+
+        .header__container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .header__logo {
+            font-family: var(--font-body);
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .header__nav {
+            display: none;
+            gap: 32px;
+        }
+
+        @media (min-width: 768px) {
+            .header__nav {
+                display: flex;
+            }
+        }
+
+        .header__nav a {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .header__nav a:hover {
+            color: var(--color-accent);
+        }
+
+        .header__icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .header__icon {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            stroke-width: 1.5;
+        }
+
+        button.header__icon {
+            background: none;
+            border: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .header__icon:hover {
+            opacity: 0.7;
+        }
+
+        /* ===== BREADCRUMBS ===== */
+        .breadcrumbs {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 16px 20px;
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .breadcrumbs a {
+            color: #666;
+            transition: color 0.2s;
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--color-primary);
+        }
+
+        /* ===== HERO BANNER ===== */
+        .hero-banner {
+            position: relative;
+            aspect-ratio: 16/6;
+            overflow: hidden;
+            background: #f5f5f5;
+            margin-bottom: 40px;
+        }
+
+        .hero-banner__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-banner__content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 40px;
+            background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, transparent 60%);
+            color: white;
+        }
+
+        .hero-banner__inner {
+            max-width: 600px;
+        }
+
+        .hero-banner__eyebrow {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+
+        .hero-banner__title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            white-space: pre-line;
+        }
+
+        .hero-banner__text {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            opacity: 0.95;
+        }
+
+        .hero-banner__cta {
+            display: inline-block;
+            padding: 14px 32px;
+            background: white;
+            color: var(--color-primary);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .hero-banner__cta:hover {
+            background: var(--color-accent);
+            color: white;
+        }
+
+        /* ===== SHOP LAYOUT ===== */
+        .shop {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .shop__layout {
+            display: grid;
+            gap: 32px;
+        }
+
+        @media (min-width: 1024px) {
+            .shop__layout {
+                grid-template-columns: 280px minmax(0, 1fr);
+                gap: 40px;
+            }
+        }
+
+        /* ===== FILTERS ===== */
+        .filters {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .filters {
+                display: block;
+                position: sticky;
+                top: 96px;
+                align-self: start;
+            }
+        }
+
+        .filters__section {
+            border-bottom: 1px solid var(--color-border);
+            padding: 24px 0;
+        }
+
+        .filters__section:first-child {
+            padding-top: 0;
+        }
+
+        .filters__title {
+            font: 600 14px/1 var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+
+        .filters__list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .filters__item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.9375rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .filters__item:hover {
+            color: var(--color-accent);
+        }
+
+        .filters__item--disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .filters__count {
+            font-size: 0.8125rem;
+            color: #999;
+        }
+
+        .filters__price-range {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .filters__price-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .filters__price-input {
+            padding: 8px;
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+
+        .filters__color-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .filters__color-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .swatch {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,.15);
+            display: inline-block;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .swatch:hover {
+            transform: scale(1.1);
+        }
+
+        .swatch:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        .swatch[aria-pressed="true"] {
+            outline: 2px solid #000;
+            outline-offset: 2px;
+        }
+
+        .filters__color-count {
+            font-size: 0.6875rem;
+            color: #999;
+        }
+
+        .filters__size-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .chip {
+            font: 600 11px/1 var(--font-body);
+            text-transform: uppercase;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 8px 4px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .chip:hover {
+            border-color: var(--color-primary);
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .chip:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        .filters__checkbox-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .filters__checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        /* ===== TOOLBAR ===== */
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin-bottom: 32px;
+        }
+
+        .toolbar__result {
+            font-size: 0.9375rem;
+            color: #666;
+        }
+
+        .toolbar__actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .toolbar__select {
+            padding: 8px 32px 8px 12px;
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            font-size: 0.875rem;
+            background: white;
+            cursor: pointer;
+        }
+
+        /* ===== PRODUCTS GRID ===== */
+        .products {
+            display: grid;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .products {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .products {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+
+        /* ===== PRODUCT CARD ===== */
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .product-card__image-wrapper {
+            position: relative;
+            aspect-ratio: 3/4;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+
+        .product-card__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .badge--sale {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #E63946;
+            color: #fff;
+            border-radius: 999px;
+            padding: 4px 12px;
+            font: 600 12px/1.6 var(--font-body);
+            z-index: 10;
+        }
+
+        .badge--trending {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #111;
+            color: #fff;
+            border-radius: 999px;
+            padding: 4px 12px;
+            font: 600 12px/1.6 var(--font-body);
+            z-index: 10;
+        }
+
+        .product-card__brand {
+            font-size: 0.8125rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .product-card__title {
+            font-family: var(--font-heading);
+            font-size: 1.125rem;
+            font-weight: 400;
+            line-height: 1.3;
+        }
+
+        .product-card__price {
+            font-size: 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .product-card__old-price {
+            color: #999;
+            text-decoration: line-through;
+            font-weight: 400;
+            font-size: 0.9375rem;
+        }
+
+        .product-card__reviews {
+            font-size: 0.8125rem;
+            color: #666;
+        }
+
+        .product-card__variations {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-top: 8px;
+        }
+
+        .product-card__var-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .product-card__var-label {
+            font: 600 11px/1 var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #666;
+        }
+
+        .product-card__swatches {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .product-card__swatch {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,.15);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .product-card__swatch:hover {
+            transform: scale(1.2);
+        }
+
+        .product-card__swatch:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        .product-card__swatch[aria-pressed="true"] {
+            outline: 2px solid #000;
+            outline-offset: 2px;
+        }
+
+        .product-card__sizes {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+
+        .product-card__size {
+            font: 600 10px/1 var(--font-body);
+            text-transform: uppercase;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 4px 6px;
+        }
+
+        /* ===== PAGINATION ===== */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 60px;
+        }
+
+        .pagination__btn {
+            min-width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            background: white;
+        }
+
+        .pagination__btn:hover:not(:disabled) {
+            border-color: var(--color-primary);
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .pagination__btn--active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .pagination__btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .pagination__btn:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        /* ===== RECENTLY VIEWED ===== */
+        .recently-viewed {
+            padding-top: 40px;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .recently-viewed__title {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .recently-viewed__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 24px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .mini-card {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mini-card__image-wrapper {
+            position: relative;
+            aspect-ratio: 3/4;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+
+        .mini-card__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .mini-card__title {
+            font-size: 0.875rem;
+            line-height: 1.3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .mini-card__price {
+            font-size: 0.9375rem;
+            font-weight: 600;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--color-primary);
+            color: white;
+            padding: 60px 20px 24px;
+        }
+
+        .footer__content {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: grid;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .footer__content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .footer__content {
+                grid-template-columns: 2fr repeat(3, 1fr);
+            }
+        }
+
+        .footer__section-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+        }
+
+        .footer__text {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.875rem;
+            line-height: 1.8;
+        }
+
+        .footer__list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer__link {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .footer__link:hover {
+            color: var(--color-accent);
+        }
+
+        .footer__bottom {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .footer__socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer__social-link {
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s;
+        }
+
+        .footer__social-link:hover {
+            color: var(--color-accent);
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__top">
+            <p>New-Season Offer! 30% Off Select Styles</p>
+        </div>
+        <div class="header__main">
+            <div class="header__container">
+                <a href="#" class="header__logo">TRENDYTHREAD</a>
+                <nav class="header__nav">
+                    <a href="#">Home</a>
+                    <a href="#">Shop</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Pages</a>
+                    <a href="#">Media</a>
+                    <a href="#">Contact</a>
+                </nav>
+                <div class="header__icons">
+                    <button class="header__icon" aria-label="Search">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <circle cx="9" cy="9" r="6.5"/>
+                        <path d="M14 14l5 5"/>
+                    </svg>
+                </button>
+                    <a href="login.html" class="header__icon" aria-label="Account">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <circle cx="11" cy="7" r="3.5"/>
+                        <path d="M4 19c0-3.5 3-6.5 7-6.5s7 3 7 6.5"/>
+                    </svg>
+                </a>
+                    <a href="wishlist.html" class="header__icon" aria-label="Wishlist">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <path d="M11 19l-7-7c-2-2-2-5 0-7 2-2 5-2 7 0 2-2 5-2 7 0 2 2 2 5 0 7z"/>
+                    </svg>
+                </a>
+                    <a href="cart-single.html" class="header__icon header__cart-badge" aria-label="Shopping Cart">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <circle cx="9" cy="19" r="1.5" fill="currentColor" stroke="none"/>
+                        <circle cx="17" cy="19" r="1.5" fill="currentColor" stroke="none"/>
+                        <path d="M1 1h3.5l2.5 13h11l3-9H7"/>
+                    </svg>
+                </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <a href="/">Home</a> / <span>Shop Variable</span>
+    </div>
+
+    <!-- Shop -->
+    <div class="shop">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600&h=600&fit=crop" alt="Plus-Size Styles" class="hero-banner__image">
+            <div class="hero-banner__content">
+                <div class="hero-banner__inner">
+                    <div class="hero-banner__eyebrow">Season Edit</div>
+                    <h1 class="hero-banner__title">Plus-Size Styles for
+Every Season</h1>
+                    <p class="hero-banner__text">Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas.</p>
+                    <a href="#" class="hero-banner__cta">Shop Collection</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="shop__layout">
+            <!-- Filters Sidebar -->
+            <aside class="filters">
+                <div class="filters__section">
+                    <h3 class="filters__title">Categories</h3>
+                    <ul class="filters__list">
+                        <li class="filters__item"><span>Men</span><span class="filters__count">18</span></li>
+                        <li class="filters__item"><span>Women</span><span class="filters__count">26</span></li>
+                        <li class="filters__item"><span>Bags</span><span class="filters__count">5</span></li>
+                        <li class="filters__item"><span>Belts</span><span class="filters__count">3</span></li>
+                        <li class="filters__item"><span>Shoes</span><span class="filters__count">4</span></li>
+                        <li class="filters__item"><span>Outerwear</span><span class="filters__count">6</span></li>
+                        <li class="filters__item"><span>Cargo Trousers</span><span class="filters__count">2</span></li>
+                        <li class="filters__item"><span>Accessories</span><span class="filters__count">4</span></li>
+                        <li class="filters__item"><span>Baby</span><span class="filters__count">1</span></li>
+                        <li class="filters__item"><span>Kids</span><span class="filters__count">3</span></li>
+                        <li class="filters__item filters__item--disabled"><span>Wallets</span><span class="filters__count">0</span></li>
+                        <li class="filters__item filters__item--disabled"><span>Watches</span><span class="filters__count">0</span></li>
+                    </ul>
+                </div>
+
+                <div class="filters__section">
+                    <h3 class="filters__title">Price</h3>
+                    <div class="filters__price-range">
+                        <div class="filters__price-inputs">
+                            <input type="number" class="filters__price-input" value="0" min="0" max="1300" aria-label="Minimum price">
+                            <input type="number" class="filters__price-input" value="300" min="0" max="1300" aria-label="Maximum price">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filters__section">
+                    <h3 class="filters__title">Color</h3>
+                    <div class="filters__color-grid">
+                        <div class="filters__color-item">
+                            <button class="swatch" style="background: #C73333;" aria-label="Apple Red" aria-pressed="false"></button>
+                            <span class="filters__color-count">9</span>
+                        </div>
+                        <div class="filters__color-item">
+                            <button class="swatch" style="background: #3D64CF;" aria-label="Bio Blue" aria-pressed="false"></button>
+                            <span class="filters__color-count">13</span>
+                        </div>
+                        <div class="filters__color-item">
+                            <button class="swatch" style="background: #F08C2E;" aria-label="Sweet Orange" aria-pressed="false"></button>
+                            <span class="filters__color-count">8</span>
+                        </div>
+                        <div class="filters__color-item">
+                            <button class="swatch" style="background: #2C5AA0;" aria-label="Blue" aria-pressed="false"></button>
+                            <span class="filters__color-count">10</span>
+                        </div>
+                        <div class="filters__color-item">
+                            <button class="swatch" style="background: #2E7D32;" aria-label="Green" aria-pressed="false"></button>
+                            <span class="filters__color-count">12</span>
+                        </div>
+                        <div class="filters__color-item">
+                            <button class="swatch" style="background: #111111;" aria-label="Black" aria-pressed="false"></button>
+                            <span class="filters__color-count">11</span>
+                        </div>
+                        <div class="filters__color-item">
+                            <button class="swatch" style="background: #FFFFFF; border-color: #ddd;" aria-label="White" aria-pressed="false"></button>
+                            <span class="filters__color-count">8</span>
+                        </div>
+                        <div class="filters__color-item">
+                            <button class="swatch" style="background: #F3C742;" aria-label="Yellow" aria-pressed="false"></button>
+                            <span class="filters__color-count">4</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filters__section">
+                    <h3 class="filters__title">Size</h3>
+                    <div class="filters__size-grid">
+                        <button class="chip">XXS <small>(10)</small></button>
+                        <button class="chip">XS <small>(12)</small></button>
+                        <button class="chip">S <small>(13)</small></button>
+                        <button class="chip">M <small>(13)</small></button>
+                        <button class="chip">L <small>(12)</small></button>
+                        <button class="chip">XL <small>(8)</small></button>
+                        <button class="chip">XXL <small>(6)</small></button>
+                    </div>
+                </div>
+
+                <div class="filters__section">
+                    <h3 class="filters__title">Status</h3>
+                    <ul class="filters__checkbox-list">
+                        <li class="filters__checkbox">
+                            <input type="checkbox" id="in-stock">
+                            <label for="in-stock">In Stock (68)</label>
+                        </li>
+                        <li class="filters__checkbox">
+                            <input type="checkbox" id="on-sale">
+                            <label for="on-sale">On Sale (31)</label>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="shop__main">
+                <!-- Toolbar -->
+                <div class="toolbar">
+                    <div class="toolbar__result">Showing 1–16 of 72 results</div>
+                    <div class="toolbar__actions">
+                        <select class="toolbar__select" aria-label="Sort products">
+                            <option>Sort by latest</option>
+                            <option>Price: low to high</option>
+                            <option>Price: high to low</option>
+                            <option>Top rated</option>
+                        </select>
+                        <select class="toolbar__select" aria-label="Products per page">
+                            <option>Show 16</option>
+                            <option>Show 20</option>
+                            <option>Show 24</option>
+                            <option>Show 36</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products">
+                    <!-- Product 1: Rose Printed Hoodie -->
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="images/products/hoodie-rose-printed/red/main.jpg" alt="Rose hoodie in red" class="product-card__image" data-default="/images/products/hoodie-rose-printed/red/main.jpg">
+                            <span class="badge--sale">21%</span>
+                        </div>
+                        <div class="product-card__brand">TrendyThread</div>
+                        <h3 class="product-card__title">Rose Printed Hoodie</h3>
+                        <div class="product-card__price">$110.99</div>
+                        <div class="product-card__reviews">(1 review)</div>
+                        <div class="product-card__variations">
+                            <div class="product-card__var-group">
+                                <div class="product-card__var-label">Color</div>
+                                <div class="product-card__swatches" role="tablist">
+                                    <button class="product-card__swatch" style="background-image: url('images/products/hoodie-rose-printed/red/main.jpg'); background-size: cover; background-position: center; background: #C73333;" aria-label="Apple Red" aria-pressed="true" tabindex="0"></button>
+                                    <button class="product-card__swatch" style="background-image: url('images/products/hoodie-oversize-zipper/main.jpg'); background-size: cover; background-position: center; background: #2C5AA0;" aria-label="Blue" aria-pressed="false" tabindex="-1"></button>
+                                    <button class="product-card__swatch" style="background-image: url('images/https://images.unsplash.com/photo-1620799139834-6b8f844fbe61?w=400&h=533&fit=crop'); background-size: cover; background-position: center; background: #2E7D32;" aria-label="Green" aria-pressed="false" tabindex="-1"></button>
+                                </div>
+                            </div>
+                            <div class="product-card__var-group">
+                                <div class="product-card__var-label">Size</div>
+                                <div class="product-card__sizes">
+                                    <span class="product-card__size">XS</span>
+                                    <span class="product-card__size">S</span>
+                                    <span class="product-card__size">M</span>
+                                    <span class="product-card__size">L</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 2: World Wide Cup Print T-Shirt -->
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="images/products/tshirt-world-cup/white/main.jpg" alt="World cup tee white" class="product-card__image" data-default="/images/products/tshirt-world-cup/white/main.jpg">
+                            <span class="badge--sale">21%</span>
+                        </div>
+                        <div class="product-card__brand">TrendyThread</div>
+                        <h3 class="product-card__title">World Wide Cup Print T-Shirt</h3>
+                        <div class="product-card__price">
+                            $23.99
+                            <span class="product-card__old-price">$29.99</span>
+                        </div>
+                        <div class="product-card__reviews">(1 review)</div>
+                        <div class="product-card__variations">
+                            <div class="product-card__var-group">
+                                <div class="product-card__var-label">Color</div>
+                                <div class="product-card__swatches" role="tablist">
+                                    <button class="product-card__swatch" style="background-image: url('images/products/tshirt-world-cup/white/main.jpg'); background-size: cover; background-position: center; background: #FFFFFF; border-color: #ddd;" aria-label="White" aria-pressed="true" tabindex="0"></button>
+                                    <button class="product-card__swatch" style="background-image: url('images/products/hoodie-oversize-zipper/main.jpg'); background-size: cover; background-position: center; background: #3D64CF;" aria-label="Bio Blue" aria-pressed="false" tabindex="-1"></button>
+                                    <button class="product-card__swatch" style="background-image: url('images/https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400&h=533&fit=crop'); background-size: cover; background-position: center; background: #2E7D32;" aria-label="Green" aria-pressed="false" tabindex="-1"></button>
+                                </div>
+                            </div>
+                            <div class="product-card__var-group">
+                                <div class="product-card__var-label">Size</div>
+                                <div class="product-card__sizes">
+                                    <span class="product-card__size">XS</span>
+                                    <span class="product-card__size">S</span>
+                                    <span class="product-card__size">M</span>
+                                    <span class="product-card__size">L</span>
+                                    <span class="product-card__size">XL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 3: Sleeveless Ribbed Short Dress -->
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="images/products/dress-ribbed-short/black/main.jpg" alt="Black ribbed mini dress" class="product-card__image" data-default="/images/products/dress-ribbed-short/black/main.jpg">
+                            <span class="badge--sale">26%</span>
+                        </div>
+                        <div class="product-card__brand">TrendyThread</div>
+                        <h3 class="product-card__title">Sleeveless Ribbed Short Dress — Black</h3>
+                        <div class="product-card__price">
+                            $14.99
+                            <span class="product-card__old-price">$19.99</span>
+                        </div>
+                        <div class="product-card__reviews">(1 review)</div>
+                        <div class="product-card__variations">
+                            <div class="product-card__var-group">
+                                <div class="product-card__var-label">Color</div>
+                                <div class="product-card__swatches" role="tablist">
+                                    <button class="product-card__swatch" style="background-image: url('images/products/dress-ribbed-short/black/main.jpg'); background-size: cover; background-position: center; background: #111111;" aria-label="Black" aria-pressed="true" tabindex="0"></button>
+                                    <button class="product-card__swatch" style="background-image: url('images/https://images.unsplash.com/photo-1612423284934-2850a4ea6b0f?w=400&h=533&fit=crop'); background-size: cover; background-position: center; background: #3D64CF;" aria-label="Blue" aria-pressed="false" tabindex="-1"></button>
+                                </div>
+                            </div>
+                            <div class="product-card__var-group">
+                                <div class="product-card__var-label">Size</div>
+                                <div class="product-card__sizes">
+                                    <span class="product-card__size">XXS</span>
+                                    <span class="product-card__size">XS</span>
+                                    <span class="product-card__size">S</span>
+                                    <span class="product-card__size">M</span>
+                                    <span class="product-card__size">L</span>
+                                    <span class="product-card__size">XL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 4: Slogan Hoodie -->
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="images/products/hoodie-oversize-zipper/main.jpg" alt="Beige slogan hoodie" class="product-card__image" data-default="/images/products/hoodie-oversize-zipper/main.jpg">
+                            <span class="badge--sale">37%</span>
+                        </div>
+                        <div class="product-card__brand">TrendyThread</div>
+                        <h3 class="product-card__title">Slogan Hoodie With Label Detail</h3>
+                        <div class="product-card__price">
+                            $11.99
+                            <span class="product-card__old-price">$18.99</span>
+                        </div>
+                        <div class="product-card__reviews">(1 review)</div>
+                        <div class="product-card__variations">
+                            <div class="product-card__var-group">
+                                <div class="product-card__var-label">Color</div>
+                                <div class="product-card__swatches" role="tablist">
+                                    <button class="product-card__swatch" style="background-image: url('images/products/hoodie-rose-printed/red/main.jpg'); background-size: cover; background-position: center; background: #F08C2E;" aria-label="Sweet Orange" aria-pressed="false" tabindex="0"></button>
+                                    <button class="product-card__swatch" style="background-image: url('images/products/hoodie-oversize-zipper/main.jpg'); background-size: cover; background-position: center; background: #D4C5B0;" aria-label="Sand" aria-pressed="true" tabindex="-1"></button>
+                                </div>
+                            </div>
+                            <div class="product-card__var-group">
+                                <div class="product-card__var-label">Size</div>
+                                <div class="product-card__sizes">
+                                    <span class="product-card__size">XS</span>
+                                    <span class="product-card__size">S</span>
+                                    <span class="product-card__size">M</span>
+                                    <span class="product-card__size">L</span>
+                                    <span class="product-card__size">XL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="pagination__btn" disabled aria-label="Previous page">&laquo;</button>
+                    <button class="pagination__btn pagination__btn--active" aria-label="Page 1" aria-current="page">1</button>
+                    <button class="pagination__btn" aria-label="Page 2">2</button>
+                    <button class="pagination__btn" aria-label="Page 3">3</button>
+                    <button class="pagination__btn" aria-label="Page 4">4</button>
+                    <button class="pagination__btn" aria-label="Page 5">5</button>
+                    <button class="pagination__btn" aria-label="Next page">&raquo;</button>
+                </div>
+
+                <!-- Recently Viewed -->
+                <div class="recently-viewed">
+                    <h2 class="recently-viewed__title">Recently Viewed Products</h2>
+                    <div class="recently-viewed__grid">
+                        <article class="mini-card">
+                            <div class="mini-card__image-wrapper">
+                                <img src="images/products/jacket-puff-high-neck/main.jpg" alt="Basic High-Neck Puff Jacket" class="mini-card__image">
+                                <span class="badge--trending">TRENDING</span>
+                            </div>
+                            <h3 class="mini-card__title">Basic High-Neck Puff Jacket</h3>
+                            <div class="mini-card__price">$89.00</div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__content">
+            <div class="footer__section">
+                <h3 class="footer__section-title">TrendyThread</h3>
+                <p class="footer__text">Your destination for contemporary fashion. Discover curated collections that blend timeless elegance with modern trends.</p>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__section-title">Shop</h3>
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link">New Arrivals</a></li>
+                    <li><a href="#" class="footer__link">Best Sellers</a></li>
+                    <li><a href="#" class="footer__link">Sale</a></li>
+                    <li><a href="#" class="footer__link">Collections</a></li>
+                </ul>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__section-title">Help</h3>
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link">Contact Us</a></li>
+                    <li><a href="#" class="footer__link">Shipping Info</a></li>
+                    <li><a href="#" class="footer__link">Returns</a></li>
+                    <li><a href="#" class="footer__link">Size Guide</a></li>
+                </ul>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__section-title">About</h3>
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link">Our Story</a></li>
+                    <li><a href="#" class="footer__link">Sustainability</a></li>
+                    <li><a href="#" class="footer__link">Careers</a></li>
+                    <li><a href="#" class="footer__link">Press</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2024 TrendyThread. All rights reserved.</p>
+            <div class="footer__socials">
+                <a href="#" class="footer__social-link">Facebook</a>
+                <a href="#" class="footer__social-link">Instagram</a>
+                <a href="#" class="footer__social-link">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Variable product image swapping with roving tabindex
+        document.querySelectorAll('.product-card').forEach(card => {
+            const image = card.querySelector('.product-card__image');
+            const swatches = card.querySelectorAll('.product-card__swatch');
+            const defaultImage = image.dataset.default;
+            let currentIndex = 0;
+
+            swatches.forEach((swatch, index) => {
+                // Mouse events
+                swatch.addEventListener('mouseenter', () => {
+                    const newImage = swatch.dataset.image;
+                    if (newImage) {
+                        image.style.opacity = '0.5';
+                        setTimeout(() => {
+                            image.src = newImage;
+                            image.style.opacity = '1';
+                        }, 150);
+                    }
+                });
+
+                // Focus events
+                swatch.addEventListener('focus', () => {
+                    const newImage = swatch.dataset.image;
+                    if (newImage) {
+                        image.style.opacity = '0.5';
+                        setTimeout(() => {
+                            image.src = newImage;
+                            image.style.opacity = '1';
+                        }, 150);
+                    }
+                    currentIndex = index;
+                });
+
+                // Click to set active
+                swatch.addEventListener('click', () => {
+                    swatches.forEach(s => s.setAttribute('aria-pressed', 'false'));
+                    swatch.setAttribute('aria-pressed', 'true');
+                });
+
+                // Keyboard navigation (arrow keys)
+                swatch.addEventListener('keydown', (e) => {
+                    let newIndex = currentIndex;
+
+                    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        newIndex = (currentIndex + 1) % swatches.length;
+                    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        newIndex = (currentIndex - 1 + swatches.length) % swatches.length;
+                    } else if (e.key === 'Home') {
+                        e.preventDefault();
+                        newIndex = 0;
+                    } else if (e.key === 'End') {
+                        e.preventDefault();
+                        newIndex = swatches.length - 1;
+                    }
+
+                    if (newIndex !== currentIndex) {
+                        swatches[currentIndex].setAttribute('tabindex', '-1');
+                        swatches[newIndex].setAttribute('tabindex', '0');
+                        swatches[newIndex].focus();
+                        currentIndex = newIndex;
+                    }
+                });
+            });
+
+            // Reset on mouse leave
+            card.addEventListener('mouseleave', () => {
+                image.style.opacity = '0.5';
+                setTimeout(() => {
+                    image.src = defaultImage;
+                    image.style.opacity = '1';
+                }, 150);
+            });
+
+            // Reset on blur (when focus leaves the swatches group)
+            card.addEventListener('focusout', (e) => {
+                if (!card.contains(e.relatedTarget)) {
+                    setTimeout(() => {
+                        image.src = defaultImage;
+                    }, 150);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

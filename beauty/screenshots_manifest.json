@@ -1,0 +1,77 @@
+{
+  "index.html": {
+    "name": "Homepage",
+    "path": "/Users/tugrulfirat/designs/beauty/screenshots/index.png",
+    "url": "http://localhost:8888/index.html"
+  },
+  "about.html": {
+    "name": "About Us",
+    "path": "/Users/tugrulfirat/designs/beauty/screenshots/about.png",
+    "url": "http://localhost:8888/about.html"
+  },
+  "account.html": {
+    "name": "My Account",
+    "path": "/Users/tugrulfirat/designs/beauty/screenshots/account.png",
+    "url": "http://localhost:8888/account.html"
+  },
+  "blog.html": {
+    "name": "Blog",
+    "path": "/Users/tugrulfirat/designs/beauty/screenshots/blog.png",
+    "url": "http://localhost:8888/blog.html"
+  },
+  "cart.html": {
+    "name": "Shopping Cart",
+    "path": "/Users/tugrulfirat/designs/beauty/screenshots/cart.png",
+    "url": "http://localhost:8888/cart.html"
+  },
+  "checkout.html": {
+    "name": "Checkout",
+    "path": "/Users/tugrulfirat/designs/beauty/screenshots/checkout.png",
+    "url": "http://localhost:8888/checkout.html"
+  },
+  "contact.html": {
+    "name": "Contact",
+    "path": "/Users/tugrulfirat/designs/beauty/screenshots/contact.png",
+    "url": "http://localhost:8888/contact.html"
+  },
+  "faq.html": {
+    "name": "FAQ",
+    "path": "/Users/tugrulfirat/designs/beauty/screenshots/faq.png",
+    "url": "http://localhost:8888/faq.html"
+  },
+  "haircare.html": {
+    "name": "Haircare Category",
+    "path": "/Users/tugrulfirat/designs/beauty/screenshots/haircare.png",
+    "url": "http://localhost:8888/haircare.html"
+  },
+  "makeup.html": {
+    "name": "Makeup Category",
+    "path": "/Users/tugrulfirat/designs/beauty/screenshots/makeup.png",
+    "url": "http://localhost:8888/makeup.html"
+  },
+  "order-confirmation.html": {
+    "name": "Order Confirmation",
+    "path": "/Users/tugrulfirat/designs/beauty/screenshots/order-confirmation.png",
+    "url": "http://localhost:8888/order-confirmation.html"
+  },
+  "product.html": {
+    "name": "Product Details",
+    "path": "/Users/tugrulfirat/designs/beauty/screenshots/product.png",
+    "url": "http://localhost:8888/product.html"
+  },
+  "search.html": {
+    "name": "Search Results",
+    "path": "/Users/tugrulfirat/designs/beauty/screenshots/search.png",
+    "url": "http://localhost:8888/search.html"
+  },
+  "shop.html": {
+    "name": "Shop/Products",
+    "path": "/Users/tugrulfirat/designs/beauty/screenshots/shop.png",
+    "url": "http://localhost:8888/shop.html"
+  },
+  "skincare.html": {
+    "name": "Skincare Category",
+    "path": "/Users/tugrulfirat/designs/beauty/screenshots/skincare.png",
+    "url": "http://localhost:8888/skincare.html"
+  }
+}

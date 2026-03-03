@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist — TrendyThread</title>
+    <meta name="description" content="Your saved styles. Move items to cart or keep them for later.">
+    <link rel="canonical" href="/wishlist">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --tt-black: #111;
+            --tt-gray: #6F6F6F;
+            --tt-line: #EAEAEA;
+            --tt-green: #1EA672;
+            --tt-red: #E63946;
+            --tt-bg: #fff;
+            --tt-radius: 12px;
+            --tt-card: 16px 18px;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Work Sans', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--tt-black);
+            line-height: 1.6;
+            background: var(--tt-bg);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--tt-line);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header__top {
+            background: var(--tt-black);
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+
+        .header__main {
+            padding: 20px 0;
+        }
+
+        .header__container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+        }
+
+        .header__logo {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .header__nav {
+            display: none;
+            gap: 28px;
+            font-size: 14px;
+        }
+
+        @media (min-width: 768px) {
+            .header__nav {
+                display: flex;
+            }
+        }
+
+        .header__nav a:hover {
+            opacity: 0.6;
+        }
+
+        .header__icons {
+            display: flex;
+            gap: 18px;
+            font-size: 18px;
+        }
+
+        .header__icon {
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        button.header__icon {
+            background: none;
+            border: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .header__icon:hover {
+            opacity: 0.6;
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        .page-title {
+            font-family: var(--font-heading);
+            font-size: 42px;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 32px;
+        }
+
+        /* Table */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 32px;
+        }
+
+        .table th {
+            text-align: left;
+            font: 600 12px/1 'Work Sans', sans-serif;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #9A9A9A;
+            padding: 14px 8px;
+            border-bottom: 1px solid var(--tt-line);
+        }
+
+        .table td {
+            padding: 16px 8px;
+            vertical-align: middle;
+            border-bottom: 1px solid var(--tt-line);
+        }
+
+        .table tbody tr {
+            transition: box-shadow 0.2s;
+        }
+
+        .table tbody tr:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .product-cell {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .thumb {
+            width: 72px;
+            height: 84px;
+            border-radius: 10px;
+            object-fit: cover;
+            background: #F6F6F6;
+            flex-shrink: 0;
+        }
+
+        .product-title {
+            font: 500 15px/1.3 'Work Sans', sans-serif;
+            color: var(--tt-black);
+        }
+
+        .product-title:hover {
+            text-decoration: underline;
+        }
+
+        .price {
+            font: 600 16px/1 'Work Sans', sans-serif;
+        }
+
+        .price s {
+            color: #9A9A9A;
+            margin-right: 8px;
+            font-weight: 400;
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 999px;
+            font: 600 12px/1 'Work Sans', sans-serif;
+        }
+
+        .pill--in {
+            background: #ECF8F1;
+            color: var(--tt-green);
+        }
+
+        .pill--out {
+            background: #F2F2F2;
+            color: #9A9A9A;
+        }
+
+        .btn {
+            border-radius: 10px;
+            padding: 0.7rem 1rem;
+            font: 600 14px/1 'Work Sans', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn--primary {
+            background: var(--tt-black);
+            color: #fff;
+            border: 0;
+        }
+
+        .btn--primary:hover {
+            background: #333;
+        }
+
+        .btn--primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn--ghost {
+            background: #fff;
+            border: 1px solid var(--tt-black);
+            color: var(--tt-black);
+        }
+
+        .btn--ghost:hover {
+            background: var(--tt-black);
+            color: #fff;
+        }
+
+        .btn:focus-visible {
+            outline: 2px solid var(--tt-black);
+            outline-offset: 2px;
+        }
+
+        .remove {
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            border: 1px solid var(--tt-line);
+            background: #fff;
+            font-size: 20px;
+            color: var(--tt-gray);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .remove:hover {
+            background: #F6F6F6;
+            border-color: var(--tt-gray);
+        }
+
+        .remove:focus-visible {
+            outline: 2px solid var(--tt-black);
+            outline-offset: 2px;
+        }
+
+        /* Share */
+        .share {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 8px;
+            border-top: 1px solid var(--tt-line);
+        }
+
+        .share__label {
+            font: 600 14px/1 'Work Sans', sans-serif;
+            color: var(--tt-gray);
+        }
+
+        .share__links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .share__link {
+            width: 40px;
+            height: 40px;
+            border-radius: 999px;
+            border: 1px solid var(--tt-line);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .share__link:hover {
+            background: var(--tt-black);
+            color: #fff;
+            border-color: var(--tt-black);
+        }
+
+        .share__link:focus-visible {
+            outline: 2px solid var(--tt-black);
+            outline-offset: 2px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #111;
+            color: #fff;
+            padding: 12px 14px;
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: 0.2s;
+            z-index: 1000;
+        }
+
+        .toast--show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        .footer {
+            background: #F9F9F9;
+            border-top: 1px solid var(--tt-line);
+        }
+
+        .footer__newsletter {
+            background: var(--tt-black);
+            color: white;
+            padding: 48px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .footer__newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer__newsletter-text {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .footer__newsletter-form {
+            display: flex;
+            gap: 8px;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .footer__newsletter-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-size: 14px;
+        }
+
+        .footer__newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer__newsletter-button {
+            padding: 12px 24px;
+            background: white;
+            color: var(--tt-black);
+            border: 0;
+            border-radius: 6px;
+            font: 600 14px/1 'Work Sans', sans-serif;
+            cursor: pointer;
+        }
+
+        .footer__main {
+            padding: 48px 0 32px;
+        }
+
+        .footer__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+
+        .footer__section h3 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .footer__links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer__link {
+            font-size: 14px;
+            color: var(--tt-gray);
+            transition: color 0.2s;
+        }
+
+        .footer__link:hover {
+            color: var(--tt-black);
+        }
+
+        .footer__contact-item {
+            font-size: 14px;
+            color: var(--tt-gray);
+            margin-bottom: 10px;
+        }
+
+        .footer__contact-item a {
+            transition: color 0.2s;
+        }
+
+        .footer__contact-item a:hover {
+            color: var(--tt-black);
+        }
+
+        .footer__socials {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer__social {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--tt-line);
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .footer__social:hover {
+            background: var(--tt-black);
+            color: white;
+            border-color: var(--tt-black);
+        }
+
+        .footer__bottom {
+            padding-top: 24px;
+            border-top: 1px solid var(--tt-line);
+        }
+
+        .footer__payments {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .footer__payment {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 6px 10px;
+            border: 1px solid var(--tt-line);
+            border-radius: 4px;
+            color: var(--tt-gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 719px) {
+            .table thead {
+                display: none;
+            }
+
+            .table,
+            .table tbody,
+            .table tr,
+            .table td {
+                display: block;
+                width: 100%;
+            }
+
+            .table tr {
+                margin-bottom: 24px;
+                padding-bottom: 24px;
+                border-bottom: 1px solid var(--tt-line);
+            }
+
+            .table td {
+                padding: 8px 0;
+                border: 0;
+                text-align: left;
+            }
+
+            .table td::before {
+                content: attr(data-label);
+                font: 600 12px/1 'Work Sans', sans-serif;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                color: #9A9A9A;
+                display: block;
+                margin-bottom: 6px;
+            }
+
+            .product-cell::before {
+                display: none;
+            }
+
+            .share {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__top">
+            <p>New-Season Offer! 30% Off Select Styles</p>
+        </div>
+        <div class="header__main">
+            <div class="header__container">
+                <a href="#" class="header__logo">TRENDYTHREAD</a>
+                <nav class="header__nav">
+                    <a href="#">Home</a>
+                    <a href="#">Shop</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Pages</a>
+                    <a href="#">Media</a>
+                    <a href="#">Contact</a>
+                </nav>
+                <div class="header__icons">
+                    <button class="header__icon" aria-label="Search">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <circle cx="9" cy="9" r="6.5"/>
+                        <path d="M14 14l5 5"/>
+                    </svg>
+                </button>
+                    <a href="login.html" class="header__icon" aria-label="Account">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <circle cx="11" cy="7" r="3.5"/>
+                        <path d="M4 19c0-3.5 3-6.5 7-6.5s7 3 7 6.5"/>
+                    </svg>
+                </a>
+                    <a href="wishlist.html" class="header__icon" aria-label="Wishlist">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <path d="M11 19l-7-7c-2-2-2-5 0-7 2-2 5-2 7 0 2-2 5-2 7 0 2 2 2 5 0 7z"/>
+                    </svg>
+                </a>
+                    <a href="cart-single.html" class="header__icon header__cart-badge" aria-label="Shopping Cart">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <circle cx="9" cy="19" r="1.5" fill="currentColor" stroke="none"/>
+                        <circle cx="17" cy="19" r="1.5" fill="currentColor" stroke="none"/>
+                        <path d="M1 1h3.5l2.5 13h11l3-9H7"/>
+                    </svg>
+                </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <h1 class="page-title">Wishlist</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Date Added</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Add to cart</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-product-id="tt-tee-worldcup">
+                    <td data-label="Product">
+                        <div class="product-cell">
+                            <img src="images/shop/world-cup-tee.jpg" alt="World Cup Tee" class="thumb">
+                            <a href="/product/world-cup-print-tee" class="product-title">World Wide Cup Print T-Shirt</a>
+                        </div>
+                    </td>
+                    <td data-label="Price">
+                        <div class="price">
+                            <s>$29.99</s>
+                            $23.99
+                        </div>
+                    </td>
+                    <td data-label="Date Added">October 20, 2025</td>
+                    <td data-label="Stock">
+                        <span class="pill pill--in">In Stock</span>
+                    </td>
+                    <td data-label="Add to cart">
+                        <a href="/product/world-cup-print-tee" class="btn btn--ghost">Select options</a>
+                    </td>
+                    <td>
+                        <button type="button" class="remove" aria-label="Remove World Wide Cup Print T-Shirt from wishlist" onclick="removeItem(this)">×</button>
+                    </td>
+                </tr>
+                <tr data-product-id="tt-overshirt-pocket">
+                    <td data-label="Product">
+                        <div class="product-cell">
+                            <img src="images/shop/check-overshirt.jpg" alt="Check Overshirt" class="thumb">
+                            <a href="/product/check-overshirt-pocket" class="product-title">Check Overshirt With Pocket Detail</a>
+                        </div>
+                    </td>
+                    <td data-label="Price">
+                        <div class="price">
+                            <s>$129.00</s>
+                            $112.00
+                        </div>
+                    </td>
+                    <td data-label="Date Added">October 20, 2025</td>
+                    <td data-label="Stock">
+                        <span class="pill pill--in">In Stock</span>
+                    </td>
+                    <td data-label="Add to cart">
+                        <button type="button" class="btn btn--primary" onclick="addToCart(this, 9011)">Add to cart</button>
+                    </td>
+                    <td>
+                        <button type="button" class="remove" aria-label="Remove Check Overshirt With Pocket Detail from wishlist" onclick="removeItem(this)">×</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="share">
+            <span class="share__label">Share on:</span>
+            <div class="share__links">
+                <a href="#" class="share__link" aria-label="Share on Facebook">
+                    <span aria-hidden="true">f</span>
+                    <span class="sr-only">Facebook</span>
+                </a>
+                <a href="#" class="share__link" aria-label="Share on X / Twitter">
+                    <span aria-hidden="true">𝕏</span>
+                    <span class="sr-only">X / Twitter</span>
+                </a>
+                <a href="#" class="share__link" aria-label="Share on Pinterest">
+                    <span aria-hidden="true">P</span>
+                    <span class="sr-only">Pinterest</span>
+                </a>
+                <a href="#" class="share__link" aria-label="Share via Email">
+                    <span aria-hidden="true">@</span>
+                    <span class="sr-only">Email</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <footer class="footer">
+        <div class="footer__newsletter">
+            <div class="container">
+                <div class="footer__newsletter-content">
+                    <p class="footer__newsletter-text">Join and get 10% off your first order. Be the first to know about drops, restocks, and exclusives.</p>
+                    <form class="footer__newsletter-form">
+                        <input type="email" class="footer__newsletter-input" placeholder="Enter your email" required>
+                        <button type="submit" class="footer__newsletter-button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__main">
+            <div class="container">
+                <div class="footer__grid">
+                    <div class="footer__section">
+                        <h3>Quick Links</h3>
+                        <div class="footer__links">
+                            <a href="#" class="footer__link">Shop</a>
+                            <a href="#" class="footer__link">FAQ</a>
+                            <a href="#" class="footer__link">Shipping</a>
+                            <a href="#" class="footer__link">Returns</a>
+                            <a href="#" class="footer__link">Careers</a>
+                            <a href="#" class="footer__link">Terms & Conditions</a>
+                            <a href="#" class="footer__link">Privacy Policy</a>
+                        </div>
+                    </div>
+
+                    <div class="footer__section">
+                        <h3>Contact</h3>
+                        <div class="footer__contact-item">
+                            <a href="mailto:support@trendythread.com">support@trendythread.com</a>
+                        </div>
+                        <div class="footer__contact-item">
+                            <a href="tel:+14155550199">+1 (415) 555-0199</a>
+                        </div>
+                        <div class="footer__contact-item">
+                            1350 Market St<br>San Francisco, CA 94103
+                        </div>
+                    </div>
+
+                    <div class="footer__section">
+                        <h3>Follow Us</h3>
+                        <div class="footer__socials">
+                            <a href="#" class="footer__social">IG</a>
+                            <a href="#" class="footer__social">TW</a>
+                            <a href="#" class="footer__social">FB</a>
+                            <a href="#" class="footer__social">PT</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer__bottom">
+                    <div class="footer__payments">
+                        <span class="footer__payment">AMEX</span>
+                        <span class="footer__payment">PayPal</span>
+                        <span class="footer__payment">MC</span>
+                        <span class="footer__payment">Visa</span>
+                        <span class="footer__payment">Apple Pay</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add to cart functionality
+        function addToCart(button, productId) {
+            button.disabled = true;
+
+            // Show toast
+            const toast = document.getElementById('toast');
+            toast.textContent = 'Added to cart';
+            toast.classList.add('toast--show');
+
+            // Hide toast and re-enable button after 2s
+            setTimeout(() => {
+                toast.classList.remove('toast--show');
+                setTimeout(() => {
+                    button.disabled = false;
+                }, 200);
+            }, 2000);
+        }
+
+        // Remove item from wishlist
+        function removeItem(button) {
+            const row = button.closest('tr');
+            const height = row.offsetHeight;
+
+            // Animate height collapse
+            row.style.height = height + 'px';
+            row.style.overflow = 'hidden';
+            row.style.transition = 'height 0.3s ease, opacity 0.3s ease';
+
+            // Force reflow
+            row.offsetHeight;
+
+            // Collapse
+            row.style.height = '0';
+            row.style.opacity = '0';
+
+            // Remove from DOM after animation
+            setTimeout(() => {
+                row.remove();
+            }, 300);
+        }
+    </script>
+</body>
+</html>

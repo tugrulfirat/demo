@@ -1,0 +1,10 @@
+*.py
+*.json
+.kiro/
+screenshots/
+FIGMA_*.md
+IMPORT_*.md
+UPWORK_*.md
+DESIGN_*.md
+CONTRA_*.md
+README.md

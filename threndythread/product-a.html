@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic High-Neck Puff Jacket – TrendyThread</title>
+    <meta name="description" content="Lightweight insulated puff with high collar and elastic hems. Layer-friendly, cozy, and warm.">
+    <link rel="canonical" href="/product/high-neck-puff-jacket">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Work Sans', sans-serif;
+            --color-text: #1a1a1a;
+            --color-text-light: #666666;
+            --color-border: #e5e5e5;
+            --color-bg: #ffffff;
+            --color-bg-light: #f9f9f9;
+            --color-primary: #1a1a1a;
+            --color-accent: #c19a6b;
+            --container-max: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-text);
+            line-height: 1.6;
+            background: var(--color-bg);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        /* Header */
+        .header {
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header__top {
+            background: var(--color-primary);
+            color: white;
+            padding: 8px 0;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .header__main {
+            padding: 20px 0;
+        }
+
+        .header__container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .header__logo {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .header__nav {
+            display: none;
+            gap: 32px;
+            font-size: 15px;
+        }
+
+        .header__nav a:hover {
+            color: var(--color-accent);
+        }
+
+        .header__icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .header__icon {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            stroke-width: 1.5;
+        }
+
+        button.header__icon {
+            background: none;
+            border: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .header__icon:hover {
+            color: var(--color-accent);
+        }
+
+        .header__cart-badge {
+            position: relative;
+        }
+
+        .header__cart-badge::after {
+            content: '2';
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--color-primary);
+            color: white;
+            font-size: 10px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .header__nav {
+                display: flex;
+            }
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 16px 24px;
+            font-size: 14px;
+            color: var(--color-text-light);
+        }
+
+        .breadcrumbs a {
+            color: var(--color-text-light);
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Product Detail */
+        .product-detail {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        .product-detail__main {
+            display: grid;
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        @media (min-width: 1024px) {
+            .product-detail__main {
+                grid-template-columns: minmax(0, 1fr) minmax(360px, 440px);
+                gap: 60px;
+            }
+        }
+
+        /* Gallery */
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .product-gallery__main {
+            aspect-ratio: 3/4;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--color-bg-light);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .product-gallery__main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-gallery__thumbnails {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .product-gallery__thumb {
+            aspect-ratio: 3/4;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            background: var(--color-bg-light);
+        }
+
+        .product-gallery__thumb:hover {
+            border-color: var(--color-text-light);
+        }
+
+        .product-gallery__thumb--active {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 1px var(--color-primary);
+        }
+
+        .product-gallery__thumb-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Product Summary */
+        .product-summary {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .product-summary__status {
+            background: #E9F7EF;
+            color: #1E7E34;
+            border-radius: 6px;
+            padding: 4px 12px;
+            font: 600 12px/1.6 var(--font-sans);
+            display: inline-block;
+            align-self: flex-start;
+        }
+
+        .product-summary__brand {
+            font-size: 13px;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-summary__title {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .product-summary__price {
+            font-size: 32px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .product-summary__old-price {
+            color: var(--color-text-light);
+            text-decoration: line-through;
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        /* Options */
+        .product-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 24px 0;
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .product-option {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .product-option__label {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .product-option__colors {
+            display: flex;
+            gap: 12px;
+        }
+
+        .product-option__color {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--color-border);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .product-option__color:hover {
+            transform: scale(1.1);
+            border-color: var(--color-primary);
+        }
+
+        .product-option__color--active {
+            border-color: var(--color-primary);
+            border-width: 3px;
+        }
+
+        .product-option__color--active::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--color-primary);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .product-option__sizes {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .product-option__size {
+            min-width: 56px;
+            padding: 12px 16px;
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .product-option__size:hover {
+            border-color: var(--color-primary);
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .product-option__size--active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        /* Quantity */
+        .product-quantity {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .product-quantity__label {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .product-quantity__stepper {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .product-quantity__btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: background 0.2s ease;
+        }
+
+        .product-quantity__btn:hover {
+            background: var(--color-bg-light);
+        }
+
+        .product-quantity__btn:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: -2px;
+        }
+
+        .product-quantity__input {
+            width: 60px;
+            height: 40px;
+            border: none;
+            border-left: 1px solid var(--color-border);
+            border-right: 1px solid var(--color-border);
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Actions */
+        .product-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        .btn--primary {
+            background: var(--color-primary);
+            color: white;
+            border: 1px solid var(--color-primary);
+        }
+
+        .btn--primary:hover {
+            background: #333;
+            border-color: #333;
+        }
+
+        .btn--ghost {
+            background: white;
+            color: var(--color-primary);
+            border: 1px solid #111;
+        }
+
+        .btn--ghost:hover {
+            background: var(--color-bg-light);
+        }
+
+        /* Aux Links */
+        .product-aux {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-top: 16px;
+        }
+
+        .product-aux__link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--color-text);
+            transition: color 0.2s ease;
+        }
+
+        .product-aux__link:hover {
+            color: var(--color-accent);
+        }
+
+        .product-aux__link:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        .product-aux__icon {
+            font-size: 18px;
+        }
+
+        /* Meta */
+        .product-meta {
+            padding-top: 20px;
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 14px;
+        }
+
+        .product-meta__row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .product-meta__label {
+            color: var(--color-text-light);
+            font-weight: 500;
+        }
+
+        .product-meta__value {
+            color: var(--color-text);
+        }
+
+        .product-meta__value a {
+            transition: color 0.2s ease;
+        }
+
+        .product-meta__value a:hover {
+            color: var(--color-accent);
+        }
+
+        .product-meta__value a:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        /* Tabs */
+        .product-tabs {
+            margin-bottom: 40px;
+        }
+
+        .product-tabs__nav {
+            display: flex;
+            gap: 32px;
+            border-bottom: 1px solid var(--color-border);
+            list-style: none;
+        }
+
+        .product-tabs__tab {
+            padding: 16px 0;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+            color: var(--color-text-light);
+        }
+
+        .product-tabs__tab:hover {
+            color: var(--color-text);
+        }
+
+        .product-tabs__tab:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        .product-tabs__tab[aria-selected="true"] {
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
+        }
+
+        .product-tabs__panel {
+            display: none;
+            padding: 32px 0;
+        }
+
+        .product-tabs__panel--active {
+            display: block;
+        }
+
+        .product-tabs__content p {
+            margin-bottom: 16px;
+            line-height: 1.8;
+            color: var(--color-text);
+        }
+
+        /* Reviews */
+        .review {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .review:last-child {
+            border-bottom: none;
+        }
+
+        .review__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .review__author {
+            font-weight: 600;
+        }
+
+        .review__date {
+            font-size: 13px;
+            color: var(--color-text-light);
+        }
+
+        .review__stars {
+            color: #f39c12;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .review__text {
+            line-height: 1.6;
+            color: var(--color-text);
+        }
+
+        /* Additional Images Strip */
+        .product-images-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        .product-images-strip__image {
+            aspect-ratio: 3/4;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--color-bg-light);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .product-images-strip__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Related Products */
+        .related-products {
+            padding-top: 40px;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .related-products__title {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .related-products__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        @media (min-width: 640px) {
+            .related-products__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .related-products__grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Product Card */
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .product-card__image-wrapper {
+            position: relative;
+            aspect-ratio: 3/4;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--color-bg-light);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .product-card__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-card__image {
+            transform: scale(1.05);
+        }
+
+        .product-card__badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #E63946;
+            color: #fff;
+            border-radius: 999px;
+            padding: 4px 12px;
+            font: 600 12px/1.6 var(--font-sans);
+        }
+
+        .product-card__title {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .product-card__price {
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .product-card__old-price {
+            color: var(--color-text-light);
+            text-decoration: line-through;
+            font-weight: 400;
+        }
+
+        .product-card__reviews {
+            font-size: 13px;
+            color: var(--color-text-light);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-primary);
+            color: white;
+            padding: 60px 24px 24px;
+        }
+
+        .footer__content {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: grid;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .footer__content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .footer__content {
+                grid-template-columns: 2fr repeat(3, 1fr);
+            }
+        }
+
+        .footer__section-title {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .footer__text {
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer__list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer__link {
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .footer__link:hover {
+            color: var(--color-accent);
+        }
+
+        .footer__link:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        .footer__bottom {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .footer__socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer__social-link {
+            color: rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
+        }
+
+        .footer__social-link:hover {
+            color: var(--color-accent);
+        }
+
+        .footer__social-link:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__top">
+            <p>New-Season Offer! 30% Off Select Styles</p>
+        </div>
+        <div class="header__main">
+            <div class="header__container">
+                <a href="/" class="header__logo">TRENDYTHREAD</a>
+            <nav class="header__nav">
+                <a href="/">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="#">Blog</a>
+                <a href="#">Pages</a>
+                <a href="#">Media</a>
+                <a href="#">Contact</a>
+            </nav>
+            <div class="header__icons">
+                <button class="header__icon" aria-label="Search">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <circle cx="9" cy="9" r="6.5"/>
+                        <path d="M14 14l5 5"/>
+                    </svg>
+                </button>
+                <a href="login.html" class="header__icon" aria-label="Account">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <circle cx="11" cy="7" r="3.5"/>
+                        <path d="M4 19c0-3.5 3-6.5 7-6.5s7 3 7 6.5"/>
+                    </svg>
+                </a>
+                <a href="wishlist.html" class="header__icon" aria-label="Wishlist">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <path d="M11 19l-7-7c-2-2-2-5 0-7 2-2 5-2 7 0 2-2 5-2 7 0 2 2 2 5 0 7z"/>
+                    </svg>
+                </a>
+                <a href="cart-single.html" class="header__icon header__cart-badge" aria-label="Shopping Cart">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <circle cx="9" cy="19" r="1.5" fill="currentColor" stroke="none"/>
+                        <circle cx="17" cy="19" r="1.5" fill="currentColor" stroke="none"/>
+                        <path d="M1 1h3.5l2.5 13h11l3-9H7"/>
+                    </svg>
+                </a>
+            </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <a href="/">Home</a> / <a href="/shop">Shop</a> / <span>Classic High-Neck Puff Jacket</span>
+    </div>
+
+    <!-- Product Detail -->
+    <div class="product-detail">
+        <div class="product-detail__main">
+            <!-- Gallery -->
+            <div class="product-gallery">
+                <div class="product-gallery__main">
+                    <img src="images/products/jacket-puff-high-neck/main.jpg" alt="Classic High-Neck Puff Jacket - Main View" class="product-gallery__main-image" id="mainImage">
+                </div>
+                <div class="product-gallery__thumbnails">
+                    <button class="product-gallery__thumb product-gallery__thumb--active" style="background-image: url('images/products/jacket-puff-high-neck/main.jpg'); background-size: cover; background-position: center;" aria-label="View main image">
+                        <img src="images/products/jacket-puff-high-neck/main.jpg" alt="Main view thumbnail" class="product-gallery__thumb-image">
+                    </button>
+                    <button class="product-gallery__thumb" style="background-image: url('images/products/jacket-puff-high-neck/side.jpg'); background-size: cover; background-position: center;" aria-label="View side image">
+                        <img src="images/products/jacket-puff-high-neck/side.jpg" alt="Side view thumbnail" class="product-gallery__thumb-image">
+                    </button>
+                    <button class="product-gallery__thumb" style="background-image: url('images/products/jacket-puff-high-neck/detail.jpg'); background-size: cover; background-position: center;" aria-label="View close-up image">
+                        <img src="images/products/jacket-puff-high-neck/detail.jpg" alt="Close-up view thumbnail" class="product-gallery__thumb-image">
+                    </button>
+                    <button class="product-gallery__thumb" style="background-image: url('images/products/jacket-puff-high-neck/back.jpg'); background-size: cover; background-position: center;" aria-label="View back image">
+                        <img src="images/products/jacket-puff-high-neck/back.jpg" alt="Back view thumbnail" class="product-gallery__thumb-image">
+                    </button>
+                    <button class="product-gallery__thumb" style="background-image: url('images/products/jacket-puff-high-neck/lifestyle.jpg'); background-size: cover; background-position: center;" aria-label="View lifestyle image">
+                        <img src="images/products/jacket-puff-high-neck/lifestyle.jpg" alt="Lifestyle view thumbnail" class="product-gallery__thumb-image">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="product-summary">
+                <span class="product-summary__status">In Stock</span>
+                <div class="product-summary__brand">TrendyThread</div>
+                <h1 class="product-summary__title">Classic High-Neck Puff Jacket</h1>
+                <div class="product-summary__price">$129.00</div>
+
+                <!-- Options -->
+                <div class="product-options">
+                    <div class="product-option">
+                        <label class="product-option__label">Color</label>
+                        <div class="product-option__colors">
+                            <button class="product-option__color product-option__color--active" style="background: #EFEAE2;" title="Ivory" aria-label="Select Ivory color"></button>
+                            <button class="product-option__color" style="background: #D6C8B6;" title="Sand" aria-label="Select Sand color"></button>
+                        </div>
+                    </div>
+
+                    <div class="product-option">
+                        <label class="product-option__label">Size</label>
+                        <div class="product-option__sizes">
+                            <button class="product-option__size">XS</button>
+                            <button class="product-option__size">S</button>
+                            <button class="product-option__size product-option__size--active">M</button>
+                            <button class="product-option__size">L</button>
+                            <button class="product-option__size">XL</button>
+                        </div>
+                    </div>
+
+                    <div class="product-quantity">
+                        <span class="product-quantity__label">Quantity</span>
+                        <div class="product-quantity__stepper">
+                            <button class="product-quantity__btn" aria-label="Decrease quantity">−</button>
+                            <input type="number" class="product-quantity__input" value="1" min="1" max="99" aria-label="Quantity">
+                            <button class="product-quantity__btn" aria-label="Increase quantity">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="product-actions">
+                    <button class="btn btn--primary">Add to cart</button>
+                    <button class="btn btn--ghost">Buy Now</button>
+                </div>
+
+                <!-- Aux Links -->
+                <div class="product-aux">
+                    <a href="#" class="product-aux__link">
+                        <span class="product-aux__icon">📏</span>
+                        <span>Size Guide</span>
+                    </a>
+                    <a href="#" class="product-aux__link">
+                        <span class="product-aux__icon">♡</span>
+                        <span>Add to wishlist</span>
+                    </a>
+                    <a href="#" class="product-aux__link">
+                        <span class="product-aux__icon">↗</span>
+                        <span>Share this Product</span>
+                    </a>
+                </div>
+
+                <!-- Meta -->
+                <div class="product-meta">
+                    <div class="product-meta__row">
+                        <span class="product-meta__label">SKU:</span>
+                        <span class="product-meta__value">SUAJK74</span>
+                    </div>
+                    <div class="product-meta__row">
+                        <span class="product-meta__label">Categories:</span>
+                        <span class="product-meta__value">
+                            <a href="#">Jackets &amp; Coats</a>, <a href="#">Outerwear</a>, <a href="#">Women</a>
+                        </span>
+                    </div>
+                    <div class="product-meta__row">
+                        <span class="product-meta__label">Tags:</span>
+                        <span class="product-meta__value">
+                            <a href="#">puff</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="product-tabs">
+            <ul class="product-tabs__nav" role="tablist">
+                <li class="product-tabs__tab" role="tab" aria-selected="true" aria-controls="tab-description" id="tab-desc">Description</li>
+                <li class="product-tabs__tab" role="tab" aria-selected="false" aria-controls="tab-reviews" id="tab-rev">Reviews (1)</li>
+            </ul>
+            <div class="product-tabs__panel product-tabs__panel--active" role="tabpanel" aria-labelledby="tab-desc" id="tab-description">
+                <div class="product-tabs__content">
+                    <p>A versatile puff jacket designed for warmth and everyday wear. Lightweight yet insulated for colder days, finished with elastic cuffs and a high collar. Pair it with knits or tees for an easy, modern look.</p>
+                    <p>Shell/Fill: recycled poly blend. Lining: soft microfleece. Machine wash cold.</p>
+                </div>
+            </div>
+            <div class="product-tabs__panel" role="tabpanel" aria-labelledby="tab-rev" id="tab-reviews">
+                <div class="review">
+                    <div class="review__header">
+                        <span class="review__author">Maya C.</span>
+                        <span class="review__date">February 14, 2025</span>
+                    </div>
+                    <div class="review__stars">★★★★★</div>
+                    <p class="review__text">Warm without bulk. True to size and the collar is perfect.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Images Strip -->
+        <div class="product-images-strip">
+            <div class="product-images-strip__image">
+                <img src="images/products/jacket-puff-high-neck/styling-1.jpg" alt="Puff jacket styling 1">
+            </div>
+            <div class="product-images-strip__image">
+                <img src="images/products/jacket-puff-high-neck/styling-2.jpg" alt="Puff jacket styling 2">
+            </div>
+            <div class="product-images-strip__image">
+                <img src="images/products/jacket-puff-high-neck/styling-3.jpg" alt="Puff jacket styling 3">
+            </div>
+            <div class="product-images-strip__image">
+                <img src="images/products/jacket-puff-high-neck/styling-4.jpg" alt="Puff jacket styling 4">
+            </div>
+            <div class="product-images-strip__image">
+                <img src="images/products/jacket-puff-high-neck/styling-5.jpg" alt="Puff jacket styling 5">
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <div class="related-products">
+            <h2 class="related-products__title">Related products</h2>
+            <div class="related-products__grid">
+                <a href="product-b.html" class="product-card">
+                    <div class="product-card__image-wrapper">
+                        <img src="images/products/hoodie-rose-printed/red/main.jpg" alt="Rose Printed Hoodie" class="product-card__image">
+                        <span class="product-card__badge">21%</span>
+                    </div>
+                    <h3 class="product-card__title">Rose Printed Hoodie</h3>
+                    <div class="product-card__price">$110.99</div>
+                    <div class="product-card__reviews">(1 review)</div>
+                </a>
+
+                <a href="#" class="product-card">
+                    <div class="product-card__image-wrapper">
+                        <img src="images/products/hoodie-oversize-zipper/main.jpg" alt="Oversize Hoodie With Zipper" class="product-card__image">
+                    </div>
+                    <h3 class="product-card__title">Oversize Hoodie With Zipper</h3>
+                    <div class="product-card__price">$124.00</div>
+                    <div class="product-card__reviews">(1 review)</div>
+                </a>
+
+                <a href="#" class="product-card">
+                    <div class="product-card__image-wrapper">
+                        <img src="images/products/jacket-puffer-short/main.jpg" alt="Short Nylon-Effect Puffer Jacket" class="product-card__image">
+                        <span class="product-card__badge">26%</span>
+                    </div>
+                    <h3 class="product-card__title">Short Nylon-Effect Puffer Jacket</h3>
+                    <div class="product-card__price">
+                        $29.90
+                        <span class="product-card__old-price">$39.90</span>
+                    </div>
+                    <div class="product-card__reviews">(2 reviews)</div>
+                </a>
+
+                <a href="#" class="product-card">
+                    <div class="product-card__image-wrapper">
+                        <img src="images/products/sweatshirt-graphic-mountain/main.jpg" alt="Brown Mountain Graphic Sweatshirt" class="product-card__image">
+                        <span class="product-card__badge">24%</span>
+                    </div>
+                    <h3 class="product-card__title">Brown Mountain Graphic Sweatshirt</h3>
+                    <div class="product-card__price">
+                        $22.60
+                        <span class="product-card__old-price">$29.99</span>
+                    </div>
+                    <div class="product-card__reviews">(2 reviews)</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__content">
+            <div class="footer__section">
+                <h3 class="footer__section-title">TrendyThread</h3>
+                <p class="footer__text">Your destination for contemporary fashion. Discover curated collections that blend timeless elegance with modern trends.</p>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__section-title">Shop</h3>
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link">New Arrivals</a></li>
+                    <li><a href="#" class="footer__link">Best Sellers</a></li>
+                    <li><a href="#" class="footer__link">Sale</a></li>
+                    <li><a href="#" class="footer__link">Collections</a></li>
+                </ul>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__section-title">Help</h3>
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link">Contact Us</a></li>
+                    <li><a href="#" class="footer__link">Shipping Info</a></li>
+                    <li><a href="#" class="footer__link">Returns</a></li>
+                    <li><a href="#" class="footer__link">Size Guide</a></li>
+                </ul>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__section-title">About</h3>
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link">Our Story</a></li>
+                    <li><a href="#" class="footer__link">Sustainability</a></li>
+                    <li><a href="#" class="footer__link">Careers</a></li>
+                    <li><a href="#" class="footer__link">Press</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2024 TrendyThread. All rights reserved.</p>
+            <div class="footer__socials">
+                <a href="#" class="footer__social-link">Facebook</a>
+                <a href="#" class="footer__social-link">Instagram</a>
+                <a href="#" class="footer__social-link">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Thumbnail gallery functionality
+        const mainImage = document.getElementById('mainImage');
+        const thumbnails = document.querySelectorAll('.product-gallery__thumb');
+
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                const newImageSrc = thumb.dataset.image;
+                mainImage.src = newImageSrc;
+
+                thumbnails.forEach(t => t.classList.remove('product-gallery__thumb--active'));
+                thumb.classList.add('product-gallery__thumb--active');
+            });
+        });
+
+        // Tabs functionality
+        const tabButtons = document.querySelectorAll('.product-tabs__tab');
+        const tabPanels = document.querySelectorAll('.product-tabs__panel');
+
+        tabButtons.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+                tabButtons.forEach(t => t.setAttribute('aria-selected', 'false'));
+                tabPanels.forEach(p => p.classList.remove('product-tabs__panel--active'));
+
+                tab.setAttribute('aria-selected', 'true');
+                tabPanels[index].classList.add('product-tabs__panel--active');
+            });
+        });
+
+        // Quantity stepper
+        const quantityInput = document.querySelector('.product-quantity__input');
+        const decreaseBtn = document.querySelectorAll('.product-quantity__btn')[0];
+        const increaseBtn = document.querySelectorAll('.product-quantity__btn')[1];
+
+        decreaseBtn.addEventListener('click', () => {
+            const currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        });
+
+        increaseBtn.addEventListener('click', () => {
+            const currentValue = parseInt(quantityInput.value);
+            if (currentValue < 99) {
+                quantityInput.value = currentValue + 1;
+            }
+        });
+
+        // Color selector
+        const colorButtons = document.querySelectorAll('.product-option__color');
+        colorButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                colorButtons.forEach(b => b.classList.remove('product-option__color--active'));
+                btn.classList.add('product-option__color--active');
+            });
+        });
+
+        // Size selector
+        const sizeButtons = document.querySelectorAll('.product-option__size');
+        sizeButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                sizeButtons.forEach(b => b.classList.remove('product-option__size--active'));
+                btn.classList.add('product-option__size--active');
+            });
+        });
+    </script>
+</body>
+</html>

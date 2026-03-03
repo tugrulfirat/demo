@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register – TrendyThread</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-text: #1a1a1a;
+            --color-text-light: #666;
+            --color-border: #e0e0e0;
+            --color-bg: #fff;
+            --color-bg-gray: #f9f9f9;
+            --color-primary: #1a1a1a;
+            --color-error: #d32f2f;
+            --color-success: #2e7d32;
+
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Work Sans', sans-serif;
+
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .header__top {
+            background: var(--color-primary);
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            font-size: 13px;
+            letter-spacing: 0.02em;
+        }
+
+        .header__top a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .header__main {
+            padding: 1rem 0;
+        }
+
+        .header__container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .header__logo {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        .header__nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .header__nav a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.02em;
+            transition: opacity 0.2s;
+        }
+
+        .header__nav a:hover {
+            opacity: 0.6;
+        }
+
+        .header__icons {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+        }
+
+        .header__icon {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            stroke-width: 1.5;
+        }
+
+        button.header__icon {
+            background: none;
+            border: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .header__icon:hover {
+            opacity: 0.6;
+        }
+
+        /* Main Content */
+        .auth-page {
+            max-width: 480px;
+            margin: var(--space-xl) auto;
+            padding: 0 var(--space-md);
+        }
+
+        .auth-page__title {
+            font-family: var(--font-heading);
+            font-size: 36px;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-lg);
+            text-align: center;
+        }
+
+        /* Tabs */
+        .auth-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--color-border);
+            margin-bottom: var(--space-lg);
+        }
+
+        .auth-tabs__tab {
+            flex: 1;
+            background: none;
+            border: none;
+            padding: var(--space-sm) 0;
+            font-family: var(--font-body);
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--color-text-light);
+            cursor: pointer;
+            position: relative;
+            transition: color 0.2s;
+        }
+
+        .auth-tabs__tab:hover {
+            color: var(--color-text);
+        }
+
+        .auth-tabs__tab--active {
+            color: var(--color-text);
+            font-weight: 500;
+        }
+
+        .auth-tabs__tab--active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--color-primary);
+        }
+
+        /* Form */
+        .auth-form {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+
+        .form-group__label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: var(--space-xs);
+            color: var(--color-text);
+        }
+
+        .form-group__label--required::after {
+            content: ' *';
+            color: var(--color-error);
+        }
+
+        .form-group__input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: 2px;
+            font-family: var(--font-body);
+            font-size: 15px;
+            transition: border-color 0.2s;
+        }
+
+        .form-group__input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .form-group__input--error {
+            border-color: var(--color-error);
+        }
+
+        .form-group__password-wrapper {
+            position: relative;
+        }
+
+        .form-group__password-toggle {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            padding: 0.25rem;
+            cursor: pointer;
+            color: var(--color-text-light);
+            transition: color 0.2s;
+        }
+
+        .form-group__password-toggle:hover {
+            color: var(--color-text);
+        }
+
+        .form-group__password-toggle svg {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+
+        .form-group__helper {
+            font-size: 13px;
+            color: var(--color-text-light);
+            margin-top: var(--space-xs);
+        }
+
+        .form-group__error {
+            font-size: 13px;
+            color: var(--color-error);
+            margin-top: var(--space-xs);
+            display: none;
+        }
+
+        .form-group__error--visible {
+            display: block;
+        }
+
+        .form-group__note {
+            font-size: 13px;
+            color: var(--color-text-light);
+            margin-top: var(--space-md);
+            line-height: 1.5;
+        }
+
+        .form-group__note a {
+            color: var(--color-text);
+            text-decoration: underline;
+        }
+
+        /* Button */
+        .btn {
+            width: 100%;
+            padding: 0.875rem 2rem;
+            border: 1px solid var(--color-primary);
+            background: var(--color-primary);
+            color: white;
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: white;
+            color: var(--color-primary);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Status message */
+        .form-status {
+            padding: var(--space-sm);
+            border-radius: 2px;
+            font-size: 14px;
+            margin-bottom: var(--space-md);
+            display: none;
+        }
+
+        .form-status--visible {
+            display: block;
+        }
+
+        .form-status--error {
+            background: #ffebee;
+            color: var(--color-error);
+            border: 1px solid #ffcdd2;
+        }
+
+        .form-status--success {
+            background: #e8f5e9;
+            color: var(--color-success);
+            border: 1px solid #c8e6c9;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-bg-gray);
+            border-top: 1px solid var(--color-border);
+            padding: var(--space-xl) 0 var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .footer__container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .footer__section-title {
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer__links {
+            list-style: none;
+        }
+
+        .footer__links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer__links a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer__links a:hover {
+            color: var(--color-text);
+        }
+
+        .footer__bottom {
+            max-width: 1440px;
+            margin: var(--space-lg) auto 0;
+            padding: var(--space-lg) 2rem 0;
+            border-top: 1px solid var(--color-border);
+            text-align: center;
+            font-size: 13px;
+            color: var(--color-text-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header__nav {
+                display: none;
+            }
+
+            .auth-page {
+                margin: var(--space-lg) auto;
+            }
+
+            .auth-page__title {
+                font-size: 28px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__top">
+            <p>New-Season Offer! 30% Off Select Styles</p>
+        </div>
+        <div class="header__main">
+            <div class="header__container">
+                <a href="#" class="header__logo">TRENDYTHREAD</a>
+                <nav class="header__nav">
+                    <a href="#">Home</a>
+                    <a href="#">Shop</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Pages</a>
+                    <a href="#">Media</a>
+                    <a href="#">Contact</a>
+                </nav>
+                <div class="header__icons">
+                    <button class="header__icon" aria-label="Search">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <circle cx="9" cy="9" r="6.5"/>
+                        <path d="M14 14l5 5"/>
+                    </svg>
+                </button>
+                    <a href="login.html" class="header__icon" aria-label="Account">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <circle cx="11" cy="7" r="3.5"/>
+                        <path d="M4 19c0-3.5 3-6.5 7-6.5s7 3 7 6.5"/>
+                    </svg>
+                </a>
+                    <a href="wishlist.html" class="header__icon" aria-label="Wishlist">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <path d="M11 19l-7-7c-2-2-2-5 0-7 2-2 5-2 7 0 2-2 5-2 7 0 2 2 2 5 0 7z"/>
+                    </svg>
+                </a>
+                    <a href="cart-single.html" class="header__icon header__cart-badge" aria-label="Shopping Cart">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor">
+                        <circle cx="9" cy="19" r="1.5" fill="currentColor" stroke="none"/>
+                        <circle cx="17" cy="19" r="1.5" fill="currentColor" stroke="none"/>
+                        <path d="M1 1h3.5l2.5 13h11l3-9H7"/>
+                    </svg>
+                </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="auth-page">
+        <h1 class="auth-page__title">My Account</h1>
+
+        <div class="auth-tabs">
+            <button type="button" class="auth-tabs__tab" onclick="window.location.href='login.html'">Login</button>
+            <button type="button" class="auth-tabs__tab auth-tabs__tab--active" aria-current="page">Register</button>
+        </div>
+
+        <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+
+        <form id="registerForm" class="auth-form" novalidate>
+            <div class="form-group">
+                <label for="username" class="form-group__label form-group__label--required">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    class="form-group__input"
+                    required
+                    aria-required="true"
+                    autocomplete="username"
+                >
+                <div id="usernameError" class="form-group__error" role="alert"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="form-group__label form-group__label--required">Email address</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-group__input"
+                    required
+                    aria-required="true"
+                    autocomplete="email"
+                >
+                <div id="emailError" class="form-group__error" role="alert"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-group__label form-group__label--required">Password</label>
+                <div class="form-group__password-wrapper">
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="form-group__input"
+                        required
+                        aria-required="true"
+                        autocomplete="new-password"
+                    >
+                    <button
+                        type="button"
+                        class="form-group__password-toggle"
+                        aria-label="Show password"
+                        aria-pressed="false"
+                        id="passwordToggle"
+                    >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </button>
+                </div>
+                <div class="form-group__helper">8+ characters, with a mix of letters and numbers.</div>
+                <div id="passwordError" class="form-group__error" role="alert"></div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group__note">
+                    Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <a href="/privacy-policy">privacy policy</a>.
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Register</button>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <div>
+                <h3 class="footer__section-title">Shop</h3>
+                <ul class="footer__links">
+                    <li><a href="/women">Women</a></li>
+                    <li><a href="/men">Men</a></li>
+                    <li><a href="/new-arrivals">New Arrivals</a></li>
+                    <li><a href="/sale">Sale</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer__section-title">Help</h3>
+                <ul class="footer__links">
+                    <li><a href="/shipping">Shipping</a></li>
+                    <li><a href="/returns">Returns</a></li>
+                    <li><a href="/sizing">Sizing</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer__section-title">About</h3>
+                <ul class="footer__links">
+                    <li><a href="/about">Our Story</a></li>
+                    <li><a href="/sustainability">Sustainability</a></li>
+                    <li><a href="/careers">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2025 TrendyThread. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form elements
+        const form = document.getElementById('registerForm');
+        const usernameInput = document.getElementById('username');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const passwordToggle = document.getElementById('passwordToggle');
+        const formStatus = document.getElementById('formStatus');
+
+        // Error elements
+        const usernameError = document.getElementById('usernameError');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+
+        // Password toggle functionality
+        passwordToggle.addEventListener('click', () => {
+            const isPassword = passwordInput.type === 'password';
+            passwordInput.type = isPassword ? 'text' : 'password';
+            passwordToggle.setAttribute('aria-pressed', isPassword ? 'true' : 'false');
+            passwordToggle.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
+        });
+
+        // Validation functions
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function validatePassword(password) {
+            // At least 8 characters, contains letters and numbers
+            const hasLength = password.length >= 8;
+            const hasLetters = /[a-zA-Z]/.test(password);
+            const hasNumbers = /[0-9]/.test(password);
+            return hasLength && hasLetters && hasNumbers;
+        }
+
+        function showError(fieldName, message) {
+            const input = document.getElementById(fieldName);
+            const errorEl = document.getElementById(fieldName + 'Error');
+
+            input.classList.add('form-group__input--error');
+            errorEl.textContent = message;
+            errorEl.classList.add('form-group__error--visible');
+        }
+
+        function clearError(fieldName) {
+            const input = document.getElementById(fieldName);
+            const errorEl = document.getElementById(fieldName + 'Error');
+
+            input.classList.remove('form-group__input--error');
+            errorEl.textContent = '';
+            errorEl.classList.remove('form-group__error--visible');
+        }
+
+        function clearAllErrors() {
+            clearError('username');
+            clearError('email');
+            clearError('password');
+        }
+
+        function showFormStatus(message, type) {
+            formStatus.textContent = message;
+            formStatus.className = 'form-status form-status--visible form-status--' + type;
+        }
+
+        function hideFormStatus() {
+            formStatus.className = 'form-status';
+        }
+
+        // Clear error on input
+        usernameInput.addEventListener('input', () => clearError('username'));
+        emailInput.addEventListener('input', () => clearError('email'));
+        passwordInput.addEventListener('input', () => clearError('password'));
+
+        // Form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            clearAllErrors();
+            hideFormStatus();
+
+            const username = usernameInput.value.trim();
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+
+            let isValid = true;
+
+            // Validate username
+            if (!username) {
+                showError('username', 'This field is required.');
+                isValid = false;
+            } else if (username.length < 3) {
+                showError('username', 'Username must be at least 3 characters.');
+                isValid = false;
+            }
+
+            // Validate email
+            if (!email) {
+                showError('email', 'This field is required.');
+                isValid = false;
+            } else if (!validateEmail(email)) {
+                showError('email', 'Please enter a valid email address.');
+                isValid = false;
+            }
+
+            // Validate password
+            if (!password) {
+                showError('password', 'This field is required.');
+                isValid = false;
+            } else if (!validatePassword(password)) {
+                showError('password', 'Password must be 8+ characters with letters and numbers.');
+                isValid = false;
+            }
+
+            if (isValid) {
+                // In a real application, you would send the data to your server here
+                console.log('Registration form submitted:', { username, email, password: '***' });
+
+                showFormStatus('Registration successful! Redirecting...', 'success');
+
+                // Simulate redirect after successful registration
+                setTimeout(() => {
+                    // window.location.href = '/my-account';
+                    console.log('Would redirect to /my-account');
+                }, 1500);
+            } else {
+                showFormStatus('Please correct the errors below.', 'error');
+            }
+        });
+    </script>
+</body>
+</html>

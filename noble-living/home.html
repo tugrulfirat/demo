@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NobleLiving | Luxury Real Estate Discovery</title>
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Design Tokens */
+            --font-family-serif: "Playfair Display", serif;
+            --font-family-base: "Plus Jakarta Sans", sans-serif;
+
+            --font-weight-regular: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+
+            --font-size-xs: 12px;
+            --font-size-sm: 14px;
+            --font-size-md: 16px;
+            --font-size-lg: 18px;
+            --font-size-xl: 20px;
+            --font-size-h1: clamp(3.5rem, 8vw, 8rem);
+            --font-size-h2: clamp(2.5rem, 5vw, 4rem);
+            --font-size-h3: 2.25rem;
+            --font-size-h4: 1.5rem;
+
+            --lh-body: 1.625;
+            --lh-heading: 1.1;
+
+            /* Luxury Color Palette - Onyx & Gold */
+            --color-primary: #0F172A;
+            /* Deep Midnight */
+            --color-primary-dark: #020617;
+            /* Almost Black */
+            --color-accent: #D4AF37;
+            /* Gold remains */
+            --color-bg: #F9F8F6;
+            --color-surface: #FFFFFF;
+            --color-charcoal: #1A1A1A;
+            --color-muted: #64748B;
+            --color-border: rgba(15, 23, 42, 0.1);
+
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-section-lg: 8rem;
+
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.08);
+
+            --transition-cinematic: 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-ui: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background-color: var(--color-bg);
+            color: var(--color-charcoal);
+            line-height: var(--lh-body);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Noise Texture Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3BaseFilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/feTurbulence%3E%3C/baseFilter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Visible Grid Lines */
+        .grid-lines {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 1600px;
+            height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            z-index: 999;
+            padding: 0 64px;
+        }
+
+        .grid-line {
+            width: 1px;
+            height: 100%;
+            background-color: var(--color-charcoal);
+            opacity: 0.05;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-family-serif);
+            line-height: var(--lh-heading);
+            font-weight: var(--font-weight-regular);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-ui);
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 64px;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 100;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-family: var(--font-family-serif);
+            font-size: 24px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-charcoal);
+            letter-spacing: -0.02em;
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav__link {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--color-muted);
+        }
+
+        .nav__link:hover {
+            color: var(--color-accent);
+        }
+
+        .header__actions {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 48px;
+            padding: 0 32px;
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .btn--primary {
+            background: var(--color-charcoal);
+            color: white;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn--primary span {
+            position: relative;
+            z-index: 10;
+        }
+
+        .btn--primary::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--color-accent);
+            transition: var(--transition-ui);
+            z-index: 1;
+        }
+
+        .btn--primary:hover::after {
+            left: 0;
+        }
+
+        .btn--primary:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn--ghost {
+            color: var(--color-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 90vh;
+            background: #111;
+            display: flex;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero__bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url('images/noble-living/hero-luxury-penthouse.png');
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.1);
+            animation: hero-zoom 20s infinite alternate cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        @keyframes hero-zoom {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.05);
+            }
+        }
+
+        .hero:hover .hero__bg {
+            filter: grayscale(0);
+            transform: scale(1.05);
+        }
+
+        .hero__content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+        }
+
+        .hero__overline {
+            font-size: var(--font-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .hero__overline::before {
+            content: "";
+            height: 1px;
+            width: 48px;
+            background: var(--color-accent);
+        }
+
+        .hero__title {
+            font-size: var(--font-size-h1);
+            max-width: 900px;
+            margin-bottom: 48px;
+        }
+
+        .hero__title em {
+            font-style: italic;
+            color: var(--color-accent);
+        }
+
+        /* Search Bar */
+        .search-bar {
+            background: var(--color-surface);
+            padding: 8px;
+            display: flex;
+            gap: 8px;
+            max-width: 1000px;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .search-bar__field {
+            flex: 1;
+            border-right: 1px solid var(--color-border);
+            padding: 0 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .search-bar__field:last-child {
+            border-right: none;
+        }
+
+        .search-bar__label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-muted);
+            margin-bottom: 4px;
+        }
+
+        .search-bar__input {
+            border: none;
+            padding: 4px 0;
+            font-family: var(--font-family-base);
+            font-size: var(--font-size-sm);
+            color: var(--color-charcoal);
+            width: 100%;
+            outline: none;
+        }
+
+        .search-bar__input::placeholder {
+            font-family: var(--font-family-serif);
+            font-style: italic;
+            color: var(--color-muted);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: var(--space-section-lg) 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 64px;
+        }
+
+        .section-title {
+            font-size: var(--font-size-h2);
+            max-width: 600px;
+        }
+
+        /* Property Card - Cinematic Upgrade */
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .card {
+            position: relative;
+            background: var(--color-charcoal);
+            border: none;
+            padding: 0;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: var(--transition-cinematic);
+        }
+
+        .card__image-wrap {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            z-index: 1;
+            aspect-ratio: auto;
+        }
+
+        .card__image-wrap::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.8) 90%);
+            z-index: 2;
+        }
+
+        .card__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(0.3);
+            transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .card:hover .card__image {
+            transform: scale(1.1);
+            filter: grayscale(0);
+        }
+
+        .card__tag {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            /* Move to right */
+            left: auto;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--color-charcoal);
+            padding: 8px 16px;
+            font-weight: 600;
+            z-index: 10;
+            letter-spacing: 0.1em;
+        }
+
+        .card__meta {
+            position: relative;
+            z-index: 10;
+            margin: 0 32px 8px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .card__title {
+            position: relative;
+            z-index: 10;
+            margin: 0 32px 8px;
+            font-size: 24px;
+            color: white;
+            font-family: var(--font-family-serif);
+        }
+
+        .card__title a {
+            background-image: linear-gradient(white, white);
+            background-position: 0% 100%;
+            background-repeat: no-repeat;
+            background-size: 0% 1px;
+            transition: background-size .5s;
+        }
+
+        .card:hover .card__title a {
+            background-size: 100% 1px;
+        }
+
+        .card__price {
+            position: relative;
+            z-index: 10;
+            margin: 0 32px 40px;
+            color: var(--color-accent);
+            font-family: var(--font-family-base);
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        /* City Grid */
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .city-card {
+            aspect-ratio: 3/4;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding: 40px;
+        }
+
+        .city-card__bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(1);
+            transition: var(--transition-cinematic);
+            z-index: 1;
+        }
+
+        .city-card:hover .city-card__bg {
+            filter: grayscale(0);
+            transform: scale(1.1);
+        }
+
+        .city-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+            z-index: 2;
+        }
+
+        .city-card__content {
+            position: relative;
+            z-index: 3;
+            color: white;
+        }
+
+        .city-card__name {
+            font-size: var(--font-size-h3);
+            margin-bottom: 8px;
+        }
+
+        .city-card__link {
+            font-size: var(--font-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--color-accent);
+        }
+
+        /* Trust Section */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 64px;
+            margin-top: 40px;
+        }
+
+        .trust-item {
+            text-align: center;
+            padding: 40px;
+            border: 1px solid var(--color-border);
+            transition: var(--transition-ui);
+        }
+
+        .trust-item:hover {
+            border-color: var(--color-charcoal);
+            background: white;
+            transform: translateY(-8px);
+        }
+
+        .trust-item__icon {
+            font-size: 32px;
+            margin-bottom: 24px;
+            color: var(--color-accent);
+        }
+
+        .trust-item__title {
+            font-family: var(--font-family-serif);
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .trust-item__text {
+            font-size: 14px;
+            color: var(--color-muted);
+            line-height: 1.6;
+        }
+
+        /* Editorial Pick */
+        .editorial-pick {
+            display: flex;
+            background: var(--color-charcoal);
+            color: white;
+            min-height: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .editorial-pick__image {
+            flex: 1;
+            background-image: url('images/noble-living/editorial-pick-villa.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .editorial-pick__content {
+            flex: 1;
+            padding: 100px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--color-charcoal);
+            position: relative;
+            z-index: 10;
+        }
+
+        .editorial-pick__overline {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--color-accent);
+            margin-bottom: 24px;
+        }
+
+        .editorial-pick__title {
+            font-family: var(--font-family-serif);
+            font-size: 48px;
+            line-height: 1.1;
+            margin-bottom: 32px;
+        }
+
+        .editorial-pick__text {
+            font-size: 16px;
+            line-height: 1.8;
+            opacity: 0.8;
+            margin-bottom: 48px;
+            max-width: 500px;
+        }
+
+        /* Testimonials */
+        .testimonial-slider {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-item__text {
+            font-family: var(--font-family-serif);
+            font-style: italic;
+            font-size: 32px;
+            line-height: 1.4;
+            margin-bottom: 40px;
+        }
+
+        .testimonial-item__author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .testimonial-item__name {
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .testimonial-item__role {
+            font-size: 12px;
+            color: var(--color-muted);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-charcoal);
+            color: white;
+            padding: var(--space-section-lg) 0 40px;
+        }
+
+        .footer__grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 80px;
+        }
+
+        .footer__brand {
+            max-width: 300px;
+        }
+
+        .footer__logo {
+            font-size: 32px;
+            margin-bottom: 24px;
+            display: block;
+            color: white;
+        }
+
+        .footer__text {
+            font-size: var(--font-size-sm);
+            opacity: 0.6;
+            margin-bottom: 32px;
+        }
+
+        .footer__title {
+            font-size: var(--font-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 32px;
+            color: var(--color-accent);
+        }
+
+        .footer__list {
+            list-style: none;
+        }
+
+        .footer__item {
+            margin-bottom: 16px;
+        }
+
+        .footer__link {
+            font-size: var(--font-size-sm);
+            opacity: 0.6;
+            color: white;
+        }
+
+        .footer__link:hover {
+            opacity: 1;
+            padding-left: 8px;
+            color: var(--color-accent);
+        }
+
+        /* Quick Links (Main Content) */
+        .quick-link {
+            font-size: var(--font-size-sm);
+            color: var(--color-charcoal);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: var(--transition-ui);
+            display: block;
+        }
+
+        .quick-link:hover {
+            opacity: 1;
+            padding-left: 8px;
+            color: var(--color-accent);
+        }
+
+        .footer__bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            font-size: var(--font-size-xs);
+            opacity: 0.4;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Decorative Vertical Text */
+        .vertical-label {
+            position: absolute;
+            writing-mode: vertical-rl;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            font-size: 10px;
+            color: var(--color-muted);
+            height: 100%;
+            top: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .vertical-label--left {
+            left: -40px;
+        }
+
+        .vertical-label--right {
+            right: -40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero__title {
+                font-size: 6rem;
+            }
+
+            .property-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .city-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .container {
+                padding: 0 32px;
+            }
+
+            .grid-lines {
+                padding: 0 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero__title {
+                font-size: 4rem;
+            }
+
+            .search-bar {
+                flex-direction: column;
+            }
+
+            .search-bar__field {
+                border-right: none;
+                border-bottom: 1px solid var(--color-border);
+                padding: 16px;
+            }
+
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .city-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer__grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 24px;
+            }
+
+            .trust-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .editorial-pick {
+                flex-direction: column;
+            }
+
+            .editorial-pick__content {
+                padding: 60px 32px;
+            }
+
+            .testimonial-item__text {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-lines">
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+    </div>
+
+    <header class="header">
+        <div class="container header__container">
+            <a href="home.html" class="logo">NobleLiving</a>
+            <nav class="nav">
+                <a href="home.html" class="nav__link nav__link--active">Home</a>
+                <a href="grid-results.html" class="nav__link">Search</a>
+                <a href="map-list.html" class="nav__link">Rentals</a>
+                <a href="neighborhoods.html" class="nav__link">Neighborhoods</a>
+                <a href="journal.html" class="nav__link">Journal</a>
+                <a href="about.html" class="nav__link">Vision</a>
+                <a href="contact.html" class="nav__link">Contact</a>
+            </nav>
+            <div class="header__actions">
+                <span
+                    style="font-size: 10px; letter-spacing: 0.2em; color: var(--color-muted); text-transform: uppercase;">EN
+                    | FR</span>
+                <a href="contact.html" class="btn btn--primary"><span>Book Viewing</span></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero__bg"></div>
+            <div class="container">
+                <div class="hero__content">
+                    <div class="hero__overline">Premium Residential Discovery</div>
+                    <h1 class="hero__title">It's Time to <em>Move</em> Into Your Future.</h1>
+
+                    <form class="search-bar">
+                        <div class="search-bar__field">
+                            <label class="search-bar__label">Location</label>
+                            <input type="text" class="search-bar__input" placeholder="Search city or address">
+                        </div>
+                        <div class="search-bar__field">
+                            <label class="search-bar__label">Service</label>
+                            <input type="text" class="search-bar__input" value="Rent" readonly>
+                        </div>
+                        <div class="search-bar__field">
+                            <label class="search-bar__label">Type</label>
+                            <input type="text" class="search-bar__input" placeholder="Apartment">
+                        </div>
+                        <div class="search-bar__field" style="flex: 0 0 160px; border-right: none;">
+                            <button type="button" class="btn btn--primary"
+                                style="width: 100%; height: 54px;"><span>Search</span></button>
+                        </div>
+                    </form>
+
+                    <div
+                        style="margin-top: 32px; display: flex; gap: 24px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.25em; opacity: 0.7;">
+                        <span>● Verified Listings</span>
+                        <span>● Neighborhood Insights</span>
+                        <span>● Zero Hidden Fees</span>
+                    </div>
+                </div>
+            </div>
+            <div class="vertical-label vertical-label--right">Editorial / Vol. 24</div>
+        </section>
+
+        <!-- The Noble Difference -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header"
+                    style="justify-content: center; text-align: center; flex-direction: column; align-items: center;">
+                    <h2 class="section-title">The Noble <em>Difference</em></h2>
+                    <p style="color: var(--color-muted); max-width: 600px; margin-top: 16px;">We go beyond standard
+                        listings. Every property in our collection is curated for its architectural integrity and
+                        lifestyle potential.</p>
+                </div>
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <div class="trust-item__icon">✧</div>
+                        <h3 class="trust-item__title">Verified Integrity</h3>
+                        <p class="trust-item__text">Every property undergoes a 50-point inspection before it appears on
+                            our platform. No surprises, just quality.</p>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-item__icon">✦</div>
+                        <h3 class="trust-item__title">Architectural Curation</h3>
+                        <p class="trust-item__text">We don't list everything. We only showcase spaces that meet our high
+                            standards for design and soul.</p>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-item__icon">✨</div>
+                        <h3 class="trust-item__title">Concierge Service</h3>
+                        <p class="trust-item__text">Our dedicated consultants are here to guide you through every step,
+                            from viewing to the final signature.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Apartments Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">New Apartments <br><em>For Rent</em></h2>
+                    <div style="display: flex; gap: 16px;">
+                        <button class="btn btn--primary"
+                            style="height: 40px; padding: 0 20px;"><span>&larr;</span></button>
+                        <button class="btn btn--primary"
+                            style="height: 40px; padding: 0 20px;"><span>&rarr;</span></button>
+                    </div>
+                </div>
+
+                <div class="property-grid">
+                    <div class="card">
+                        <div class="card__image-wrap">
+                            <div class="card__tag">Promoted</div>
+                            <img src="images/noble-living/property-living-room.png"
+                                alt="Modern luxury living room with floor-to-ceiling windows" class="card__image">
+                        </div>
+                        <div class="card__meta">3 Beds — 2 Baths — 1,200 sqft</div>
+                        <h3 class="card__title"><a href="property-detail.html">The Penthouse at Azure</a></h3>
+                        <p class="card__price">$3,400 /mo</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__image-wrap">
+                            <div class="card__tag">New</div>
+                            <img src="images/noble-living/property-bedroom.png"
+                                alt="Minimalist bedroom with neutral tones" class="card__image">
+                        </div>
+                        <div class="card__meta">2 Beds — 2 Baths — 950 sqft</div>
+                        <h3 class="card__title"><a href="property-detail.html">Minimalist Loft Space</a></h3>
+                        <p class="card__price">$2,850 /mo</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__image-wrap">
+                            <img src="images/noble-living/property-studio-luxury.png"
+                                alt="High-end urban studio apartment" class="card__image">
+                        </div>
+                        <div class="card__meta">Studio — 1 Bath — 450 sqft</div>
+                        <h3 class="card__title"><a href="property-detail.html">Urban Sanctuary Studio</a></h3>
+                        <p class="card__price">$1,750 /mo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Editorial Pick -->
+        <section class="editorial-pick">
+            <div class="editorial-pick__image"></div>
+            <div class="editorial-pick__content">
+                <div class="editorial-pick__overline">Editorial Pick / Winter 2026</div>
+                <h2 class="editorial-pick__title">The Brutalist <br><em>Villa</em></h2>
+                <p class="editorial-pick__text">A masterclass in concrete and light. This architectural landmark in the
+                    heart of Vancouver offers a seamless blend of indoor-outdoor living with panoramic views of the
+                    Pacific.</p>
+                <div style="display: flex; gap: 24px;">
+                    <a href="property-detail.html" class="btn btn--primary"><span>Explore Property</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Cities Section -->
+        <section class="section" style="background: #eee;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Popular Cities <br><em>to Explore</em></h2>
+                    <a href="#" class="nav__link">View All Cities</a>
+                </div>
+
+                <div class="city-grid">
+                    <div class="city-card">
+                        <div class="city-card__bg"
+                            style="background-image: url('images/noble-living/city-toronto.png');">
+                        </div>
+                        <div class="city-card__content">
+                            <h3 class="city-card__name">Toronto</h3>
+                            <a href="grid-results.html" class="city-card__link">View Rentals &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="city-card">
+                        <div class="city-card__bg"
+                            style="background-image: url('images/noble-living/city-vancouver.png');">
+                        </div>
+                        <div class="city-card__content">
+                            <h3 class="city-card__name">Vancouver</h3>
+                            <a href="grid-results.html" class="city-card__link">View Rentals &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="city-card">
+                        <div class="city-card__bg"
+                            style="background-image: url('images/noble-living/city-montreal.png');">
+                        </div>
+                        <div class="city-card__content">
+                            <h3 class="city-card__name">Montreal</h3>
+                            <a href="grid-results.html" class="city-card__link">View Rentals &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="city-card">
+                        <div class="city-card__bg"
+                            style="background-image: url('images/noble-living/city-calgary.png');">
+                        </div>
+                        <div class="city-card__content">
+                            <h3 class="city-card__name">Calgary</h3>
+                            <a href="grid-results.html" class="city-card__link">View Rentals &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Searches Links -->
+        <section class="section">
+            <div class="container">
+                <div
+                    style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; border-top: 1px solid var(--color-border); padding-top: 64px;">
+                    <div>
+                        <h4 style="margin-bottom: 24px; font-weight: 700;">Toronto</h4>
+                        <ul class="footer__list">
+                            <li class="footer__item"><a href="#" class="quick-link">1 Bedroom Apartments</a></li>
+                            <li class="footer__item"><a href="#" class="quick-link">2 Bedroom Apartments</a></li>
+                            <li class="footer__item"><a href="#" class="quick-link">Condos for Rent</a></li>
+                            <li class="footer__item"><a href="#" class="quick-link">Houses for Rent</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 24px; font-weight: 700;">Vancouver</h4>
+                        <ul class="footer__list">
+                            <li class="footer__item"><a href="#" class="quick-link">1 Bedroom Apartments</a></li>
+                            <li class="footer__item"><a href="#" class="quick-link">Luxury Condos</a></li>
+                            <li class="footer__item"><a href="#" class="quick-link">Basement Suites</a></li>
+                            <li class="footer__item"><a href="#" class="quick-link">Townhouses</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 24px; font-weight: 700;">Calgary</h4>
+                        <ul class="footer__list">
+                            <li class="footer__item"><a href="#" class="quick-link">Downtown Studios</a></li>
+                            <li class="footer__item"><a href="#" class="quick-link">Pet Friendly Rentals</a></li>
+                            <li class="footer__item"><a href="#" class="quick-link">Under $1500</a></li>
+                        </ul>
+                    </div>
+                    <div style="background: var(--color-accent); padding: 40px; color: white;">
+                        <h4 style="margin-bottom: 16px; font-family: var(--font-family-serif); font-size: 24px;">List
+                            Your <br>Property</h4>
+                        <p style="font-size: 14px; opacity: 0.9; margin-bottom: 24px;">Reach thousands of verified
+                            renters across Canada.</p>
+                        <button class="btn btn--primary" style="background: white; color: black;"><span>Learn
+                                More</span></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voices of Excellence -->
+        <section class="section" style="background: var(--color-bg); padding: 120px 0;">
+            <div class="container">
+                <div class="testimonial-slider">
+                    <div class="testimonial-item">
+                        <p class="testimonial-item__text">"Searching for a home was usually a chore, but NobleLiving
+                            turned it into an editorial experience. The curation is unmatched."</p>
+                        <div class="testimonial-item__author">
+                            <span class="testimonial-item__name">Julianna Vardy</span>
+                            <span class="testimonial-item__role">Architectural Photographer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="#" class="logo footer__logo">NobleLiving</a>
+                    <p class="footer__text">The leading editorial-first luxury real estate platform. Curating the finest
+                        living spaces across the nation with a commitment to transparency and architectural excellence.
+                    </p>
+                    <div style="display: flex; gap: 16px;">
+                        <a href="#" class="footer__link">IG</a>
+                        <a href="#" class="footer__link">TW</a>
+                        <a href="#" class="footer__link">FB</a>
+                        <a href="#" class="footer__link">LI</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer__title">Rentals</h4>
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="#" class="footer__link">Toronto Rentals</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Vancouver Rentals</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Montreal Rentals</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Calgary Rentals</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__title">Philosophy</h4>
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="neighborhoods.html" class="footer__link">Neighborhoods</a>
+                        </li>
+                        <li class="footer__item"><a href="journal.html" class="footer__link">The Journal</a></li>
+                        <li class="footer__item"><a href="about.html" class="footer__link">Our Vision</a></li>
+                        <li class="footer__item"><a href="contact.html" class="footer__link">Concierge</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__title">Support</h4>
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="#" class="footer__link">Help Centre</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Terms of Service</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Privacy Policy</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 NobleLiving Real Estate Platform. All rights reserved.</p>
+                <p>Designed with architectural precision.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* ===================================
+           NOBLE-LIVING — GSAP ANIMATION SUITE
+        =================================== */
+        gsap.registerPlugin(ScrollTrigger);
+
+        /* ── Helper: scroll-reveal with immediateRender:false ── */
+        function sr(targets, vars, triggerEl, startPos) {
+            gsap.from(targets, {
+                ...vars,
+                immediateRender: false,
+                scrollTrigger: {
+                    trigger: triggerEl || targets,
+                    start: startPos || 'top 90%',
+                    once: true
+                }
+            });
+        }
+
+        /* ── 1. Header: fade + slide down on load ── */
+        gsap.from('.header', { y: -20, opacity: 0, duration: 0.8, ease: 'power2.out' });
+
+        /* ── 2. Hero: cinematic entrance ── */
+        const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        heroTl
+            .from('.hero__overline', { y: 20, opacity: 0, duration: 0.7, delay: 0.3 })
+            .from('.hero__title', { y: 50, opacity: 0, duration: 1.0 }, '-=0.2')
+            .from('.search-bar', { y: 30, opacity: 0, duration: 0.7 }, '-=0.3');
+
+        /* ── 3. Property listing cards: cinematic stagger ── */
+        gsap.utils.toArray('.property-grid').forEach(grid => {
+            gsap.from(grid.querySelectorAll('.card'), {
+                y: 40,
+                opacity: 0,
+                duration: 0.75,
+                stagger: 0.12,
+                ease: 'power2.out',
+                immediateRender: false,
+                scrollTrigger: { trigger: grid, start: 'top 88%', once: true }
+            });
+        });
+
+        /* ── 4. Section titles ── */
+        gsap.utils.toArray('.section-title').forEach(el => {
+            sr(el, { y: 28, opacity: 0, duration: 0.75, ease: 'power2.out' }, el, 'top 92%');
+        });
+
+        /* ── 5. City cards ── */
+        sr('.city-card', { y: 32, opacity: 0, duration: 0.7, stagger: 0.1, ease: 'power2.out' }, '.city-grid');
+
+        /* ── 6. Trust items ── */
+        sr('.trust-item', { y: 28, opacity: 0, duration: 0.65, stagger: 0.12, ease: 'power2.out' }, '.trust-grid');
+
+        /* ── 7. Editorial pick: image slides from left, content from right ── */
+        sr('.editorial-pick__image', { x: -50, opacity: 0, duration: 1.0, ease: 'power2.out' }, '.editorial-pick', 'top 82%');
+        sr('.editorial-pick__content', { x: 50, opacity: 0, duration: 1.0, ease: 'power2.out' }, '.editorial-pick', 'top 82%');
+
+        /* ── 8. Testimonial ── */
+        sr('.testimonial-item__text, .testimonial-item__author',
+            { y: 28, opacity: 0, duration: 0.75, stagger: 0.18, ease: 'power2.out' },
+            '.testimonial-slider');
+    </script>
+
+</body>
+
+</html>
