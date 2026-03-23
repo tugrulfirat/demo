@@ -634,7 +634,7 @@ footer { background: var(--ink); padding: 64px 48px 32px; }
 .feature-deep-text ul li::before { content: ''; width: 5px; height: 5px; background: var(--lime-dk); border-radius: 50%; margin-top: 8px; flex-shrink: 0; }
 .feature-visual { background: var(--forest); border-radius: 24px; padding: 32px; min-height: 320px; display: flex; flex-direction: column; justify-content: center; }
 .feature-visual.light { background: var(--cream2); }
-.fv-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(233,245,79,0.45); margin-bottom: 20px; }
+.fv-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(233,245,79,0.7); margin-bottom: 20px; }
 .fv-label.dark { color: var(--sage); }
 .fv-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
 .fv-row:last-child { border-bottom: none; }
@@ -648,10 +648,11 @@ footer { background: var(--ink); padding: 64px 48px 32px; }
 .wa-p { font-size: 0.8rem; color: rgba(245,237,228,0.7); line-height: 1.45; }
 .wa-t { font-size: 0.63rem; color: rgba(37,211,102,0.5); display: block; margin-top: 3px; }
 .sop-preview { list-style: none; }
-.sop-p-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(10,59,19,0.08); font-size: 0.84rem; color: var(--body); }
+.sop-p-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 0.84rem; color: rgba(245,237,228,0.85); }
 .sop-p-item:last-child { border-bottom: none; }
+.feature-visual.light .sop-p-item { color: var(--body); border-bottom-color: rgba(10,59,19,0.08); }
 .sop-p-chk { width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; flex-shrink: 0; }
-.sop-p-chk.d { background: var(--forest); color: var(--lime); }
+.sop-p-chk.d { background: var(--lime); color: var(--forest); }
 .sop-p-chk.p { background: rgba(135,162,132,0.18); color: var(--sage); border: 1px solid rgba(135,162,132,0.3); }
 .alt-section { background: var(--cream2); }
 @media(max-width:980px){
