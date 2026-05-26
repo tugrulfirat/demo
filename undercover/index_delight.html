@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en" data-accent="red">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Undercover Digital — Design Prototype</title>
+  <meta name="description" content="Interactive design prototype for Undercover Digital — Vancouver-based social media marketing agency." />
+  <link rel="stylesheet" href="style_delight.css" />
+</head>
+<body>
+
+<!-- ========================================================
+     PROTOTYPE BAR
+     ======================================================== -->
+<div id="prototype-bar" role="toolbar" aria-label="Prototype Controls">
+  <span class="proto-bar__brand">Undercover Digital · Design Prototype</span>
+
+  <div class="proto-bar__center">
+    <div class="proto-bar__viewports" role="group" aria-label="Viewport modes">
+      <button class="proto-btn active" data-viewport="desktop" id="btn-desktop" title="Desktop 1440px">
+        <svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="2" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M5 14h6M8 12v2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+        Desktop
+      </button>
+      <button class="proto-btn" data-viewport="mobile" id="btn-mobile" title="Mobile 390px">
+        <svg viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="1" width="10" height="14" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="8" cy="12.5" r="0.75" fill="currentColor"/></svg>
+        Mobile
+      </button>
+      <button class="proto-btn" data-viewport="responsive" id="btn-responsive" title="Full Responsive">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 4h14M1 8h10M1 12h7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+        Responsive
+      </button>
+    </div>
+
+    <div class="proto-bar__versions" role="group" aria-label="Design options" style="display: flex; background: rgba(255,255,255,0.06); border-radius: 9999px; padding: 3px; gap: 2px;">
+      <a href="index.html" class="proto-btn" id="ver-grotesk" style="text-decoration: none; display: inline-flex; align-items: center;">Option 1: Grotesk</a>
+      <a href="index2.html" class="proto-btn" id="ver-garamond" style="text-decoration: none; display: inline-flex; align-items: center;">Option 2: Radar</a>
+      <a href="index_delight.html" class="proto-btn active" id="ver-delight" style="text-decoration: none; display: inline-flex; align-items: center;">Option 3: Delight</a>
+      <a href="index3.html" class="proto-btn" id="ver-memory" style="text-decoration: none; display: inline-flex; align-items: center;">Option 4: Memory</a>
+    </div>
+  </div>
+
+  <div class="proto-bar__accent" role="group" aria-label="Accent color">
+    <span class="proto-bar__accent-label">Accent</span>
+    <div class="accent-toggle">
+      <button class="accent-btn" data-accent="green" id="btn-green">
+        <span class="accent-dot accent-dot--green"></span>
+        Green
+      </button>
+      <button class="accent-btn active" data-accent="red" id="btn-red">
+        <span class="accent-dot accent-dot--red"></span>
+        Red
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================
+     VIEWPORT WRAPPER
+     ======================================================== -->
+<div id="viewport-wrapper" class="mode-desktop">
+  <div id="site-frame">
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+    <nav class="site-nav" id="site-nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo" id="nav-logo" data-page="home" aria-label="Undercover Digital Home">
+          <img src="assets/undercover-dark.png" alt="Undercover Digital" />
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="#" class="nav-link" data-page="about" id="nav-about">About</a></li>
+          <li><a href="#" class="nav-link" data-page="services" id="nav-services">Services</a></li>
+          <li><a href="#" class="nav-link" data-page="blog" id="nav-blog">Blog</a></li>
+          <li><a href="#" class="nav-link" data-page="contact" id="nav-contact">Contact</a></li>
+        </ul>
+
+        <a href="#" class="nav-cta" id="nav-cta-btn" data-modal="calendly" aria-label="Book a discovery call">
+          Book a Call
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <div class="nav-mobile-drawer" id="nav-mobile-drawer" role="menu">
+        <a href="#" class="nav-mobile-link" data-page="about" role="menuitem">About</a>
+        <a href="#" class="nav-mobile-link" data-page="services" role="menuitem">Services</a>
+        <a href="#" class="nav-mobile-link" data-page="blog" role="menuitem">Blog</a>
+        <a href="#" class="nav-mobile-link" data-page="contact" role="menuitem">Contact</a>
+        <a href="#" class="nav-mobile-cta" data-modal="calendly">Book a Discovery Call →</a>
+      </div>
+    </nav>
+
+    <!-- =====================================================
+         PAGE: HOME
+         ===================================================== -->
+    <main id="page-home" class="page-section active" role="main">
+
+      <!-- Hero -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__bg-grid" aria-hidden="true"></div>
+        <div class="hero__bg-glow" aria-hidden="true"></div>
+        <div class="hero__inner">
+          <div class="hero__content">
+            <div class="hero__eyebrow animate-in">
+              <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+              <span class="hero__eyebrow-text">Vancouver-Based Social Media Agency</span>
+            </div>
+            <h1 class="hero__title animate-in animate-in--delay-1" id="hero-title">
+              <span class="hero__title-line">Helping brands stay</span>
+              <span class="hero__title-line"><em>visible, relevant,</em></span>
+              <span class="hero__title-line">and <span class="hero__unforgettable">unforgettable.</span></span>
+            </h1>
+            <p class="hero__sub animate-in animate-in--delay-2">
+              Undercover Digital builds and manages social media systems that turn attention into trust, connection, and long-term growth.
+            </p>
+            <div class="hero__actions animate-in animate-in--delay-3">
+              <button class="btn btn--accent" data-modal="calendly" id="hero-cta-primary">
+                Book a Call
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button class="btn btn--outline" data-page="services" id="hero-cta-secondary">
+                Explore Services
+              </button>
+            </div>
+          </div>
+
+          <div class="hero__visual animate-in animate-in--delay-2">
+            <div class="hero-image-wrapper">
+              <img src="assets/hero-agency.png" alt="Social media content planning and management workspace" class="hero-dashboard-img" />
+              <div class="hero-image-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust / Positioning Strip -->
+      <div class="trust-strip" aria-label="Platform expertise">
+        <div class="trust-strip__inner">
+          <div class="trust-item">CANADA + US CLIENTS</div>
+          <div class="trust-divider" aria-hidden="true">/</div>
+          <div class="trust-item">INSTAGRAM</div>
+          <div class="trust-divider" aria-hidden="true">/</div>
+          <div class="trust-item">YOUTUBE</div>
+          <div class="trust-divider" aria-hidden="true">/</div>
+          <div class="trust-item">REELS + SHORTS</div>
+          <div class="trust-divider" aria-hidden="true">/</div>
+          <div class="trust-item">TIKTOK</div>
+          <div class="trust-divider" aria-hidden="true">/</div>
+          <div class="trust-item">STRATEGY · CONTENT · REPORTING</div>
+        </div>
+      </div>
+
+      <!-- Problem Section -->
+      <section class="problem-section" aria-labelledby="problem-title">
+        <div class="problem-inner">
+          <div>
+            <div class="problem-label animate-in">
+              <span>The Real Problem</span>
+            </div>
+            <h2 class="problem-heading animate-in animate-in--delay-1" id="problem-title">
+              Businesses don't need more posts.<br/>
+              They need a real presence.
+            </h2>
+            <p class="problem-body animate-in animate-in--delay-2">
+              Consistency, clarity, and an active social presence make your business look credible when customers check you out. Without it, even the best brand can feel invisible online.
+            </p>
+            <div class="problem-stats animate-in animate-in--delay-3">
+              <div class="stat-card">
+                <div class="stat-card__number">67%</div>
+                <div class="stat-card__label">of buyers check social media before purchasing</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-card__number">3×</div>
+                <div class="stat-card__label">more trust with a consistent online presence</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="problem-checklist animate-in animate-in--delay-2">
+            <div class="problem-check">
+              <div class="problem-check__icon" aria-hidden="true">✓</div>
+              <p class="problem-check__text">A consistent brand voice across every platform — not just posting to stay active.</p>
+            </div>
+            <div class="problem-check">
+              <div class="problem-check__icon" aria-hidden="true">✓</div>
+              <p class="problem-check__text">Genuine community engagement that builds trust and turns followers into customers.</p>
+            </div>
+            <div class="problem-check">
+              <div class="problem-check__icon" aria-hidden="true">✓</div>
+              <p class="problem-check__text">Strategic short-form video content that stops the scroll and drives real reach.</p>
+            </div>
+            <div class="problem-check">
+              <div class="problem-check__icon" aria-hidden="true">✓</div>
+              <p class="problem-check__text">Monthly reporting and strategy refinement so your presence keeps improving.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Overview -->
+      <section class="services-section section" aria-labelledby="services-title">
+        <div class="container">
+          <div class="section-header animate-in">
+            <div class="eyebrow" style="margin-bottom: var(--space-4);">What We Do</div>
+            <h2 class="display-2" id="services-title">A done-for-you social media partner</h2>
+            <p class="body-lg" style="margin-top: var(--space-5);">Three focused service pillars designed to grow your presence, build your audience, and manage your brand with care.</p>
+          </div>
+
+          <div class="grid-3">
+            <div class="service-card animate-in animate-in--delay-1">
+              <div class="service-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+              </div>
+              <div>
+                <h3 class="service-card__title">Social Media Growth & Brand Management</h3>
+                <p class="service-card__body">We manage your entire online presence — strategy, positioning, posting, and performance tracking — so your brand stays visible and competitive without you needing an internal team.</p>
+              </div>
+              <a href="#" class="service-card__link" data-page="services">
+                Learn more
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+
+            <div class="service-card animate-in animate-in--delay-2">
+              <div class="service-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.5"></rect><path d="M2 8h20"></path><path d="M6 2l4 6"></path><path d="M12 2l4 6"></path><path d="M18 2l2 4"></path></svg>
+              </div>
+              <div>
+                <h3 class="service-card__title">Content Creation & Video Marketing</h3>
+                <p class="service-card__body">From scripted Reels to YouTube content, we create high-quality short-form video and graphics designed to stop the scroll, capture attention, and drive real engagement.</p>
+              </div>
+              <a href="#" class="service-card__link" data-page="services">
+                Learn more
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+
+            <div class="service-card animate-in animate-in--delay-3">
+              <div class="service-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="6"></circle><circle cx="15" cy="12" r="6"></circle></svg>
+              </div>
+              <div>
+                <h3 class="service-card__title">Community Engagement & Audience Connection</h3>
+                <p class="service-card__body">We actively engage with your audience daily — responding to DMs, managing comments, and building a community that feels connected, responsive, and genuinely invested in your brand.</p>
+              </div>
+              <a href="#" class="service-card__link" data-page="services">
+                Learn more
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process -->
+      <section class="process-section" aria-labelledby="process-title">
+        <div class="container">
+          <div class="section-header animate-in">
+            <div class="eyebrow" style="margin-bottom: var(--space-4);">How We Work</div>
+            <h2 class="display-2" id="process-title">A clear process.<br/>A consistent result.</h2>
+          </div>
+
+          <div class="process-grid">
+            <div class="process-step animate-in animate-in--delay-1">
+              <div class="process-step__number">01 — Discover</div>
+              <div class="process-step__card">
+                <div class="process-step__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+                <div class="process-step__title">Understand Your Brand</div>
+                <p class="process-step__body">We start by learning your brand, audience, and goals to build a foundation for everything that follows.</p>
+              </div>
+            </div>
+            <div class="process-step animate-in animate-in--delay-2">
+              <div class="process-step__number">02 — Plan</div>
+              <div class="process-step__card">
+                <div class="process-step__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+                </div>
+                <div class="process-step__title">Build the Strategy</div>
+                <p class="process-step__body">Content pillars, platform strategy, and a full content calendar — built around your audience and business goals.</p>
+              </div>
+            </div>
+            <div class="process-step animate-in animate-in--delay-3">
+              <div class="process-step__number">03 — Create</div>
+              <div class="process-step__card">
+                <div class="process-step__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                </div>
+                <div class="process-step__title">Produce the Content</div>
+                <p class="process-step__body">Scripts, Reels, captions, graphics, and video editing — all produced to a professional standard every time.</p>
+              </div>
+            </div>
+            <div class="process-step animate-in animate-in--delay-4">
+              <div class="process-step__number">04 — Manage</div>
+              <div class="process-step__card">
+                <div class="process-step__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                </div>
+                <div class="process-step__title">Run Your Channels</div>
+                <p class="process-step__body">Posting, engagement, DM responses, and community management — handled daily so you don't have to.</p>
+              </div>
+            </div>
+            <div class="process-step animate-in animate-in--delay-5">
+              <div class="process-step__number">05 — Refine</div>
+              <div class="process-step__card">
+                <div class="process-step__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                </div>
+                <div class="process-step__title">Report & Improve</div>
+                <p class="process-step__body">Monthly analytics reporting and strategy updates keep your presence growing in the right direction.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Founder Section -->
+      <section class="founder-section" aria-labelledby="founder-title">
+        <div class="founder-inner">
+          <div class="founder-visual animate-in">
+            <div class="founder-image-container">
+              <img src="assets/founder.png" alt="Founder of Undercover Digital" class="founder-image" />
+            </div>
+            <div class="founder-badge" aria-hidden="true">
+              <div class="founder-badge__number">10</div>
+              <div class="founder-badge__label">Years of<br/>Experience</div>
+            </div>
+          </div>
+
+          <div class="founder-content animate-in animate-in--delay-1">
+            <div class="founder-content__eyebrow">
+              <span class="eyebrow">Founder-Led Agency</span>
+            </div>
+            <h2 class="founder-content__title" id="founder-title">
+              Strategy-first thinking.<br/>Hands-on execution.
+            </h2>
+            <p class="founder-content__body">
+              Undercover Digital was founded by a social media marketing professional with nearly 10 years of experience in content creation, digital marketing, and online brand growth. Having worked with businesses across multiple industries, our approach is rooted in understanding what genuinely makes brands grow online — not just what looks good.
+            </p>
+            <div class="founder-values">
+              <div class="founder-value">Strategy before content</div>
+              <div class="founder-value">Consistency builds trust</div>
+              <div class="founder-value">Engagement matters as much as publishing</div>
+              <div class="founder-value">Every brand needs a clear online identity</div>
+            </div>
+            <button class="btn btn--primary" data-page="about" id="founder-about-btn">
+              Our Story
+              <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog Preview -->
+      <section class="blog-section section" aria-labelledby="blog-preview-title">
+        <div class="container">
+          <div class="section-header animate-in" style="display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: none; margin-bottom: 0;">
+            <div>
+              <div class="eyebrow" style="margin-bottom: var(--space-4);">Insights & Resources</div>
+              <h2 class="display-2" id="blog-preview-title">From the blog</h2>
+            </div>
+            <button class="btn btn--outline btn--sm" data-page="blog">View All Posts</button>
+          </div>
+
+          <div class="blog-grid" style="margin-top: var(--space-12);">
+            <article class="blog-card animate-in animate-in--delay-1" data-blog="0" role="article">
+              <div class="blog-card__image">
+                <img src="assets/blog-pillars-light.png" alt="The Connection Between Content Creation and Content Pillars" class="blog-thumbnail-img" />
+              </div>
+              <div class="blog-card__body">
+                <div class="blog-card__meta">
+                  <span class="blog-card__tag">Strategy</span>
+                  <span class="blog-card__readtime">⏱ 5 min read</span>
+                </div>
+                <h3 class="blog-card__title">The Connection Between Content Creation and Content Pillars</h3>
+                <p class="blog-card__excerpt">If you've been struggling to come up with content ideas, feeling stuck on what to post, or wondering why your content still feels inconsistent despite your effort — you're not alone.</p>
+                <div class="blog-card__footer">
+                  <span class="blog-card__date">May 2025</span>
+                  <div class="blog-card__arrow" aria-hidden="true">→</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="blog-card animate-in animate-in--delay-2" data-blog="1" role="article">
+              <div class="blog-card__image">
+                <img src="assets/blog-profile-light.png" alt="The Power of an Optimized Social Media Profile" class="blog-thumbnail-img" />
+              </div>
+              <div class="blog-card__body">
+                <div class="blog-card__meta">
+                  <span class="blog-card__tag">Profile Optimization</span>
+                  <span class="blog-card__readtime">⏱ 4 min read</span>
+                </div>
+                <h3 class="blog-card__title">The Power of an Optimized Social Media Profile</h3>
+                <p class="blog-card__excerpt">Most businesses focus heavily on content creation — posting reels, designing graphics, and following trends — but often overlook something even more important: their social media profile.</p>
+                <div class="blog-card__footer">
+                  <span class="blog-card__date">April 2025</span>
+                  <div class="blog-card__arrow" aria-hidden="true">→</div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA -->
+      <section class="cta-section" aria-labelledby="cta-title">
+        <div class="cta-section__bg" aria-hidden="true"></div>
+        <div class="cta-inner">
+          <div class="cta-eyebrow animate-in">
+            <span class="eyebrow">Let's Work Together</span>
+          </div>
+          <h2 class="cta-title animate-in animate-in--delay-1" id="cta-title">
+            Ready to build a more <em>intentional</em> social presence?
+          </h2>
+          <p class="cta-sub animate-in animate-in--delay-2">
+            Book a free discovery call. We'll talk about your brand, your goals, and what a strategic social media presence could look like for your business.
+          </p>
+          <div class="cta-actions animate-in animate-in--delay-3">
+            <button class="btn btn--accent" data-modal="calendly" id="final-cta-btn">
+              Book a Discovery Call
+              <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="btn btn--ghost" data-page="services">
+              Explore Services
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+         PAGE: ABOUT
+         ===================================================== -->
+    <main id="page-about" class="page-section" role="main">
+
+      <!-- Hero -->
+      <section class="page-hero" aria-labelledby="about-hero-title">
+        <div class="page-hero__bg" aria-hidden="true"></div>
+        <div class="page-hero__inner">
+          <div class="page-hero__eyebrow animate-in">
+            <span class="eyebrow">Vancouver, Canada</span>
+          </div>
+          <h1 class="page-hero__title animate-in animate-in--delay-1" id="about-hero-title">
+            Built for brands that want to grow with clarity and purpose.
+          </h1>
+          <p class="page-hero__sub animate-in animate-in--delay-2">
+            Undercover Digital is a Vancouver-based social media marketing agency working with brands across Canada and the United States.
+          </p>
+        </div>
+      </section>
+
+      <!-- Overview -->
+      <section class="about-overview section" aria-labelledby="about-overview-title">
+        <div class="container container--narrow">
+          <div class="section-header animate-in">
+            <div class="accent-line" aria-hidden="true"></div>
+            <h2 class="display-3" id="about-overview-title">Who We Are</h2>
+            <p class="body-lg" style="margin-top: var(--space-5);">
+              Undercover Digital was built with the understanding that many businesses need reliable marketing support that not only improves visibility but also creates stronger audience trust and long-term brand recognition.
+            </p>
+            <p class="body-md" style="margin-top: var(--space-5);">
+              With a focus on modern social media marketing, we approach every brand with a strategy tailored to its identity, goals, and audience. We value thoughtful branding, consistency, and authentic communication — believing that successful online growth comes from creating a presence that people genuinely connect with.
+            </p>
+          </div>
+
+          <div class="mission-vision-grid animate-in animate-in--delay-1">
+            <div class="mv-card mv-card--mission">
+              <div class="mv-card__label">Our Mission</div>
+              <h3 class="mv-card__title">Building digital presence with purpose</h3>
+              <p class="mv-card__body">To help businesses build a stronger digital presence through strategic social media marketing that creates visibility, trust, and meaningful audience connection.</p>
+            </div>
+            <div class="mv-card mv-card--vision">
+              <div class="mv-card__label">Our Vision</div>
+              <h3 class="mv-card__title">A trusted growth partner for brands</h3>
+              <p class="mv-card__body">To become a trusted digital growth partner for businesses looking to build lasting brand recognition and meaningful impact in the online world.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Founder -->
+      <section class="founder-section" aria-labelledby="about-founder-title">
+        <div class="founder-inner">
+          <div class="founder-visual animate-in">
+            <div class="founder-image-container">
+              <img src="assets/founder.png" alt="Founder of Undercover Digital" class="founder-image" />
+            </div>
+            <div class="founder-badge" aria-hidden="true">
+              <div class="founder-badge__number">10</div>
+              <div class="founder-badge__label">Years of<br/>Experience</div>
+            </div>
+          </div>
+
+          <div class="founder-content animate-in animate-in--delay-1">
+            <div class="founder-content__eyebrow">
+              <span class="eyebrow">Founder Background</span>
+            </div>
+            <h2 class="founder-content__title" id="about-founder-title">
+              A decade of digital marketing experience behind every decision.
+            </h2>
+            <p class="founder-content__body">
+              Undercover Digital was founded by a social media marketing professional with nearly 10 years of experience in content creation, digital marketing, and online brand growth. Throughout her career, she has worked with businesses from different industries, helping them improve their visibility, strengthen their online presence, and better connect with their audiences.
+            </p>
+            <p class="founder-content__body">
+              For the past five years, she has independently managed marketing projects and worked directly with clients, gaining valuable experience in understanding the unique challenges businesses face in the digital space. Her passion for helping brands grow online and creating meaningful digital experiences became the foundation behind Undercover Digital.
+            </p>
+            <button class="btn btn--primary" data-modal="calendly">
+              Start a Conversation
+              <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Values -->
+      <section class="values-section section" aria-labelledby="values-title">
+        <div class="container">
+          <div class="section-header animate-in">
+            <div class="eyebrow" style="margin-bottom: var(--space-4);">What We Believe</div>
+            <h2 class="display-3" id="values-title">The principles that guide our work</h2>
+          </div>
+
+          <div class="values-grid">
+            <div class="value-card animate-in animate-in--delay-1">
+              <div class="value-card__number" aria-hidden="true">01</div>
+              <h3 class="value-card__title">Strategy Before Content</h3>
+              <p class="value-card__body">Great social media starts with a clear strategy — not just posting. We build content pillars, audience understanding, and platform direction before a single piece of content is created.</p>
+            </div>
+            <div class="value-card animate-in animate-in--delay-2">
+              <div class="value-card__number" aria-hidden="true">02</div>
+              <h3 class="value-card__title">Consistency Builds Trust</h3>
+              <p class="value-card__body">Sporadic posting signals unreliability. Brands that show up consistently — with quality, with purpose — are the ones that build lasting audience trust.</p>
+            </div>
+            <div class="value-card animate-in animate-in--delay-3">
+              <div class="value-card__number" aria-hidden="true">03</div>
+              <h3 class="value-card__title">Engagement Matters as Much as Publishing</h3>
+              <p class="value-card__body">Posting is half the work. The other half is being present — responding, connecting, and building real relationships with your community every single day.</p>
+            </div>
+            <div class="value-card animate-in animate-in--delay-4">
+              <div class="value-card__number" aria-hidden="true">04</div>
+              <h3 class="value-card__title">Every Brand Needs a Clear Online Identity</h3>
+              <p class="value-card__body">Your social presence should feel like an unmistakable extension of your brand — consistent in voice, visual identity, and the values you want your audience to associate with you.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-section" aria-labelledby="about-cta-title">
+        <div class="cta-section__bg" aria-hidden="true"></div>
+        <div class="cta-inner">
+          <div class="cta-eyebrow animate-in"><span class="eyebrow">Get in Touch</span></div>
+          <h2 class="cta-title animate-in animate-in--delay-1" id="about-cta-title">Ready to work with a team that <em>gets it</em>?</h2>
+          <p class="cta-sub animate-in animate-in--delay-2">Let's talk about your brand, your goals, and how a more intentional social presence could change the way people see you online.</p>
+          <div class="cta-actions animate-in animate-in--delay-3">
+            <button class="btn btn--accent" data-modal="calendly">Book a Discovery Call</button>
+            <button class="btn btn--ghost" data-page="contact">Contact Us</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+         PAGE: SERVICES
+         ===================================================== -->
+    <main id="page-services" class="page-section" role="main">
+
+      <section class="page-hero" aria-labelledby="services-hero-title">
+        <div class="page-hero__bg" aria-hidden="true"></div>
+        <div class="page-hero__inner">
+          <div class="page-hero__eyebrow animate-in">
+            <span class="eyebrow">Done For You</span>
+          </div>
+          <h1 class="page-hero__title animate-in animate-in--delay-1" id="services-hero-title">
+            Social media management built for visibility, trust, and growth.
+          </h1>
+          <p class="page-hero__sub animate-in animate-in--delay-2">
+            We're not just a posting service. We're a strategic social media partner — handling every aspect of your online presence so you can focus on running your business.
+          </p>
+        </div>
+      </section>
+
+      <section class="services-detail section" aria-labelledby="services-detail-title">
+        <div class="container">
+          <div class="section-header animate-in">
+            <div class="accent-line" aria-hidden="true"></div>
+            <h2 class="display-3" id="services-detail-title">Three Focused Service Pillars</h2>
+          </div>
+
+          <!-- Service 1 -->
+          <div class="service-detail-card animate-in">
+            <div>
+              <div class="sdc__tag">
+                <span aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg></span>
+                Pillar 01
+              </div>
+              <h3 class="sdc__title">Social Media Growth & Brand Management</h3>
+              <p class="sdc__body">Your social media presence should do more than just exist — it should help your business grow. We help small and medium-sized businesses build a strong, professional, and engaging online presence that attracts the right audience and keeps your brand consistently visible.</p>
+              <p class="sdc__body">Our approach combines strategy, consistency, audience research, and performance tracking to create a social media presence that builds trust, increases visibility, and supports long-term growth. We work as an extension of your business, helping you stay active, relevant, and competitive online without the need for an internal marketing team.</p>
+            </div>
+            <div>
+              <div class="sdc__includes-title">What's Included</div>
+              <ul class="sdc__list" role="list">
+                <li class="sdc__list-item">Instagram growth strategy and full account management</li>
+                <li class="sdc__list-item">YouTube content strategy and channel positioning</li>
+                <li class="sdc__list-item">Content calendars tailored to your audience and buyer journey</li>
+                <li class="sdc__list-item">Consistent posting and platform management</li>
+                <li class="sdc__list-item">Hashtag and discoverability optimization</li>
+                <li class="sdc__list-item">Monthly analytics reporting and strategy refinement</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-detail-card animate-in animate-in--delay-1">
+            <div>
+              <div class="sdc__tag">
+                <span aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.5"></rect><path d="M2 8h20"></path><path d="M6 2l4 6"></path><path d="M12 2l4 6"></path><path d="M18 2l2 4"></path></svg></span>
+                Pillar 02
+              </div>
+              <h3 class="sdc__title">Content Creation & Video Marketing</h3>
+              <p class="sdc__body">In today's digital world, attention is everything — and high-quality content is what captures it. We create engaging, strategic, and professionally crafted content designed to stop the scroll, connect with your audience, and drive real engagement.</p>
+              <p class="sdc__body">We focus on creating content that not only looks professional but also performs effectively across platforms like Instagram, TikTok, YouTube Shorts, and Facebook. By combining trends, storytelling, and conversion-focused messaging, we help your brand stay modern, memorable, and highly engaging.</p>
+            </div>
+            <div>
+              <div class="sdc__includes-title">What's Included</div>
+              <ul class="sdc__list" role="list">
+                <li class="sdc__list-item">Short-form video production for Reels, Shorts, and TikTok</li>
+                <li class="sdc__list-item">Reel scripting using trends, storytelling, and conversion psychology</li>
+                <li class="sdc__list-item">Professional video editing and content optimization</li>
+                <li class="sdc__list-item">Caption writing designed to build authority and engagement</li>
+                <li class="sdc__list-item">Graphic design for feeds, stories, and social assets</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-detail-card animate-in animate-in--delay-2">
+            <div>
+              <div class="sdc__tag">
+                <span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="6"></circle><circle cx="15" cy="12" r="6"></circle></svg></span>
+                Pillar 03
+              </div>
+              <h3 class="sdc__title">Community Engagement & Audience Connection</h3>
+              <p class="sdc__body">A successful social media presence is built through connection, not just content. We help businesses create meaningful relationships with their audience by actively engaging with followers, managing conversations, and building a strong online community around their brand.</p>
+              <p class="sdc__body">From responding to direct messages to interacting with your audience daily, we make sure your brand stays approachable, responsive, and connected. This ongoing engagement helps increase customer trust, strengthen loyalty, improve visibility, and create a more active community around your business.</p>
+            </div>
+            <div>
+              <div class="sdc__includes-title">What's Included</div>
+              <ul class="sdc__list" role="list">
+                <li class="sdc__list-item">Daily story management and audience interaction</li>
+                <li class="sdc__list-item">Active community management and audience engagement</li>
+                <li class="sdc__list-item">Responding to DMs and maintaining conversations with followers</li>
+                <li class="sdc__list-item">Strategic engagement to increase visibility and attract aligned audiences</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Full Capabilities -->
+      <section class="included-section section" aria-labelledby="capabilities-title">
+        <div class="container">
+          <div class="section-header animate-in">
+            <div class="eyebrow" style="margin-bottom: var(--space-4);">Full Capabilities</div>
+            <h2 class="display-3" id="capabilities-title">Everything we handle for you</h2>
+          </div>
+          <div class="included-grid animate-in animate-in--delay-1" role="list">
+            <div class="included-item" role="listitem">Instagram growth strategy and full account management</div>
+            <div class="included-item" role="listitem">YouTube content strategy and channel positioning</div>
+            <div class="included-item" role="listitem">Short-form video production for Reels, Shorts, and TikTok</div>
+            <div class="included-item" role="listitem">Reel scripting using trends and conversion psychology</div>
+            <div class="included-item" role="listitem">Professional video editing and content optimization</div>
+            <div class="included-item" role="listitem">Content calendars tailored to your audience</div>
+            <div class="included-item" role="listitem">Caption writing designed to build authority</div>
+            <div class="included-item" role="listitem">Daily story management and audience interaction</div>
+            <div class="included-item" role="listitem">Community engagement and audience management</div>
+            <div class="included-item" role="listitem">DM responses and conversation management</div>
+            <div class="included-item" role="listitem">Hashtag and discoverability optimization</div>
+            <div class="included-item" role="listitem">Monthly analytics reporting and strategy refinement</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section section" aria-labelledby="faq-title">
+        <div class="container">
+          <div class="section-header animate-in">
+            <div class="eyebrow" style="margin-bottom: var(--space-4);">FAQ</div>
+            <h2 class="display-3" id="faq-title">Frequently Asked Questions</h2>
+          </div>
+          <div class="faq-accordion animate-in animate-in--delay-1">
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span>What is your onboarding process like?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-content">
+                <p>We start with a discovery call to understand your brand goals. From there, we perform a social audit, build a customized strategy and content pillars, set up the content pipeline, and launch in 2 to 3 weeks.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span>Do you handle video recording or do we provide footage?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-content">
+                <p>We can work both ways. We provide scripting, concept guidelines, and video editing. For local clients, we can coordinate content shooting; for remote clients, we guide you on how to capture high-quality raw assets that we then professionally cut and optimize.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span>How do we track performance and results?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-content">
+                <p>You will receive a detailed monthly analytics report that tracks growth metrics, engagement rates, click-throughs, and key insights. We meet monthly to discuss refinements and next steps.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span>Is there a long-term contract commitment?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-content">
+                <p>We work on monthly rolling agreements with a 30-day notice period. We believe our quality of work and results should keep you partner-aligned, not rigid long-term contracts.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-section" aria-labelledby="services-cta-title">
+        <div class="cta-section__bg" aria-hidden="true"></div>
+        <div class="cta-inner">
+          <div class="cta-eyebrow animate-in"><span class="eyebrow">Let's Get Started</span></div>
+          <h2 class="cta-title animate-in animate-in--delay-1" id="services-cta-title">Ready for a social presence that <em>actually works</em>?</h2>
+          <p class="cta-sub animate-in animate-in--delay-2">Book a free discovery call and let's talk about what's possible for your brand.</p>
+          <div class="cta-actions animate-in animate-in--delay-3">
+            <button class="btn btn--accent" data-modal="calendly">Book a Discovery Call</button>
+            <button class="btn btn--ghost" data-page="contact">Contact Us</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+         PAGE: BLOG (Index)
+         ===================================================== -->
+    <main id="page-blog" class="page-section" role="main">
+
+      <!-- Blog Index -->
+      <div id="blog-index-view">
+        <section class="page-hero" aria-labelledby="blog-hero-title">
+          <div class="page-hero__bg" aria-hidden="true"></div>
+          <div class="page-hero__inner">
+            <div class="page-hero__eyebrow animate-in">
+              <span class="eyebrow">Insights & Resources</span>
+            </div>
+            <h1 class="page-hero__title animate-in animate-in--delay-1" id="blog-hero-title">
+              Practical insights for brands building a better digital presence.
+            </h1>
+          </div>
+        </section>
+
+        <section class="blog-index section" aria-labelledby="blog-index-title">
+          <div class="container">
+            <div class="section-header animate-in">
+              <div class="accent-line" aria-hidden="true"></div>
+              <h2 class="display-3" id="blog-index-title">All Posts</h2>
+            </div>
+            <div class="blog-index-grid">
+              <article class="blog-card animate-in animate-in--delay-1" data-blog="0" role="article">
+                <div class="blog-card__image">
+                  <img src="assets/blog-pillars-light.png" alt="The Connection Between Content Creation and Content Pillars" class="blog-thumbnail-img" />
+                </div>
+                <div class="blog-card__body">
+                  <div class="blog-card__meta">
+                    <span class="blog-card__tag">Strategy</span>
+                    <span class="blog-card__readtime">⏱ 5 min read</span>
+                  </div>
+                  <h3 class="blog-card__title">The Connection Between Content Creation and Content Pillars</h3>
+                  <p class="blog-card__excerpt">If you've been struggling to come up with content ideas, feeling stuck on what to post, or wondering why your content still feels inconsistent despite your effort — you're not alone.</p>
+                  <div class="blog-card__footer">
+                    <span class="blog-card__date">May 2025</span>
+                    <div class="blog-card__arrow" aria-hidden="true">→</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="blog-card animate-in animate-in--delay-2" data-blog="1" role="article">
+                <div class="blog-card__image">
+                  <img src="assets/blog-profile-light.png" alt="The Power of an Optimized Social Media Profile" class="blog-thumbnail-img" />
+                </div>
+                <div class="blog-card__body">
+                  <div class="blog-card__meta">
+                    <span class="blog-card__tag">Profile Optimization</span>
+                    <span class="blog-card__readtime">⏱ 4 min read</span>
+                  </div>
+                  <h3 class="blog-card__title">The Power of an Optimized Social Media Profile</h3>
+                  <p class="blog-card__excerpt">Most businesses focus heavily on content creation — posting reels, designing graphics, and following trends — but often overlook something even more important: their social media profile.</p>
+                  <div class="blog-card__footer">
+                    <span class="blog-card__date">April 2025</span>
+                    <div class="blog-card__arrow" aria-hidden="true">→</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Blog Detail View -->
+      <div id="blog-detail-view" style="display: none;">
+        <div style="background: var(--color-off-white); padding: var(--space-12) 0 var(--space-4);">
+          <div class="container container--narrow">
+            <button class="blog-detail__back" id="blog-back-btn">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Back to Blog
+            </button>
+          </div>
+        </div>
+
+        <!-- Blog Post 0: Content Pillars -->
+        <div id="blog-post-0" class="blog-detail active">
+          <div class="blog-detail__inner">
+            <div class="blog-detail__meta">
+              <span class="blog-card__tag">Strategy</span>
+              <span class="blog-card__readtime">⏱ 5 min read</span>
+              <span class="blog-card__date" style="color: var(--color-gray-mid);">May 2025</span>
+            </div>
+            <h1 class="blog-detail__title">The Connection Between Content Creation and Content Pillars</h1>
+            <p class="blog-detail__intro">
+              If you've been struggling to come up with content ideas, feeling stuck on what to post, or wondering why your content still feels inconsistent despite your effort — you're not alone. Many businesses experience this, especially when they're trying to stay active online without a clear strategy behind their content. The truth is, creating content becomes difficult when there's no strong foundation guiding it. That's where content pillars come in.
+            </p>
+            <div class="blog-detail__content">
+              <h2>What Is a Content Pillar?</h2>
+              <p>The simplest way to understand a content pillar is this:</p>
+              <div class="blog-detail__highlight">
+                <strong>A Content Pillar Is Like the Root of a Tree.</strong><br/>
+                Think of your content strategy as a tree. The roots are your content pillars. The trunk is your brand message. The branches are your content ideas. The leaves are your daily posts, reels, videos, blogs, and captions. If the roots are weak, the entire tree struggles to grow.
+              </div>
+              <p>That's exactly what happens when a business creates content without clear pillars. The content may still get posted, but it often lacks consistency, direction, and long-term growth. Strong content pillars keep your brand grounded because they give structure to your content strategy.</p>
+
+              <h2>How Content Pillars Are Connected to Creating Content</h2>
+              <p>Content creation and content pillars work together. You cannot build strong content consistently if you don't know your pillars first.</p>
+              <p>Content pillars act as the guide behind every piece of content you create. They help businesses understand what topics they should consistently talk about, what value they want to give their audience, and how they want their brand to be remembered online.</p>
+              <p>Without clear pillars, many businesses end up posting random content just to stay active — following trends without direction, creating posts without purpose, and eventually struggling with consistency and engagement. This is one of the biggest reasons why many brands feel overwhelmed with content creation, even though they post regularly.</p>
+
+              <h2>How to Choose Your Content Pillars</h2>
+              <p>Choosing content pillars starts with understanding your audience and your brand at the same time. Instead of asking "What should I post today?", businesses should ask, "What do I want people to consistently learn, feel, or remember from my content?"</p>
+
+              <h2>The 5 Core Content Pillar Types Every Brand Needs</h2>
+              <ul>
+                <li><strong>1. Educational</strong> — Teach your audience something valuable. Build authority and trust by solving real problems they face — for free.</li>
+                <li><strong>2. Relatable & Human</strong> — Show the people behind the brand. Stories, struggles, behind-the-scenes — this is what turns followers into fans.</li>
+                <li><strong>3. Inspirational & Authority</strong> — Position your brand as a leader. Share wins, client stories, insights, and a vision your audience wants to be part of.</li>
+                <li><strong>4. Promotional</strong> — Showcase your services, results, and offers — but only after you've earned trust through the other pillars.</li>
+                <li><strong>5. Engagement-Driven</strong> — Spark conversations. Polls, questions, hot takes, and bold statements that invite your audience to respond and interact.</li>
+              </ul>
+
+              <p>When businesses have the right content pillars, creating content becomes easier, more organized, and more impactful because every post has direction and purpose behind it.</p>
+
+              <div class="blog-detail__highlight">
+                Because great content is not only about creativity. It's about creating content that consistently represents your brand, serves your audience, and builds trust over time.
+              </div>
+
+              <h2>Need Help Building the Right Content Strategy?</h2>
+              <p>We help businesses create clear content pillars, strategic content plans, and purposeful social media content that connects with the right audience and supports long-term growth.</p>
+              <p style="margin-top: 1rem;">
+                <button class="btn btn--primary btn--sm" data-modal="calendly">Book a Discovery Call →</button>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog Post 1: Profile Optimization -->
+        <div id="blog-post-1" class="blog-detail" style="display: none;">
+          <div class="blog-detail__inner">
+            <div class="blog-detail__meta">
+              <span class="blog-card__tag">Profile Optimization</span>
+              <span class="blog-card__readtime">⏱ 4 min read</span>
+              <span class="blog-card__date" style="color: var(--color-gray-mid);">April 2025</span>
+            </div>
+            <h1 class="blog-detail__title">The Power of an Optimized Social Media Profile</h1>
+            <p class="blog-detail__intro">
+              Most businesses focus heavily on content creation — posting reels, designing graphics, and following trends — but often overlook something even more important: their social media profile. The reality is, before people engage with your content, they visit your profile first. And in just a few seconds, they decide whether your business looks trustworthy, professional, or worth following. That means your profile is not just a page — it's your first impression.
+            </p>
+            <div class="blog-detail__content">
+              <h2>Impressions Shape Brand Perception</h2>
+              <p>People don't spend minutes analyzing a page — they decide within seconds. When someone lands on your profile, they instantly notice your photo, bio, highlights, branding style, and overall layout. Before reading anything in detail, they already form an opinion about your business.</p>
+              <p>A professional and well-structured profile creates instant trust. It shows that the business is organized, serious, and credible. On the other hand, a messy or incomplete profile can make even a great business look unpolished or unreliable.</p>
+              <div class="blog-detail__highlight">
+                Your profile often speaks before your content does. First impressions happen in seconds — make yours count.
+              </div>
+
+              <h2>Optimization Improves Discoverability</h2>
+              <p>An optimized profile doesn't just make your page look better — it also helps people find you more easily. Social media platforms rely on keywords, profile details, categories, and structure to understand what your account is about.</p>
+              <p>When businesses use clear keywords and a defined niche in their profile, they increase their chances of appearing in search results and recommendations. This leads to better reach, more relevant followers, and stronger audience targeting without needing to rely only on paid ads.</p>
+
+              <h2>Optimized Profiles Support Business Growth</h2>
+              <p>A social media profile is not just for appearance — it directly affects conversions and business opportunities. When people visit your page, they should immediately understand three things:</p>
+              <ul>
+                <li>Who you are</li>
+                <li>What you offer</li>
+                <li>What they should do next</li>
+              </ul>
+              <p>If any of these are unclear, potential customers often leave without taking action. An optimized profile removes confusion and guides visitors toward the next step — whether that's sending a message, visiting a website, booking a service, or making a purchase.</p>
+
+              <div class="blog-detail__highlight">
+                <strong>That's why optimization is not optional anymore.</strong><br/>
+                Small improvements in how your profile is set up can completely change how people perceive and engage with your brand.
+              </div>
+
+              <p>With the right social media management and profile optimization, your online presence can become more consistent, more professional, and more effective at turning profile visits into real opportunities.</p>
+              <p style="margin-top: 1rem;">
+                <button class="btn btn--primary btn--sm" data-modal="calendly">Book a Discovery Call →</button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- =====================================================
+         PAGE: CONTACT
+         ===================================================== -->
+    <main id="page-contact" class="page-section" role="main">
+
+      <section class="page-hero" aria-labelledby="contact-hero-title">
+        <div class="page-hero__bg" aria-hidden="true"></div>
+        <div class="page-hero__inner">
+          <div class="page-hero__eyebrow animate-in">
+            <span class="eyebrow">Get in Touch</span>
+          </div>
+          <h1 class="page-hero__title animate-in animate-in--delay-1" id="contact-hero-title">
+            Let's talk about your brand.
+          </h1>
+          <p class="page-hero__sub animate-in animate-in--delay-2">Book a discovery call or send us a message. We'd love to hear about your business and your goals.</p>
+        </div>
+      </section>
+
+      <section class="contact-section section">
+        <div class="contact-inner">
+          <div class="animate-in">
+            <h2 class="contact-info__title">Ready to build a more intentional presence?</h2>
+            <p class="contact-info__body">The easiest way to get started is to book a free 30-minute discovery call. We'll discuss your brand, your goals, and what a tailored social media strategy could look like for your business.</p>
+
+            <div class="contact-cta-card">
+              <div class="contact-cta-card__label">Preferred First Step</div>
+              <h3 class="contact-cta-card__title">Book a Free Discovery Call</h3>
+              <p class="contact-cta-card__body">No commitment, no pressure. Just a conversation to explore how we can help your brand grow online.</p>
+              <button class="btn btn--accent btn--sm" data-modal="calendly" id="contact-calendly-btn">
+                Schedule on Calendly
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+
+            <div class="contact-socials">
+              <a href="#" class="social-btn" aria-label="Instagram">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> Instagram
+              </a>
+              <a href="#" class="social-btn" aria-label="YouTube">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2C5.12 19.5 12 19.5 12 19.5s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.29 29 29 0 0 0-.46-5.38z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"/></svg> YouTube
+              </a>
+              <a href="#" class="social-btn" aria-label="X (Twitter)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z M4 20l6.768 -6.768 M20 4l-6.768 6.768"/></svg> X
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-form animate-in animate-in--delay-1">
+            <h2 class="contact-form__title">Send us a message</h2>
+            <form id="contact-form" novalidate>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label" for="form-name">Name *</label>
+                  <input class="form-input" type="text" id="form-name" name="name" placeholder="Your name" required autocomplete="name" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="form-email">Email *</label>
+                  <input class="form-input" type="email" id="form-email" name="email" placeholder="your@email.com" required autocomplete="email" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="form-company">Company</label>
+                  <input class="form-input" type="text" id="form-company" name="company" placeholder="Your company name" autocomplete="organization" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="form-social">Website or Social Link</label>
+                  <input class="form-input" type="url" id="form-social" name="social" placeholder="instagram.com/yourbrand" autocomplete="url" />
+                </div>
+                <div class="form-group form-group--full">
+                  <label class="form-label" for="form-message">Message *</label>
+                  <textarea class="form-textarea" id="form-message" name="message" placeholder="Tell us about your brand and what you're looking to achieve..." required></textarea>
+                </div>
+              </div>
+              <button type="submit" class="form-submit" id="form-submit-btn">
+                Send Message
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+         PAGE: PRIVACY POLICY
+         ===================================================== -->
+    <main id="page-privacy" class="page-section" role="main">
+      <div class="simple-page section">
+        <div class="simple-page__inner">
+          <h1 class="simple-page__title">Privacy Policy</h1>
+          <p class="simple-page__date">Last updated: May 2025</p>
+          <div class="simple-page__content">
+            <p>Undercover Digital ("we", "us", or "our") is committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, and protect information when you visit our website or contact us.</p>
+            <h2>Information We Collect</h2>
+            <p>We may collect information you provide directly to us, such as your name, email address, company name, and message when you fill out our contact form or book a discovery call.</p>
+            <h2>How We Use Your Information</h2>
+            <p>We use the information we collect to respond to your inquiries, provide our services, communicate with you about our offerings, and improve our business. We do not sell, trade, or rent your personal information to third parties.</p>
+            <h2>Cookies and Tracking</h2>
+            <p>Our website may use cookies to enhance your browsing experience. You can choose to disable cookies through your browser settings, though this may affect some functionality of our site.</p>
+            <h2>Third-Party Services</h2>
+            <p>We may use third-party services such as Calendly for booking and analytics tools to understand how visitors use our website. These services have their own privacy policies.</p>
+            <h2>Data Security</h2>
+            <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+            <h2>Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please contact us through our contact page or by booking a discovery call.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- =====================================================
+         PAGE: TERMS
+         ===================================================== -->
+    <main id="page-terms" class="page-section" role="main">
+      <div class="simple-page section">
+        <div class="simple-page__inner">
+          <h1 class="simple-page__title">Terms of Service</h1>
+          <p class="simple-page__date">Last updated: May 2025</p>
+          <div class="simple-page__content">
+            <p>By accessing and using the Undercover Digital website, you accept and agree to be bound by the terms and provisions of this agreement.</p>
+            <h2>Use of Website</h2>
+            <p>You may use our website for lawful purposes only. You must not use this site in any way that breaches applicable laws or regulations, or that is fraudulent or harmful.</p>
+            <h2>Services</h2>
+            <p>Undercover Digital provides social media marketing services to businesses. The specific terms, scope, and deliverables of our services are governed by separate service agreements between Undercover Digital and each client.</p>
+            <h2>Intellectual Property</h2>
+            <p>All content on this website, including text, graphics, logos, and images, is the property of Undercover Digital and is protected by applicable intellectual property laws.</p>
+            <h2>Limitation of Liability</h2>
+            <p>Undercover Digital shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use this website or our services.</p>
+            <h2>Governing Law</h2>
+            <p>These terms shall be governed by and construed in accordance with the laws of British Columbia, Canada.</p>
+            <h2>Changes to Terms</h2>
+            <p>We reserve the right to modify these terms at any time. We will notify users of any significant changes by updating the date at the top of this page.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div>
+            <div class="footer-brand__logo">
+              <img src="assets/undercover-light.png" alt="Undercover Digital" />
+            </div>
+            <p class="footer-brand__tagline">A Vancouver-based social media marketing agency helping brands across Canada and the US build visibility, trust, and long-term growth.</p>
+            <div class="footer-socials">
+              <a href="#" class="social-btn" aria-label="Instagram">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="#" class="social-btn" aria-label="YouTube">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor"/></svg>
+              </a>
+              <a href="#" class="social-btn" aria-label="X (Twitter)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.745l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-col__title">Pages</div>
+            <ul class="footer-links" role="list">
+              <li><a href="#" class="footer-link" data-page="about">About</a></li>
+              <li><a href="#" class="footer-link" data-page="services">Services</a></li>
+              <li><a href="#" class="footer-link" data-page="blog">Blog</a></li>
+              <li><a href="#" class="footer-link" data-page="contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-col__title">Services</div>
+            <ul class="footer-links" role="list">
+              <li><a href="#" class="footer-link" data-page="services">Brand Management</a></li>
+              <li><a href="#" class="footer-link" data-page="services">Content Creation</a></li>
+              <li><a href="#" class="footer-link" data-page="services">Community Engagement</a></li>
+              <li><a href="#" class="footer-link" data-page="services">Video Marketing</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-col__title">Company</div>
+            <ul class="footer-links" role="list">
+              <li><a href="#" class="footer-link" data-modal="calendly">Book a Call</a></li>
+              <li><a href="#" class="footer-link" data-page="privacy">Privacy Policy</a></li>
+              <li><a href="#" class="footer-link" data-page="terms">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copy">© 2025 Undercover Digital. All rights reserved. Vancouver, BC · undercoverdigital.co</p>
+          <nav class="footer-legal" aria-label="Legal">
+            <a href="#" data-page="privacy">Privacy Policy</a>
+            <a href="#" data-page="terms">Terms of Service</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /#site-frame -->
+</div><!-- /#viewport-wrapper -->
+
+<!-- =====================================================
+     MODAL — Calendly Simulation
+     ===================================================== -->
+<div class="modal-overlay" id="modal-calendly" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-header__text">
+        <h2 class="modal-header__title" id="modal-title">Book a Discovery Call</h2>
+        <p class="modal-header__sub">Free · 30 minutes · No commitment</p>
+      </div>
+      <button class="modal-close" id="modal-close" aria-label="Close modal">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-calendly-sim">
+        <div class="modal-calendly-sim__icon" aria-hidden="true">📅</div>
+        <h3 class="modal-calendly-sim__title">Ready to schedule your call?</h3>
+        <p class="modal-calendly-sim__body">Click below to open Calendly and choose a time that works for you. We'll talk about your brand, your goals, and how Undercover Digital can help you build a more intentional social presence.</p>
+        <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" class="modal-calendly-link">
+          Open Calendly to Schedule
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3h7m0 0v7m0-7L3 13" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app_delight.js"></script>
+</body>
+</html>
