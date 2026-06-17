@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lymon | Emails</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+  <style>
+    .email-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:14px}
+    .summary-card{padding:15px;border:1px solid rgba(10,59,19,.08);border-radius:14px;background:rgba(255,255,255,.9);box-shadow:var(--shadow)}
+    .summary-card span{display:block;color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.summary-card strong{display:block;margin-top:7px;color:var(--forest);font:700 28px/1 "DM Sans",sans-serif;font-variant-numeric:tabular-nums}
+    .mail-layout{display:grid;grid-template-columns:minmax(390px,.9fr) minmax(0,1.2fr);gap:14px;align-items:start}
+    .inbox-card,.detail-card{padding:0;overflow:hidden}.inbox-head,.detail-head{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:15px;border-bottom:1px solid var(--line);background:#fff}
+    .inbox-head h2,.detail-head h2{margin:0;color:var(--forest);font:500 24px/1.1 "Fraunces",serif}.inbox-head p,.detail-head p{margin:4px 0 0;color:var(--dim);font-size:12px}
+    .mail-filters{display:flex;gap:7px;flex-wrap:wrap;padding:12px 15px;border-bottom:1px solid var(--line);background:#fbfaf7}.filter{padding:7px 10px;border:1px solid var(--line);border-radius:100px;color:var(--forest);background:#fff;font-size:11px;font-weight:800}.filter.active{color:var(--lime);background:var(--forest);border-color:var(--forest)}
+    .email-list{display:grid}.email-row{display:grid;grid-template-columns:38px minmax(0,1fr) auto;gap:10px;padding:13px 15px;border:0;border-bottom:1px solid var(--line);background:#fff;text-align:left}.email-row.active{background:#eef5d8}.email-row:hover{background:#fbfaf7}.sender-avatar{display:grid;width:38px;height:38px;place-items:center;border-radius:50%;color:var(--forest);background:#eef5d8;font-size:12px;font-weight:800}.email-main{min-width:0}.email-top{display:flex;gap:8px;align-items:center}.sender{overflow:hidden;color:var(--forest);font-weight:800;text-overflow:ellipsis;white-space:nowrap}.subject{margin-top:3px;color:var(--ink);font-weight:800;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.preview{margin-top:3px;color:var(--muted);font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.email-meta{display:grid;justify-items:end;gap:6px;color:var(--muted);font-size:10px}.badge{display:inline-flex;width:max-content;padding:3px 7px;border-radius:100px;background:#edf7e9;color:#2e7d3d;font-size:10px;font-weight:800}.badge.warn{background:#fff0d3;color:#bd651f}.badge.danger{background:#fff0ed;color:#a5544c}.badge.neutral{background:#f2eee8;color:var(--muted)}
+    .detail-body{padding:18px;background:#fff}.email-title{margin:0;color:var(--forest);font:500 30px/1.1 "Fraunces",serif}.message-meta{display:grid;gap:6px;margin:14px 0;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fbfaf7;color:var(--muted);font-size:12px}.message-meta strong{color:var(--forest)}.email-copy{color:var(--ink);font-size:14px;line-height:1.58}.email-copy p{margin:0 0 12px}.attachments{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.attachment{padding:8px 10px;border:1px solid var(--line);border-radius:10px;color:var(--forest);background:#fbfaf7;font-size:12px;font-weight:800}.reply-box{margin-top:16px;padding:13px;border:1px solid #dfe8b8;border-radius:13px;background:#f7fadf}.reply-box strong{display:block;color:var(--forest);margin-bottom:4px}.reply-box p{margin:0;color:var(--muted);font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+    @media(max-width:1180px){.email-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.mail-layout{grid-template-columns:1fr}}@media(max-width:720px){.email-summary{grid-template-columns:1fr}.email-row{grid-template-columns:34px minmax(0,1fr)}.email-meta{grid-column:2;display:flex;justify-content:space-between}.detail-head{display:block}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><img class="mark" src="Logo.png" alt=""><div><div class="brand-name">Lymon</div><div class="brand-sub">Control Panel</div></div></div>
+    <nav class="nav">
+      <div class="nav-label">Overview</div><a class="nav-item" href="dashboard.html">Dashboard</a><a class="nav-item" href="sales.html">Sales</a>
+      <div class="nav-label">Staff</div><a class="nav-item" href="team.html">Team</a><a class="nav-item" href="rota.html">Rota</a><a class="nav-item" href="availability.html">Availability</a>
+      <div class="nav-label">Operations</div><a class="nav-item" href="procedures.html">Procedures</a><a class="nav-item" href="checks-tasks.html">Checks & Tasks</a><a class="nav-item" href="assets.html">Assets</a><a class="nav-item" href="issues.html">Issues & Incidents</a><a class="nav-item" href="evidence.html">Evidence</a>
+      <div class="nav-label">Admin</div><a class="nav-item" href="automations.html">Automations</a><a class="nav-item active" href="emails.html">Emails</a><a class="nav-item" href="reviews.html">Reviews</a><a class="nav-item" href="sandbox.html">Sandbox</a><a class="nav-item" href="settings.html">Settings</a>
+    </nav>
+    <div class="sidebar-foot"><button class="signout">Sign out</button></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div class="venue"><span class="venue-icon">L</span><span><small>Location</small>Lymon West London</span></div><div class="profile"><span class="avatar">TF</span>Tugrul Firat</div></header>
+    <div class="content">
+      <section class="hero"><div><p class="eyebrow">Admin inbox</p><h1>Emails</h1><p>Review customer replies, supplier documents, booking requests and business messages that need owner attention.</p></div><button class="btn primary">Compose reply</button></section>
+      <section class="email-summary">
+        <article class="summary-card"><span>Unread</span><strong>7</strong></article>
+        <article class="summary-card"><span>Needs reply</span><strong>4</strong></article>
+        <article class="summary-card"><span>Supplier docs</span><strong>3</strong></article>
+        <article class="summary-card"><span>Customer praise</span><strong>2</strong></article>
+      </section>
+      <section class="mail-layout">
+        <article class="card inbox-card">
+          <div class="inbox-head"><div><h2>Inbox</h2><p>Latest messages received by the control panel.</p></div><button class="btn soft small">Refresh</button></div>
+          <div class="mail-filters"><button class="filter active">All</button><button class="filter">Needs reply</button><button class="filter">Customers</button><button class="filter">Suppliers</button><button class="filter">Documents</button></div>
+          <div class="email-list">
+            <button class="email-row active"><span class="sender-avatar">SM</span><span class="email-main"><span class="email-top"><span class="sender">Sarah Milton</span><span class="badge">Customer</span></span><span class="subject">Lovely brunch yesterday - thank you to the team</span><span class="preview">We visited with friends after the school run and the staff were brilliant with the children...</span></span><span class="email-meta"><time>09:18</time><span class="badge warn">Reply</span></span></button>
+            <button class="email-row"><span class="sender-avatar">DF</span><span class="email-main"><span class="email-top"><span class="sender">Dairy Fresh Wholesale</span><span class="badge warn">Supplier</span></span><span class="subject">Invoice DF-20491 and delivery note for Monday</span><span class="preview">Attached are the invoice and signed delivery note for milk, cream and butter...</span></span><span class="email-meta"><time>08:42</time><span class="badge neutral">PDF</span></span></button>
+            <button class="email-row"><span class="sender-avatar">JR</span><span class="email-main"><span class="email-top"><span class="sender">James R.</span><span class="badge">Review</span></span><span class="subject">Re: Thanks for your feedback about the wait time</span><span class="preview">Thanks for getting back to me. We really liked the restaurant and will come again...</span></span><span class="email-meta"><time>Yesterday</time><span class="badge">Positive</span></span></button>
+            <button class="email-row"><span class="sender-avatar">EC</span><span class="email-main"><span class="email-top"><span class="sender">Emma Clarke Events</span><span class="badge warn">Booking</span></span><span class="subject">Breakfast catering enquiry for 18 people</span><span class="preview">Could you provide pastries, coffee and fruit pots for a team breakfast next Friday?</span></span><span class="email-meta"><time>Yesterday</time><span class="badge warn">Quote</span></span></button>
+            <button class="email-row"><span class="sender-avatar">FS</span><span class="email-main"><span class="email-top"><span class="sender">Food Standards Agency</span><span class="badge danger">Compliance</span></span><span class="subject">Food hygiene records reminder</span><span class="preview">Please ensure temperature records and allergen information are available for inspection...</span></span><span class="email-meta"><time>31 May</time><span class="badge danger">Action</span></span></button>
+            <button class="email-row"><span class="sender-avatar">BB</span><span class="email-main"><span class="email-top"><span class="sender">Bean Brothers Roastery</span><span class="badge warn">Supplier</span></span><span class="subject">Oat milk shortage on Thursday delivery</span><span class="preview">We can only fulfil six cases this week. Please confirm if you want almond milk substituted...</span></span><span class="email-meta"><time>30 May</time><span class="badge warn">Stock</span></span></button>
+          </div>
+        </article>
+        <article class="card detail-card">
+          <div class="detail-head"><div><h2>Email preview</h2><p>Selected message and suggested owner action.</p></div><span class="badge warn">Needs reply</span></div>
+          <div class="detail-body">
+            <h3 class="email-title">Lovely brunch yesterday - thank you to the team</h3>
+            <div class="message-meta"><span><strong>From:</strong> Sarah Milton &lt;sarah.milton@example.co.uk&gt;</span><span><strong>Received:</strong> Tue, 2 Jun 2026 at 09:18</span><span><strong>Matched to:</strong> Customer feedback · Positive service mention</span></div>
+            <div class="email-copy">
+              <p>Hello Lymon team,</p>
+              <p>We visited yesterday morning with two friends and our children. The restaurant was busy, but your staff were calm, kind and very helpful. The pancakes and flat whites were excellent.</p>
+              <p>Please pass our thanks to the front of house team. We have already recommended you to another family and will be back next weekend.</p>
+              <p>Best,<br>Sarah</p>
+            </div>
+            <div class="attachments"><span class="attachment">Google review link</span><span class="attachment">Customer profile</span></div>
+            <div class="reply-box"><strong>Suggested owner action</strong><p>Reply with thanks, mention the team by role, and invite Sarah to leave a public review while the experience is fresh.</p></div>
+            <div class="actions"><button class="btn primary">Draft reply</button><button class="btn soft">Mark handled</button><button class="btn soft">Create review task</button></div>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+</div>
+<script src="nav-icons.js"></script>
+</body>
+</html>

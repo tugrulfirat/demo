@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lymon | WhatsApp Sandbox</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+  <style>
+    .sandbox{display:grid;grid-template-columns:320px minmax(0,1fr);overflow:hidden;padding:0;border-radius:18px;background:#fff}
+    .conversation-list{border-right:1px solid var(--line);background:#fbfaf7}
+    .list-head{padding:15px;border-bottom:1px solid var(--line)}
+    .list-head h2{margin:0;color:var(--forest);font:500 24px/1.1 "Fraunces",serif}
+    .list-head p{margin:4px 0 12px;color:var(--muted);font-size:12px}
+    .search{width:100%;min-height:38px;border-radius:100px}
+    .chat-item{display:grid;width:100%;grid-template-columns:40px minmax(0,1fr) auto;gap:10px;align-items:center;padding:12px 14px;border:0;border-bottom:1px solid rgba(232,223,211,.78);background:transparent;text-align:left}
+    .chat-item:hover{background:#f7f1e8}.chat-item.active{background:#eef5d8}
+    .contact-avatar,.mini-avatar{display:grid;place-items:center;border-radius:50%;font-weight:800}
+    .contact-avatar{width:40px;height:40px;color:var(--lime);background:var(--forest)}
+    .mini-avatar{width:24px;height:24px;color:var(--forest);background:#e6efda;font-size:10px}
+    .chat-name{display:flex;gap:8px;align-items:center;color:var(--forest);font-weight:800;font-size:13px}
+    .chat-preview{overflow:hidden;margin-top:3px;color:var(--muted);font-size:12px;text-overflow:ellipsis;white-space:nowrap}
+    .chat-meta{display:grid;justify-items:end;gap:5px;color:var(--muted);font-size:10px}
+    .unread{display:grid;min-width:18px;height:18px;place-items:center;border-radius:100px;color:var(--forest);background:var(--lime);font-size:10px;font-weight:800}
+    .phone-shell{min-width:0;background:#efe7db}
+    .conversation-head{display:flex;gap:11px;align-items:center;padding:13px 15px;border-bottom:1px solid rgba(10,59,19,.12);background:#fff}
+    .contact-meta{min-width:0;flex:1}.contact-meta strong{display:block;color:var(--forest);font-size:14px}.contact-meta span{display:block;color:var(--muted);font-size:11px}
+    .status-pill{padding:5px 9px;border-radius:100px;color:#2e7d3d;background:#edf7e9;font-size:10px;font-weight:800}
+    .thread{display:flex;min-height:560px;max-height:640px;flex-direction:column;gap:8px;overflow:auto;padding:18px;background:radial-gradient(circle at 12px 12px,rgba(10,59,19,.035) 1px,transparent 1px) 0 0/24px 24px,#f7f1e8}
+    .date-separator{align-self:center;margin:6px 0;padding:5px 10px;border:1px solid rgba(10,59,19,.08);border-radius:100px;color:var(--muted);background:rgba(255,255,255,.88);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    .message-row{display:flex;align-items:flex-end;gap:7px}.message-row.out{justify-content:flex-end}.message-row+.date-separator{margin-top:16px}
+    .bubble{position:relative;max-width:min(74%,560px);padding:9px 10px 7px;border-radius:0 12px 12px 12px;background:#fff;box-shadow:0 1px 2px rgba(31,42,39,.08);color:var(--ink);font-size:13px;line-height:1.38}
+    .bubble:before{position:absolute;top:0;left:-7px;width:0;height:0;border-top:8px solid #fff;border-left:8px solid transparent;content:""}
+    .out .bubble{border-radius:12px 0 12px 12px;color:#f7fff0;background:var(--forest)}
+    .out .bubble:before{right:-7px;left:auto;border-top-color:var(--forest);border-right:8px solid transparent;border-left:0}
+    .bubble-meta{display:flex;gap:6px;justify-content:flex-end;align-items:center;margin-top:4px;color:rgba(92,108,94,.82);font-size:10px;line-height:1}
+    .out .bubble-meta{color:rgba(247,255,240,.72)}.ticks{font-weight:800;color:#9ed66b}.source{font-weight:800}
+    .incoming-label{margin-bottom:2px;color:var(--muted);font-size:10px;font-weight:800}
+    .compose{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center;padding:12px;border-top:1px solid rgba(10,59,19,.1);background:#fff}
+    .icon-btn{display:grid;width:38px;height:38px;place-items:center;border:1px solid var(--line);border-radius:50%;color:var(--forest);background:#fbfaf7;font-weight:800}.compose .input{min-height:40px;border-radius:100px}.send-btn{width:42px;height:42px;border-radius:50%;padding:0}
+    @media(max-width:980px){.sandbox{grid-template-columns:1fr}.conversation-list{border-right:0;border-bottom:1px solid var(--line)}.chat-list{display:flex;overflow:auto}.chat-item{min-width:280px;border-right:1px solid var(--line)}}@media(max-width:720px){.bubble{max-width:84%}.status-pill{display:none}.thread{min-height:500px;padding:14px}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><img class="mark" src="Logo.png" alt=""><div><div class="brand-name">Lymon</div><div class="brand-sub">Control Panel</div></div></div>
+    <nav class="nav">
+      <div class="nav-label">Overview</div><a class="nav-item" href="dashboard.html">Dashboard</a><a class="nav-item" href="sales.html">Sales</a>
+      <div class="nav-label">Staff</div><a class="nav-item" href="team.html">Team</a><a class="nav-item" href="rota.html">Rota</a><a class="nav-item" href="availability.html">Availability</a>
+      <div class="nav-label">Operations</div><a class="nav-item" href="procedures.html">Procedures</a><a class="nav-item" href="checks-tasks.html">Checks & Tasks</a><a class="nav-item" href="assets.html">Assets</a><a class="nav-item" href="issues.html">Issues & Incidents</a><a class="nav-item" href="evidence.html">Evidence</a>
+      <div class="nav-label">Admin</div><a class="nav-item" href="automations.html">Automations</a><a class="nav-item" href="emails.html">Emails</a><a class="nav-item" href="reviews.html">Reviews</a><a class="nav-item active" href="sandbox.html">Sandbox</a><a class="nav-item" href="settings.html">Settings</a>
+    </nav>
+    <div class="sidebar-foot"><button class="signout">Sign out</button></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div class="venue"><span class="venue-icon">L</span><span><small>Location</small>Lymon West London</span></div><div class="profile"><span class="avatar">TF</span>Tugrul Firat</div></header>
+    <div class="content">
+      <section class="hero"><div><p class="eyebrow">Messaging test bench</p><h1>WhatsApp Sandbox</h1><p>Test staff WhatsApp conversations by person, with received dates, timestamps and system replies visible in the thread.</p></div></section>
+      <section class="card sandbox">
+        <aside class="conversation-list">
+          <div class="list-head"><h2>Conversations</h2><p>Choose which staff member to simulate.</p><input class="input search" id="search" placeholder="Search staff or phone"></div>
+          <div class="chat-list" id="chatList"></div>
+        </aside>
+        <article class="phone-shell">
+          <div class="conversation-head">
+            <span class="contact-avatar" id="activeAvatar">AP</span>
+            <div class="contact-meta"><strong id="activeName">Ali Pirposhteh</strong><span id="activeMeta">+44 7700 900123 · Staff · WhatsApp sandbox</span></div>
+            <span class="status-pill">Connected</span>
+          </div>
+          <div class="thread" id="thread"></div>
+          <div class="compose">
+            <button class="icon-btn" aria-label="Attach">+</button>
+            <input class="input" id="message" placeholder="Type a simulated inbound message">
+            <button class="btn primary send-btn" id="send" aria-label="Send">→</button>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+</div>
+<script src="nav-icons.js"></script>
+<script>
+  const conversations={
+    ali:{name:"Ali Pirposhteh",initials:"AP",phone:"+44 7700 900123",role:"FOH assistant",unread:1,last:"Today",messages:[
+      {date:"Monday, 1 June 2026"},{from:"in",text:"Morning. What tasks do I need to complete before opening?",time:"08:05"},{from:"out",text:"You have 3 opening tasks: check fridge temperatures, calibrate the grinder, and complete the customer-area walk-through.",time:"08:05",status:"System reply",ticks:"✓✓"},
+      {from:"in",text:"Can I upload the fridge temperature photo here?",time:"08:11"},{from:"out",text:"Yes. Send the photo in this chat and I will attach it to the opening kitchen temperature check.",time:"08:11",status:"System reply",ticks:"✓✓"},
+      {date:"Today, 2 June 2026"},{from:"in",text:"I am running 10 minutes late for the opening shift.",time:"06:52"},{from:"out",text:"Thanks, Ali. I have marked the shift note and flagged opening cover for manager review.",time:"06:52",status:"Draft response",ticks:"✓"}]},
+    david:{name:"David Lewis",initials:"DL",phone:"+44 7700 900456",role:"Manager",unread:0,last:"Yesterday",messages:[
+      {date:"Yesterday, 1 June 2026"},{from:"in",text:"Can you show me today's overdue checks?",time:"15:24"},{from:"out",text:"There are 3 overdue checks: freezer temperature, opening walk-through and handwash stock count.",time:"15:24",status:"System reply",ticks:"✓✓"},
+      {from:"in",text:"Assign freezer temperature to me.",time:"15:26"},{from:"out",text:"Done. Freezer temperature check is assigned to David Lewis and due before lunch service.",time:"15:26",status:"System reply",ticks:"✓✓"}]},
+    sam:{name:"Sam Tester",initials:"ST",phone:"+44 7700 900789",role:"BOH chef",unread:2,last:"Sun",messages:[
+      {date:"Sunday, 31 May 2026"},{from:"in",text:"We are low on disposable gloves.",time:"11:18"},{from:"out",text:"I have logged disposable gloves as low stock and flagged it for the next supplier order.",time:"11:18",status:"System reply",ticks:"✓✓"},
+      {date:"Today, 2 June 2026"},{from:"in",text:"The freezer warning is still showing.",time:"07:08"},{from:"out",text:"This is marked as a service risk. Please check Freezer Unit 3 and upload a photo of the display.",time:"07:08",status:"Draft response",ticks:"✓"}]}
+  };
+  let activeId="ali";
+  const chatList=document.getElementById("chatList"),thread=document.getElementById("thread"),input=document.getElementById("message");
+  const nowLabel=()=>new Date().toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"});
+  function escapeHtml(value){return value.replace(/[&<>"']/g,match=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[match]))}
+  function lastText(chat){const msg=[...chat.messages].reverse().find(item=>item.text);return msg?msg.text:"No messages yet"}
+  function renderList(filter=""){chatList.innerHTML=Object.entries(conversations).filter(([,chat])=>(chat.name+" "+chat.phone+" "+chat.role).toLowerCase().includes(filter.toLowerCase())).map(([id,chat])=>`<button class="chat-item ${id===activeId?"active":""}" data-id="${id}"><span class="contact-avatar">${chat.initials}</span><span><span class="chat-name">${chat.name}</span><span class="chat-preview">${escapeHtml(lastText(chat))}</span></span><span class="chat-meta"><time>${chat.last}</time>${chat.unread?`<span class="unread">${chat.unread}</span>`:""}</span></button>`).join("");
+  }
+  function renderThread(){
+    const chat=conversations[activeId];
+    document.getElementById("activeAvatar").textContent=chat.initials;
+    document.getElementById("activeName").textContent=chat.name;
+    document.getElementById("activeMeta").textContent=`${chat.phone} · ${chat.role} · WhatsApp sandbox`;
+    thread.innerHTML=chat.messages.map(item=>{
+      if(item.date)return `<div class="date-separator">${item.date}</div>`;
+      if(item.from==="out")return `<div class="message-row out"><div class="bubble">${escapeHtml(item.text)}<div class="bubble-meta"><span>${item.status||"System reply"}</span><time>${item.time}</time><span class="ticks">${item.ticks||"✓✓"}</span></div></div></div>`;
+      return `<div class="message-row"><span class="mini-avatar">${chat.initials}</span><div><div class="incoming-label">Received from ${chat.name.split(" ")[0]}</div><div class="bubble">${escapeHtml(item.text)}<div class="bubble-meta"><span class="source">Received</span><time>${item.time}</time></div></div></div></div>`;
+    }).join("");
+    thread.scrollTop=thread.scrollHeight;
+  }
+  function addExchange(text){
+    const chat=conversations[activeId],time=nowLabel();
+    chat.messages.push({from:"in",text,time},{from:"out",text:"Message received. The simulated response has been generated for review.",time,status:"System reply",ticks:"✓✓"});
+    chat.last="Now";chat.unread=0;renderList(document.getElementById("search").value);renderThread();
+  }
+  chatList.addEventListener("click",event=>{const button=event.target.closest(".chat-item");if(!button)return;activeId=button.dataset.id;conversations[activeId].unread=0;renderList(document.getElementById("search").value);renderThread()});
+  document.getElementById("send").addEventListener("click",()=>{const text=input.value.trim();if(!text)return;addExchange(text);input.value=""});
+  input.addEventListener("keydown",event=>{if(event.key==="Enter"){event.preventDefault();document.getElementById("send").click()}});
+  document.getElementById("search").addEventListener("input",event=>renderList(event.target.value));
+  renderList();renderThread();
+</script>
+</body>
+</html>
