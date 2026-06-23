@@ -4,8 +4,8 @@ style.textContent = `
   .admin-details { display:block; width:100%; }
   .admin-summary {
     display:flex !important; justify-content:space-between; align-items:center;
-    cursor:pointer; margin:14px 9px 7px; color:rgba(255,255,255,.48);
-    font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+    cursor:pointer; margin:14px 9px 7px; color:rgba(255,255,255,.58);
+    font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
     list-style:none; user-select:none; outline:none; transition:color .15s ease;
   }
   .admin-summary::-webkit-details-marker { display:none; }
@@ -13,6 +13,43 @@ style.textContent = `
   .admin-summary .chevron { width:12px; height:12px; transition:transform .2s ease; opacity:.65; }
   details[open] .admin-summary .chevron { transform:rotate(180deg); }
   .admin-details-items { display:flex; flex-direction:column; gap:2px; margin-top:4px; padding-left:0; }
+  .brand { gap:14px; }
+  .brand-sub { margin-top:10px; color:#e9f54f; }
+  .nav { padding:10px 12px; }
+  .nav-label { margin:12px 9px 6px; color:rgba(255,255,255,.58); font-size:12px; letter-spacing:.12em; }
+  .nav-item { min-height:38px; margin-bottom:3px; padding:8px 10px; border-radius:10px; }
+  .ui-arrow-icon {
+    display:inline-flex; width:18px; height:18px; flex:0 0 18px;
+    align-items:center; justify-content:center; color:currentColor;
+    vertical-align:middle;
+  }
+  .ui-arrow-icon svg { display:block; width:18px; height:18px; stroke-width:2.4; }
+  .ui-arrow-left { margin-right:6px; }
+  .ui-arrow-right { margin-left:6px; }
+  .arrow,
+  .board-nav-button,
+  .pager button.ui-arrow-only {
+    display:inline-flex !important; align-items:center !important; justify-content:center !important;
+    min-width:44px !important; min-height:44px !important;
+    font-size:0 !important; line-height:1 !important;
+  }
+  .arrow .ui-arrow-icon,
+  .board-nav-button .ui-arrow-icon,
+  .pager button.ui-arrow-only .ui-arrow-icon,
+  .send-btn .ui-arrow-icon {
+    width:20px; height:20px; margin:0;
+  }
+  .arrow .ui-arrow-icon svg,
+  .board-nav-button .ui-arrow-icon svg,
+  .pager button.ui-arrow-only .ui-arrow-icon svg,
+  .send-btn .ui-arrow-icon svg {
+    width:20px; height:20px; stroke-width:2.5;
+  }
+  .link,
+  .focus-link,
+  .role-card button {
+    display:inline-flex; align-items:center; gap:6px;
+  }
 `;
 document.head.appendChild(style);
 
@@ -62,4 +99,63 @@ document.querySelectorAll(".nav").forEach(nav => {
     ...navGroups.map(group => `<div class="nav-label">${group.label}</div>${group.items.map(itemHtml).join("")}`),
     `<details class="admin-details"${adminOpen ? " open" : ""}><summary class="admin-summary"><span>Admin</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary><div class="admin-details-items">${adminItems.map(itemHtml).join("")}</div></details>`
   ].join("");
+});
+
+const today = new Date();
+const dateText = today.toLocaleDateString("en-GB", {
+  weekday: "short",
+  day: "numeric",
+  month: "short",
+  year: "numeric"
+});
+document.querySelectorAll(".date-pill").forEach(date => {
+  date.textContent = dateText;
+});
+
+const dayName = today.toLocaleDateString("en-GB", { weekday: "long" });
+document.querySelectorAll(".eyebrow").forEach(label => {
+  if (/monday operations overview/i.test(label.textContent)) {
+    label.textContent = `${dayName} operations overview`;
+  }
+});
+
+const arrowIcon = direction => {
+  const path = direction === "left"
+    ? '<path d="M19 12H5"/><path d="m12 5-7 7 7 7"/>'
+    : '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>';
+  return `<span class="ui-arrow-icon ui-arrow-${direction}" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">${path}</svg></span>`;
+};
+
+const setDirectionalIcon = (element, direction, fallbackLabel) => {
+  const label = element.getAttribute("aria-label") || fallbackLabel;
+  element.setAttribute("aria-label", label);
+  element.classList.add("ui-arrow-only");
+  element.innerHTML = arrowIcon(direction);
+};
+
+document.querySelectorAll(".arrow, .board-nav-button").forEach(button => {
+  const label = `${button.getAttribute("aria-label") || ""} ${button.textContent || ""}`.toLowerCase();
+  setDirectionalIcon(button, /previous|prev|left|←|<-/.test(label) ? "left" : "right", "Navigate");
+});
+
+document.querySelectorAll(".pager button").forEach(button => {
+  const text = button.textContent.trim();
+  if (text === "‹" || text === "←") setDirectionalIcon(button, "left", "Previous page");
+  if (text === "›" || text === "→") setDirectionalIcon(button, "right", "Next page");
+});
+
+document.querySelectorAll(".send-btn").forEach(button => {
+  setDirectionalIcon(button, "right", button.getAttribute("aria-label") || "Send");
+});
+
+document.querySelectorAll("a, button").forEach(element => {
+  if (element.querySelector("svg, .ui-arrow-icon") || element.classList.contains("nav-item")) return;
+  const text = element.textContent.replace(/\s+/g, " ").trim();
+  if (/^(←|<-)\s+/.test(text)) {
+    element.textContent = text.replace(/^(←|<-)\s+/, "");
+    element.insertAdjacentHTML("afterbegin", arrowIcon("left"));
+  } else if (/\s+(→|->)$/.test(text)) {
+    element.textContent = text.replace(/\s+(→|->)$/, "");
+    element.insertAdjacentHTML("beforeend", arrowIcon("right"));
+  }
 });

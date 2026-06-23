@@ -16,14 +16,14 @@
       --cream-2: #fbf7f1;
       --white: #fff;
       --ink: #1c2b1e;
-      --muted: #5c6c5e;
-      --dim: #809083;
+      --muted: #435447;
+      --dim: #657468;
       --line: #e8dfd3;
       --good: #2e7d3d;
-      --warn: #bd651f;
-      --danger: #a44b42;
-      --danger-bg: #fff1ec;
-      --warn-bg: #fff8e7;
+      --warn: #e9f54f;
+      --danger: #d32f2f;
+      --danger-bg: #fff1f1;
+      --warn-bg: #f7fadf;
       --sidebar: 246px;
       --shadow: 0 8px 28px rgba(37, 53, 39, .07);
     }
@@ -46,7 +46,7 @@
     .sidebar-foot { padding: 10px 16px 12px; border-top: 1px solid rgba(255,255,255,.1); }
     .signout { width: 100%; padding: 7px 12px; border: 1px solid rgba(255,255,255,.24); border-radius: 100px; color: rgba(255,255,255,.78); background: transparent; text-align: left; }
     .main { min-width: 0; }
-    .topbar { display: flex; min-height: 72px; justify-content: space-between; align-items: center; padding: 14px 34px; border-bottom: 1px solid rgba(10,59,19,.08); background: rgba(255,255,255,.68); backdrop-filter: blur(18px); }
+    .topbar { display: flex; min-height: 72px; justify-content: space-between; align-items: center; padding: 14px 34px; border-bottom: 1px solid rgba(10,59,19,.08); background: #fff; backdrop-filter: blur(18px); }
     .venue { display: flex; gap: 10px; align-items: center; color: var(--forest); font-weight: 700; }
     .venue-icon { display: grid; width: 32px; height: 32px; place-items: center; border-radius: 50%; background: var(--lime); }
     .venue small { display: block; color: var(--dim); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
@@ -63,25 +63,25 @@
     .btn { display: inline-flex; gap: 7px; align-items: center; justify-content: center; min-height: 40px; padding: 9px 15px; border: 1px solid var(--forest); border-radius: 100px; color: var(--forest); background: transparent; font-size: 13px; font-weight: 700; transition: .16s ease; }
     .btn:hover { transform: translateY(-1px); }
     .btn.primary { color: var(--lime); background: var(--forest); }
-    .btn.soft { border-color: var(--line); background: rgba(255,255,255,.72); }
+    .btn.soft { border-color: var(--line); background: #fff; }
     .btn svg { width: 15px; height: 15px; }
     .focus-strip { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; align-items: center; margin-bottom: 18px; padding: 13px 16px; border-radius: 16px; color: var(--white); background: var(--forest); box-shadow: var(--shadow); }
     .focus-copy { display: flex; gap: 11px; align-items: center; }
-    .focus-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 5px rgba(233,245,79,.13); }
+    .focus-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--lime); }
     .focus-strip strong { color: var(--lime); }
-    .focus-strip span { color: rgba(255,255,255,.72); }
+    .focus-strip span { color: var(--lime); }
     .focus-link { color: var(--lime); font-size: 12px; font-weight: 700; text-decoration: none; }
     .owner-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
-    .summary-card { padding: 11px 13px; border: 1px solid rgba(10,59,19,.08); border-radius: 13px; background: rgba(255,255,255,.82); box-shadow: var(--shadow); }
-    .summary-card strong { display: block; color: var(--forest); font-size: 13px; }
-    .summary-card > span { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; }
-    .summary-card.danger { border-color: #f0d0c7; background: #fff7f3; }
-    .summary-card.warn { border-color: #f2dfb7; background: #fffaf0; }
+    .summary-card { padding: 11px 13px; border: 1px solid var(--line); border-radius: 13px; background: #fff; box-shadow: var(--shadow); }
+    .summary-card strong { display: block; color: var(--forest); font-size: 14px; }
+    .summary-card > span { display: block; margin-top: 4px; color: var(--muted); font-size: 13px; }
+    .summary-card.danger, .summary-card.warn { border-color: var(--line); background: #fff; }
+    .summary-card.danger strong { color: var(--danger); }
+    .summary-card.warn strong { color: var(--forest); }
     .btn.small { min-height: 34px; padding: 7px 12px; font-size: 12px; }
     .dashboard-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 15px; }
-    .card { position: relative; min-width: 0; overflow: hidden; padding: 18px; border: 1px solid rgba(10,59,19,.08); border-radius: 18px; background: rgba(255,255,255,.9); box-shadow: var(--shadow); }
+    .card { position: relative; min-width: 0; overflow: hidden; align-self: start; padding: 18px; border: 1px solid rgba(10,59,19,.08); border-radius: 18px; background: #fff; box-shadow: var(--shadow); }
     .card-link { color: inherit; text-decoration: none; }
-    .card-link:hover { transform: translateY(-1px); }
     .widget-chrome { display: none; justify-content: space-between; align-items: center; margin: -4px 0 10px; color: var(--dim); }
     .drag-handle { display: inline-flex; gap: 3px; align-items: center; cursor: grab; }
     .drag-handle i { display: block; width: 16px; height: 2px; border-radius: 99px; background: currentColor; opacity: .55; }
@@ -89,81 +89,112 @@
     .resize-corner { display: none; position: absolute; right: 9px; bottom: 9px; width: 13px; height: 13px; border-right: 2px solid rgba(10,59,19,.28); border-bottom: 2px solid rgba(10,59,19,.28); border-radius: 0 0 3px 0; }
     .customizing .widget-chrome, .customizing .resize-corner { display: flex; }
     .span-3 { grid-column: span 3; }
-    .span-kpi { grid-column: span 4; }
+    .span-kpi { grid-column: span 3; }
     .span-4 { grid-column: span 4; }
     .span-5 { grid-column: span 5; }
     .span-7 { grid-column: span 7; }
     .span-8 { grid-column: span 8; }
     .span-12 { grid-column: span 12; }
     .card-top { display: flex; gap: 10px; justify-content: space-between; align-items: center; margin-bottom: 13px; }
-    .card-label { color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
-    .tag { padding: 4px 8px; border-radius: 100px; color: var(--good); background: #edf7e9; font-size: 10px; font-weight: 700; }
-    .tag.warn { color: var(--warn); background: var(--warn-bg); }
+    .card-label { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .tag { padding: 4px 8px; border-radius: 100px; color: var(--forest); background: #edf7e9; font-size: 11px; font-weight: 700; }
+    .tag.warn { color: var(--forest); background: var(--warn-bg); }
     .tag.danger { color: var(--danger); background: var(--danger-bg); }
     .value { color: var(--forest); font: 700 38px/1 "DM Sans", sans-serif;font-variant-numeric:tabular-nums; letter-spacing:0; }
     .value.danger { color: var(--danger); }
     .data-value { font-family: "DM Sans", sans-serif; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0; }
-    .meta { margin-top: 8px; color: var(--dim); font-size: 12px; }
+    .meta { margin-top: 8px; color: var(--dim); font-size: 13px; }
     .meta strong { color: var(--forest); }
-    .action-note { margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--line); color: var(--forest); font-size: 11px; font-weight: 700; }
-    .action-note.warn { color: var(--warn); }
+    .action-note { margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--line); color: var(--forest); font-size: 12px; font-weight: 700; }
+    .kpi-foot { display: block; margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--line); color: var(--forest); font-size: 12px; font-weight: 700; }
+    .kpi-foot .action-note { margin: 0; padding: 0; border-top: 0; }
+    .action-note.warn { color: var(--forest); }
     .action-note.danger { color: var(--danger); }
     .kpi { min-height: 132px; }
-    .kpi .mini-icon { position: absolute; right: 17px; bottom: 15px; display: grid; width: 34px; height: 34px; place-items: center; border-radius: 11px; color: var(--forest); background: #f0f5df; }
+    .kpi .mini-icon { display: none; }
+    .kpi .mini-icon.warn { color: var(--forest); background: var(--warn-bg); }
+    .kpi .mini-icon.danger { color: var(--danger); background: #fff1f1; }
     .kpi .mini-icon svg { width: 17px; height: 17px; }
     .section-title { margin: 0; color: var(--forest); font: 500 24px/1.1 "Fraunces", serif; letter-spacing:0; }
-    .section-sub { margin: 5px 0 0; color: var(--dim); font-size: 12px; }
-    .link { color: var(--forest); font-size: 12px; font-weight: 700; text-decoration: none; }
+    .section-sub { margin: 5px 0 0; color: var(--dim); font-size: 13px; }
+    .link { color: var(--forest); font-size: 13px; font-weight: 700; text-decoration: none; }
     .alerts { display: grid; gap: 9px; margin-top: 15px; }
-    .alert { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 11px; border: 1px solid #f4ded5; border-radius: 12px; background: #fff8f5; }
-    .alert-icon { display: grid; width: 31px; height: 31px; place-items: center; border-radius: 9px; color: var(--danger); background: #fee9e2; }
-    .alert-icon svg { width: 16px; height: 16px; }
-    .alert-title { color: var(--ink); font-size: 12px; font-weight: 700; }
-    .alert-desc { color: var(--dim); font-size: 11px; }
-    .alert-time { color: var(--danger); font-size: 11px; font-weight: 700; }
+    .alert { display: grid; grid-template-columns: 8px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 11px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+    .alert-icon { display: block; width: 8px; height: 42px; border-radius: 99px; background: var(--danger); }
+    .alert-title { color: var(--ink); font-size: 13px; font-weight: 700; }
+    .alert-desc { color: var(--dim); font-size: 12px; }
+    .alert-time { color: var(--danger); font-size: 12px; font-weight: 700; }
     .shift-list, .evidence-list { display: grid; gap: 10px; margin-top: 15px; }
     .shift { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 11px; align-items: center; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
     .shift:last-child { padding-bottom: 0; border: 0; }
     .shift-time { min-width: 54px; color: var(--forest); font: 700 17px/1 "DM Sans", sans-serif; }
-    .shift-name { font-size: 12px; font-weight: 700; }
-    .shift-people { color: var(--dim); font-size: 11px; }
+    .shift-name { font-size: 13px; font-weight: 700; }
+    .shift-people { color: var(--dim); font-size: 12px; }
     .staff-stack { display: flex; }
     .staff { display: grid; width: 26px; height: 26px; place-items: center; margin-left: -6px; border: 2px solid var(--white); border-radius: 50%; color: var(--forest); background: #e4edce; font-size: 9px; font-weight: 700; }
     .staff:first-child { margin-left: 0; }
-    .chart { position: relative; height: 180px; margin-top: 12px; }
+    .chart { position: relative; height: 170px; margin-top: 4px; }
     .chart svg { width: 100%; height: 100%; overflow: visible; }
     .chart-grid line { stroke: var(--line); stroke-width: 1; }
-    .chart-label { fill: var(--dim); font: 10px "DM Sans", sans-serif; }
-    .chart-value { fill: var(--forest); font: 700 10px "DM Sans", sans-serif; font-variant-numeric: tabular-nums; }
-    .chart-axis { fill: var(--dim); font: 700 9px "DM Sans", sans-serif; font-variant-numeric: tabular-nums; }
+    .chart-label { fill: var(--ink); font: 700 12px "DM Sans", sans-serif; }
+    .chart-value { fill: var(--forest); font: 700 11px "DM Sans", sans-serif; font-variant-numeric: tabular-nums; }
+    .chart-axis { fill: var(--muted); font: 700 11px "DM Sans", sans-serif; font-variant-numeric: tabular-nums; }
     .chart-line { fill: none; stroke: var(--forest); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
     .chart-line.previous { stroke: #8da08b; stroke-width: 2; stroke-dasharray: 5 5; }
     .chart-area { fill: url(#chartFill); opacity: .45; }
     .chart-point { fill: var(--lime); stroke: var(--forest); stroke-width: 2; }
     .chart-point.previous { fill: var(--white); stroke: #8da08b; stroke-width: 1.6; }
-    .chart-legend { display: flex; gap: 15px; align-items: center; margin-top: 8px; color: var(--muted); font-size: 11px; }
+    .chart-legend { display: flex; gap: 15px; align-items: center; margin-top: 10px; color: var(--ink); font-size: 12px; font-weight: 600; }
     .chart-legend i { display: inline-block; width: 18px; height: 3px; margin-right: 6px; border-radius: 99px; background: var(--forest); vertical-align: middle; }
     .chart-legend .previous { background: repeating-linear-gradient(90deg, #8da08b 0 5px, transparent 5px 9px); }
-    .chart-summary { display: flex; gap: 22px; margin-top: 5px; }
-    .chart-summary small { display: block; color: var(--dim); font-size: 10px; text-transform: uppercase; }
-    .chart-summary strong { color: var(--forest); font: 700 20px "DM Sans", sans-serif;font-variant-numeric:tabular-nums; }
-    .progress-wrap { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; margin-top: 14px; }
-    .ring { width: 108px; height: 108px; }
+    .sales-bars { display: grid; grid-template-columns: 32px repeat(7, minmax(0, 1fr)); gap: 8px; align-items: end; min-height: 178px; padding-top: 12px; border-bottom: 1px solid var(--line); background: repeating-linear-gradient(to top, transparent 0 43px, rgba(232,223,211,.7) 43px 44px); }
+    .sales-scale { display: grid; height: 140px; align-content: space-between; color: var(--muted); font-size: 10px; font-weight: 700; }
+    .sales-day { display: grid; gap: 7px; justify-items: center; min-width: 0; }
+    .bar-pair { display: flex; align-items: end; justify-content: center; gap: 4px; height: 140px; width: 100%; }
+    .sales-bar { position: relative; width: min(18px, 40%); min-height: 18px; border-radius: 5px 5px 0 0; background: var(--forest); }
+    .sales-bar.previous { background: #b8c5aa; }
+    .sales-day.peak .sales-bar.current::before { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); color: var(--forest); font-size: 10px; font-weight: 800; content: "£3.17k"; white-space: nowrap; }
+    .sales-day span { color: var(--ink); font-size: 11px; font-weight: 800; }
+    .sales-legend { display: flex; gap: 14px; margin-top: 10px; color: var(--ink); font-size: 11px; font-weight: 700; }
+    .sales-legend i { display: inline-block; width: 16px; height: 8px; margin-right: 6px; border-radius: 3px; background: var(--forest); vertical-align: middle; }
+    .sales-legend .previous { background: #b8c5aa; }
+    .sales-body { display: grid; grid-template-columns: minmax(0, 1.22fr) minmax(250px, .78fr); gap: 18px; align-items: start; margin-top: 2px; }
+    .sales-graphic { min-width: 0; }
+    .sales-insights { display: grid; align-content: start; gap: 8px; padding-left: 18px; border-left: 1px solid var(--line); }
+    .sales-insights h3 { margin: 0; color: var(--forest); font: 700 14px/1.2 "DM Sans", sans-serif; }
+    .sales-insights p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.35; }
+    .chart-summary { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 0; }
+    .chart-summary div { padding: 6px 0; border-bottom: 1px solid var(--line); }
+    .chart-summary div:last-child { border-bottom: 0; }
+    .chart-summary small { display: block; color: var(--dim); font-size: 11px; text-transform: uppercase; }
+    .chart-summary strong { display: block; margin-top: 1px; color: var(--forest); font: 700 20px/1 "DM Sans", sans-serif;font-variant-numeric:tabular-nums; }
+    .sales-note { padding-top: 6px; border-top: 1px solid var(--line); color: var(--forest); font-size: 11px; line-height: 1.35; font-weight: 700; }
+    .progress-wrap { display: grid; grid-template-columns: 98px minmax(0, 1fr); gap: 18px; align-items: center; margin-top: 10px; }
+    .ring { width: 98px; height: 98px; }
     .ring text { fill: var(--forest); font: 700 20px "DM Sans", sans-serif; }
-    .progress-list { display: grid; gap: 10px; }
+    .progress-list { display: grid; gap: 9px; }
     .progress-row { display: grid; grid-template-columns: 82px minmax(0, 1fr) 34px; gap: 8px; align-items: center; color: var(--muted); font-size: 11px; }
     .bar { height: 6px; overflow: hidden; border-radius: 100px; background: #edf0e9; }
     .bar i { display: block; height: 100%; border-radius: inherit; background: var(--forest); }
+    .task-week { display: grid; gap: 12px; margin-top: 10px; }
+    .task-area { display: grid; grid-template-columns: 105px minmax(0, 1fr) 58px; gap: 10px; align-items: center; color: var(--muted); font-size: 12px; }
+    .task-area strong { display: block; color: var(--forest); font-size: 13px; }
+    .task-area small { display: block; margin-top: 1px; color: var(--dim); font-size: 11px; }
+    .stacked-bar { display: flex; height: 10px; overflow: hidden; border-radius: 999px; background: #edf0e9; }
+    .stacked-bar i { display: block; height: 100%; background: var(--forest); }
+    .stacked-bar .open { background: var(--lime); }
+    .stacked-bar .overdue { background: var(--danger); }
+    .task-count { color: var(--forest); font-size: 12px; font-weight: 800; text-align: right; white-space: nowrap; }
     .evidence { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
     .evidence:last-child { border-bottom: 0; }
     .evidence-icon { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 10px; color: var(--forest); background: #f3f5e4; }
     .evidence-icon svg { width: 16px; height: 16px; }
-    .evidence strong { display: block; font-size: 12px; }
-    .evidence span { color: var(--dim); font-size: 11px; }
+    .evidence strong { display: block; font-size: 13px; }
+    .evidence span { color: var(--dim); font-size: 12px; }
     .stock { display: flex; gap: 12px; align-items: center; margin-top: 14px; padding: 11px; border-radius: 12px; background: var(--warn-bg); }
-    .stock-value { color: var(--warn); font: 700 30px/1 "DM Sans", sans-serif;font-variant-numeric:tabular-nums; }
-    .stock strong { display: block; font-size: 12px; }
-    .stock span { color: var(--dim); font-size: 11px; }
+    .stock-value { color: var(--forest); font: 700 30px/1 "DM Sans", sans-serif;font-variant-numeric:tabular-nums; }
+    .stock strong { display: block; font-size: 13px; }
+    .stock span { color: var(--dim); font-size: 12px; }
     .customize-hint { display: none; position: fixed; right: 20px; bottom: 18px; max-width: 290px; padding: 13px 15px; border-radius: 14px; color: var(--lime); background: var(--forest); box-shadow: var(--shadow); font-size: 12px; }
     .customizing .customize-hint { display: block; }
     .customizing .card { outline: 2px dashed rgba(10,59,19,.25); outline-offset: -5px; }
@@ -187,6 +218,9 @@
       .span-3 { grid-column: span 6; }
       .span-4 { grid-column: span 6; }
       .span-5, .span-7, .span-8 { grid-column: span 12; }
+      .sales-body { grid-template-columns: 1fr; }
+      .sales-insights { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-left: 0; border-left: 0; border-top: 1px solid var(--line); padding-top: 12px; }
+      .sales-insights h3, .sales-insights p, .sales-note { grid-column: span 2; }
     }
     @media (max-width: 820px) {
       .app { display: block; }
@@ -201,8 +235,11 @@
       .owner-summary { grid-template-columns: 1fr; }
       .span-kpi { grid-column: span 12; }
       .span-3, .span-4, .span-5, .span-7, .span-8, .span-12 { grid-column: span 12; }
+      .sales-insights { grid-template-columns: 1fr; }
+      .sales-insights h3, .sales-insights p, .sales-note { grid-column: auto; }
     }
   </style>
+  <link rel="stylesheet" href="readability.css">
 </head>
 <body>
   <div class="app" id="app">
@@ -241,7 +278,7 @@
       </header>
       <div class="content">
         <section class="hero">
-          <div><p class="eyebrow">Monday operations overview</p><h1>Morning Brief</h1><p>A clear view of today’s priorities, shift coverage and the items that need your attention first.</p></div>
+          <div><p class="eyebrow">Today operations overview</p><h1>Morning Brief</h1><p>A clear view of today’s priorities, shift coverage and the items that need your attention first.</p></div>
           <div class="hero-actions"><button class="btn soft" id="resetLayoutBtn">Reset layout</button><button class="btn soft" id="customizeBtn">Customize</button><button class="btn primary" id="addWidgetBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Add widget</button></div>
         </section>
         <div class="focus-strip">
@@ -254,58 +291,50 @@
           <div class="summary-card"><strong>Compliance position</strong><span>Evidence is coming in, but failed checks need a manager review before close.</span></div>
         </section>
         <section class="dashboard-grid">
-          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Active shifts</div><span class="tag">Live</span></div><div class="value data-value">4</div><div class="meta"><strong><span class="data-value">18</span> people</strong> currently on shift</div><span class="mini-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></span></article>
-          <a class="card card-link kpi span-kpi" href="checks-tasks.html"><div class="card-top"><div class="card-label">Open tasks</div><span class="tag">Today</span></div><div class="value data-value">24</div><div class="meta"><strong><span class="data-value">16</span> complete</strong> of <span class="data-value">40</span> scheduled</div><div class="action-note warn">Morning checks are behind.</div><span class="mini-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span></a>
-          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Overdue tasks</div><span class="tag danger">Action needed</span></div><div class="value danger data-value">3</div><div class="meta">Oldest overdue by <strong><span class="data-value">1h 20m</span></strong></div><div class="action-note danger">Assign a manager before lunch.</div><span class="mini-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span></article>
-          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">7-day completion</div><span class="tag data-value">+6%</span></div><div class="value data-value">86%</div><div class="meta">Up from <strong class="data-value">80%</strong> last week</div><span class="mini-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span></article>
-          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Failed in 7 days</div><span class="tag warn">Watch</span></div><div class="value data-value">5</div><div class="meta"><strong><span class="data-value">2</span> checks</strong> failed twice this week</div><div class="action-note warn">Repeat failures need retraining.</div><span class="mini-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/><circle cx="12" cy="12" r="9"/></svg></span></article>
-          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Open issues</div><span class="tag danger">Live</span></div><div class="value danger data-value">12</div><div class="meta"><strong><span class="data-value">3</span> urgent</strong> need review today</div><div class="action-note danger">Clear urgent issues first.</div><span class="mini-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3Z"/><path d="M12 9v4M12 17h.01"/></svg></span></article>
-          <article class="card span-7">
+          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Active shifts</div><span class="tag">Live</span></div><div class="value data-value">4</div><div class="meta"><strong><span class="data-value">18</span> people</strong> currently on shift</div><div class="kpi-foot"><span>Service is covered right now.</span><span class="mini-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></span></div></article>
+          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Open tasks</div><span class="tag">Today</span></div><div class="value data-value">24</div><div class="meta"><strong><span class="data-value">16</span> complete</strong> of <span class="data-value">40</span> scheduled</div><div class="kpi-foot"><div class="action-note warn">Morning checks are behind.</div><span class="mini-icon warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span></div></article>
+          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Overdue tasks</div><span class="tag danger">Action needed</span></div><div class="value danger data-value">3</div><div class="meta">Oldest overdue by <strong><span class="data-value">1h 20m</span></strong></div><div class="kpi-foot"><div class="action-note danger">Assign a manager before lunch.</div><span class="mini-icon danger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span></div></article>
+          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Open issues</div><span class="tag danger">Live</span></div><div class="value danger data-value">12</div><div class="meta"><strong><span class="data-value">3</span> urgent</strong> need review today</div><div class="kpi-foot"><div class="action-note danger">Clear urgent issues first.</div><span class="mini-icon danger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v6"/><path d="M12 17h.01"/></svg></span></div></article>
+          <article class="card span-8 dashboard-sales-card">
             <div class="card-top"><div><h2 class="section-title">Sales this week</h2><p class="section-sub">Revenue compared with the same point last week.</p></div><a class="link" href="sales.html">View sales →</a></div>
-            <div class="chart">
-              <svg viewBox="0 0 650 180" preserveAspectRatio="none" aria-label="Daily sales compared with last week">
-                <defs><linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#e9f54f"/><stop offset="100%" stop-color="#e9f54f" stop-opacity="0"/></linearGradient></defs>
-                <g class="chart-grid">
-                  <line x1="46" y1="24" x2="632" y2="24"/><line x1="46" y1="68" x2="632" y2="68"/><line x1="46" y1="112" x2="632" y2="112"/><line x1="46" y1="146" x2="632" y2="146"/>
-                </g>
-                <g>
-                  <text class="chart-axis" x="8" y="27">£3.2k</text><text class="chart-axis" x="8" y="71">£2.4k</text><text class="chart-axis" x="8" y="115">£1.6k</text><text class="chart-axis" x="8" y="149">£0.8k</text>
-                </g>
-                <path class="chart-line previous" d="M60 115 C94 108 120 96 150 101 S213 111 244 90 S309 76 338 84 S405 101 431 78 S493 58 524 67 S592 77 622 52"/>
-                <path class="chart-area" d="M60 120 C94 112 121 95 151 100 S214 110 245 86 S310 56 339 64 S407 83 432 62 S494 35 525 42 S593 54 622 26 L622 146 L60 146Z"/>
-                <path class="chart-line" d="M60 120 C94 112 121 95 151 100 S214 110 245 86 S310 56 339 64 S407 83 432 62 S494 35 525 42 S593 54 622 26"/>
-                <g>
-                  <circle class="chart-point" cx="60" cy="120" r="3"/><text class="chart-value" x="48" y="108">£2.35k</text>
-                  <circle class="chart-point" cx="151" cy="100" r="3"/><text class="chart-value" x="137" y="88">£2.26k</text>
-                  <circle class="chart-point" cx="245" cy="86" r="3"/><text class="chart-value" x="230" y="74">£2.41k</text>
-                  <circle class="chart-point" cx="339" cy="64" r="3"/><text class="chart-value" x="323" y="52">£2.58k</text>
-                  <circle class="chart-point" cx="432" cy="62" r="3"/><text class="chart-value" x="416" y="50">£2.89k</text>
-                  <circle class="chart-point" cx="525" cy="42" r="3"/><text class="chart-value" x="509" y="30">£3.17k</text>
-                  <circle class="chart-point" cx="622" cy="26" r="5"/><text class="chart-value" x="586" y="17">£2.76k</text>
-                </g>
-                <g>
-                  <text class="chart-label" x="52" y="170">Mon</text><text class="chart-label" x="143" y="170">Tue</text><text class="chart-label" x="235" y="170">Wed</text><text class="chart-label" x="331" y="170">Thu</text><text class="chart-label" x="425" y="170">Fri</text><text class="chart-label" x="517" y="170">Sat</text><text class="chart-label" x="615" y="170">Sun</text>
-                </g>
-              </svg>
+            <div class="sales-overview">
+              <div class="sales-readout" aria-label="Sales summary">
+                <div><small>This week</small><strong class="data-value">£18,420</strong></div>
+                <div><small>Vs last week</small><strong class="data-value">+8.7%</strong></div>
+                <div><small>Peak day</small><strong class="data-value">Sat £3.17k</strong></div>
+                <p><strong>Owner read:</strong> revenue is ahead, but weekend demand needs stock and FOH cover checked before Friday.</p>
+              </div>
+              <div class="sales-graphic">
+                <div class="sales-bars" role="img" aria-label="Sales by day, this week compared with last week">
+                  <div class="sales-scale"><span>£3.2k</span><span>£2.4k</span><span>£1.6k</span><span>£0.8k</span></div>
+                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:44%"></i><i class="sales-bar previous" style="height:39%"></i></div><span>Mon</span></div>
+                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:58%"></i><i class="sales-bar previous" style="height:51%"></i></div><span>Tue</span></div>
+                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:68%"></i><i class="sales-bar previous" style="height:61%"></i></div><span>Wed</span></div>
+                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:78%"></i><i class="sales-bar previous" style="height:70%"></i></div><span>Thu</span></div>
+                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:90%"></i><i class="sales-bar previous" style="height:75%"></i></div><span>Fri</span></div>
+                  <div class="sales-day peak"><div class="bar-pair"><i class="sales-bar current" style="height:99%"></i><i class="sales-bar previous" style="height:82%"></i></div><span>Sat</span></div>
+                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:86%"></i><i class="sales-bar previous" style="height:72%"></i></div><span>Sun</span></div>
+                </div>
+                <div class="sales-legend"><span><i></i>This week</span><span><i class="previous"></i>Last week</span></div>
+              </div>
             </div>
-            <div class="chart-legend"><span><i></i>This week</span><span><i class="previous"></i>Last week</span></div>
-            <div class="chart-summary"><div><small>This week</small><strong class="data-value">£18,420</strong></div><div><small>Last week</small><strong class="data-value">£16,940</strong></div><div><small>Change</small><strong class="data-value">+8.7%</strong></div></div>
-            <div class="action-note">Trading is up; check staffing and stock for the weekend peak.</div>
           </article>
-          <article class="card span-5">
+          <article class="card span-4">
             <div class="card-top"><div><h2 class="section-title">Task completion</h2><p class="section-sub">Progress by operational area.</p></div><a class="link" href="checks-tasks.html">Open tasks →</a></div>
-            <div class="progress-wrap">
-              <svg class="ring" viewBox="0 0 120 120"><circle cx="60" cy="60" r="47" fill="none" stroke="#edf0e9" stroke-width="12"/><circle cx="60" cy="60" r="47" fill="none" stroke="#0a3b13" stroke-width="12" stroke-linecap="round" stroke-dasharray="254 296" transform="rotate(-90 60 60)"/><text class="data-value" x="60" y="66" text-anchor="middle">86%</text></svg>
-              <div class="progress-list"><div class="progress-row"><span>Kitchen</span><span class="bar"><i style="width:91%"></i></span><b class="data-value">91%</b></div><div class="progress-row"><span>Front of house</span><span class="bar"><i style="width:78%"></i></span><b class="data-value">78%</b></div><div class="progress-row"><span>Management</span><span class="bar"><i style="width:100%"></i></span><b class="data-value">100%</b></div><div class="progress-row"><span>Maintenance</span><span class="bar"><i style="width:82%"></i></span><b class="data-value">82%</b></div></div>
+            <div class="task-week" aria-label="Weekly task completion by operational area">
+              <div class="task-area"><div><strong>Kitchen</strong><small>41 done · 4 open</small></div><span class="stacked-bar"><i style="width:91%"></i><i class="open" style="width:9%"></i></span><span class="task-count">41/45</span></div>
+              <div class="task-area"><div><strong>Front of house</strong><small>32 done · 2 late</small></div><span class="stacked-bar"><i style="width:78%"></i><i class="open" style="width:17%"></i><i class="overdue" style="width:5%"></i></span><span class="task-count">32/41</span></div>
+              <div class="task-area"><div><strong>Management</strong><small>18 done · clear</small></div><span class="stacked-bar"><i style="width:100%"></i></span><span class="task-count">18/18</span></div>
+              <div class="task-area"><div><strong>Maintenance</strong><small>23 done · 5 open</small></div><span class="stacked-bar"><i style="width:82%"></i><i class="open" style="width:18%"></i></span><span class="task-count">23/28</span></div>
             </div>
-            <div class="action-note warn">Front of house is the weakest area today.</div>
+                <div class="action-note">Front of house is the weakest area today.</div>
           </article>
           <article class="card span-7">
             <div class="card-top"><div><h2 class="section-title">Open issues</h2><p class="section-sub">Exceptions with the highest operational impact.</p></div><a class="link" href="issues.html">View all issues →</a></div>
             <div class="alerts">
-              <div class="alert"><span class="alert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3Z"/></svg></span><div><div class="alert-title">Freezer temperature above safe range</div><div class="alert-desc">Kitchen · Freezer Unit 3 · Reported by Sam Tester</div></div><span class="alert-time">18m ago</span></div>
-              <div class="alert"><span class="alert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3Z"/></svg></span><div><div class="alert-title">Opening checklist still incomplete</div><div class="alert-desc">Front of house · 3 tasks overdue · Assigned to Ali Zee</div></div><span class="alert-time">42m ago</span></div>
-              <div class="alert"><span class="alert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3Z"/></svg></span><div><div class="alert-title">Saturday PM rota gap</div><div class="alert-desc">Front of house · 1 supervisor required</div></div><span class="alert-time">Today</span></div>
+              <div class="alert"><span class="alert-icon" aria-hidden="true"></span><div><div class="alert-title">Freezer temperature above safe range</div><div class="alert-desc">Kitchen · Freezer Unit 3 · Reported by Sam Tester</div></div><span class="alert-time">18m ago</span></div>
+              <div class="alert"><span class="alert-icon" aria-hidden="true"></span><div><div class="alert-title">Opening checklist still incomplete</div><div class="alert-desc">Front of house · 3 tasks overdue · Assigned to Ali Zee</div></div><span class="alert-time">42m ago</span></div>
+              <div class="alert"><span class="alert-icon" aria-hidden="true"></span><div><div class="alert-title">Saturday PM rota gap</div><div class="alert-desc">Front of house · 1 supervisor required</div></div><span class="alert-time">Today</span></div>
             </div>
           </article>
           <article class="card span-5">

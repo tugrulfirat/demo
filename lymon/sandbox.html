@@ -7,39 +7,42 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="admin.css">
   <style>
-    .sandbox{display:grid;grid-template-columns:320px minmax(0,1fr);overflow:hidden;padding:0;border-radius:18px;background:#fff}
-    .conversation-list{border-right:1px solid var(--line);background:#fbfaf7}
+    .sandbox{display:grid;width:100%;min-width:0;grid-template-columns:360px minmax(0,1fr);overflow:hidden;max-width:1320px;height:clamp(520px,calc(100vh - 260px),700px);padding:0;border-radius:18px;background:#fff}
+    .conversation-list{min-width:0;overflow:auto;border-right:1px solid var(--line);background:#fbfaf7}
     .list-head{padding:15px;border-bottom:1px solid var(--line)}
     .list-head h2{margin:0;color:var(--forest);font:500 24px/1.1 "Fraunces",serif}
     .list-head p{margin:4px 0 12px;color:var(--muted);font-size:12px}
     .search{width:100%;min-height:38px;border-radius:100px}
-    .chat-item{display:grid;width:100%;grid-template-columns:40px minmax(0,1fr) auto;gap:10px;align-items:center;padding:12px 14px;border:0;border-bottom:1px solid rgba(232,223,211,.78);background:transparent;text-align:left}
-    .chat-item:hover{background:#f7f1e8}.chat-item.active{background:#eef5d8}
+    .chat-item{display:grid;width:100%;grid-template-columns:42px minmax(0,1fr) auto;gap:11px;align-items:center;padding:13px 15px;border:0;border-bottom:1px solid rgba(232,223,211,.78);background:transparent;text-align:left}
+    .chat-item:hover{background:#f7f1e8}.chat-item.active{background:#eef5d8;box-shadow:inset 4px 0 0 var(--forest)}
     .contact-avatar,.mini-avatar{display:grid;place-items:center;border-radius:50%;font-weight:800}
-    .contact-avatar{width:40px;height:40px;color:var(--lime);background:var(--forest)}
+    .contact-avatar{width:42px;height:42px;color:var(--lime);background:var(--forest)}
     .mini-avatar{width:24px;height:24px;color:var(--forest);background:#e6efda;font-size:10px}
     .chat-name{display:flex;gap:8px;align-items:center;color:var(--forest);font-weight:800;font-size:13px}
-    .chat-preview{overflow:hidden;margin-top:3px;color:var(--muted);font-size:12px;text-overflow:ellipsis;white-space:nowrap}
+    .chat-preview{display:block;overflow:hidden;margin-top:4px;color:var(--muted);font-size:12px;text-overflow:ellipsis;white-space:nowrap}
     .chat-meta{display:grid;justify-items:end;gap:5px;color:var(--muted);font-size:10px}
     .unread{display:grid;min-width:18px;height:18px;place-items:center;border-radius:100px;color:var(--forest);background:var(--lime);font-size:10px;font-weight:800}
-    .phone-shell{min-width:0;background:#efe7db}
-    .conversation-head{display:flex;gap:11px;align-items:center;padding:13px 15px;border-bottom:1px solid rgba(10,59,19,.12);background:#fff}
+    .phone-shell{display:grid;min-width:0;min-height:0;height:100%;overflow:hidden;background:#efe7db;grid-template-rows:auto minmax(0,1fr) auto}
+    .conversation-head{display:flex;gap:11px;align-items:center;padding:13px 18px;border-bottom:1px solid rgba(10,59,19,.12);background:#fff}
     .contact-meta{min-width:0;flex:1}.contact-meta strong{display:block;color:var(--forest);font-size:14px}.contact-meta span{display:block;color:var(--muted);font-size:11px}
     .status-pill{padding:5px 9px;border-radius:100px;color:#2e7d3d;background:#edf7e9;font-size:10px;font-weight:800}
-    .thread{display:flex;min-height:560px;max-height:640px;flex-direction:column;gap:8px;overflow:auto;padding:18px;background:radial-gradient(circle at 12px 12px,rgba(10,59,19,.035) 1px,transparent 1px) 0 0/24px 24px,#f7f1e8}
+    .thread{display:flex;min-height:0;flex-direction:column;gap:8px;overflow:auto;padding:20px 22px;background:radial-gradient(circle at 12px 12px,rgba(10,59,19,.035) 1px,transparent 1px) 0 0/24px 24px,#f7f1e8}
     .date-separator{align-self:center;margin:6px 0;padding:5px 10px;border:1px solid rgba(10,59,19,.08);border-radius:100px;color:var(--muted);background:rgba(255,255,255,.88);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    .date-separator,.message-row{width:min(100%,880px);margin-inline:auto}
     .message-row{display:flex;align-items:flex-end;gap:7px}.message-row.out{justify-content:flex-end}.message-row+.date-separator{margin-top:16px}
-    .bubble{position:relative;max-width:min(74%,560px);padding:9px 10px 7px;border-radius:0 12px 12px 12px;background:#fff;box-shadow:0 1px 2px rgba(31,42,39,.08);color:var(--ink);font-size:13px;line-height:1.38}
+    .bubble{position:relative;max-width:min(78%,470px);padding:9px 10px 7px;border-radius:0 12px 12px 12px;background:#fff;box-shadow:0 1px 2px rgba(31,42,39,.08);color:var(--ink);font-size:13px;line-height:1.38}
     .bubble:before{position:absolute;top:0;left:-7px;width:0;height:0;border-top:8px solid #fff;border-left:8px solid transparent;content:""}
-    .out .bubble{border-radius:12px 0 12px 12px;color:#f7fff0;background:var(--forest)}
+    .out .bubble{max-width:min(78%,520px);border-radius:12px 0 12px 12px;color:#f7fff0;background:var(--forest)}
     .out .bubble:before{right:-7px;left:auto;border-top-color:var(--forest);border-right:8px solid transparent;border-left:0}
     .bubble-meta{display:flex;gap:6px;justify-content:flex-end;align-items:center;margin-top:4px;color:rgba(92,108,94,.82);font-size:10px;line-height:1}
     .out .bubble-meta{color:rgba(247,255,240,.72)}.ticks{font-weight:800;color:#9ed66b}.source{font-weight:800}
     .incoming-label{margin-bottom:2px;color:var(--muted);font-size:10px;font-weight:800}
-    .compose{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center;padding:12px;border-top:1px solid rgba(10,59,19,.1);background:#fff}
+    .compose{padding:12px 18px;border-top:1px solid rgba(10,59,19,.1);background:#fff}
+    .compose-inner{display:grid;width:min(100%,900px);grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center;margin-inline:auto}
     .icon-btn{display:grid;width:38px;height:38px;place-items:center;border:1px solid var(--line);border-radius:50%;color:var(--forest);background:#fbfaf7;font-weight:800}.compose .input{min-height:40px;border-radius:100px}.send-btn{width:42px;height:42px;border-radius:50%;padding:0}
-    @media(max-width:980px){.sandbox{grid-template-columns:1fr}.conversation-list{border-right:0;border-bottom:1px solid var(--line)}.chat-list{display:flex;overflow:auto}.chat-item{min-width:280px;border-right:1px solid var(--line)}}@media(max-width:720px){.bubble{max-width:84%}.status-pill{display:none}.thread{min-height:500px;padding:14px}}
+    @media(max-width:1180px){.sandbox{grid-template-columns:330px minmax(0,1fr)}}@media(max-width:1100px){.content{padding-top:20px}.hero{margin-bottom:12px}.hero h1{font-size:38px}.hero p:last-child{margin-top:4px}.sandbox{grid-template-columns:minmax(0,1fr);height:auto;min-height:0}.conversation-list{overflow:hidden;border-right:0;border-bottom:1px solid var(--line)}.list-head{padding:10px 13px}.list-head p{display:none}.chat-list{display:flex;min-width:0;overflow:auto}.chat-item{min-width:280px;border-right:1px solid var(--line)}.phone-shell{height:clamp(350px,calc(100vh - 420px),640px);min-height:0}}@media(max-width:720px){.content{padding-inline:12px}.hero h1{font-size:34px}.hero p:last-child{font-size:13px}.sandbox{border-radius:14px}.bubble,.out .bubble{max-width:84%;font-size:12px}.status-pill{display:none}.thread{padding:14px}.compose{padding-inline:12px}.chat-item{min-width:220px}.conversation-head{padding-inline:14px}.contact-meta span{max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
   </style>
+  <link rel="stylesheet" href="readability.css">
 </head>
 <body>
 <div class="app">
@@ -70,9 +73,11 @@
           </div>
           <div class="thread" id="thread"></div>
           <div class="compose">
-            <button class="icon-btn" aria-label="Attach">+</button>
-            <input class="input" id="message" placeholder="Type a simulated inbound message">
-            <button class="btn primary send-btn" id="send" aria-label="Send">→</button>
+            <div class="compose-inner">
+              <button class="icon-btn" aria-label="Attach">+</button>
+              <input class="input" id="message" placeholder="Type a simulated inbound message">
+              <button class="btn primary send-btn" id="send" aria-label="Send">→</button>
+            </div>
           </div>
         </article>
       </section>
