@@ -2197,10 +2197,12 @@ body {
 
 .sales-filter-card {
   display: grid !important;
-  grid-template-columns: 92px minmax(160px, 1.1fr) 100px minmax(150px, 1fr) minmax(150px, 1fr) auto !important;
-  gap: 12px !important;
+  grid-template-columns: 92px minmax(210px, .9fr) 104px minmax(180px, .8fr) minmax(180px, .8fr) minmax(300px, auto) !important;
+  column-gap: 12px !important;
+  row-gap: 14px !important;
   align-items: end !important;
   margin-bottom: 18px !important;
+  padding: 16px 18px !important;
 }
 
 .sales-filter-card .field {
@@ -2212,16 +2214,32 @@ body {
   width: 100%;
 }
 
+.sales-filter-card label {
+  color: var(--muted) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: .08em !important;
+}
+
+.sales-filter-card .input {
+  min-height: 44px !important;
+  border-radius: 11px !important;
+  font-size: 15px !important;
+}
+
 .sales-filter-actions {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) minmax(160px, 1fr);
   gap: 10px;
   align-items: center;
   justify-content: flex-end;
-  min-width: 330px;
+  min-width: 0;
 }
 
 .sales-filter-actions .btn {
   min-height: 44px !important;
+  padding-inline: 14px !important;
+  font-size: 14px !important;
   white-space: nowrap;
 }
 
@@ -2232,12 +2250,7 @@ body {
 
   .sales-filter-actions {
     grid-column: span 3;
-    justify-content: flex-start;
     min-width: 0;
-  }
-
-  .sales-filter-actions .btn {
-    width: auto;
   }
 }
 
