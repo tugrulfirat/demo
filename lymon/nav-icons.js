@@ -1,17 +1,24 @@
 // Shared left navigation for all static Figma prototype pages.
 const style = document.createElement("style");
 style.textContent = `
+  .nav-details,
   .admin-details { display:block; width:100%; }
+  .nav-summary,
   .admin-summary {
     display:flex !important; justify-content:space-between; align-items:center;
     cursor:pointer; margin:14px 9px 7px; color:rgba(255,255,255,.58);
     font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
     list-style:none; user-select:none; outline:none; transition:color .15s ease;
   }
+  .nav-summary::-webkit-details-marker,
   .admin-summary::-webkit-details-marker { display:none; }
+  .nav-summary:hover,
   .admin-summary:hover { color:rgba(255,255,255,.72); }
+  .nav-summary .chevron,
   .admin-summary .chevron { width:12px; height:12px; transition:transform .2s ease; opacity:.65; }
+  details[open] .nav-summary .chevron,
   details[open] .admin-summary .chevron { transform:rotate(180deg); }
+  .nav-details-items,
   .admin-details-items { display:flex; flex-direction:column; gap:2px; margin-top:4px; padding-left:0; }
   .brand { gap:14px; }
   .brand-sub { margin-top:10px; color:#e9f54f; }
@@ -95,8 +102,12 @@ const itemHtml = item => `<a class="nav-item${isActive(item) ? " active" : ""}" 
 
 document.querySelectorAll(".nav").forEach(nav => {
   const adminOpen = adminItems.some(isActive);
+  const groupHtml = group => {
+    const groupOpen = group.items.some(isActive) || group.label !== "Admin";
+    return `<details class="nav-details"${groupOpen ? " open" : ""}><summary class="nav-summary"><span>${group.label}</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary><div class="nav-details-items">${group.items.map(itemHtml).join("")}</div></details>`;
+  };
   nav.innerHTML = [
-    ...navGroups.map(group => `<div class="nav-label">${group.label}</div>${group.items.map(itemHtml).join("")}`),
+    ...navGroups.map(groupHtml),
     `<details class="admin-details"${adminOpen ? " open" : ""}><summary class="admin-summary"><span>Admin</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary><div class="admin-details-items">${adminItems.map(itemHtml).join("")}</div></details>`
   ].join("");
 });

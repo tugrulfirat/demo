@@ -71,13 +71,6 @@
     .focus-strip strong { color: var(--lime); }
     .focus-strip span { color: var(--lime); }
     .focus-link { color: var(--lime); font-size: 12px; font-weight: 700; text-decoration: none; }
-    .owner-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
-    .summary-card { padding: 11px 13px; border: 1px solid var(--line); border-radius: 13px; background: #fff; box-shadow: var(--shadow); }
-    .summary-card strong { display: block; color: var(--forest); font-size: 14px; }
-    .summary-card > span { display: block; margin-top: 4px; color: var(--muted); font-size: 13px; }
-    .summary-card.danger, .summary-card.warn { border-color: var(--line); background: #fff; }
-    .summary-card.danger strong { color: var(--danger); }
-    .summary-card.warn strong { color: var(--forest); }
     .btn.small { min-height: 34px; padding: 7px 12px; font-size: 12px; }
     .dashboard-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 15px; }
     .card { position: relative; min-width: 0; overflow: hidden; align-self: start; padding: 18px; border: 1px solid rgba(10,59,19,.08); border-radius: 18px; background: #fff; box-shadow: var(--shadow); }
@@ -232,7 +225,6 @@
       .hero { display: block; }
       .hero-actions { margin-top: 16px; }
       .focus-strip { grid-template-columns: 1fr; }
-      .owner-summary { grid-template-columns: 1fr; }
       .span-kpi { grid-column: span 12; }
       .span-3, .span-4, .span-5, .span-7, .span-8, .span-12 { grid-column: span 12; }
       .sales-insights { grid-template-columns: 1fr; }
@@ -282,27 +274,37 @@
           <div class="hero-actions"><button class="btn soft" id="resetLayoutBtn">Reset layout</button><button class="btn soft" id="customizeBtn">Customize</button><button class="btn primary" id="addWidgetBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Add widget</button></div>
         </section>
         <div class="focus-strip">
-          <div class="focus-copy"><i class="focus-dot"></i><div><strong><span class="data-value">3</span> items need attention</strong> <span>Resolve urgent issues before the lunch service starts.</span></div></div>
-          <a class="focus-link" href="issues.html">Review priority items →</a>
+          <div class="focus-copy"><i class="focus-dot"></i><div><strong><span class="data-value">3</span> priorities before lunch</strong></div></div>
+          <a class="focus-link" href="issues.html">Review priorities →</a>
         </div>
-        <section class="owner-summary" aria-label="Owner summary">
-          <div class="summary-card danger"><strong>Service risk today</strong><span><span class="data-value">1</span> rota gap and <span class="data-value">3</span> overdue checks could affect lunch service.</span></div>
-          <div class="summary-card warn"><strong>Trading signal</strong><span>Sales are <span class="data-value">+8.7%</span> vs last week, but Friday stock issues need cover.</span></div>
-          <div class="summary-card"><strong>Compliance position</strong><span>Evidence is coming in, but failed checks need a manager review before close.</span></div>
-        </section>
         <section class="dashboard-grid">
-          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Active shifts</div><span class="tag">Live</span></div><div class="value data-value">4</div><div class="meta"><strong><span class="data-value">18</span> people</strong> currently on shift</div><div class="kpi-foot"><span>Service is covered right now.</span><span class="mini-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></span></div></article>
-          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Open tasks</div><span class="tag">Today</span></div><div class="value data-value">24</div><div class="meta"><strong><span class="data-value">16</span> complete</strong> of <span class="data-value">40</span> scheduled</div><div class="kpi-foot"><div class="action-note warn">Morning checks are behind.</div><span class="mini-icon warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span></div></article>
-          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Overdue tasks</div><span class="tag danger">Action needed</span></div><div class="value danger data-value">3</div><div class="meta">Oldest overdue by <strong><span class="data-value">1h 20m</span></strong></div><div class="kpi-foot"><div class="action-note danger">Assign a manager before lunch.</div><span class="mini-icon danger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span></div></article>
-          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Open issues</div><span class="tag danger">Live</span></div><div class="value danger data-value">12</div><div class="meta"><strong><span class="data-value">3</span> urgent</strong> need review today</div><div class="kpi-foot"><div class="action-note danger">Clear urgent issues first.</div><span class="mini-icon danger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v6"/><path d="M12 17h.01"/></svg></span></div></article>
+          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Shifts</div><span class="tag">Covered</span></div><div class="value data-value">4</div><div class="meta"><strong><span class="data-value">18</span> people</strong> currently on shift</div><div class="kpi-foot"><span><span class="data-value">1</span> rota gap before lunch</span></div></article>
+          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Tasks</div><span class="tag warn">Attention</span></div><div class="value data-value">40</div><div class="meta"><strong><span class="data-value">16</span> done</strong> · <span class="data-value">3</span> overdue</div><div class="kpi-foot"><span>Morning checks need review</span></div></article>
+          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Issues</div><span class="tag danger">Priority</span></div><div class="value danger data-value">3</div><div class="meta">Urgent items for today</div><div class="kpi-foot"><span>Freezer warning is highest risk</span></div></article>
+          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Sales & stock</div><span class="tag warn">Watch</span></div><div class="value data-value">+8.7%</div><div class="meta">Revenue vs last week</div><div class="kpi-foot"><span><span class="data-value">2</span> stock items below threshold</span></div></article>
+          <article class="card span-7 priority-issues">
+            <div class="card-top"><div><h2 class="section-title">Open issues</h2><p class="section-sub">Items that need owner or manager attention today.</p></div><a class="link" href="issues.html">View all issues →</a></div>
+            <div class="alerts">
+              <div class="alert"><span class="alert-icon" aria-hidden="true"></span><div><div class="alert-title">Freezer temperature above safe range</div><div class="alert-desc">Kitchen · Freezer Unit 3 · Reported by Sam Tester</div></div><span class="alert-time">18m ago</span></div>
+              <div class="alert"><span class="alert-icon" aria-hidden="true"></span><div><div class="alert-title">Opening checklist still incomplete</div><div class="alert-desc">Front of house · 3 tasks overdue · Assigned to Ali Zee</div></div><span class="alert-time">42m ago</span></div>
+              <div class="alert"><span class="alert-icon" aria-hidden="true"></span><div><div class="alert-title">Saturday PM rota gap</div><div class="alert-desc">Front of house · 1 supervisor required</div></div><span class="alert-time">Today</span></div>
+            </div>
+          </article>
+          <article class="card span-5">
+            <div class="card-top"><div><h2 class="section-title">Live shifts</h2><p class="section-sub">Who is running today’s service.</p></div><a class="link" href="rota.html">Open rota →</a></div>
+            <div class="shift-list">
+              <div class="shift"><div class="shift-time">07:00</div><div><div class="shift-name">Opening shift</div><div class="shift-people">Kitchen and front of house</div></div><div class="staff-stack"><i class="staff">AZ</i><i class="staff">DL</i><i class="staff">+4</i></div></div>
+              <div class="shift"><div class="shift-time">10:30</div><div><div class="shift-name">Lunch service</div><div class="shift-people">Front of house and bar</div></div><div class="staff-stack"><i class="staff">AP</i><i class="staff">MB</i><i class="staff">+6</i></div></div>
+              <div class="shift"><div class="shift-time">16:00</div><div><div class="shift-name">Evening service</div><div class="shift-people">Kitchen and front of house</div></div><div class="staff-stack"><i class="staff">SF</i><i class="staff">ST</i><i class="staff">+5</i></div></div>
+            </div>
+          </article>
           <article class="card span-8 dashboard-sales-card">
             <div class="card-top"><div><h2 class="section-title">Sales this week</h2><p class="section-sub">Revenue compared with the same point last week.</p></div><a class="link" href="sales.html">View sales →</a></div>
             <div class="sales-overview">
               <div class="sales-readout" aria-label="Sales summary">
                 <div><small>This week</small><strong class="data-value">£18,420</strong></div>
-                <div><small>Vs last week</small><strong class="data-value">+8.7%</strong></div>
+                <div><small>Last week</small><strong class="data-value">£16,940</strong></div>
                 <div><small>Peak day</small><strong class="data-value">Sat £3.17k</strong></div>
-                <p><strong>Owner read:</strong> revenue is ahead, but weekend demand needs stock and FOH cover checked before Friday.</p>
               </div>
               <div class="sales-graphic">
                 <div class="sales-bars" role="img" aria-label="Sales by day, this week compared with last week">
@@ -322,27 +324,10 @@
           <article class="card span-4">
             <div class="card-top"><div><h2 class="section-title">Task completion</h2><p class="section-sub">Progress by operational area.</p></div><a class="link" href="checks-tasks.html">Open tasks →</a></div>
             <div class="task-week" aria-label="Weekly task completion by operational area">
-              <div class="task-area"><div><strong>Kitchen</strong><small>41 done · 4 open</small></div><span class="stacked-bar"><i style="width:91%"></i><i class="open" style="width:9%"></i></span><span class="task-count">41/45</span></div>
-              <div class="task-area"><div><strong>Front of house</strong><small>32 done · 2 late</small></div><span class="stacked-bar"><i style="width:78%"></i><i class="open" style="width:17%"></i><i class="overdue" style="width:5%"></i></span><span class="task-count">32/41</span></div>
-              <div class="task-area"><div><strong>Management</strong><small>18 done · clear</small></div><span class="stacked-bar"><i style="width:100%"></i></span><span class="task-count">18/18</span></div>
-              <div class="task-area"><div><strong>Maintenance</strong><small>23 done · 5 open</small></div><span class="stacked-bar"><i style="width:82%"></i><i class="open" style="width:18%"></i></span><span class="task-count">23/28</span></div>
-            </div>
-                <div class="action-note">Front of house is the weakest area today.</div>
-          </article>
-          <article class="card span-7">
-            <div class="card-top"><div><h2 class="section-title">Open issues</h2><p class="section-sub">Exceptions with the highest operational impact.</p></div><a class="link" href="issues.html">View all issues →</a></div>
-            <div class="alerts">
-              <div class="alert"><span class="alert-icon" aria-hidden="true"></span><div><div class="alert-title">Freezer temperature above safe range</div><div class="alert-desc">Kitchen · Freezer Unit 3 · Reported by Sam Tester</div></div><span class="alert-time">18m ago</span></div>
-              <div class="alert"><span class="alert-icon" aria-hidden="true"></span><div><div class="alert-title">Opening checklist still incomplete</div><div class="alert-desc">Front of house · 3 tasks overdue · Assigned to Ali Zee</div></div><span class="alert-time">42m ago</span></div>
-              <div class="alert"><span class="alert-icon" aria-hidden="true"></span><div><div class="alert-title">Saturday PM rota gap</div><div class="alert-desc">Front of house · 1 supervisor required</div></div><span class="alert-time">Today</span></div>
-            </div>
-          </article>
-          <article class="card span-5">
-            <div class="card-top"><div><h2 class="section-title">Live shifts</h2><p class="section-sub">Who is running today’s service.</p></div><a class="link" href="rota.html">Open rota →</a></div>
-            <div class="shift-list">
-              <div class="shift"><div class="shift-time">07:00</div><div><div class="shift-name">Opening shift</div><div class="shift-people">Kitchen and front of house</div></div><div class="staff-stack"><i class="staff">AZ</i><i class="staff">DL</i><i class="staff">+4</i></div></div>
-              <div class="shift"><div class="shift-time">10:30</div><div><div class="shift-name">Lunch service</div><div class="shift-people">Front of house and bar</div></div><div class="staff-stack"><i class="staff">AP</i><i class="staff">MB</i><i class="staff">+6</i></div></div>
-              <div class="shift"><div class="shift-time">16:00</div><div><div class="shift-name">Evening service</div><div class="shift-people">Kitchen and front of house</div></div><div class="staff-stack"><i class="staff">SF</i><i class="staff">ST</i><i class="staff">+5</i></div></div>
+              <div class="task-area"><div><strong>Kitchen</strong></div><span class="stacked-bar"><i style="width:91%"></i></span><span class="task-count">41/45</span></div>
+              <div class="task-area"><div><strong>Front of house</strong></div><span class="stacked-bar"><i style="width:78%"></i></span><span class="task-count">32/41</span></div>
+              <div class="task-area"><div><strong>Management</strong></div><span class="stacked-bar"><i style="width:100%"></i></span><span class="task-count">18/18</span></div>
+              <div class="task-area"><div><strong>Maintenance</strong></div><span class="stacked-bar"><i style="width:82%"></i></span><span class="task-count">23/28</span></div>
             </div>
           </article>
           <article class="card span-8">
@@ -357,7 +342,6 @@
             <div class="card-top"><div><h2 class="section-title">Low stock signals</h2><p class="section-sub">Items requiring attention.</p></div><a class="link" href="assets.html">Assets →</a></div>
             <div class="stock"><div class="stock-value data-value">2</div><div><strong>Items below threshold</strong><span>Hand sanitiser and disposable gloves</span></div></div>
             <div class="stock"><div class="stock-value data-value">1</div><div><strong>Critical asset signal</strong><span>Freezer Unit 3 temperature warning</span></div></div>
-            <div class="action-note warn">Check freezer warning before service.</div>
           </article>
         </section>
       </div>
@@ -368,7 +352,7 @@
     <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modal-head"><div><p class="eyebrow">Dashboard settings</p><h2 id="modalTitle">Add a widget</h2></div><button class="close" id="closeModal" aria-label="Close">×</button></div>
       <p>Choose an additional view to add to your Morning Brief. Your layout remains personal to your account.</p>
-      <div class="widget-list"><div class="widget-option">Active Shifts <span>Default</span></div><div class="widget-option">Open Tasks <span>Default</span></div><div class="widget-option">Overdue Tasks <span>Default</span></div><div class="widget-option">Open Issues <span>Default</span></div><div class="widget-option">7-Day Completion <span>Default</span></div><div class="widget-option">Failed in 7 Days <span>Available</span></div><div class="widget-option">Low Stock Signals <span>Available</span></div><div class="widget-option">Latest Evidence <span>Available</span></div><div class="widget-option">Sales: This Week vs Last Week <span>Available</span></div></div>
+      <div class="widget-list"><div class="widget-option">Shifts summary <span>Default</span></div><div class="widget-option">Tasks summary <span>Default</span></div><div class="widget-option">Issues summary <span>Default</span></div><div class="widget-option">Sales & stock summary <span>Default</span></div><div class="widget-option">Open issues <span>Default</span></div><div class="widget-option">Live shifts <span>Default</span></div><div class="widget-option">Sales this week <span>Default</span></div><div class="widget-option">Task completion <span>Default</span></div><div class="widget-option">Latest evidence <span>Available</span></div><div class="widget-option">Low stock signals <span>Available</span></div></div>
       <button class="btn primary" id="doneModal">Done</button>
     </section>
   </div>
