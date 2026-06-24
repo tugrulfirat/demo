@@ -2515,6 +2515,24 @@ body {
   font-weight: inherit !important;
 }
 
+/* Final neutral surface pass: reduce warm beige saturation across screens. */
+:root {
+  --cream: #f7f8f7 !important;
+  --cream2: #fbfbfa !important;
+}
+
+body {
+  background: #f7f8f7 !important;
+}
+
+.availability-compact-help {
+  margin: 14px 0 8px !important;
+  color: var(--muted) !important;
+  font-size: 15px !important;
+  line-height: 1.45 !important;
+  font-weight: 500 !important;
+}
+
 @media (max-width: 1180px) {
   .dashboard-sales-card .sales-overview {
     grid-template-columns: 1fr !important;
