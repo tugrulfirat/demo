@@ -2543,6 +2543,50 @@ body,
   font-weight: 500 !important;
 }
 
+/* Dashboard-only type trim requested by client: about 1px smaller, still readable. */
+.dashboard-grid .card-label,
+.dashboard-grid .tag {
+  font-size: 12px !important;
+}
+
+.dashboard-grid .section-sub,
+.dashboard-grid .meta,
+.dashboard-grid .kpi-foot,
+.dashboard-grid .action-note,
+.dashboard-grid .shift-people,
+.dashboard-grid .alert-desc,
+.dashboard-grid .evidence span,
+.dashboard-grid .stock span,
+.dashboard-grid .task-area small {
+  font-size: 13px !important;
+}
+
+.dashboard-grid .link,
+.dashboard-grid .alert-title,
+.dashboard-grid .shift-name,
+.dashboard-grid .task-area,
+.dashboard-grid .task-area strong,
+.dashboard-grid .task-count,
+.dashboard-grid .evidence strong,
+.dashboard-grid .stock strong {
+  font-size: 14px !important;
+}
+
+.dashboard-sales-card .sales-readout small,
+.dashboard-sales-card .sales-scale,
+.dashboard-sales-card .sales-day.peak .sales-bar.current::before {
+  font-size: 13px !important;
+}
+
+.dashboard-sales-card .sales-readout strong {
+  font-size: 23px !important;
+}
+
+.dashboard-sales-card .sales-day span,
+.dashboard-sales-card .sales-legend {
+  font-size: 14px !important;
+}
+
 @media (max-width: 1180px) {
   .dashboard-sales-card .sales-overview {
     grid-template-columns: 1fr !important;
