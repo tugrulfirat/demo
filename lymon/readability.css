@@ -1701,7 +1701,7 @@ body {
 .nav-item.active {
   color: var(--forest) !important;
   background: var(--lime) !important;
-  font-weight: 650 !important;
+  font-weight: 500 !important;
 }
 
 .nav-label,
@@ -1709,7 +1709,7 @@ body {
 .nav-summary {
   color: rgba(255,255,255,.72) !important;
   font-size: 12px !important;
-  font-weight: 650 !important;
+  font-weight: 500 !important;
   letter-spacing: .1em !important;
 }
 
@@ -1745,7 +1745,7 @@ body {
 .card :is(strong, .alert-title, .shift-name, .evidence strong, .stock strong, .person strong, .task-area strong),
 .table td:first-child,
 .table td strong {
-  font-weight: 650 !important;
+  font-weight: 500 !important;
 }
 
 .section-title {
@@ -1761,7 +1761,7 @@ body {
 .table th,
 .field label {
   color: var(--muted) !important;
-  font-weight: 650 !important;
+  font-weight: 500 !important;
   letter-spacing: .08em !important;
 }
 
@@ -1820,7 +1820,7 @@ body {
 
 .focus-strip strong,
 .focus-link {
-  font-weight: 650 !important;
+  font-weight: 500 !important;
 }
 
 .dashboard-sales-card .sales-overview {
