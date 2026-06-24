@@ -2519,10 +2519,17 @@ body {
 :root {
   --cream: #f7f8f7 !important;
   --cream2: #fbfbfa !important;
+  --table-head: #f4f5f4 !important;
 }
 
-body {
+html,
+body,
+.main {
   background: #f7f8f7 !important;
+}
+
+.table th {
+  background: #f4f5f4 !important;
 }
 
 .availability-compact-help {
