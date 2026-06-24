@@ -2177,20 +2177,22 @@ body {
 }
 
 .nav-label {
-  font-weight: 600 !important;
-  letter-spacing: .12em !important;
+  color: rgba(255,255,255,.54) !important;
+  font-weight: 400 !important;
+  letter-spacing: .11em !important;
 }
 
 .nav-item {
-  font-weight: 500 !important;
+  color: rgba(255,255,255,.66) !important;
+  font-weight: 400 !important;
 }
 
 .nav-item.active {
-  font-weight: 600 !important;
+  font-weight: 500 !important;
 }
 
 .signout {
-  font-weight: 500 !important;
+  font-weight: 400 !important;
 }
 
 .sales-filter-card {
