@@ -1978,3 +1978,132 @@ body {
   background: #edf4e8 !important;
   border-color: #c9dec0 !important;
 }
+
+/* Dashboard sales card correction: keep summary and chart separate and balanced. */
+.dashboard-sales-card {
+  min-height: 300px !important;
+}
+
+.dashboard-sales-card .card-top {
+  margin-bottom: 16px !important;
+}
+
+.dashboard-sales-card .sales-overview {
+  display: grid !important;
+  grid-template-columns: 240px minmax(0, 1fr) !important;
+  gap: 28px !important;
+  align-items: stretch !important;
+}
+
+.dashboard-sales-card .sales-readout {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 0 !important;
+  align-content: stretch !important;
+}
+
+.dashboard-sales-card .sales-readout div {
+  display: grid !important;
+  min-height: 66px !important;
+  align-content: center !important;
+  padding: 12px 16px !important;
+  border: 1px solid #d9cfbf !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+}
+
+.dashboard-sales-card .sales-readout div + div {
+  margin-top: -1px !important;
+}
+
+.dashboard-sales-card .sales-readout small {
+  color: #536057 !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: .04em !important;
+  text-transform: uppercase !important;
+}
+
+.dashboard-sales-card .sales-readout strong {
+  margin-top: 3px !important;
+  color: var(--forest) !important;
+  font-size: 24px !important;
+  line-height: 1.05 !important;
+  white-space: nowrap !important;
+}
+
+.dashboard-sales-card .sales-graphic {
+  min-width: 0 !important;
+  align-self: end !important;
+}
+
+.dashboard-sales-card .sales-bars {
+  grid-template-columns: 50px repeat(7, minmax(54px, 1fr)) !important;
+  gap: 12px !important;
+  min-height: 168px !important;
+  padding-top: 14px !important;
+  border-bottom: 1px solid #d9cfbf !important;
+  background: repeating-linear-gradient(to top, transparent 0 39px, rgba(217,207,191,.9) 39px 40px) !important;
+}
+
+.dashboard-sales-card .sales-scale {
+  height: 128px !important;
+  align-content: space-between !important;
+  color: #536057 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+.dashboard-sales-card .bar-pair {
+  height: 128px !important;
+  gap: 8px !important;
+}
+
+.dashboard-sales-card .sales-bar {
+  width: min(22px, 38%) !important;
+  border-radius: 6px 6px 0 0 !important;
+}
+
+.dashboard-sales-card .sales-day span {
+  color: var(--ink) !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+}
+
+.dashboard-sales-card .sales-day.peak .sales-bar.current::before {
+  top: -24px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+}
+
+.dashboard-sales-card .sales-legend {
+  margin-top: 12px !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+}
+
+.dashboard-sales-card .sales-legend i {
+  width: 18px !important;
+  height: 8px !important;
+  border-radius: 3px !important;
+}
+
+.dashboard-grid .meta strong {
+  font-weight: inherit !important;
+}
+
+@media (max-width: 1180px) {
+  .dashboard-sales-card .sales-overview {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .dashboard-sales-card .sales-readout {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .dashboard-sales-card .sales-readout div + div {
+    margin-top: 0 !important;
+  }
+}
