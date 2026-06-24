@@ -2049,6 +2049,23 @@ body {
   margin-top: 0 !important;
 }
 
+.nav-label {
+  font-weight: 600 !important;
+  letter-spacing: .12em !important;
+}
+
+.nav-item {
+  font-weight: 500 !important;
+}
+
+.nav-item.active {
+  font-weight: 600 !important;
+}
+
+.signout {
+  font-weight: 500 !important;
+}
+
 .sales-filter-card {
   display: grid !important;
   grid-template-columns: 92px minmax(160px, 1.1fr) 100px minmax(150px, 1fr) minmax(150px, 1fr) auto !important;
