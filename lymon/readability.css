@@ -978,6 +978,87 @@ strong {
   display: none;
 }
 
+.availability-demo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  border: 1px solid rgba(10, 59, 19, .12);
+  border-radius: 16px;
+  background: #fffdf7;
+}
+
+.availability-demo strong {
+  display: block;
+  color: var(--forest);
+  font-size: 16px !important;
+  line-height: 1.25;
+}
+
+.availability-demo span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 14px !important;
+  line-height: 1.45;
+}
+
+.availability-demo ol {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: 8px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.availability-demo li {
+  display: inline-flex;
+  min-height: 40px;
+  gap: 8px;
+  align-items: center;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: #fff;
+  font-weight: 800;
+}
+
+.availability-demo li b {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border-radius: 999px;
+  color: var(--forest);
+  background: #eef4e7;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.availability-demo li span {
+  margin: 0;
+  color: inherit;
+  font-size: 13px !important;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.availability-demo li.active {
+  border-color: rgba(10, 59, 19, .26);
+  color: var(--forest);
+  background: #f4f9df;
+}
+
+.availability-demo li.active b {
+  color: var(--lime);
+  background: var(--forest);
+}
+
 .timeline-head,
 .availability-row {
   display: grid;
@@ -1141,6 +1222,30 @@ strong {
 .timeline-head,
 .availability-row {
   grid-template-columns: 280px minmax(0, 1fr) !important;
+}
+
+@media (max-width: 1180px) {
+  .availability-demo {
+    grid-template-columns: 1fr;
+  }
+
+  .availability-demo ol {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .availability-demo li {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 820px) {
+  .availability-demo ol {
+    grid-template-columns: 1fr;
+  }
+
+  .availability-demo li {
+    justify-content: flex-start;
+  }
 }
 
 .availability-row,
