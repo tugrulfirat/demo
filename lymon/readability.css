@@ -953,8 +953,10 @@ strong {
 }
 
 .availability-explainer {
-  display: grid;
-  gap: 4px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  justify-content: space-between;
   margin-bottom: 14px;
   padding: 13px 15px;
   border: 1px solid #d7e8d4;
@@ -963,15 +965,35 @@ strong {
   background: #f7fbef;
 }
 
+.availability-explainer > div {
+  min-width: 0;
+}
+
 .availability-explainer strong {
+  display: block;
   font-size: 15px !important;
   line-height: 1.25;
 }
 
 .availability-explainer span {
+  display: block;
+  margin-top: 4px;
   color: var(--muted);
   font-size: 14px !important;
   line-height: 1.45;
+}
+
+.availability-explainer .btn {
+  flex: 0 0 auto;
+  min-height: 40px !important;
+}
+
+.availability-explainer.is-collapsed {
+  align-items: center;
+}
+
+.availability-explainer.is-collapsed span {
+  display: none;
 }
 
 .timeline-head,
