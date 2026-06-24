@@ -42,14 +42,13 @@
     <header class="topbar"><div class="venue"><button class="mobile-menu" aria-label="Open navigation">☰</button><span class="venue-icon">L</span><span><small>Location</small>Lymon West London</span></div><div class="top-actions"><div class="date-pill">Mon, 1 Jun 2026</div><div class="profile"><span class="avatar">TF</span>Tugrul Firat</div></div></header>
     <div class="content">
       <section class="hero"><div><p class="eyebrow">Financial performance</p><h1>Sales</h1><p>Track revenue patterns, compare performance and review imported transactions from one clear operational view.</p></div><button class="btn soft" id="uploadBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m5-7-5-5-5 5"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></svg>Upload CSV</button></section>
-      <section class="card filters">
+      <section class="card filters sales-filter-card">
         <div class="field"><label for="year">Year</label><select class="input" id="year"><option>2024</option><option>2025</option><option selected>2026</option></select></div>
         <div class="field"><label for="month">Month</label><select class="input" id="month"><option>January</option><option>February</option><option>March</option><option>April</option><option selected>May / June</option><option>June</option><option>Custom range</option></select></div>
         <div class="field"><label for="granularity">View by</label><select class="input" id="granularity"><option>Hourly</option><option selected>Day</option><option>Week</option><option>Month</option></select></div>
         <div class="field"><label for="from">Custom from</label><input class="input" id="from" type="date" value="2026-05-26"></div>
         <div class="field"><label for="to">Custom to</label><input class="input" id="to" type="date" value="2026-06-01"></div>
-        <button class="btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h18l-7 8v6l-4 2v-8Z"/></svg>Apply filters</button>
-        <button class="btn soft upload">Custom range</button>
+        <div class="sales-filter-actions"><button class="btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h18l-7 8v6l-4 2v-8Z"/></svg>Apply filters</button><button class="btn soft">Use custom range</button></div>
       </section>
       <section class="metrics">
         <article class="card metric"><div class="label">Total revenue</div><div class="value data-value">£18,420</div><div class="meta">26 May – 1 Jun <span class="tag">+8.7%</span></div><span class="metric-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6.5" width="17" height="11" rx="2.2"/><circle cx="12" cy="12" r="2.6"/><path d="M7 9.5v5M17 9.5v5"/></svg></span></article>
