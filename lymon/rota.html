@@ -167,6 +167,7 @@
       };
       const shiftDate=document.getElementById("shiftDate");
       if(dateFromAvailability[availabilityDay]) shiftDate.value=dateFromAvailability[availabilityDay];
+      window.addEventListener("load",()=>document.getElementById("shiftModal").classList.add("open"));
     }
     document.querySelectorAll(".view-toggle [data-view]").forEach(button=>button.addEventListener("click",()=>{document.querySelectorAll(".view-toggle button").forEach(item=>item.classList.remove("active"));button.classList.add("active");page.dataset.view=button.dataset.view;document.getElementById("periodLabel").textContent=button.dataset.view==="month"?"June 2026":"22 Jun - 28 Jun 2026"}));
   document.querySelectorAll("[data-open]").forEach(button=>button.addEventListener("click",()=>document.getElementById(button.dataset.open).classList.add("open")));
