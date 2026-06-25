@@ -19,28 +19,27 @@
   <main class="main"><header class="topbar"><div class="venue"><button class="mobile-menu" aria-label="Open navigation">☰</button><span class="venue-icon">L</span><span><small>Location</small>Lymon West London</span></div><div class="top-actions"><div class="date-pill">Mon, 1 Jun 2026</div><div class="profile"><span class="avatar">TF</span>Tugrul Firat</div></div></header>
     <div class="content"><section class="hero"><div><p class="eyebrow">Staff scheduling</p><h1>Availability</h1></div><button class="btn primary" data-open="exceptionModal">+ Add exception</button></section>
       <div class="tabs"><button class="tab active" data-tab="overview">Overview</button><button class="tab" data-tab="requests">Requests <span class="tag">3</span></button></div>
-      <section class="overview" id="overview"><div class="overview-grid"><article class="card"><div class="availability-flow" id="availabilityFlow" hidden><div><strong>How Availability works</strong><span id="availabilityFlowStatus">This page records when a selected staff member can work. It is not the rota yet; assignment happens after you find matching rota shifts.</span></div><ol aria-label="Availability workflow"><li class="active"><b>1</b><span>Pick staff</span></li><li><b>2</b><span>Set available times</span></li><li><b>3</b><span>Match to Rota</span></li></ol></div><div class="availability-bridge" hidden><div class="bridge-card"><strong>61 hrs available</strong><span>Ali can work these windows this week.</span></div><div class="bridge-card"><strong>3 possible rota matches</strong><span>Open shifts that fit Ali's availability.</span></div><div class="bridge-card action"><strong>Availability is an input for Rota</strong><span>Use these windows to find open shifts this person can cover. Assignment happens in Rota.</span><button class="btn primary small" style="margin-top:9px" id="findMatches">Find rota matches</button></div></div><div class="availability-roster" aria-label="Assign matching people"><div><strong>Assign available person</strong></div><div class="roster-chips"><button class="roster-chip" draggable="true" data-name="Ali Pirposhteh" data-initials="AP"><b>AP</b><span>Ali Pirposhteh</span></button><button class="roster-chip" draggable="true" data-name="David Lewis" data-initials="DL"><b>DL</b><span>David Lewis</span></button><button class="roster-chip" draggable="true" data-name="Maria Thomson" data-initials="MT"><b>MT</b><span>Maria Thomson</span></button><button class="roster-chip" draggable="true" data-name="Shervin Fard" data-initials="SF"><b>SF</b><span>Shervin Fard</span></button></div></div><div class="toolbar"><select class="input person-select"><option>Ali Pirposhteh</option><option>Ali Zee</option><option>David Lewis</option><option>Michael Bironneau</option><option>Shervin Fard</option></select><div class="week-nav"><button class="arrow" aria-label="Previous week">←</button><button class="week">1 Jun – 7 Jun 2026</button><button class="arrow" aria-label="Next week">→</button></div></div><div class="tool-row"><div class="paint-tools"><button class="paint active" data-state="available">Available</button><button class="paint" data-state="partial">Tentative</button><button class="paint" data-state="off">Unavailable</button></div><button class="btn soft small history-action" id="undo" title="Undo last change">Undo</button><button class="btn soft small history-action" id="redo" title="Redo change">Redo</button></div><div class="tool-row" style="margin-top:9px"><button class="btn primary small" data-fill="available">Mark week as available</button><button class="btn primary small" data-fill="partial">Mark week as tentative</button><button class="btn soft small" data-fill="off">Clear week</button><button class="btn soft small" id="copyWeek">Copy last week</button><button class="btn soft small" id="applyFuture">Apply to future weeks</button></div><div class="divider"></div><div class="availability-timeline" id="availabilityTimeline" aria-label="Weekly availability timeline"><div class="timeline-head"><div></div><div class="timeline-scroll"><div class="timeline-axis"><span>06:00</span><span>08:00</span><span>10:00</span><span>12:00</span><span>14:00</span><span>16:00</span><span>18:00</span><span>20:00</span></div></div></div></div><div class="legend timeline-legend"><i></i>Available <i class="partial"></i>Tentative <i class="off"></i>Unavailable <span class="hint">Select a person, then choose an available day row.</span></div></article>
-        <div class="side-stack"><article class="card"><div class="card-head"><div><h2 class="section-title">Regular patterns</h2></div><button class="btn soft small pattern-add" data-open="patternModal">+ Pattern</button></div><div class="pattern"><strong>Mon, Tue · 07:30–16:30</strong><span>Available · recurring weekly</span><div class="pattern-actions"><button class="pattern-action">Edit</button><button class="pattern-action">Copy</button><button class="pattern-action danger">Delete</button></div></div><div class="pattern"><strong>Thu · 07:30–10:00</strong><span>Tentative · manager review before assigning</span><div class="pattern-actions"><button class="pattern-action">Edit</button><button class="pattern-action">Copy</button><button class="pattern-action danger">Delete</button></div></div><div class="pattern"><strong>Sat, Sun · 07:30–18:30</strong><span>Available · recurring weekly</span><div class="pattern-actions"><button class="pattern-action">Edit</button><button class="pattern-action">Copy</button><button class="pattern-action danger">Delete</button></div></div></article><article class="card"><h2 class="section-title">Week summary</h2><p class="section-sub">Ali Pirposhteh · 1–7 Jun</p><div class="metric" style="margin-top:12px"><strong>61 hrs</strong><span>Available or tentative</span></div><div class="metric" style="margin-top:8px"><strong>1</strong><span>Approved exception this month</span></div></article></div></div></section>
+      <section class="overview" id="overview"><div class="overview-grid"><article class="card"><div class="availability-flow" id="availabilityFlow" hidden><div><strong>How Availability works</strong><span id="availabilityFlowStatus">This page records when a selected staff member can work. It is not the rota yet; assignment happens after you find matching rota shifts.</span></div><ol aria-label="Availability workflow"><li class="active"><b>1</b><span>Pick staff</span></li><li><b>2</b><span>Set available times</span></li><li><b>3</b><span>Match to Rota</span></li></ol></div><div class="availability-bridge" hidden><div class="bridge-card"><strong>61 hrs available</strong><span>Ali can work these windows this week.</span></div><div class="bridge-card"><strong>3 possible rota matches</strong><span>Open shifts that fit Ali's availability.</span></div><div class="bridge-card action"><strong>Availability is an input for Rota</strong><span>Use these windows to find open shifts this person can cover. Assignment happens in Rota.</span><button class="btn primary small" style="margin-top:9px" id="findMatches">Find rota matches</button></div></div><div class="toolbar"><select class="input person-select"><option>Ali Pirposhteh</option><option>Ali Zee</option><option>David Lewis</option><option>Michael Bironneau</option><option>Shervin Fard</option></select><div class="week-nav"><button class="arrow" aria-label="Previous week">←</button><button class="week">22 Jun – 28 Jun 2026</button><button class="arrow" aria-label="Next week">→</button></div></div><div class="tool-row"><div class="paint-tools"><button class="paint active" data-state="available">Available</button><button class="paint" data-state="partial">Tentative</button><button class="paint" data-state="off">Unavailable</button></div><button class="btn soft small history-action" id="undo" title="Undo last change">Undo</button><button class="btn soft small history-action" id="redo" title="Redo change">Redo</button></div><div class="tool-row" style="margin-top:9px"><button class="btn primary small" data-fill="available">Mark week as available</button><button class="btn primary small" data-fill="partial">Mark week as tentative</button><button class="btn soft small" data-fill="off">Clear week</button><button class="btn soft small" id="copyWeek">Copy last week</button><button class="btn soft small" id="applyFuture">Apply to future weeks</button></div><div class="divider"></div><div class="availability-timeline" id="availabilityTimeline" aria-label="Weekly availability timeline"><div class="timeline-head"><div></div><div class="timeline-scroll"><div class="timeline-axis"><span>06:00</span><span>08:00</span><span>10:00</span><span>12:00</span><span>14:00</span><span>16:00</span><span>18:00</span><span>20:00</span></div></div></div></div><div class="legend timeline-legend"><i></i>Available <i class="partial"></i>Tentative <i class="off"></i>Unavailable <span class="hint">Tap an available day to open matching shifts in Rota.</span></div></article>
+        <div class="side-stack"><article class="card"><div class="card-head"><div><h2 class="section-title">Regular patterns</h2></div><button class="btn soft small pattern-add" data-open="patternModal">+ Pattern</button></div><div class="pattern"><strong>Mon, Tue · 07:30–16:30</strong><span>Available · recurring weekly</span><div class="pattern-actions"><button class="pattern-action">Edit</button><button class="pattern-action">Copy</button><button class="pattern-action danger">Delete</button></div></div><div class="pattern"><strong>Thu · 07:30–10:00</strong><span>Tentative · manager review before assigning</span><div class="pattern-actions"><button class="pattern-action">Edit</button><button class="pattern-action">Copy</button><button class="pattern-action danger">Delete</button></div></div><div class="pattern"><strong>Sat, Sun · 07:30–18:30</strong><span>Available · recurring weekly</span><div class="pattern-actions"><button class="pattern-action">Edit</button><button class="pattern-action">Copy</button><button class="pattern-action danger">Delete</button></div></div></article><article class="card"><h2 class="section-title">Week summary</h2><p class="section-sub">Ali Pirposhteh · 22–28 Jun</p><div class="metric" style="margin-top:12px"><strong>61 hrs</strong><span>Available or tentative</span></div><div class="metric" style="margin-top:8px"><strong>1</strong><span>Approved exception this month</span></div></article></div></div></section>
       <section class="requests" id="requests"><article class="card"><div class="card-head"><div><h2 class="section-title">Availability requests</h2><p class="section-sub">Approve or reject one-off overrides submitted by staff before the rota is generated.</p></div><select class="input"><option>Pending requests</option><option>Approved</option><option>Rejected</option></select></div><div class="request-list"><div class="request"><div class="request-head"><div class="person"><i class="person-avatar">DL</i><div><strong>David Lewis</strong><span>Submitted 31 May 2026</span></div></div><span class="tag">Pending</span></div><p>Unavailable · 15 Jun 2026, 09:00–18:00<br>Medical appointment</p><div class="request-actions"><button class="btn primary small">Approve</button><button class="btn danger small">Reject</button></div></div><div class="request"><div class="request-head"><div class="person"><i class="person-avatar">MB</i><div><strong>Michael Bironneau</strong><span>Submitted 30 May 2026</span></div></div><span class="tag">Pending</span></div><p>Unavailable · 19–21 Jun 2026<br>Annual leave request</p><div class="request-actions"><button class="btn primary small">Approve</button><button class="btn danger small">Reject</button></div></div><div class="request"><div class="request-head"><div class="person"><i class="person-avatar">SF</i><div><strong>Shervin Fard</strong><span>Submitted 29 May 2026</span></div></div><span class="tag">Pending</span></div><p>Tentative availability · 12 Jun 2026, available after 14:00<br>Personal appointment · manager review before assigning</p><div class="request-actions"><button class="btn primary small">Approve</button><button class="btn danger small">Reject</button></div></div></div></article></section>
     </div>
   </main>
 </div>
 <div class="modal-backdrop" id="patternModal"><section class="modal"><div class="modal-head"><div><p class="eyebrow">Availability pattern</p><h2>Add regular pattern</h2></div><button class="close" data-close="patternModal">×</button></div><p>Create a recurring weekly availability window for the selected person.</p><div class="form-grid"><div class="field full"><label>Availability</label><select class="input"><option>Available</option><option>Tentative</option><option>Unavailable</option></select></div><div class="field"><label>Starts</label><input class="input" type="time" value="09:00"></div><div class="field"><label>Ends</label><input class="input" type="time" value="17:00"></div><div class="field full"><label>Weekdays</label><div class="tool-row"><button class="btn soft small">Mon</button><button class="btn soft small">Tue</button><button class="btn soft small">Wed</button><button class="btn soft small">Thu</button><button class="btn soft small">Fri</button></div></div></div><div class="modal-actions"><button class="btn primary" data-close="patternModal">Save pattern</button><button class="btn soft" data-close="patternModal">Cancel</button></div></section></div>
 <div class="modal-backdrop" id="exceptionModal"><section class="modal"><div class="modal-head"><div><p class="eyebrow">One-off override</p><h2>Add exception</h2></div><button class="close" data-close="exceptionModal">×</button></div><p>Override the recurring pattern for a date or date range.</p><div class="form-grid"><div class="field full"><label>Person</label><select class="input"><option>Ali Pirposhteh</option><option>Ali Zee</option><option>David Lewis</option></select></div><div class="field full"><label>Availability</label><select class="input"><option>Unavailable</option><option>Available</option><option>Tentative</option></select></div><div class="field"><label>From</label><input class="input" type="date" value="2026-06-15"></div><div class="field"><label>To</label><input class="input" type="date" value="2026-06-15"></div><div class="field full"><label>Reason</label><input class="input" placeholder="Optional note"></div></div><div class="modal-actions"><button class="btn primary" data-close="exceptionModal">Save exception</button><button class="btn soft" data-close="exceptionModal">Cancel</button></div></section></div>
-<div class="modal-backdrop" id="rotaMatchDrawer"><section class="drawer"><div class="modal-head"><div><p class="eyebrow">Rota matches</p><h2 id="matchTitle">Ali can cover these shifts</h2><p id="matchContext">Available time selected from the grid.</p></div><button class="close" data-close="rotaMatchDrawer">×</button></div><div class="match-list"><div class="match"><strong>Monday opening shift</strong><span>07:00–12:00 · FOH assistant needed · good match for Ali.</span><div class="match-actions"><button class="btn primary small" data-close="rotaMatchDrawer">Assign Ali</button><a class="btn soft small" href="rota.html">Open in rota</a></div></div><div class="match"><strong>Monday lunch cover</strong><span>11:00–15:00 · FOH assistant · available for full shift.</span><div class="match-actions"><button class="btn primary small" data-close="rotaMatchDrawer">Assign Ali</button><a class="btn soft small" href="rota.html">Open in rota</a></div></div><div class="match"><strong>Saturday PM rota gap</strong><span>12:00–17:00 · front of house support · uses weekend pattern.</span><div class="match-actions"><button class="btn primary small" data-close="rotaMatchDrawer">Assign Ali</button><a class="btn soft small" href="rota.html">Open in rota</a></div></div></div><div class="modal-actions"><button class="btn soft" data-close="rotaMatchDrawer">Close</button></div></section></div>
 <script>
   const availabilityPeople={
     "Ali Pirposhteh":{
       first:"Ali",
       summary:["61 hrs usable","Ali can cover most opening and weekend shifts this week.","3 rota matches","Open shifts can use this availability without conflict."],
       days:[
-        ["Mon","1 Jun","Available 07:30-16:30 · 1 rota match",["9 hrs","1 match","Recurring"],[["available",10.7,64.3]],"Monday opening shift"],
-        ["Tue","2 Jun","Available 07:30-16:30",["9 hrs","No gaps","Recurring"],[["available",10.7,64.3]],"Tuesday management cover"],
-        ["Wed","3 Jun","No availability · do not assign",["0 hrs","No matches","Day off"],[],"Wednesday no availability"],
-        ["Thu","4 Jun","Tentative 07:30-10:00 · manager review before assigning",["9 hrs","1 match","AM tentative"],[["partial",10.7,17.9],["available",28.6,46.4]],"Thursday opening support"],
-        ["Fri","5 Jun","Tentative 11:00-17:00 · manager review before assigning",["6 hrs","Tentative","Lunch cover"],[["partial",35.7,42.9]],"Friday lunch cover"],
-        ["Sat","6 Jun","Available 07:30-16:30 · rota gap",["9 hrs","1 match","Rota gap"],[["available",10.7,64.3]],"Saturday PM rota gap"],
-        ["Sun","7 Jun","Available 07:30-16:30",["9 hrs","No gaps","Weekend"],[["available",10.7,64.3]],"Sunday cover"]
+        ["Mon","22 Jun","Available 07:30-16:30 · 1 rota match",["9 hrs","1 match","Recurring"],[["available",10.7,64.3]],"Monday opening shift"],
+        ["Tue","23 Jun","Available 07:30-16:30",["9 hrs","No gaps","Recurring"],[["available",10.7,64.3]],"Tuesday management cover"],
+        ["Wed","24 Jun","No availability · do not assign",["0 hrs","No matches","Day off"],[],"Wednesday no availability"],
+        ["Thu","25 Jun","Tentative 07:30-10:00 · manager review before assigning",["9 hrs","1 match","AM tentative"],[["partial",10.7,17.9],["available",28.6,46.4]],"Thursday opening support"],
+        ["Fri","26 Jun","Tentative 11:00-17:00 · manager review before assigning",["6 hrs","Tentative","Lunch cover"],[["partial",35.7,42.9]],"Friday lunch cover"],
+        ["Sat","27 Jun","Available 07:30-16:30 · rota gap",["9 hrs","1 match","Rota gap"],[["available",10.7,64.3]],"Saturday PM rota gap"],
+        ["Sun","28 Jun","Available 07:30-16:30",["9 hrs","No gaps","Weekend"],[["available",10.7,64.3]],"Sunday cover"]
       ],
       patterns:["Mon, Tue · 07:30–16:30|Available · recurring weekly","Thu · 07:30–10:00|Tentative · manager review before assigning","Sat, Sun · 07:30–18:30|Available · recurring weekly"],
       metrics:["61 hrs|Available or tentative","1|Approved exception this month"],
@@ -50,13 +49,13 @@
       first:"Ali",
       summary:["43 hrs usable","Ali Zee can cover manager shifts before the 16:00 conflict.","2 rota matches","Best fit for early FOH manager cover, not late service."],
       days:[
-        ["Mon","1 Jun","Available 07:00-15:30 · manager match",["8.5 hrs","1 match","Manager"],[["available",7.1,60.7]],"Monday management cover"],
-        ["Tue","2 Jun","Available 08:00-16:00 · conflict after 16:00",["8 hrs","Conflict","FOH"],[["available",14.3,57.1]],"Tuesday FOH cover"],
-        ["Wed","3 Jun","Tentative 10:00-14:00 · manager review before assigning",["4 hrs","Tentative","Tentative"],[["partial",28.6,28.6]],"Wednesday lunch support"],
-        ["Thu","4 Jun","Unavailable",["0 hrs","No matches","Day off"],[],"Thursday unavailable"],
-        ["Fri","5 Jun","Available 07:00-15:00",["8 hrs","1 match","Manager"],[["available",7.1,57.1]],"Friday management shift"],
-        ["Sat","6 Jun","Tentative 09:00-13:00 · manager review before assigning",["4 hrs","Tentative","Weekend"],[["partial",21.4,28.6]],"Saturday morning support"],
-        ["Sun","7 Jun","Unavailable",["0 hrs","No gaps","Off"],[],"Sunday unavailable"]
+        ["Mon","22 Jun","Available 07:00-15:30 · manager match",["8.5 hrs","1 match","Manager"],[["available",7.1,60.7]],"Monday management cover"],
+        ["Tue","23 Jun","Available 08:00-16:00 · conflict after 16:00",["8 hrs","Conflict","FOH"],[["available",14.3,57.1]],"Tuesday FOH cover"],
+        ["Wed","24 Jun","Tentative 10:00-14:00 · manager review before assigning",["4 hrs","Tentative","Tentative"],[["partial",28.6,28.6]],"Wednesday lunch support"],
+        ["Thu","25 Jun","Unavailable",["0 hrs","No matches","Day off"],[],"Thursday unavailable"],
+        ["Fri","26 Jun","Available 07:00-15:00",["8 hrs","1 match","Manager"],[["available",7.1,57.1]],"Friday management shift"],
+        ["Sat","27 Jun","Tentative 09:00-13:00 · manager review before assigning",["4 hrs","Tentative","Weekend"],[["partial",21.4,28.6]],"Saturday morning support"],
+        ["Sun","28 Jun","Unavailable",["0 hrs","No gaps","Off"],[],"Sunday unavailable"]
       ],
       patterns:["Mon, Fri · 07:00–15:30|Available · recurring weekly","Tue · 08:00–16:00|Available · conflict after 16:00","Wed, Sat · tentative mornings|Tentative · manager review before assigning"],
       metrics:["43 hrs|Available or tentative","2|Availability conflicts this month"],
@@ -66,13 +65,13 @@
       first:"David",
       summary:["58 hrs usable","David is the strongest manager cover across the week.","4 rota matches","Open manager slots can use this availability with low risk."],
       days:[
-        ["Mon","1 Jun","Available 06:30-18:00 · manager cover",["11.5 hrs","2 matches","Manager"],[["available",3.6,82.1]],"Monday management cover"],
-        ["Tue","2 Jun","Available 06:30-17:15",["10.75 hrs","1 match","Recurring"],[["available",3.6,76.8]],"Tuesday management shift"],
-        ["Wed","3 Jun","Available 09:00-17:00",["8 hrs","No gaps","Support"],[["available",21.4,57.1]],"Wednesday support"],
-        ["Thu","4 Jun","Available 06:30-18:00",["11.5 hrs","1 match","Manager"],[["available",3.6,82.1]],"Thursday cover"],
-        ["Fri","5 Jun","Available 06:30-17:15",["10.75 hrs","Ready","Manager"],[["available",3.6,76.8]],"Friday management shift"],
-        ["Sat","6 Jun","Tentative 08:00-13:00 · manager review before assigning",["5 hrs","Tentative","Weekend"],[["partial",14.3,35.7]],"Saturday opening support"],
-        ["Sun","7 Jun","Unavailable",["0 hrs","No matches","Off"],[],"Sunday unavailable"]
+        ["Mon","22 Jun","Available 06:30-18:00 · manager cover",["11.5 hrs","2 matches","Manager"],[["available",3.6,82.1]],"Monday management cover"],
+        ["Tue","23 Jun","Available 06:30-17:15",["10.75 hrs","1 match","Recurring"],[["available",3.6,76.8]],"Tuesday management shift"],
+        ["Wed","24 Jun","Available 09:00-17:00",["8 hrs","No gaps","Support"],[["available",21.4,57.1]],"Wednesday support"],
+        ["Thu","25 Jun","Available 06:30-18:00",["11.5 hrs","1 match","Manager"],[["available",3.6,82.1]],"Thursday cover"],
+        ["Fri","26 Jun","Available 06:30-17:15",["10.75 hrs","Ready","Manager"],[["available",3.6,76.8]],"Friday management shift"],
+        ["Sat","27 Jun","Tentative 08:00-13:00 · manager review before assigning",["5 hrs","Tentative","Weekend"],[["partial",14.3,35.7]],"Saturday opening support"],
+        ["Sun","28 Jun","Unavailable",["0 hrs","No matches","Off"],[],"Sunday unavailable"]
       ],
       patterns:["Mon, Thu · 06:30–18:00|Available · manager cover","Tue, Fri · 06:30–17:15|Available · recurring weekly","Sat · 08:00–13:00|Tentative · manager review before assigning"],
       metrics:["58 hrs|Available or tentative","0|Approved exceptions this month"],
@@ -82,13 +81,13 @@
       first:"Michael",
       summary:["32 hrs usable","Michael is useful for supervisor gaps and selected FOH cover.","1 rota match","Availability is tentative later in the week."],
       days:[
-        ["Mon","1 Jun","Tentative 12:00-17:00 · manager review before assigning",["5 hrs","Lunch","Tentative"],[["partial",42.9,35.7]],"Monday lunch cover"],
-        ["Tue","2 Jun","Unavailable",["0 hrs","No matches","Off"],[],"Tuesday unavailable"],
-        ["Wed","3 Jun","Available 08:00-14:00",["6 hrs","1 match","Supervisor"],[["available",14.3,42.9]],"Wednesday supervisor cover"],
-        ["Thu","4 Jun","Available 10:00-16:00",["6 hrs","No gaps","FOH"],[["available",28.6,42.9]],"Thursday FOH cover"],
-        ["Fri","5 Jun","Unavailable",["0 hrs","No matches","Off"],[],"Friday unavailable"],
-        ["Sat","6 Jun","Available 09:00-18:00",["9 hrs","Weekend","Supervisor"],[["available",21.4,64.3]],"Saturday supervisor slot"],
-        ["Sun","7 Jun","Available 09:00-15:00",["6 hrs","Weekend","FOH"],[["available",21.4,42.9]],"Sunday FOH cover"]
+        ["Mon","22 Jun","Tentative 12:00-17:00 · manager review before assigning",["5 hrs","Lunch","Tentative"],[["partial",42.9,35.7]],"Monday lunch cover"],
+        ["Tue","23 Jun","Unavailable",["0 hrs","No matches","Off"],[],"Tuesday unavailable"],
+        ["Wed","24 Jun","Available 08:00-14:00",["6 hrs","1 match","Supervisor"],[["available",14.3,42.9]],"Wednesday supervisor cover"],
+        ["Thu","25 Jun","Available 10:00-16:00",["6 hrs","No gaps","FOH"],[["available",28.6,42.9]],"Thursday FOH cover"],
+        ["Fri","26 Jun","Unavailable",["0 hrs","No matches","Off"],[],"Friday unavailable"],
+        ["Sat","27 Jun","Available 09:00-18:00",["9 hrs","Weekend","Supervisor"],[["available",21.4,64.3]],"Saturday supervisor slot"],
+        ["Sun","28 Jun","Available 09:00-15:00",["6 hrs","Weekend","FOH"],[["available",21.4,42.9]],"Sunday FOH cover"]
       ],
       patterns:["Wed · 08:00–14:00|Available · supervisor cover","Sat · 09:00–18:00|Available · recurring weekly","Sun · 09:00–15:00|Available · recurring weekly"],
       metrics:["32 hrs|Available or tentative","1|Annual leave request pending"],
@@ -98,13 +97,13 @@
       first:"Shervin",
       summary:["24 hrs usable","Shervin is mainly available for Friday and weekend cover.","2 rota matches","Good for kitchen support, tentative weekday availability."],
       days:[
-        ["Mon","1 Jun","Unavailable",["0 hrs","No matches","Off"],[],"Monday unavailable"],
-        ["Tue","2 Jun","Unavailable",["0 hrs","No matches","Off"],[],"Tuesday unavailable"],
-        ["Wed","3 Jun","Tentative 14:00-18:00 · manager review before assigning",["4 hrs","PM only","Tentative"],[["partial",57.1,28.6]],"Wednesday PM support"],
-        ["Thu","4 Jun","Unavailable",["0 hrs","No matches","Off"],[],"Thursday unavailable"],
-        ["Fri","5 Jun","Available 06:30-17:15 · manager match",["10.75 hrs","1 match","Manager"],[["available",3.6,76.8]],"Friday management shift"],
-        ["Sat","6 Jun","Available 10:00-16:00",["6 hrs","1 match","BOH"],[["available",28.6,42.9]],"Saturday kitchen cover"],
-        ["Sun","7 Jun","Tentative 11:00-14:00 · manager review before assigning",["3 hrs","Tentative","Lunch"],[["partial",35.7,21.4]],"Sunday lunch support"]
+        ["Mon","22 Jun","Unavailable",["0 hrs","No matches","Off"],[],"Monday unavailable"],
+        ["Tue","23 Jun","Unavailable",["0 hrs","No matches","Off"],[],"Tuesday unavailable"],
+        ["Wed","24 Jun","Tentative 14:00-18:00 · manager review before assigning",["4 hrs","PM only","Tentative"],[["partial",57.1,28.6]],"Wednesday PM support"],
+        ["Thu","25 Jun","Unavailable",["0 hrs","No matches","Off"],[],"Thursday unavailable"],
+        ["Fri","26 Jun","Available 06:30-17:15 · manager match",["10.75 hrs","1 match","Manager"],[["available",3.6,76.8]],"Friday management shift"],
+        ["Sat","27 Jun","Available 10:00-16:00",["6 hrs","1 match","BOH"],[["available",28.6,42.9]],"Saturday kitchen cover"],
+        ["Sun","28 Jun","Tentative 11:00-14:00 · manager review before assigning",["3 hrs","Tentative","Lunch"],[["partial",35.7,21.4]],"Sunday lunch support"]
       ],
       patterns:["Fri · 06:30–17:15|Available · recurring weekly","Sat · 10:00–16:00|Available · kitchen support","Wed, Sun · tentative PM|Tentative · manager review before assigning"],
       metrics:["24 hrs|Available or tentative","1|Approved exception this month"],
@@ -113,30 +112,18 @@
   };
   const dayClass=fact=>/off|no match|0 hrs/i.test(fact)?"muted":/confirm|tentative|needs approval|conflict|gap/i.test(fact)?"warn":"";
   const flowStatus=document.getElementById("availabilityFlowStatus");
-  let selectedCandidate=null;
   function setAvailabilityFlow(step,message){
     if(flowStatus) flowStatus.textContent=message;
     document.querySelectorAll(".availability-flow li").forEach((item,index)=>item.classList.toggle("active",index===step-1));
   }
-  function setSelectedCandidate(candidate){
-    selectedCandidate=candidate;
-    document.querySelectorAll(".roster-chip").forEach(chip=>chip.classList.toggle("selected",candidate&&chip.dataset.name===candidate.name));
-    if(candidate) setAvailabilityFlow(3,`${candidate.name} selected. Selected. Choose an available day row to assign a matching rota shift.`);
-  }
-  function assignCandidateToRow(row,candidate){
-    if(!candidate||row.classList.contains("muted")){
-      setAvailabilityFlow(2,"Choose a green or amber availability row. Unavailable days cannot be assigned.");
+  function openRotaFor(row){
+    if(row.classList.contains("muted")){
+      setAvailabilityFlow(2,"This day is unavailable. Add availability before checking matching rota shifts.");
       return;
     }
-    row.classList.add("assigned");
-    let target=row.querySelector(".assigned-person");
-    if(!target){
-      target=document.createElement("div");
-      target.className="assigned-person";
-      row.querySelector(".timeline-track").appendChild(target);
-    }
-    target.innerHTML=`<b>${candidate.initials}</b><span>${candidate.name}</span>`;
-    setAvailabilityFlow(3,`${candidate.name} assigned to a matching rota shift for ${row.dataset.matchContext}.`);
+    const person=document.querySelector(".person-select").value;
+    const params=new URLSearchParams({from:"availability",person,context:row.dataset.matchContext||"",day:row.dataset.day||""});
+    window.location.href=`rota.html?${params.toString()}`;
   }
   function renderAvailability(name){
     const data=availabilityPeople[name]||availabilityPeople["Ali Pirposhteh"];
@@ -154,11 +141,9 @@
       row.type="button";
       row.className=`availability-row${blocks.length?"":" muted"}`;
       row.dataset.matchContext=`${name} · ${match}`;
+      row.dataset.day=`${day} ${date}`;
       row.innerHTML=`<div class="day-copy"><strong>${day}</strong><span>${date}</span><p>${summary}</p><div class="day-facts">${facts.map(f=>`<em class="${dayClass(f)}">${f}</em>`).join("")}</div></div><div class="timeline-scroll"><div class="timeline-track">${blocks.length?blocks.map(([type,left,width])=>`<i class="time-pill ${type}" style="left:${left}%;width:${width}%"></i>`).join(""):`<i class="empty-note">No working window</i>`}</div></div>`;
-      row.addEventListener("click",()=>selectedCandidate?assignCandidateToRow(row,selectedCandidate):showRotaMatches(row.dataset.matchContext));
-      row.addEventListener("dragover",event=>{if(blocks.length){event.preventDefault();row.classList.add("drop-ready")}});
-      row.addEventListener("dragleave",()=>row.classList.remove("drop-ready"));
-      row.addEventListener("drop",event=>{event.preventDefault();row.classList.remove("drop-ready");const name=event.dataTransfer.getData("text/plain");const chip=document.querySelector(`.roster-chip[data-name="${CSS.escape(name)}"]`);assignCandidateToRow(row,{name,initials:chip?chip.dataset.initials:name.split(" ").map(part=>part[0]).join("").slice(0,2)})});
+      row.addEventListener("click",()=>openRotaFor(row));
       timeline.appendChild(row);
     });
     document.querySelectorAll(".pattern").forEach(pattern=>pattern.remove());
@@ -168,35 +153,28 @@
       patternCard.insertAdjacentHTML("beforeend",`<div class="pattern"><strong>${title}</strong><span>${detail}</span><div class="pattern-actions"><button class="pattern-action">Edit</button><button class="pattern-action">Copy</button><button class="pattern-action danger">Delete</button></div></div>`);
     });
     const summaryCard=document.querySelector(".side-stack .card:last-child");
-    summaryCard.querySelector(".section-sub").textContent=`${name} · 1–7 Jun`;
+    summaryCard.querySelector(".section-sub").textContent=`${name} · 22–28 Jun`;
     summaryCard.querySelectorAll(".metric").forEach((metric,index)=>{
       const [number,label]=data.metrics[index].split("|");
       metric.querySelector("strong").textContent=number;
       metric.querySelector("span").textContent=label;
     });
-    document.getElementById("matchTitle").textContent=`${data.first} can cover these shifts`;
   }
-  function showRotaMatches(label){
+  function openRotaMatches(label){
     const name=document.querySelector(".person-select").value;
-    const data=availabilityPeople[name]||availabilityPeople["Ali Pirposhteh"];
-    setAvailabilityFlow(3,"Step 3: rota matches are open. Choose Assign to turn availability into a rota shift.");
-    document.getElementById("matchTitle").textContent=`${data.first} can cover these shifts`;
-    document.getElementById("matchContext").textContent=(label||`${name} · this week`)+" · these are open rota shifts that fit this person's availability.";
-    document.querySelector(".match-list").innerHTML=data.matches.map(item=>{const [title,detail]=item.split("|");return `<div class="match"><strong>${title}</strong><span>${detail}</span><div class="match-actions"><button class="btn primary small" data-close="rotaMatchDrawer">Assign ${data.first}</button><a class="btn soft small" href="rota.html">Open in rota</a></div></div>`}).join("");
-    document.querySelectorAll("#rotaMatchDrawer [data-close]").forEach(button=>button.addEventListener("click",()=>document.getElementById(button.dataset.close).classList.remove("open")));
-    document.getElementById("rotaMatchDrawer").classList.add("open");
+    const params=new URLSearchParams({from:"availability",person:name,context:label||`${name} · this week`});
+    window.location.href=`rota.html?${params.toString()}`;
   }
   document.querySelector(".person-select").addEventListener("change",event=>{renderAvailability(event.target.value);setAvailabilityFlow(1,`${event.target.value} selected. The timeline shows when this person can work; it is not their rota.`)});
   renderAvailability(document.querySelector(".person-select").value);
   setAvailabilityFlow(1,"Step 1: choose a staff member. The timeline below shows when that person can work, not assigned shifts.");
-  document.querySelectorAll(".paint").forEach(button=>button.addEventListener("click",()=>{document.querySelectorAll(".paint").forEach(item=>item.classList.remove("active"));button.classList.add("active");setAvailabilityFlow(2,`Step 2: ${button.textContent} selected. Use the week buttons or tap a timeline row to set when this person can work.`)}));
-  document.querySelectorAll("[data-fill]").forEach(button=>button.addEventListener("click",()=>{const label=button.dataset.fill==="partial"?"tentative":button.dataset.fill==="off"?"unavailable":"available";setAvailabilityFlow(2,`Step 2 complete: this person's week is marked ${label}. Now find matching rota shifts to assign them.`);button.textContent=button.textContent.replace("Mark","Marked").replace("Clear","Cleared");setTimeout(()=>{if(button.dataset.fill==="available")button.textContent="Mark week as available";if(button.dataset.fill==="partial")button.textContent="Mark week as tentative";if(button.dataset.fill==="off")button.textContent="Clear week"},1300)}));
-  document.querySelectorAll(".roster-chip").forEach(chip=>{chip.addEventListener("click",()=>setSelectedCandidate({name:chip.dataset.name,initials:chip.dataset.initials}));chip.addEventListener("dragstart",event=>{event.dataTransfer.setData("text/plain",chip.dataset.name);setSelectedCandidate({name:chip.dataset.name,initials:chip.dataset.initials})})});
+  document.querySelectorAll(".paint").forEach(button=>button.addEventListener("click",()=>{document.querySelectorAll(".paint").forEach(item=>item.classList.remove("active"));button.classList.add("active");setAvailabilityFlow(2,`${button.textContent} selected. Use the week buttons or tap a timeline row to set when this person can work.`)}));
+  document.querySelectorAll("[data-fill]").forEach(button=>button.addEventListener("click",()=>{const label=button.dataset.fill==="partial"?"tentative":button.dataset.fill==="off"?"unavailable":"available";setAvailabilityFlow(2,`This person's week is marked ${label}.`);button.textContent=button.textContent.replace("Mark","Marked").replace("Clear","Cleared");setTimeout(()=>{if(button.dataset.fill==="available")button.textContent="Mark week as available";if(button.dataset.fill==="partial")button.textContent="Mark week as tentative";if(button.dataset.fill==="off")button.textContent="Clear week"},1300)}));
   document.getElementById("undo").addEventListener("click",event=>{event.currentTarget.textContent="Nothing to undo";setTimeout(()=>event.currentTarget.textContent="Undo",1200)});
   document.getElementById("redo").addEventListener("click",event=>{event.currentTarget.textContent="Nothing to redo";setTimeout(()=>event.currentTarget.textContent="Redo",1200)});
   document.getElementById("copyWeek").addEventListener("click",event=>{event.currentTarget.textContent="Copied";setTimeout(()=>event.currentTarget.textContent="Copy last week",1300)});
   document.getElementById("applyFuture").addEventListener("click",event=>{event.currentTarget.textContent="Applied";setTimeout(()=>event.currentTarget.textContent="Apply to future weeks",1300)});
-  document.getElementById("findMatches").addEventListener("click",()=>showRotaMatches());
+  document.getElementById("findMatches").addEventListener("click",()=>openRotaMatches());
   document.addEventListener("keydown",event=>{if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==="z"){event.preventDefault();document.getElementById("undo").click()}});
   document.querySelectorAll("[data-tab]").forEach(button=>button.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(tab=>tab.classList.remove("active"));button.classList.add("active");document.getElementById("overview").classList.toggle("hidden",button.dataset.tab!=="overview");document.getElementById("requests").classList.toggle("active",button.dataset.tab==="requests")}));
   document.querySelectorAll("[data-open]").forEach(button=>button.addEventListener("click",()=>document.getElementById(button.dataset.open).classList.add("open")));document.querySelectorAll("[data-close]").forEach(button=>button.addEventListener("click",()=>document.getElementById(button.dataset.close).classList.remove("open")));document.querySelectorAll(".modal-backdrop").forEach(modal=>modal.addEventListener("click",event=>{if(event.target===modal)modal.classList.remove("open")}));

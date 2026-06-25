@@ -56,6 +56,7 @@
         <div class="schedule-actions"><button class="btn soft" id="autoFillBtn">Auto-fill</button><button class="btn primary" data-open="shiftModal">+ Add shift</button><button class="btn primary" id="publishBtn">Publish</button><button class="btn danger" id="clearBtn">Clear assignments</button><div class="view-toggle" aria-label="Rota view"><button class="active" data-view="week">Week</button><button data-view="month">Month</button></div></div>
       </div>
       <div class="legend" aria-label="Role legend"><span class="boh"><i></i>Back of house</span><span><i></i>Front of house</span><span class="manager"><i></i>Manager</span><span class="director"><i></i>Director of operations</span><span class="owner"><i></i>Owner / operator</span></div>
+      <div class="availability-context" id="availabilityContext" hidden><div><strong id="availabilityContextTitle">Availability match</strong><span id="availabilityContextText">Open shifts that fit the selected staff member are shown here.</span></div><button class="btn primary small" id="assignFromAvailability">Add shift for this person</button></div>
 
       <section class="card week-board">
         <div class="schedule-scroll" aria-label="Weekly staff rota table">
@@ -132,22 +133,39 @@
       <div class="field"><label>Start time</label><input class="input" type="time" value="09:00"></div>
       <div class="field"><label>End time</label><input class="input" type="time" value="17:00"></div>
       <div class="field full"><label>Recurrence</label><div class="radio-row"><label><input type="radio" name="recurrence" checked> One-off</label><label><input type="radio" name="recurrence"> Weekly</label></div></div>
-      <div class="field full"><label>Preferred person</label><select class="input"><option>No preference</option><option>Ali Zee</option><option>Ali Pirposhteh</option><option>David Lewis</option><option>Maria Thomson</option></select></div>
+      <div class="field full"><label>Preferred person</label><select class="input" id="preferredPerson"><option>No preference</option><option>Ali Zee</option><option>Ali Pirposhteh</option><option>David Lewis</option><option>Maria Thomson</option><option>Shervin Fard</option></select></div>
     </div>
     <div class="modal-actions"><button class="btn soft" data-close="shiftModal">Cancel</button><button class="btn primary" data-close="shiftModal">Create shift</button></div>
   </section>
 </div>
 
-<script>
-  const page=document.getElementById("rotaPage");
-  document.querySelectorAll(".view-toggle [data-view]").forEach(button=>button.addEventListener("click",()=>{document.querySelectorAll(".view-toggle button").forEach(item=>item.classList.remove("active"));button.classList.add("active");page.dataset.view=button.dataset.view;document.getElementById("periodLabel").textContent=button.dataset.view==="month"?"June 2026":"22 Jun - 28 Jun 2026"}));
+  <script>
+    const page=document.getElementById("rotaPage");
+    const params=new URLSearchParams(window.location.search);
+    const availabilityPerson=params.get("person");
+    const availabilityContext=params.get("context");
+    const availabilityDay=params.get("day");
+    if(params.get("from")==="availability"&&availabilityPerson){
+      const context=document.getElementById("availabilityContext");
+      context.hidden=false;
+      document.getElementById("availabilityContextTitle").textContent=`${availabilityPerson} is available`;
+      document.getElementById("availabilityContextText").textContent=[availabilityDay,availabilityContext].filter(Boolean).join(" · ")||"Choose a compatible open shift to assign in Rota.";
+      document.querySelectorAll(".person-cell").forEach(cell=>{
+        const name=cell.querySelector("strong")?.textContent.trim();
+        if(name===availabilityPerson) cell.classList.add("availability-match");
+      });
+      const preferred=document.getElementById("preferredPerson");
+      if([...preferred.options].some(option=>option.value===availabilityPerson)) preferred.value=availabilityPerson;
+    }
+    document.querySelectorAll(".view-toggle [data-view]").forEach(button=>button.addEventListener("click",()=>{document.querySelectorAll(".view-toggle button").forEach(item=>item.classList.remove("active"));button.classList.add("active");page.dataset.view=button.dataset.view;document.getElementById("periodLabel").textContent=button.dataset.view==="month"?"June 2026":"22 Jun - 28 Jun 2026"}));
   document.querySelectorAll("[data-open]").forEach(button=>button.addEventListener("click",()=>document.getElementById(button.dataset.open).classList.add("open")));
   document.querySelectorAll("[data-close]").forEach(button=>button.addEventListener("click",()=>document.getElementById(button.dataset.close).classList.remove("open")));
   document.querySelectorAll(".modal-backdrop").forEach(modal=>modal.addEventListener("click",event=>{if(event.target===modal)modal.classList.remove("open")}));
-  document.getElementById("autoFillBtn").addEventListener("click",event=>{event.currentTarget.textContent="Auto-filled";setTimeout(()=>event.currentTarget.textContent="Auto-fill",1300)});
-  document.getElementById("publishBtn").addEventListener("click",event=>{event.currentTarget.textContent="Published";setTimeout(()=>event.currentTarget.textContent="Publish",1300)});
-  document.getElementById("clearBtn").addEventListener("click",event=>{event.currentTarget.textContent="Cleared";setTimeout(()=>event.currentTarget.textContent="Clear assignments",1300)});
-</script>
+    document.getElementById("autoFillBtn").addEventListener("click",event=>{event.currentTarget.textContent="Auto-filled";setTimeout(()=>event.currentTarget.textContent="Auto-fill",1300)});
+    document.getElementById("publishBtn").addEventListener("click",event=>{event.currentTarget.textContent="Published";setTimeout(()=>event.currentTarget.textContent="Publish",1300)});
+    document.getElementById("clearBtn").addEventListener("click",event=>{event.currentTarget.textContent="Cleared";setTimeout(()=>event.currentTarget.textContent="Clear assignments",1300)});
+    document.getElementById("assignFromAvailability").addEventListener("click",()=>document.getElementById("shiftModal").classList.add("open"));
+  </script>
 <script src="nav-icons.js"></script>
 </body>
 </html>
