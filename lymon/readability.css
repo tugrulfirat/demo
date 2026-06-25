@@ -1780,6 +1780,10 @@ strong {
   box-shadow: inset 3px 0 0 var(--forest);
 }
 
+.shift.new-shift {
+  box-shadow: 0 0 0 2px rgba(233, 245, 79, 0.85), 0 8px 18px rgba(10, 59, 19, 0.12);
+}
+
 .board .shift-status.warn,
 .app[data-range="week"] .shift-status.warn {
   color: #7a4b00 !important;

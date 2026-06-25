@@ -128,14 +128,14 @@
   <section class="modal" role="dialog" aria-modal="true" aria-labelledby="shiftTitle">
     <div class="modal-head"><div><p class="eyebrow">Rota assignment</p><h2 id="shiftTitle">Add shift</h2></div><button class="close" data-close="shiftModal" aria-label="Close">x</button></div>
     <div class="form-grid">
-      <div class="field full"><label>Role</label><select class="input"><option>Kitchen porter / dishwasher / prep cook</option><option>Head chef / cook / baker</option><option>Server / waiter / barista / counter staff</option><option>Restaurant manager / cafe manager</option></select></div>
-      <div class="field full"><label>Date</label><input class="input" type="date" value="2026-06-22"></div>
-      <div class="field"><label>Start time</label><input class="input" type="time" value="09:00"></div>
-      <div class="field"><label>End time</label><input class="input" type="time" value="17:00"></div>
+      <div class="field full"><label>Role</label><select class="input" id="shiftRole"><option>Kitchen porter / dishwasher / prep cook</option><option>Head chef / cook / baker</option><option>Server / waiter / barista / counter staff</option><option>Restaurant manager / cafe manager</option></select></div>
+      <div class="field full"><label>Date</label><input class="input" id="shiftDate" type="date" value="2026-06-22"></div>
+      <div class="field"><label>Start time</label><input class="input" id="shiftStart" type="time" value="09:00"></div>
+      <div class="field"><label>End time</label><input class="input" id="shiftEnd" type="time" value="17:00"></div>
       <div class="field full"><label>Recurrence</label><div class="radio-row"><label><input type="radio" name="recurrence" checked> One-off</label><label><input type="radio" name="recurrence"> Weekly</label></div></div>
       <div class="field full"><label>Preferred person</label><select class="input" id="preferredPerson"><option>No preference</option><option>Ali Zee</option><option>Ali Pirposhteh</option><option>David Lewis</option><option>Maria Thomson</option><option>Shervin Fard</option></select></div>
     </div>
-    <div class="modal-actions"><button class="btn soft" data-close="shiftModal">Cancel</button><button class="btn primary" data-close="shiftModal">Create shift</button></div>
+    <div class="modal-actions"><button class="btn soft" data-close="shiftModal">Cancel</button><button class="btn primary" id="createShift">Create shift</button></div>
   </section>
 </div>
 
@@ -156,6 +156,17 @@
       });
       const preferred=document.getElementById("preferredPerson");
       if([...preferred.options].some(option=>option.value===availabilityPerson)) preferred.value=availabilityPerson;
+      const dateFromAvailability={
+        "Mon 22 Jun":"2026-06-22",
+        "Tue 23 Jun":"2026-06-23",
+        "Wed 24 Jun":"2026-06-24",
+        "Thu 25 Jun":"2026-06-25",
+        "Fri 26 Jun":"2026-06-26",
+        "Sat 27 Jun":"2026-06-27",
+        "Sun 28 Jun":"2026-06-28"
+      };
+      const shiftDate=document.getElementById("shiftDate");
+      if(dateFromAvailability[availabilityDay]) shiftDate.value=dateFromAvailability[availabilityDay];
     }
     document.querySelectorAll(".view-toggle [data-view]").forEach(button=>button.addEventListener("click",()=>{document.querySelectorAll(".view-toggle button").forEach(item=>item.classList.remove("active"));button.classList.add("active");page.dataset.view=button.dataset.view;document.getElementById("periodLabel").textContent=button.dataset.view==="month"?"June 2026":"22 Jun - 28 Jun 2026"}));
   document.querySelectorAll("[data-open]").forEach(button=>button.addEventListener("click",()=>document.getElementById(button.dataset.open).classList.add("open")));
@@ -165,6 +176,63 @@
     document.getElementById("publishBtn").addEventListener("click",event=>{event.currentTarget.textContent="Published";setTimeout(()=>event.currentTarget.textContent="Publish",1300)});
     document.getElementById("clearBtn").addEventListener("click",event=>{event.currentTarget.textContent="Cleared";setTimeout(()=>event.currentTarget.textContent="Clear assignments",1300)});
     document.getElementById("assignFromAvailability").addEventListener("click",()=>document.getElementById("shiftModal").classList.add("open"));
+    const dateColumns={
+      "2026-06-22":0,
+      "2026-06-23":1,
+      "2026-06-24":2,
+      "2026-06-25":3,
+      "2026-06-26":4,
+      "2026-06-27":5,
+      "2026-06-28":6
+    };
+    const roleClass=role=>{
+      const normalized=role.toLowerCase();
+      if(normalized.includes("kitchen")||normalized.includes("prep")||normalized.includes("dishwasher")) return "boh";
+      if(normalized.includes("manager")||normalized.includes("head chef")) return "manager";
+      if(normalized.includes("director")) return "director";
+      return "";
+    };
+    const roleLabel=role=>{
+      if(role.includes("Server")) return "Server / waiter";
+      if(role.includes("Restaurant")) return "Restaurant manager";
+      if(role.includes("Head chef")) return "Head chef / cook / baker";
+      return "Kitchen assistant / prep";
+    };
+    const findPersonCells=person=>[...document.querySelectorAll(".schedule-grid .person-cell")].filter(cell=>cell.querySelector("strong")?.textContent.trim()===person);
+    const targetCellForShift=(person,date,role)=>{
+      const dayIndex=dateColumns[date]??0;
+      const matches=findPersonCells(person);
+      const preferredGroup=roleClass(role)===""?"front":roleClass(role);
+      const selected=matches.find(cell=>{
+        const label=cell.querySelector("span")?.textContent.toLowerCase()||"";
+        if(preferredGroup==="front") return label.includes("server")||label.includes("barista")||label.includes("counter");
+        if(preferredGroup==="boh") return label.includes("kitchen")||label.includes("prep")||label.includes("porter");
+        if(preferredGroup==="manager") return label.includes("manager")||label.includes("head chef");
+        return true;
+      })||matches[0];
+      if(!selected) return null;
+      let cell=selected;
+      for(let index=0;index<=dayIndex;index+=1) cell=cell.nextElementSibling;
+      return cell?.classList.contains("grid-cell")?cell:null;
+    };
+    document.getElementById("createShift").addEventListener("click",()=>{
+      const person=document.getElementById("preferredPerson").value;
+      const role=document.getElementById("shiftRole").value;
+      const date=document.getElementById("shiftDate").value;
+      const start=document.getElementById("shiftStart").value;
+      const end=document.getElementById("shiftEnd").value;
+      const target=targetCellForShift(person,date,role);
+      if(!target||person==="No preference") return;
+      const shift=document.createElement("span");
+      shift.className=["shift",roleClass(role),"new-shift"].filter(Boolean).join(" ");
+      shift.innerHTML=`${start}-${end}<small>${roleLabel(role)}</small>`;
+      target.appendChild(shift);
+      document.getElementById("shiftModal").classList.remove("open");
+      const context=document.getElementById("availabilityContext");
+      if(!context.hidden){
+        document.getElementById("availabilityContextText").textContent=`Assigned ${person} to ${roleLabel(role)} · ${start}-${end}.`;
+      }
+    });
   </script>
 <script src="nav-icons.js"></script>
 </body>
