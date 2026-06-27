@@ -3189,3 +3189,101 @@ textarea,
     grid-template-columns: 1fr;
   }
 }
+
+/* Final design-system guardrail: neutral outlines and real icons win across pages. */
+:root {
+  --line: #d9ded8 !important;
+  --table-line: #d9ded8 !important;
+}
+
+.card,
+.metric,
+.kpi,
+.summary-card,
+.btn,
+.btn.soft,
+.btn.danger,
+.input,
+select,
+input,
+textarea,
+.table-wrap,
+.table,
+.table th,
+.table td,
+.filters,
+.pagination,
+.modal,
+.close,
+.date-pill,
+.profile,
+.tag,
+.badge,
+.role,
+.role-chip,
+.status,
+.status-pill,
+.pattern,
+.request,
+.alert,
+.evidence,
+.shift,
+.email-row,
+.message-meta,
+.attachment,
+.reply-box,
+.sales-readout div,
+.chart-summary div,
+.task-table,
+.shift-table,
+.mini-table,
+.score-table,
+.finance-section,
+.team-note,
+.review-summary,
+.issue-grid,
+.issue-head,
+.issue-row {
+  border-color: #d9ded8 !important;
+}
+
+.table th,
+.table td,
+.table-wrap th,
+.table-wrap td,
+.task-table > div,
+.shift-table > div,
+.mini-table > div,
+.score-table > div,
+.issue-head,
+.issue-row,
+.filters {
+  border-bottom-color: #d9ded8 !important;
+}
+
+.card-head + .filters,
+.filters:first-child {
+  border-top: 0 !important;
+}
+
+.filters {
+  border-color: #d9ded8 !important;
+  border-top-color: transparent !important;
+}
+
+.ui-action-icon,
+.ui-arrow-icon {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui-action-icon svg,
+.ui-arrow-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.2;
+}
