@@ -2743,3 +2743,146 @@ body,
     margin-top: 0 !important;
   }
 }
+
+/* Neutral border pass: keep outlines/separators grey instead of warm red/brown. */
+:root {
+  --line: #d9ded8 !important;
+  --table-line: #d9ded8 !important;
+}
+
+.card,
+.summary-card,
+.metric,
+.kpi,
+.btn,
+.btn.soft,
+.btn.danger,
+.input,
+select,
+input,
+textarea,
+.date-pill,
+.profile,
+.filter,
+.tag,
+.badge,
+.role,
+.role-chip,
+.status,
+.status-pill,
+.table-wrap,
+.table,
+.table th,
+.table td,
+.filters,
+.pagination,
+.modal,
+.close,
+.widget-option,
+.alert,
+.shift,
+.evidence,
+.message-meta,
+.attachment,
+.reply-box,
+.pattern,
+.request,
+.person,
+.candidate,
+.availability-day-card,
+.availability-row,
+.availability-timeline,
+.availability-block,
+.availability-block.available,
+.availability-block.partial,
+.availability-block.unavailable,
+.availability-mini-card,
+.availability-summary-card,
+.availability-action,
+.day-card,
+.timeline-card,
+.board-card,
+.queue-item,
+.planner-card,
+.planning-board,
+.planning-summary,
+.rota-card,
+.shift-card,
+.slot,
+.slot-card,
+.detail-card,
+.inbox-card,
+.email-row,
+.stock,
+.sales-readout div,
+.chart-summary div,
+.kpi-foot,
+.action-note {
+  border-color: #d9ded8 !important;
+}
+
+.summary-card.danger,
+.summary-card.warn,
+.tag.active,
+.tag.warn,
+.tag.danger,
+.tag.draft,
+.tag.archived,
+.tag.todo,
+.tag.progress,
+.tag.done,
+.tag.failed,
+.badge.active,
+.badge.warn,
+.badge.danger,
+.badge.neutral,
+.badge.draft,
+.badge.active,
+.status.warn,
+.status.danger,
+.status.active,
+.status.ready,
+.status.neutral,
+.status-pill.warn,
+.status-pill.danger,
+.status-pill.active,
+.status-pill.ready,
+.role,
+.role-chip {
+  border-color: #d9ded8 !important;
+}
+
+.table tr,
+.table thead,
+.table tbody,
+.list-row,
+.evidence,
+.shift,
+.email-row,
+.timeline-row,
+.availability-row,
+.pattern,
+.request,
+.chart-summary div,
+.sales-readout div,
+.kpi-foot,
+.action-note {
+  border-color: #d9ded8 !important;
+}
+
+.sales-bars {
+  border-bottom-color: #d9ded8 !important;
+  background: repeating-linear-gradient(to top, transparent 0 39px, rgba(217, 222, 216, .9) 39px 40px) !important;
+}
+
+.chart-grid line {
+  stroke: #d9ded8 !important;
+}
+
+.planning-grid,
+.calendar-grid,
+.availability-track,
+.availability-timeline,
+.timeline-track {
+  border-color: #d9ded8 !important;
+}
