@@ -274,74 +274,144 @@
           <div class="hero-actions"><button class="btn soft" id="resetLayoutBtn">Reset layout</button><button class="btn soft" id="customizeBtn">Customize</button><button class="btn primary" id="addWidgetBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Add widget</button></div>
         </section>
         <div class="focus-strip daily-brief-strip">
-          <div class="focus-copy"><i class="focus-dot"></i><div><strong>Daily Brief</strong><ul><li><span class="data-value">3</span> priorities before lunch</li><li>Freezer warning is the highest operational risk</li><li>Morning checks need manager review</li></ul></div></div>
+          <div class="focus-copy"><i class="focus-dot"></i><div><strong>Daily Brief</strong><ul><li>86 covers booked today, 12% above a typical Friday.</li><li>Emma is off sick from FOH; arrange front desk cover before lunch.</li><li>Fresh Produce delivery is one day overdue and may affect prep.</li><li>Priority: Freezer Unit 3 is above safe range and needs checking first.</li></ul></div></div>
           <a class="focus-link" href="issues.html">Review priorities →</a>
         </div>
         <section class="dashboard-grid">
-          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Today's shifts</div></div><div class="value data-value">4</div><div class="meta">18 people currently on shift</div><div class="kpi-foot"><span>1 rota gap before lunch</span></div></article>
-          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Today's tasks</div></div><div class="value data-value">40</div><div class="meta">16 done · 3 overdue</div><div class="kpi-foot"><span>Morning checks need review</span></div></article>
-          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Today's issues</div></div><div class="value danger data-value">3</div><div class="meta">Urgent items for today</div><div class="kpi-foot"><span>Freezer warning is highest risk</span></div></article>
-          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Week-to-date sales</div></div><div class="value data-value">+8.7%</div><div class="meta">Revenue vs last week</div><div class="kpi-foot"><span>2 stock items below threshold</span></div></article>
+          <article class="card ai-summary-card span-kpi">
+            <div class="card-label">Shifts</div>
+            <div class="metric-line"><strong class="data-value">18</strong><span>on shift now</span></div>
+            <ul class="compact-list">
+              <li>Covered across 4 live shifts.</li>
+              <li>Saturday PM still needs 1 supervisor.</li>
+              <li>Daniel L is available for lunch cover.</li>
+            </ul>
+          </article>
+          <article class="card ai-summary-card span-kpi">
+            <div class="card-label">Tasks</div>
+            <div class="metric-line"><strong class="data-value">40%</strong><span>complete today</span></div>
+            <ul class="compact-list">
+              <li>3 tasks are overdue.</li>
+              <li>FOH opening checklist blocks sign-off.</li>
+              <li>Ali Zee owns the next action.</li>
+            </ul>
+          </article>
+          <article class="card ai-summary-card span-kpi">
+            <div class="card-label">Issues &amp; Risks</div>
+            <div class="metric-line danger"><strong class="data-value">3</strong><span>open items</span></div>
+            <ul class="compact-list">
+              <li>Freezer Unit 3 is the highest risk.</li>
+              <li>One compliance checklist is incomplete.</li>
+              <li>Saturday PM has a rota gap.</li>
+            </ul>
+          </article>
+          <article class="card ai-summary-card span-kpi">
+            <div class="card-label">Stock &amp; Supply</div>
+            <div class="metric-line"><strong class="data-value">2</strong><span>below threshold</span></div>
+            <ul class="compact-list">
+              <li>Fresh Produce delivery is 1 day overdue.</li>
+              <li>Gloves and oat milk need checking.</li>
+              <li>End-of-month stock take is due in 5 days.</li>
+            </ul>
+          </article>
+
           <article class="card span-7 priority-issues">
-            <div class="card-top"><div><h2 class="section-title">Open issues</h2><p class="section-sub">Items that need owner or manager attention today.</p></div><a class="link" href="issues.html">View all issues →</a></div>
-            <div class="alerts">
-              <div class="alert"><span class="alert-icon" aria-hidden="true"></span><div><div class="alert-title">Freezer temperature above safe range</div><div class="alert-desc">Kitchen · Freezer Unit 3 · Reported by Sam Tester</div></div><span class="alert-time">18m ago</span></div>
-              <div class="alert"><span class="alert-icon" aria-hidden="true"></span><div><div class="alert-title">Opening checklist still incomplete</div><div class="alert-desc">Front of house · 3 tasks overdue · Assigned to Ali Zee</div></div><span class="alert-time">42m ago</span></div>
-              <div class="alert"><span class="alert-icon" aria-hidden="true"></span><div><div class="alert-title">Saturday PM rota gap</div><div class="alert-desc">Front of house · 1 supervisor required</div></div><span class="alert-time">Today</span></div>
+            <div class="card-top"><div><h2 class="section-title">Open issues &amp; risks</h2><p class="section-sub">What needs action, where it is, and who owns it.</p></div><a class="link" href="issues.html">View issues →</a></div>
+            <div class="issue-grid" role="table" aria-label="Open issues and risks">
+              <div class="issue-head" role="row"><span>What</span><span>Where</span><span>Who</span><span>When</span></div>
+              <div class="issue-row critical" role="row"><strong>Freezer temperature above safe range</strong><span>Kitchen · Freezer Unit 3</span><span>Sam Tester</span><span>18m ago</span></div>
+              <div class="issue-row" role="row"><strong>Opening checklist still incomplete</strong><span>Front of house</span><span>Ali Zee</span><span>42m ago</span></div>
+              <div class="issue-row" role="row"><strong>Saturday PM rota gap</strong><span>Front of house</span><span>Manager cover needed</span><span>Today</span></div>
             </div>
           </article>
+
           <article class="card span-5">
-            <div class="card-top"><div><h2 class="section-title">Live shifts</h2><p class="section-sub">Who is running today’s service.</p></div><a class="link" href="rota.html">Open rota →</a></div>
-            <div class="shift-list">
-              <div class="shift"><div class="shift-time">07:00</div><div><div class="shift-name">Opening shift</div><div class="shift-people">Kitchen and front of house</div></div><div class="staff-stack"><i class="staff">AZ</i><i class="staff">DL</i><i class="staff">+4</i></div></div>
-              <div class="shift"><div class="shift-time">10:30</div><div><div class="shift-name">Lunch service</div><div class="shift-people">Front of house and bar</div></div><div class="staff-stack"><i class="staff">AP</i><i class="staff">MB</i><i class="staff">+6</i></div></div>
-              <div class="shift"><div class="shift-time">16:00</div><div><div class="shift-name">Evening service</div><div class="shift-people">Kitchen and front of house</div></div><div class="staff-stack"><i class="staff">SF</i><i class="staff">ST</i><i class="staff">+5</i></div></div>
+            <div class="card-top"><div><h2 class="section-title">Live shifts</h2><p class="section-sub">Current services and assigned staff.</p></div><a class="link" href="rota.html">Open rota →</a></div>
+            <div class="shift-table" role="table" aria-label="Live shifts">
+              <div class="shift-head" role="row"><span>Starts</span><span>Type</span><span>Staff</span></div>
+              <div class="shift-row" role="row"><strong>07:00</strong><span>Opening shift<br><em>Kitchen and FOH</em></span><div class="staff-stack named"><i class="staff">AZ</i><i class="staff">DL</i><i class="staff">AP</i><i class="staff">+4</i></div></div>
+              <div class="shift-row" role="row"><strong>10:30</strong><span>Lunch service<br><em>Front of house and bar</em></span><div class="staff-stack named"><i class="staff">AF</i><i class="staff">ME</i><i class="staff">MB</i><i class="staff">+6</i></div></div>
+              <div class="shift-row" role="row"><strong>16:00</strong><span>Evening service<br><em>Kitchen and FOH</em></span><div class="staff-stack named"><i class="staff">SF</i><i class="staff">ST</i><i class="staff">DL</i><i class="staff">+5</i></div></div>
             </div>
           </article>
-          <article class="card span-8 dashboard-sales-card">
-            <div class="card-top"><div><h2 class="section-title">Week-to-date sales</h2><p class="section-sub">Revenue compared with the same point last week.</p></div><a class="link" href="sales.html">View sales →</a></div>
-            <div class="sales-overview">
-              <div class="sales-readout" aria-label="Sales summary">
-                <div><small>This week</small><strong class="data-value">£18,420</strong></div>
-                <div><small>Last week</small><strong class="data-value">£16,940</strong></div>
-                <div><small>Peak day</small><strong class="data-value">Sat £3.17k</strong></div>
+
+          <article class="card span-5">
+            <div class="card-top"><div><h2 class="section-title">Task progress</h2><p class="section-sub">Today by operational area.</p></div><a class="link" href="checks-tasks.html">Open tasks →</a></div>
+            <div class="task-table" role="table" aria-label="Task progress">
+              <div class="task-head" role="row"><span>Area</span><span>Progress</span><span>Total</span></div>
+              <div class="task-row" role="row"><strong>Kitchen</strong><span class="stacked-bar"><i style="width:91%"></i></span><span>41/45</span></div>
+              <div class="task-row" role="row"><strong>Front of house</strong><span class="stacked-bar warn"><i style="width:78%"></i></span><span>32/41</span></div>
+              <div class="task-row" role="row"><strong>Management</strong><span class="stacked-bar"><i style="width:100%"></i></span><span>18/18</span></div>
+              <div class="task-row" role="row"><strong>Maintenance</strong><span class="stacked-bar"><i style="width:82%"></i></span><span>23/28</span></div>
+            </div>
+          </article>
+
+          <article class="card span-7 ai-brief-card">
+            <div class="card-top"><div><h2 class="section-title">Stock &amp; supply AI brief</h2><p class="section-sub">Supplier and stock exceptions for today.</p></div><a class="link" href="assets.html">View stock →</a></div>
+            <ul class="ai-bullets">
+              <li>Fresh Produce Ltd delivery is overdue by one day. Chase before lunch prep.</li>
+              <li>Two incorrect items were received; return request is ready for approval.</li>
+              <li>Replacement order for oat milk and chicken breast has been submitted.</li>
+              <li>Four ingredients are projected to run below minimum stock within 48 hours.</li>
+              <li>End-of-month stock take is due in 5 days.</li>
+            </ul>
+          </article>
+
+          <article class="card span-7 team-overview-card">
+            <div class="card-top"><div><h2 class="section-title">Team overview</h2><p class="section-sub">Attendance, task response, engagement and compliance.</p></div><a class="link" href="team.html">View staff →</a></div>
+            <div class="team-grid">
+              <div class="team-note"><strong>Going well today</strong><ul><li>80% of staff are on time.</li><li>All kitchen tasks completed.</li><li>3 positive customer reviews mention service.</li></ul></div>
+              <div class="team-note"><strong>Needs improvement</strong><ul><li>2 overdue tasks in kitchen support.</li><li>Deep bar clean was not done.</li><li>1 sick leave cover still open.</li></ul></div>
+              <div class="score-table">
+                <div><span>Attendance</span><strong>98%</strong></div>
+                <div><span>Tasks</span><strong>91%</strong></div>
+                <div><span>Engagement</span><strong class="amber">74%</strong></div>
+                <div><span>Compliance</span><strong>96%</strong></div>
+                <div><span>Training</span><strong>89%</strong></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card span-5 reviews-card">
+            <div class="card-top"><div><h2 class="section-title">Customer reviews</h2><p class="section-sub">Recent feedback and response workload.</p></div><a class="link" href="reviews.html">Open reviews →</a></div>
+            <div class="review-summary"><strong class="data-value">4.8★</strong><span>14 new reviews received. One negative review requires a response.</span></div>
+            <div class="mini-table">
+              <div><strong>Reviewer</strong><strong>Rating</strong><strong>Date</strong></div>
+              <div><span>Sarah M.</span><span>★★★★★</span><span>31 May</span></div>
+              <div><span>James R.</span><span>★★★★★</span><span>30 May</span></div>
+              <div><span>Priya D.</span><span>★★★★☆</span><span>29 May</span></div>
+            </div>
+          </article>
+
+          <article class="card span-7 dashboard-sales-card">
+            <div class="card-top"><div><h2 class="section-title">Sales vs forecast</h2><p class="section-sub">Today, 00:00–12:00. Tap bars in product for point detail.</p></div><a class="link" href="sales.html">View sales →</a></div>
+            <div class="sales-overview forecast-layout">
+              <div class="sales-readout" aria-label="Sales forecast summary">
+                <div><small>Forecast</small><strong class="data-value">£3,811</strong></div>
+                <div><small>Actual</small><strong class="data-value">£3,231</strong></div>
+                <div><small>Difference</small><strong class="data-value danger">-£580</strong></div>
               </div>
               <div class="sales-graphic">
-                <div class="sales-bars" role="img" aria-label="Sales by day, this week compared with last week">
-                  <div class="sales-scale"><span>£3.2k</span><span>£2.4k</span><span>£1.6k</span><span>£0.8k</span></div>
-                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:44%"></i><i class="sales-bar previous" style="height:39%"></i></div><span>Mon</span></div>
-                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:58%"></i><i class="sales-bar previous" style="height:51%"></i></div><span>Tue</span></div>
-                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:68%"></i><i class="sales-bar previous" style="height:61%"></i></div><span>Wed</span></div>
-                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:78%"></i><i class="sales-bar previous" style="height:70%"></i></div><span>Thu</span></div>
-                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:90%"></i><i class="sales-bar previous" style="height:75%"></i></div><span>Fri</span></div>
-                  <div class="sales-day peak"><div class="bar-pair"><i class="sales-bar current" style="height:99%"></i><i class="sales-bar previous" style="height:82%"></i></div><span>Sat</span></div>
-                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:86%"></i><i class="sales-bar previous" style="height:72%"></i></div><span>Sun</span></div>
+                <div class="sales-bars" role="img" aria-label="Sales compared with forecast by time of day">
+                  <div class="sales-scale"><span>£700</span><span>£525</span><span>£350</span><span>£175</span></div>
+                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:8%"></i><i class="sales-bar previous" style="height:10%"></i></div><span>8am</span></div>
+                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:20%"></i><i class="sales-bar previous" style="height:24%"></i></div><span>9am</span></div>
+                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:72%"></i><i class="sales-bar previous" style="height:88%"></i></div><span>10am</span></div>
+                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:46%"></i><i class="sales-bar previous" style="height:86%"></i></div><span>11am</span></div>
+                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:58%"></i><i class="sales-bar previous" style="height:54%"></i></div><span>12pm</span></div>
+                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:36%"></i><i class="sales-bar previous" style="height:38%"></i></div><span>1pm</span></div>
+                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:26%"></i><i class="sales-bar previous" style="height:30%"></i></div><span>2pm</span></div>
                 </div>
-                <div class="sales-legend"><span><i></i>This week</span><span><i class="previous"></i>Last week</span></div>
+                <div class="sales-legend"><span><i></i>Sales</span><span><i class="previous"></i>Forecast</span></div>
               </div>
             </div>
           </article>
-          <article class="card span-4">
-            <div class="card-top"><div><h2 class="section-title">Week-to-date tasks</h2><p class="section-sub">Progress by operational area.</p></div><a class="link" href="checks-tasks.html">Open tasks →</a></div>
-            <div class="task-week" aria-label="Weekly task completion by operational area">
-              <div class="task-area"><div><strong>Kitchen</strong></div><span class="stacked-bar"><i style="width:91%"></i></span><span class="task-count">41/45</span></div>
-              <div class="task-area"><div><strong>Front of house</strong></div><span class="stacked-bar"><i style="width:78%"></i></span><span class="task-count">32/41</span></div>
-              <div class="task-area"><div><strong>Management</strong></div><span class="stacked-bar"><i style="width:100%"></i></span><span class="task-count">18/18</span></div>
-              <div class="task-area"><div><strong>Maintenance</strong></div><span class="stacked-bar"><i style="width:82%"></i></span><span class="task-count">23/28</span></div>
-            </div>
-          </article>
-          <article class="card span-8">
-            <div class="card-top"><div><h2 class="section-title">Latest evidence</h2><p class="section-sub">Recent compliance and operational records.</p></div><a class="link" href="evidence.html">View evidence →</a></div>
-            <div class="evidence-list">
-              <div class="evidence"><span class="evidence-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></span><div><strong>Opening kitchen temperature checks</strong><span>Submitted by David Lewis · Kitchen</span></div><span>08:12</span></div>
-              <div class="evidence"><span class="evidence-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span><div><strong>FSA Food Safety Diary</strong><span>Submitted by Sam Tester · Front of house</span></div><span>07:48</span></div>
-              <div class="evidence"><span class="evidence-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></span><div><strong>Fire exit walkthrough</strong><span>Submitted by Ali Pirposhteh · Front of house</span></div><span>07:31</span></div>
-            </div>
-          </article>
-          <article class="card span-4">
-            <div class="card-top"><div><h2 class="section-title">Low stock signals</h2><p class="section-sub">Items requiring attention.</p></div><a class="link" href="assets.html">Assets →</a></div>
-            <div class="stock"><div class="stock-value data-value">2</div><div><strong>Items below threshold</strong><span>Hand sanitiser and disposable gloves</span></div></div>
-            <div class="stock"><div class="stock-value data-value">1</div><div><strong>Critical asset signal</strong><span>Freezer Unit 3 temperature warning</span></div></div>
+
+          <article class="card span-5 ai-finance-card">
+            <div class="card-top"><div><h2 class="section-title">AI financial review</h2><p class="section-sub">Week to date.</p></div><a class="link" href="sales.html">View more →</a></div>
+            <div class="finance-section"><strong>Highlights</strong><ul><li>Sales are £15,420, £620 ahead of forecast.</li><li>Estimated gross profit is £10,940.</li><li>Food costs are within target.</li></ul></div>
+            <div class="finance-section"><strong>Attention</strong><ul><li>Labour is £380 over budget from overtime and sickness cover.</li><li>Weekday labour efficiency reduced overall profit.</li></ul></div>
+            <div class="finance-section"><strong>Recommendation</strong><p>Review Monday to Wednesday cover levels to protect profitability.</p></div>
           </article>
         </section>
       </div>

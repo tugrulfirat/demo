@@ -2886,3 +2886,306 @@ textarea,
 .timeline-track {
   border-color: #d9ded8 !important;
 }
+
+/* AI dashboard card set: owner-facing summaries wired later to Michael's JSON facts. */
+.ai-summary-card {
+  gap: 10px !important;
+}
+
+.metric-line {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  margin-top: 10px;
+  color: var(--forest);
+}
+
+.metric-line strong {
+  font-size: 30px !important;
+  line-height: 1 !important;
+}
+
+.metric-line span {
+  color: var(--ink) !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+.metric-line.danger strong {
+  color: var(--danger) !important;
+}
+
+.compact-list,
+.ai-bullets,
+.finance-section ul,
+.team-note ul {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.compact-list {
+  margin-top: 8px;
+}
+
+.compact-list li,
+.ai-bullets li,
+.finance-section li,
+.team-note li {
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.42;
+}
+
+.issue-grid,
+.shift-table,
+.task-table,
+.mini-table,
+.score-table {
+  display: grid;
+  margin-top: 14px;
+  border: 1px solid #d9ded8;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.issue-head,
+.issue-row {
+  display: grid;
+  grid-template-columns: minmax(190px, 1.55fr) minmax(130px, 1fr) minmax(120px, .9fr) minmax(76px, auto);
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid #d9ded8;
+}
+
+.issue-head,
+.shift-head,
+.task-head,
+.mini-table > div:first-child {
+  background: #f4f5f4;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.issue-row:last-child,
+.shift-row:last-child,
+.task-row:last-child,
+.mini-table > div:last-child,
+.score-table > div:last-child {
+  border-bottom: 0;
+}
+
+.issue-row strong {
+  color: var(--forest);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.issue-row span,
+.shift-row span,
+.task-row span,
+.mini-table span,
+.score-table span {
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.issue-row.critical {
+  box-shadow: inset 4px 0 0 var(--danger);
+}
+
+.shift-head,
+.shift-row {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid #d9ded8;
+}
+
+.shift-row strong {
+  color: var(--forest);
+  font-size: 15px;
+}
+
+.shift-row em {
+  color: var(--muted);
+  font-style: normal;
+}
+
+.staff-stack.named {
+  justify-content: end;
+  min-width: 116px;
+}
+
+.task-head,
+.task-row {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) 64px;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid #d9ded8;
+}
+
+.task-row strong {
+  color: var(--forest);
+  font-weight: 600;
+}
+
+.stacked-bar.warn {
+  background: #edf0e9;
+}
+
+.stacked-bar.warn::after {
+  display: block;
+  width: 12%;
+  height: 100%;
+  background: var(--warn);
+  content: "";
+}
+
+.ai-brief-card .ai-bullets {
+  margin-top: 14px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(210px, .85fr);
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.team-note,
+.review-summary,
+.finance-section {
+  padding: 14px;
+  border: 1px solid #d9ded8;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.team-note strong,
+.finance-section strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--forest);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.score-table > div,
+.mini-table > div {
+  display: grid;
+  gap: 12px;
+  align-items: center;
+  padding: 11px 13px;
+  border-bottom: 1px solid #d9ded8;
+}
+
+.score-table > div {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.score-table strong {
+  color: var(--forest);
+  font-weight: 600;
+}
+
+.score-table strong.amber {
+  color: #7a5a00;
+}
+
+.review-summary {
+  display: grid;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.review-summary strong {
+  color: var(--forest);
+  font-size: 30px !important;
+  line-height: 1;
+}
+
+.mini-table > div {
+  grid-template-columns: minmax(0, 1fr) 84px 70px;
+}
+
+.mini-table strong {
+  color: var(--muted);
+  font-size: 13px !important;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.forecast-layout {
+  margin-top: 12px;
+}
+
+.dashboard-sales-card .forecast-layout {
+  grid-template-columns: 180px minmax(0, 1fr) !important;
+  gap: 20px !important;
+}
+
+.dashboard-sales-card .forecast-layout .sales-readout div {
+  min-height: 58px !important;
+  padding: 10px 12px !important;
+}
+
+.dashboard-sales-card .forecast-layout .sales-readout strong {
+  font-size: 21px !important;
+}
+
+.dashboard-sales-card .forecast-layout .sales-bars {
+  grid-template-columns: 42px repeat(7, minmax(32px, 1fr)) !important;
+  gap: 8px !important;
+}
+
+.dashboard-sales-card .forecast-layout .bar-pair {
+  gap: 5px !important;
+}
+
+.dashboard-sales-card .forecast-layout .sales-bar {
+  width: min(18px, 42%) !important;
+}
+
+.data-value.danger {
+  color: var(--danger) !important;
+}
+
+.finance-section {
+  margin-top: 12px;
+}
+
+.finance-section p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+@media (max-width: 1180px) {
+  .issue-head,
+  .issue-row {
+    grid-template-columns: minmax(0, 1.35fr) minmax(120px, 1fr);
+  }
+
+  .issue-head span:nth-child(3),
+  .issue-head span:nth-child(4),
+  .issue-row span:nth-child(3),
+  .issue-row span:nth-child(4) {
+    display: none;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
