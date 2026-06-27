@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lymon Control Panel | Morning Brief</title>
+  <title>Lymon Control Panel | Daily Brief</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&display=swap" rel="stylesheet">
@@ -238,7 +238,7 @@
     <aside class="sidebar">
       <div class="brand">
         <img class="mark" src="Logo.png" alt="">
-        <div><div class="brand-name">Lymon</div><div class="brand-sub">Control Panel</div></div>
+        <div><div class="brand-name">lymon</div><div class="brand-sub">Control Panel</div></div>
       </div>
       <nav class="nav">
         <div class="nav-label">Overview</div>
@@ -270,18 +270,18 @@
       </header>
       <div class="content">
         <section class="hero">
-          <div><p class="eyebrow">Today operations overview</p><h1>Morning Brief</h1></div>
+          <div><p class="eyebrow">Operations overview</p><h1>Today's priorities</h1></div>
           <div class="hero-actions"><button class="btn soft" id="resetLayoutBtn">Reset layout</button><button class="btn soft" id="customizeBtn">Customize</button><button class="btn primary" id="addWidgetBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Add widget</button></div>
         </section>
-        <div class="focus-strip">
-          <div class="focus-copy"><i class="focus-dot"></i><div><strong><span class="data-value">3</span> priorities before lunch</strong></div></div>
+        <div class="focus-strip daily-brief-strip">
+          <div class="focus-copy"><i class="focus-dot"></i><div><strong>Daily Brief</strong><ul><li><span class="data-value">3</span> priorities before lunch</li><li>Freezer warning is the highest operational risk</li><li>Morning checks need manager review</li></ul></div></div>
           <a class="focus-link" href="issues.html">Review priorities →</a>
         </div>
         <section class="dashboard-grid">
-          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Shifts</div><span class="tag">Covered</span></div><div class="value data-value">4</div><div class="meta"><span class="data-value">18</span> people currently on shift</div><div class="kpi-foot"><span><span class="data-value">1</span> rota gap before lunch</span></div></article>
-          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Tasks</div><span class="tag warn">Attention</span></div><div class="value data-value">40</div><div class="meta"><span class="data-value">16</span> done · <span class="data-value">3</span> overdue</div><div class="kpi-foot"><span>Morning checks need review</span></div></article>
-          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Issues</div><span class="tag danger">Priority</span></div><div class="value danger data-value">3</div><div class="meta">Urgent items for today</div><div class="kpi-foot"><span>Freezer warning is highest risk</span></div></article>
-          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Sales & stock</div><span class="tag warn">Watch</span></div><div class="value data-value">+8.7%</div><div class="meta">Revenue vs last week</div><div class="kpi-foot"><span><span class="data-value">2</span> stock items below threshold</span></div></article>
+          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Today's shifts</div><span class="tag">Covered</span></div><div class="value data-value">4</div><div class="meta">18 people currently on shift</div><div class="kpi-foot"><span>1 rota gap before lunch</span></div></article>
+          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Today's tasks</div><span class="tag warn">Attention</span></div><div class="value data-value">40</div><div class="meta">16 done · 3 overdue</div><div class="kpi-foot"><span>Morning checks need review</span></div></article>
+          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Today's issues</div><span class="tag danger">Priority</span></div><div class="value danger data-value">3</div><div class="meta">Urgent items for today</div><div class="kpi-foot"><span>Freezer warning is highest risk</span></div></article>
+          <article class="card kpi span-kpi"><div class="card-top"><div class="card-label">Week-to-date sales</div><span class="tag warn">Watch</span></div><div class="value data-value">+8.7%</div><div class="meta">Revenue vs last week</div><div class="kpi-foot"><span>2 stock items below threshold</span></div></article>
           <article class="card span-7 priority-issues">
             <div class="card-top"><div><h2 class="section-title">Open issues</h2><p class="section-sub">Items that need owner or manager attention today.</p></div><a class="link" href="issues.html">View all issues →</a></div>
             <div class="alerts">
@@ -299,7 +299,7 @@
             </div>
           </article>
           <article class="card span-8 dashboard-sales-card">
-            <div class="card-top"><div><h2 class="section-title">Sales this week</h2><p class="section-sub">Revenue compared with the same point last week.</p></div><a class="link" href="sales.html">View sales →</a></div>
+            <div class="card-top"><div><h2 class="section-title">Week-to-date sales</h2><p class="section-sub">Revenue compared with the same point last week.</p></div><a class="link" href="sales.html">View sales →</a></div>
             <div class="sales-overview">
               <div class="sales-readout" aria-label="Sales summary">
                 <div><small>This week</small><strong class="data-value">£18,420</strong></div>
@@ -322,7 +322,7 @@
             </div>
           </article>
           <article class="card span-4">
-            <div class="card-top"><div><h2 class="section-title">Task completion</h2><p class="section-sub">Progress by operational area.</p></div><a class="link" href="checks-tasks.html">Open tasks →</a></div>
+            <div class="card-top"><div><h2 class="section-title">Week-to-date tasks</h2><p class="section-sub">Progress by operational area.</p></div><a class="link" href="checks-tasks.html">Open tasks →</a></div>
             <div class="task-week" aria-label="Weekly task completion by operational area">
               <div class="task-area"><div><strong>Kitchen</strong></div><span class="stacked-bar"><i style="width:91%"></i></span><span class="task-count">41/45</span></div>
               <div class="task-area"><div><strong>Front of house</strong></div><span class="stacked-bar"><i style="width:78%"></i></span><span class="task-count">32/41</span></div>
@@ -351,8 +351,8 @@
   <div class="modal-backdrop" id="widgetModal">
     <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modal-head"><div><p class="eyebrow">Dashboard settings</p><h2 id="modalTitle">Add a widget</h2></div><button class="close" id="closeModal" aria-label="Close">×</button></div>
-      <p>Choose an additional view to add to your Morning Brief. Your layout remains personal to your account.</p>
-      <div class="widget-list"><div class="widget-option">Shifts summary <span>Default</span></div><div class="widget-option">Tasks summary <span>Default</span></div><div class="widget-option">Issues summary <span>Default</span></div><div class="widget-option">Sales & stock summary <span>Default</span></div><div class="widget-option">Open issues <span>Default</span></div><div class="widget-option">Live shifts <span>Default</span></div><div class="widget-option">Sales this week <span>Default</span></div><div class="widget-option">Task completion <span>Default</span></div><div class="widget-option">Latest evidence <span>Available</span></div><div class="widget-option">Low stock signals <span>Available</span></div></div>
+      <p>Choose an additional view to add to your Daily Brief. Your layout remains personal to your account.</p>
+      <div class="widget-list"><div class="widget-option">Shifts summary <span>Default</span></div><div class="widget-option">Tasks summary <span>Default</span></div><div class="widget-option">Issues summary <span>Default</span></div><div class="widget-option">Sales & stock summary <span>Default</span></div><div class="widget-option">Open issues <span>Default</span></div><div class="widget-option">Live shifts <span>Default</span></div><div class="widget-option">Week-to-date sales <span>Default</span></div><div class="widget-option">Week-to-date tasks <span>Default</span></div><div class="widget-option">Latest evidence <span>Available</span></div><div class="widget-option">Low stock signals <span>Available</span></div></div>
       <button class="btn primary" id="doneModal">Done</button>
     </section>
   </div>

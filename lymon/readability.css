@@ -1,4 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
 /* Final prototype readability pass: avoid tiny operational text. */
+html,
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Roboto", Arial, sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+.brand-name,
+.section-title,
+.modal h2,
+.value,
+.data-value,
+.metric strong,
+.stock-value,
+.shift-time {
+  font-family: "Roboto", Arial, sans-serif !important;
+}
 span,
 small,
 time,
@@ -2342,13 +2366,14 @@ body {
 .brand-name {
   font-size: 22px !important;
   font-weight: 500 !important;
+  text-transform: lowercase !important;
 }
 
 .brand-sub {
   margin-top: 6px !important;
-  color: rgba(233,245,79,.82) !important;
+  color: #fff !important;
   font-size: 10px !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   letter-spacing: .14em !important;
 }
 
@@ -2360,9 +2385,9 @@ body {
 .nav-summary,
 .admin-summary {
   margin-block: 13px 6px !important;
-  color: rgba(255,255,255,.36) !important;
-  font-size: 11px !important;
-  font-weight: 400 !important;
+  color: #fff !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
   letter-spacing: .11em !important;
 }
 
@@ -2371,21 +2396,21 @@ body {
   margin-bottom: 1px !important;
   padding: 7px 10px !important;
   border-radius: 9px !important;
-  color: rgba(255,255,255,.48) !important;
+  color: #fff !important;
   font-weight: 400 !important;
 }
 
 .nav-item svg {
-  opacity: .58 !important;
+  opacity: .9 !important;
 }
 
 .nav-item:hover {
-  color: rgba(255,255,255,.86) !important;
+  color: #fff !important;
   background: rgba(255,255,255,.055) !important;
 }
 
 .nav-item.active {
-  color: rgba(255,255,255,.9) !important;
+  color: #fff !important;
   background: rgba(255,255,255,.09) !important;
   box-shadow: inset 3px 0 0 rgba(233,245,79,.95) !important;
   font-weight: 500 !important;
@@ -2400,10 +2425,27 @@ body {
 }
 
 .signout {
+  display: flex !important;
+  gap: 10px !important;
+  align-items: center !important;
   min-height: 38px !important;
-  padding: 8px 12px !important;
-  color: rgba(255,255,255,.68) !important;
+  padding: 8px 10px !important;
+  border-color: transparent !important;
+  border-radius: 9px !important;
+  color: #fff !important;
   font-weight: 400 !important;
+  background: transparent !important;
+}
+
+.signout::before {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  background: currentColor;
+  content: "";
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4'/%3E%3Cpath d='M16 17l5-5-5-5'/%3E%3Cpath d='M21 12H9'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4'/%3E%3Cpath d='M16 17l5-5-5-5'/%3E%3Cpath d='M21 12H9'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 @media (max-width: 1180px) {
@@ -2558,6 +2600,63 @@ body {
 
 .dashboard-grid .meta strong {
   font-weight: inherit !important;
+}
+
+.meta,
+.section-sub,
+.metric span,
+.summary-card > span,
+.alert-desc,
+.shift-people,
+.evidence span,
+.stock span,
+.task-area small,
+.pattern span,
+.request p,
+.table td,
+.chart-summary small,
+.sales-scale,
+.sales-legend,
+.legend,
+.day-summary,
+.helper,
+.hint {
+  color: #1c2b1e !important;
+}
+
+.daily-brief-strip {
+  align-items: start !important;
+  padding-block: 16px !important;
+}
+
+.daily-brief-strip .focus-copy {
+  align-items: start !important;
+}
+
+.daily-brief-strip strong {
+  display: block;
+  margin-bottom: 7px;
+  color: #fff !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+}
+
+.daily-brief-strip ul {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.daily-brief-strip li {
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.daily-brief-strip .data-value {
+  color: inherit !important;
+  font-weight: 500 !important;
 }
 
 /* Final neutral surface pass: reduce warm beige saturation across screens. */
