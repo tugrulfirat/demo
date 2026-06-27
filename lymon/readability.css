@@ -3274,16 +3274,42 @@ textarea,
 .ui-action-icon,
 .ui-arrow-icon {
   display: inline-flex;
-  width: 18px;
-  height: 18px;
-  flex: 0 0 18px;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
   align-items: center;
   justify-content: center;
 }
 
 .ui-action-icon svg,
 .ui-arrow-icon svg {
-  width: 18px;
-  height: 18px;
-  stroke-width: 2.2;
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.35;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.btn.small .ui-arrow-icon,
+.btn.small .ui-action-icon {
+  width: 20px;
+  height: 20px;
+  flex-basis: 20px;
+}
+
+.btn.small .ui-arrow-icon svg,
+.btn.small .ui-action-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.arrow .ui-arrow-icon {
+  width: 24px;
+  height: 24px;
+  flex-basis: 24px;
+}
+
+.arrow .ui-arrow-icon svg {
+  width: 24px;
+  height: 24px;
 }
