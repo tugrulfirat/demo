@@ -3063,6 +3063,10 @@ textarea,
   margin-top: 14px;
 }
 
+.team-grid .score-table {
+  margin-top: 0;
+}
+
 .team-note,
 .review-summary,
 .finance-section {
