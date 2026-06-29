@@ -3045,15 +3045,11 @@ textarea,
 }
 
 .stacked-bar.warn {
-  background: #edf0e9;
+  background: #f1eee8 !important;
 }
 
 .stacked-bar.warn::after {
-  display: block;
-  width: 12%;
-  height: 100%;
-  background: var(--warn);
-  content: "";
+  display: none !important;
 }
 
 .ai-brief-card .ai-bullets {
