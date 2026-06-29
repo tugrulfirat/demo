@@ -3020,8 +3020,13 @@ textarea,
 }
 
 .staff-stack.named {
+  gap: 8px;
   justify-content: end;
-  min-width: 116px;
+  min-width: 150px;
+}
+
+.staff-stack.named .staff {
+  margin-left: 0;
 }
 
 .task-head,
