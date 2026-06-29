@@ -385,24 +385,21 @@
 
           <article class="card span-7 dashboard-sales-card">
             <div class="card-top"><div><h2 class="section-title">Sales vs forecast</h2><p class="section-sub">Today, 00:00–12:00. Tap bars in product for point detail.</p></div><a class="link" href="sales.html">View sales</a></div>
-            <div class="sales-overview forecast-layout">
-              <div class="sales-readout" aria-label="Sales forecast summary">
+            <div class="sales-overview forecast-layout forecast-comparison">
+              <div class="forecast-summary" aria-label="Sales forecast summary">
                 <div><small>Forecast</small><strong class="data-value">£3,811</strong></div>
                 <div><small>Actual</small><strong class="data-value">£3,231</strong></div>
                 <div><small>Difference</small><strong class="data-value danger">-£580</strong></div>
               </div>
-              <div class="sales-graphic">
-                <div class="sales-bars" role="img" aria-label="Sales compared with forecast by time of day">
-                  <div class="sales-scale"><span>£700</span><span>£525</span><span>£350</span><span>£175</span></div>
-                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:8%"></i><i class="sales-bar previous" style="height:10%"></i></div><span>8am</span></div>
-                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:20%"></i><i class="sales-bar previous" style="height:24%"></i></div><span>9am</span></div>
-                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:72%"></i><i class="sales-bar previous" style="height:88%"></i></div><span>10am</span></div>
-                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:46%"></i><i class="sales-bar previous" style="height:86%"></i></div><span>11am</span></div>
-                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:58%"></i><i class="sales-bar previous" style="height:54%"></i></div><span>12pm</span></div>
-                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:36%"></i><i class="sales-bar previous" style="height:38%"></i></div><span>1pm</span></div>
-                  <div class="sales-day"><div class="bar-pair"><i class="sales-bar current" style="height:26%"></i><i class="sales-bar previous" style="height:30%"></i></div><span>2pm</span></div>
+              <div class="forecast-chart" role="img" aria-label="Sales compared with forecast by service period">
+                <div class="forecast-legend"><span><i></i>Sales</span><span><i class="previous"></i>Forecast</span></div>
+                <div class="forecast-bars">
+                  <div class="forecast-scale"><span>£1,600</span><span>£1,400</span><span>£1,200</span><span>£1,000</span><span>£800</span><span>£600</span><span>£400</span><span>£200</span><span>£0</span></div>
+                  <div class="forecast-period"><div class="variance">▼ -£20</div><div class="forecast-pair"><i class="sales" style="height:46.25%"><b>£740</b></i><i class="forecast" style="height:47.5%"><b>£760</b></i></div><span>Morning</span></div>
+                  <div class="forecast-period"><div class="variance">▼ -£160</div><div class="forecast-pair"><i class="sales" style="height:73.75%"><b>£1,180</b></i><i class="forecast" style="height:83.75%"><b>£1,340</b></i></div><span>Lunch</span></div>
+                  <div class="forecast-period"><div class="variance">▼ -£40</div><div class="forecast-pair"><i class="sales" style="height:32.5%"><b>£520</b></i><i class="forecast" style="height:35%"><b>£560</b></i></div><span>Afternoon</span></div>
+                  <div class="forecast-period"><div class="variance">▼ -£360</div><div class="forecast-pair"><i class="sales" style="height:49.4%"><b>£791</b></i><i class="forecast" style="height:71.9%"><b>£1,151</b></i></div><span>Evening</span></div>
                 </div>
-                <div class="sales-legend"><span><i></i>Sales</span><span><i class="previous"></i>Forecast</span></div>
               </div>
             </div>
           </article>
