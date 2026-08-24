@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Inter:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,600;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#E4DCCF;font-family:'Inter',sans-serif;}
+  .frame{position:relative;width:1080px;height:1350px;flex:0 0 auto;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.15);box-sizing:border-box;}
+  .col{display:flex;flex-direction:column;}
+  .cap{margin-top:16px;max-width:1080px;font-family:Inter,sans-serif;font-size:16px;line-height:1.5;color:#123B1E;}
+  .flag{position:absolute;top:24px;left:24px;right:24px;z-index:2;background:#B3261E;color:#fff;font-family:Inter,sans-serif;font-weight:700;font-size:14px;letter-spacing:0.08em;padding:8px 14px;border-radius:8px;width:max-content;}
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div style="display:flex;flex-direction:column;gap:48px;padding:48px;align-items:center;">
+
+<div class="col">
+  <div style="font-family:Inter,sans-serif;font-weight:700;font-size:15px;letter-spacing:0.08em;color:#123B1E;margin-bottom:10px;">01 — INTRO / HERO</div>
+  <div id="ig-post-1" class="frame" style="background:#F3EBDE;padding:64px 72px 72px;display:flex;flex-direction:column;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <img src="uploads/icon.svg" style="width:40px;height:40px;">
+      <div style="font-family:Fredoka,sans-serif;font-weight:500;font-size:26px;color:#0A3B13;">lymon</div>
+    </div>
+    <div style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:28px;color:#123B1E;margin-top:20px;">Hospitality. Made simple.</div>
+    <div style="font-family:Inter,sans-serif;font-weight:800;font-size:52px;line-height:1.16;color:#123B1E;margin-top:20px;">
+      You shouldn't need<br>
+      <span style="background:#CFE86B;padding:2px 10px;border-radius:8px;white-space:nowrap;">5 tools</span> to run<br>
+      today's operations.
+    </div>
+    <div style="position:relative;flex:1;margin-top:28px;min-height:0;display:flex;align-items:center;justify-content:center;">
+      <div style="width:100%;aspect-ratio:743/584;max-height:100%;background:#FFFDF9;border-radius:24px;box-shadow:0 28px 60px rgba(18,59,30,0.2);padding:14px;box-sizing:border-box;">
+        <image-slot id="post1-dashboard" shape="rounded" radius="18" src="uploads/team-post1.png" fit="cover" placeholder="Dashboard — Overview screenshot, cropped" style="width:100%;height:100%;"></image-slot>
+      </div>
+      <div style="position:absolute;top:-22px;right:-22px;width:120px;height:120px;border-radius:50%;background:#123B1E;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px rgba(18,59,30,0.35);border:4px solid #F3EBDE;">
+        <img src="uploads/icon.svg" style="width:48px;height:48px;">
+      </div>
+    </div>
+    <div style="font-family:Inter,sans-serif;font-weight:500;font-size:24px;color:#123B1E;opacity:0.7;margin-top:28px;">One platform. Real-time insights. Better decisions.</div>
+  </div>
+  <div class="cap">💬 Comment <b>ROTA</b> for early access</div>
+</div>
+
+<div class="col">
+  <div style="font-family:Inter,sans-serif;font-weight:700;font-size:15px;letter-spacing:0.08em;color:#123B1E;margin-bottom:10px;">02 — INTRO / PROBLEM</div>
+  <div id="ig-post-2" class="frame" style="background:#123B1E;">
+    <div style="position:absolute;top:64px;left:64px;display:flex;align-items:center;gap:12px;">
+      <img src="uploads/icon.svg" style="width:36px;height:36px;">
+      <div style="font-family:Fredoka,sans-serif;font-weight:500;font-size:24px;color:#F3EBDE;">lymon</div>
+    </div>
+    <div style="position:absolute;top:0;left:0;right:0;height:70%;display:flex;align-items:center;justify-content:center;padding:130px 48px 24px;box-sizing:border-box;">
+      <div style="width:100%;height:100%;background:#FFFDF9;border-radius:24px;box-shadow:0 28px 60px rgba(18,59,30,0.2);padding:14px;box-sizing:border-box;">
+        <image-slot id="post2-photo" shape="rounded" radius="18" src="uploads/sales-clean-post2.png" fit="cover" placeholder="Grounded photo — a manager mid-shift, checking phone/tablet" style="width:100%;height:100%;"></image-slot>
+      </div>
+    </div>
+    <div style="position:absolute;left:0;right:0;top:70%;bottom:0;background:#123B1E;padding:40px 64px;display:flex;flex-direction:column;justify-content:center;gap:16px;">
+      <div style="font-family:Inter,sans-serif;font-weight:700;font-size:18px;letter-spacing:0.1em;color:#CFE86B;">THE PROBLEM</div>
+      <div style="font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:44px;line-height:1.28;color:#F3EBDE;">You check multiple apps just to keep the business running smoothly.</div>
+      <div style="font-family:Inter,sans-serif;font-weight:500;font-size:22px;color:#F3EBDE;opacity:0.7;">POS. Bookings. Reviews. CCTV. One app should know it all.</div>
+    </div>
+  </div>
+  <div class="cap">💬 Comment <b>MORNING</b> for early access</div>
+</div>
+
+<div class="col">
+  <div style="font-family:Inter,sans-serif;font-weight:700;font-size:15px;letter-spacing:0.08em;color:#123B1E;margin-bottom:10px;">03 — UK HOSPITALITY / VAT</div>
+  <div id="ig-post-3" class="frame" style="background:#123B1E;">
+    <image-slot id="post3-photo" shape="rect" src="uploads/post3.jpg" fit="cover" placeholder="Real photo — cozy UK pub interior" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,12,0.15) 0%,rgba(10,20,12,0.05) 45%,rgba(10,20,12,0.88) 100%);pointer-events:none;"></div>
+    <div style="position:absolute;top:56px;left:56px;display:flex;align-items:center;gap:10px;pointer-events:none;">
+      <img src="uploads/icon.svg" style="width:36px;height:36px;">
+      <div style="font-family:Fredoka,sans-serif;font-weight:500;font-size:24px;color:#F3EBDE;">lymon</div>
+    </div>
+    <div style="position:absolute;left:56px;right:56px;bottom:64px;pointer-events:none;">
+      <div style="font-family:Inter,sans-serif;font-weight:700;font-size:20px;letter-spacing:0.1em;color:#CFE86B;">UK HOSPITALITY</div>
+      <div style="font-family:Inter,sans-serif;font-weight:800;font-size:46px;line-height:1.15;color:#F3EBDE;margin-top:14px;">20% VAT here.<br>10% or less next door.</div>
+    </div>
+  </div>
+  <div class="cap">UK hospitality pays 20% VAT. France, Spain, Italy and Germany average 10% or less — half our burden, sometimes a third. That gap is why Tom Kerridge's #VATsTheProblem campaign picked up over 100,000 signatures in three days. Three days. That's how strongly this sector feels it. Policy change matters, and I hope it comes. But I'm not sat around waiting on government to save the industry — operators I talk to are looking for every way to run leaner and smarter with what they've already got. Lymon is one of those ways: a practical lever you can pull today, while the policy conversation plays out.</div>
+</div>
+
+<div class="col">
+  <div style="font-family:Inter,sans-serif;font-weight:700;font-size:15px;letter-spacing:0.08em;color:#123B1E;margin-bottom:10px;">04 — FIELD NOTES / PORTOBELLO ROAD</div>
+  <div id="ig-post-4" class="frame" style="background:#123B1E;">
+    <image-slot id="post4-photo" shape="rect" src="uploads/post4.jpg" fit="cover" placeholder="Real photo — Portobello Road café visit" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,12,0.1) 0%,rgba(10,20,12,0.05) 45%,rgba(10,20,12,0.85) 100%);pointer-events:none;"></div>
+    <div style="position:absolute;top:56px;left:56px;display:flex;align-items:center;gap:10px;pointer-events:none;">
+      <img src="uploads/icon.svg" style="width:36px;height:36px;">
+      <div style="font-family:Fredoka,sans-serif;font-weight:500;font-size:24px;color:#F3EBDE;">lymon</div>
+    </div>
+    <div style="position:absolute;left:56px;right:56px;bottom:64px;pointer-events:none;">
+      <div style="font-family:Inter,sans-serif;font-weight:700;font-size:20px;letter-spacing:0.1em;color:#CFE86B;">FIELD NOTES</div>
+      <div style="font-family:Inter,sans-serif;font-weight:800;font-size:48px;color:#F3EBDE;margin-top:14px;">Walking into another café</div>
+      <div style="font-family:Inter,sans-serif;font-weight:500;font-size:26px;color:#F3EBDE;opacity:0.85;margin-top:12px;">What a Tuesday on Portobello Road looks like</div>
+    </div>
+  </div>
+</div>
+
+<div class="col">
+  <div style="font-family:Inter,sans-serif;font-weight:700;font-size:15px;letter-spacing:0.08em;color:#123B1E;margin-bottom:10px;">05 — FEATURE / ROTA</div>
+  <div id="ig-post-5" class="frame" style="background:#F3EBDE;padding:72px;display:flex;flex-direction:column;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <img src="uploads/icon.svg" style="width:40px;height:40px;">
+      <div style="font-family:Fredoka,sans-serif;font-weight:500;font-size:26px;color:#0A3B13;">lymon</div>
+    </div>
+    <div style="font-family:Inter,sans-serif;font-weight:700;font-size:20px;letter-spacing:0.1em;color:#4ECB6D;margin-top:48px;">FEATURE SPOTLIGHT</div>
+    <div style="font-family:Inter,sans-serif;font-weight:800;font-size:60px;line-height:1.18;color:#123B1E;margin-top:16px;">Your <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:600;">Rota</span>, handled.</div>
+    <div style="font-family:Inter,sans-serif;font-weight:500;font-size:27px;color:#123B1E;opacity:0.75;margin-top:18px;max-width:620px;">Coverage gaps get flagged and filled before your shift even starts.</div>
+    <div style="margin-top:32px;background:#FFFDF9;border-radius:22px;box-shadow:0 24px 50px rgba(18,59,30,0.16);padding:14px;height:730px;box-sizing:border-box;">
+      <image-slot id="post5-rota" shape="rounded" radius="16" src="uploads/rota-clean-post5.png" fit="cover" placeholder="Rota screen — cropped screenshot" style="width:100%;height:100%;"></image-slot>
+    </div>
+    <div style="display:flex;gap:14px;justify-content:center;margin-top:32px;flex-wrap:wrap;">
+      <div style="border:1.5px solid rgba(18,59,30,0.2);color:#123B1E;opacity:0.75;font-family:Inter,sans-serif;font-weight:500;font-size:18px;padding:10px 18px;border-radius:999px;">Staff self-solve issues</div>
+      <div style="border:1.5px solid rgba(18,59,30,0.2);color:#123B1E;opacity:0.75;font-family:Inter,sans-serif;font-weight:500;font-size:18px;padding:10px 18px;border-radius:999px;">Cover arranged in minutes</div>
+      <div style="border:1.5px solid rgba(18,59,30,0.2);color:#123B1E;opacity:0.75;font-family:Inter,sans-serif;font-weight:500;font-size:18px;padding:10px 18px;border-radius:999px;">Reduced escalation</div>
+    </div>
+    <div style="flex:1;min-height:32px;"></div>
+  </div>
+  <div class="cap">💬 Comment <b>DEMO</b> for early access</div>
+</div>
+
+<div class="col">
+  <div style="font-family:Inter,sans-serif;font-weight:700;font-size:15px;letter-spacing:0.08em;color:#123B1E;margin-bottom:10px;">06 — UK HOSPITALITY / JOBS PARADOX</div>
+  <div id="ig-post-6" class="frame" style="background:#123B1E;">
+    <image-slot id="post6-photo" shape="rect" src="uploads/post6.jpg" fit="cover" placeholder="Real photo — closed café/restaurant" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,12,0.25) 0%,rgba(10,20,12,0.1) 40%,rgba(10,20,12,0.9) 100%);pointer-events:none;"></div>
+    <div style="position:absolute;top:56px;left:56px;display:flex;align-items:center;gap:10px;pointer-events:none;">
+      <img src="uploads/icon.svg" style="width:36px;height:36px;">
+      <div style="font-family:Fredoka,sans-serif;font-weight:500;font-size:24px;color:#F3EBDE;">lymon</div>
+    </div>
+    <div style="position:absolute;left:56px;right:56px;bottom:64px;pointer-events:none;">
+      <div style="font-family:Inter,sans-serif;font-weight:700;font-size:20px;letter-spacing:0.1em;color:#CFE86B;">UK HOSPITALITY</div>
+      <div style="font-family:Inter,sans-serif;font-weight:800;font-size:46px;line-height:1.15;color:#F3EBDE;margin-top:14px;">170,000 jobs cut.<br>71,000 vacancies still open.</div>
+    </div>
+  </div>
+  <div class="cap">Since the October 2024 Budget, the sector has shed 170,000 jobs — yet 71,000 roles are still sitting open. That's not a shortage of people. It's operators cutting back while the ones left standing get stretched across cover nobody planned for. Every venue I walk into is doing more with fewer hands. Lymon exists because you can't hire your way out of that — you have to organize your way out of it.</div>
+</div>
+
+<div class="col">
+  <div style="font-family:Inter,sans-serif;font-weight:700;font-size:15px;letter-spacing:0.08em;color:#123B1E;margin-bottom:10px;">07 — INTRO / ONE PLATFORM</div>
+  <div id="ig-post-7" class="frame" style="background:#123B1E;">
+    <image-slot id="post7-photo" shape="rect" src="uploads/post7-1ef01e2e.jpg" fit="cover" placeholder="Real photo — pub interior" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,12,0.15) 0%,rgba(10,20,12,0.05) 45%,rgba(10,20,12,0.85) 100%);pointer-events:none;"></div>
+    <div style="position:absolute;top:56px;left:56px;display:flex;align-items:center;gap:10px;pointer-events:none;">
+      <img src="uploads/icon.svg" style="width:36px;height:36px;">
+      <div style="font-family:Fredoka,sans-serif;font-weight:500;font-size:24px;color:#F3EBDE;">lymon</div>
+    </div>
+    <div style="position:absolute;left:56px;right:56px;bottom:64px;pointer-events:none;">
+      <div style="font-family:Inter,sans-serif;font-weight:700;font-size:20px;letter-spacing:0.1em;color:#CFE86B;">ONE PLATFORM</div>
+      <div style="font-family:Inter,sans-serif;font-weight:800;font-size:52px;line-height:1.18;color:#F3EBDE;margin-top:14px;">Stop checking five apps.<br>Check one.</div>
+      <div style="font-family:Inter,sans-serif;font-weight:500;font-size:26px;color:#F3EBDE;opacity:0.85;margin-top:12px;">Every signal from the floor, surfaced — not buried in messages.</div>
+    </div>
+  </div>
+  <div class="cap">💬 Comment <b>ACCESS</b> for early access</div>
+</div>
+
+<div class="col">
+  <div style="font-family:Inter,sans-serif;font-weight:700;font-size:15px;letter-spacing:0.08em;color:#123B1E;margin-bottom:10px;">08 — A DAY WITH LYMON / BREAKFAST</div>
+  <div id="ig-post-8" class="frame" style="background:#123B1E;">
+    <image-slot id="photo-in-the-wild" shape="rect" src="uploads/post8.jpg" fit="cover" placeholder="Photo — venue / product in use" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,12,0.05) 0%,rgba(10,20,12,0.0) 40%,rgba(10,20,12,0.75) 100%);pointer-events:none;"></div>
+    <div style="position:absolute;top:40px;left:40px;display:flex;align-items:center;gap:10px;pointer-events:none;background:#0A3B13;padding:10px 16px;border-radius:999px;">
+      <img src="uploads/icon.svg" style="width:36px;height:36px;">
+      <div style="font-family:Fredoka,sans-serif;font-weight:500;font-size:24px;color:#F3EBDE;">lymon</div>
+    </div>
+    <div style="position:absolute;top:40px;right:40px;background:rgba(10,20,12,0.55);color:#F3EBDE;font-family:Inter,sans-serif;font-weight:600;font-size:17px;letter-spacing:0.03em;padding:8px 16px;border-radius:999px;pointer-events:none;">06:47 AM</div>
+    <div style="position:absolute;left:56px;right:56px;bottom:64px;pointer-events:none;">
+      <div style="font-family:Inter,sans-serif;font-weight:700;font-size:20px;letter-spacing:0.1em;color:#CFE86B;">A DAY WITH LYMON</div>
+      <div style="font-family:Inter,sans-serif;font-weight:800;font-size:44px;color:#F3EBDE;margin-top:14px;">Your café is already running.</div>
+    </div>
+  </div>
+  <div class="cap">💬 Comment <b>ACTION</b> for early access</div>
+</div>
+
+<div class="col">
+  <div style="font-family:Inter,sans-serif;font-weight:700;font-size:15px;letter-spacing:0.08em;color:#123B1E;margin-bottom:10px;">09 — A DAY WITH LYMON / PLANNING</div>
+  <div id="ig-post-9" class="frame" style="background:#123B1E;">
+    <image-slot id="photo-planning-calm" shape="rect" src="uploads/post9.jpg" fit="cover" placeholder="Photo — planning / rota check-in" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,12,0.05) 0%,rgba(10,20,12,0.0) 40%,rgba(10,20,12,0.75) 100%);pointer-events:none;"></div>
+    <div style="position:absolute;top:40px;left:40px;display:flex;align-items:center;gap:10px;pointer-events:none;background:#0A3B13;padding:10px 16px;border-radius:999px;">
+      <img src="uploads/icon.svg" style="width:36px;height:36px;">
+      <div style="font-family:Fredoka,sans-serif;font-weight:500;font-size:24px;color:#F3EBDE;">lymon</div>
+    </div>
+    <div style="position:absolute;top:40px;right:40px;background:rgba(10,20,12,0.55);color:#F3EBDE;font-family:Inter,sans-serif;font-weight:600;font-size:17px;letter-spacing:0.03em;padding:8px 16px;border-radius:999px;pointer-events:none;">Tuesday, Planning</div>
+    <div style="position:absolute;left:56px;right:56px;bottom:64px;pointer-events:none;">
+      <div style="font-family:Inter,sans-serif;font-weight:700;font-size:20px;letter-spacing:0.1em;color:#CFE86B;">A DAY WITH LYMON</div>
+      <div style="font-family:Inter,sans-serif;font-weight:800;font-size:44px;color:#F3EBDE;margin-top:14px;">Tomorrow's rota is already organized.</div>
+    </div>
+  </div>
+  <div class="cap">💬 Comment <b>TOOLS</b> for early access</div>
+</div>
+
+<div class="col">
+  <div style="font-family:Inter,sans-serif;font-weight:700;font-size:15px;letter-spacing:0.08em;color:#123B1E;margin-bottom:10px;">10 — UK HOSPITALITY / RETENTION</div>
+  <div id="ig-post-10" class="frame" style="background:#123B1E;">
+    <image-slot id="post10-photo" shape="rect" src="https://images.pexels.com/photos/3801394/pexels-photo-3801394.jpeg" fit="cover" placeholder="Real photo — operator on the floor" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,12,0.25) 0%,rgba(10,20,12,0.1) 40%,rgba(10,20,12,0.9) 100%);pointer-events:none;"></div>
+    <div style="position:absolute;top:56px;left:56px;display:flex;align-items:center;gap:10px;pointer-events:none;">
+      <img src="uploads/icon.svg" style="width:36px;height:36px;">
+      <div style="font-family:Fredoka,sans-serif;font-weight:500;font-size:24px;color:#F3EBDE;">lymon</div>
+    </div>
+    <div style="position:absolute;left:56px;right:56px;bottom:64px;pointer-events:none;">
+      <div style="font-family:Inter,sans-serif;font-weight:700;font-size:20px;letter-spacing:0.1em;color:#CFE86B;">UK HOSPITALITY</div>
+      <div style="font-family:Inter,sans-serif;font-weight:800;font-size:46px;line-height:1.15;color:#F3EBDE;margin-top:14px;">52% of hospitality staff<br>leave within a year.</div>
+    </div>
+  </div>
+  <div class="cap">CIPD puts hospitality attrition at 52%, against a UK average of 34% — 40% of leavers just move to the café down the road, chasing better hours or a manager with time for them. We built Lymon's rota tools because retention isn't a hiring problem, it's a Tuesday-shift problem: who covers when someone's sick, who trained the new starter, who noticed morale slipping. Fix the day-to-day, and the yearly number takes care of itself.</div>
+</div>
+
+</div>
+
+</x-dc>
+</body>
+</html>
