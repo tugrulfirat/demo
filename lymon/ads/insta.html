@@ -3,12 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-
-<helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Inter:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,600;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
 <style>
@@ -18,8 +12,8 @@
   .cap{margin-top:16px;max-width:1080px;font-family:Inter,sans-serif;font-size:16px;line-height:1.5;color:#123B1E;}
   .flag{position:absolute;top:24px;left:24px;right:24px;z-index:2;background:#B3261E;color:#fff;font-family:Inter,sans-serif;font-weight:700;font-size:14px;letter-spacing:0.08em;padding:8px 14px;border-radius:8px;width:max-content;}
 </style>
-<script src="./image-slot.js"></script>
-</helmet>
+</head>
+<body>
 
 <div style="display:flex;flex-direction:column;gap:48px;padding:48px;align-items:center;">
 
@@ -32,13 +26,16 @@
     </div>
     <div style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:28px;color:#123B1E;margin-top:20px;">Hospitality. Made simple.</div>
     <div style="font-family:Inter,sans-serif;font-weight:800;font-size:52px;line-height:1.16;color:#123B1E;margin-top:20px;">
-      You shouldn't need<br>
-      <span style="background:#CFE86B;padding:2px 10px;border-radius:8px;white-space:nowrap;">5 tools</span> to run<br>
-      today's operations.
+      <div>You shouldn't need</div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="display:inline-block;background:#CFE86B;padding:2px 10px;border-radius:8px;">5 tools</div>
+        <span>to run</span>
+      </div>
+      <div>today's operations.</div>
     </div>
     <div style="position:relative;flex:1;margin-top:28px;min-height:0;display:flex;align-items:center;justify-content:center;">
       <div style="width:100%;aspect-ratio:3434/3506;max-height:100%;background:#FFFDF9;border-radius:24px;box-shadow:0 28px 60px rgba(18,59,30,0.2);padding:14px;box-sizing:border-box;">
-        <image-slot id="post1-dashboard" shape="rounded" radius="18" src="uploads/post-1-dashboard-v2.png" fit="cover" placeholder="Dashboard, Overview screenshot, cropped" style="width:100%;height:100%;"></image-slot>
+        <img id="post1-dashboard" src="uploads/post-1-dashboard-v2.png" style="width:100%;height:100%;object-fit:cover;border-radius:18px;display:block;">
       </div>
     </div>
     <div style="font-family:Inter,sans-serif;font-weight:500;font-size:24px;color:#123B1E;opacity:0.7;margin-top:28px;">One platform. Real-time insights. Better decisions.</div>
@@ -55,7 +52,7 @@
     </div>
     <div style="position:absolute;top:0;left:0;right:0;height:70%;display:flex;align-items:center;justify-content:center;padding:130px 48px 24px;box-sizing:border-box;">
       <div style="width:100%;height:100%;background:#FFFDF9;border-radius:24px;box-shadow:0 28px 60px rgba(18,59,30,0.2);padding:14px;box-sizing:border-box;">
-        <image-slot id="post2-photo" shape="rounded" radius="18" src="uploads/post-2.png" fit="cover" placeholder="Grounded photo, a manager mid-shift, checking phone/tablet" style="width:100%;height:100%;"></image-slot>
+        <img id="post2-photo" src="uploads/post-2.png" style="width:100%;height:100%;object-fit:cover;border-radius:18px;display:block;">
       </div>
     </div>
     <div style="position:absolute;left:0;right:0;top:70%;bottom:0;background:#123B1E;padding:40px 64px;display:flex;flex-direction:column;justify-content:center;gap:16px;">
@@ -70,7 +67,7 @@
 <div class="col">
   <div style="font-family:Inter,sans-serif;font-weight:700;font-size:15px;letter-spacing:0.08em;color:#123B1E;margin-bottom:10px;">03 · UK HOSPITALITY / VAT</div>
   <div id="ig-post-3" class="frame" style="background:#123B1E;">
-    <image-slot id="post3-photo" shape="rect" src="uploads/post3.jpg" fit="cover" placeholder="Real photo, cosy UK pub interior" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    <img id="post3-photo" src="uploads/post3.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,12,0.15) 0%,rgba(10,20,12,0.05) 45%,rgba(10,20,12,0.88) 100%);pointer-events:none;"></div>
     <div style="position:absolute;top:56px;left:56px;display:flex;align-items:center;gap:10px;pointer-events:none;">
       <img src="uploads/logo-lymon.png" style="width:36px;height:36px;">
@@ -87,7 +84,7 @@
 <div class="col">
   <div style="font-family:Inter,sans-serif;font-weight:700;font-size:15px;letter-spacing:0.08em;color:#123B1E;margin-bottom:10px;">04 · FIELD NOTES / PORTOBELLO ROAD</div>
   <div id="ig-post-4" class="frame" style="background:#123B1E;">
-    <image-slot id="post4-photo" shape="rect" src="uploads/post4.jpg" fit="cover" placeholder="Real photo, Portobello Road café visit" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    <img id="post4-photo" src="uploads/post4.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,12,0.1) 0%,rgba(10,20,12,0.05) 45%,rgba(10,20,12,0.85) 100%);pointer-events:none;"></div>
     <div style="position:absolute;top:56px;left:56px;display:flex;align-items:center;gap:10px;pointer-events:none;">
       <img src="uploads/logo-lymon.png" style="width:36px;height:36px;">
@@ -112,7 +109,7 @@
     <div style="font-family:Inter,sans-serif;font-weight:800;font-size:60px;line-height:1.18;color:#123B1E;margin-top:16px;">Your <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:600;">Rota</span>, handled.</div>
     <div style="font-family:Inter,sans-serif;font-weight:500;font-size:27px;color:#123B1E;opacity:0.75;margin-top:18px;max-width:620px;">Coverage gaps get flagged and filled before your shift even starts.</div>
     <div style="margin-top:32px;background:#FFFDF9;border-radius:22px;box-shadow:0 24px 50px rgba(18,59,30,0.16);padding:14px;height:730px;box-sizing:border-box;">
-      <image-slot id="post5-rota" shape="rounded" radius="16" src="uploads/post-5.png" fit="cover" placeholder="Rota screen, cropped screenshot" style="width:100%;height:100%;"></image-slot>
+      <img id="post5-rota" src="uploads/post-5.png" style="width:100%;height:100%;object-fit:cover;border-radius:16px;display:block;">
     </div>
     <div style="display:flex;gap:14px;justify-content:center;margin-top:32px;flex-wrap:wrap;">
       <div style="border:1.5px solid rgba(18,59,30,0.2);color:#123B1E;opacity:0.75;font-family:Inter,sans-serif;font-weight:500;font-size:18px;padding:10px 18px;border-radius:999px;">Staff self-solve issues</div>
@@ -127,7 +124,7 @@
 <div class="col">
   <div style="font-family:Inter,sans-serif;font-weight:700;font-size:15px;letter-spacing:0.08em;color:#123B1E;margin-bottom:10px;">06 · UK HOSPITALITY / JOBS PARADOX</div>
   <div id="ig-post-6" class="frame" style="background:#123B1E;">
-    <image-slot id="post6-photo" shape="rect" src="uploads/post6.jpg" fit="cover" placeholder="Real photo, closed café/restaurant" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    <img id="post6-photo" src="uploads/post6.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,12,0.25) 0%,rgba(10,20,12,0.1) 40%,rgba(10,20,12,0.9) 100%);pointer-events:none;"></div>
     <div style="position:absolute;top:56px;left:56px;display:flex;align-items:center;gap:10px;pointer-events:none;">
       <img src="uploads/logo-lymon.png" style="width:36px;height:36px;">
@@ -144,7 +141,7 @@
 <div class="col">
   <div style="font-family:Inter,sans-serif;font-weight:700;font-size:15px;letter-spacing:0.08em;color:#123B1E;margin-bottom:10px;">07 · INTRO / ONE PLATFORM</div>
   <div id="ig-post-7" class="frame" style="background:#123B1E;">
-    <image-slot id="post7-photo" shape="rect" src="uploads/post7-1ef01e2e.jpg" fit="cover" placeholder="Real photo, pub interior" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    <img id="post7-photo" src="uploads/post7-1ef01e2e.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,12,0.15) 0%,rgba(10,20,12,0.05) 45%,rgba(10,20,12,0.85) 100%);pointer-events:none;"></div>
     <div style="position:absolute;top:56px;left:56px;display:flex;align-items:center;gap:10px;pointer-events:none;">
       <img src="uploads/logo-lymon.png" style="width:36px;height:36px;">
@@ -162,7 +159,7 @@
 <div class="col">
   <div style="font-family:Inter,sans-serif;font-weight:700;font-size:15px;letter-spacing:0.08em;color:#123B1E;margin-bottom:10px;">08 · A DAY WITH LYMON / BREAKFAST</div>
   <div id="ig-post-8" class="frame" style="background:#123B1E;">
-    <image-slot id="photo-in-the-wild" shape="rect" src="uploads/post8.jpg" fit="cover" placeholder="Photo, venue / product in use" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    <img id="photo-in-the-wild" src="uploads/post8.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,12,0.05) 0%,rgba(10,20,12,0.0) 40%,rgba(10,20,12,0.75) 100%);pointer-events:none;"></div>
     <div style="position:absolute;top:40px;left:40px;display:flex;align-items:center;gap:10px;pointer-events:none;background:#0A3B13;padding:10px 16px;border-radius:999px;">
       <img src="uploads/logo-lymon.png" style="width:36px;height:36px;">
@@ -180,7 +177,7 @@
 <div class="col">
   <div style="font-family:Inter,sans-serif;font-weight:700;font-size:15px;letter-spacing:0.08em;color:#123B1E;margin-bottom:10px;">09 · A DAY WITH LYMON / PLANNING</div>
   <div id="ig-post-9" class="frame" style="background:#123B1E;">
-    <image-slot id="photo-planning-calm" shape="rect" src="uploads/post9.jpg" fit="cover" placeholder="Photo, planning / rota check-in" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    <img id="photo-planning-calm" src="uploads/post9.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,12,0.05) 0%,rgba(10,20,12,0.0) 40%,rgba(10,20,12,0.75) 100%);pointer-events:none;"></div>
     <div style="position:absolute;top:40px;left:40px;display:flex;align-items:center;gap:10px;pointer-events:none;background:#0A3B13;padding:10px 16px;border-radius:999px;">
       <img src="uploads/logo-lymon.png" style="width:36px;height:36px;">
@@ -198,7 +195,7 @@
 <div class="col">
   <div style="font-family:Inter,sans-serif;font-weight:700;font-size:15px;letter-spacing:0.08em;color:#123B1E;margin-bottom:10px;">10 · UK HOSPITALITY / RETENTION</div>
   <div id="ig-post-10" class="frame" style="background:#123B1E;">
-    <image-slot id="post10-photo" shape="rect" src="uploads/pexels-olly-3801394.jpg" fit="cover" placeholder="Real photo, operator on the floor" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+    <img id="post10-photo" src="uploads/pexels-olly-3801394.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,12,0.25) 0%,rgba(10,20,12,0.1) 40%,rgba(10,20,12,0.9) 100%);pointer-events:none;"></div>
     <div style="position:absolute;top:56px;left:56px;display:flex;align-items:center;gap:10px;pointer-events:none;">
       <img src="uploads/logo-lymon.png" style="width:36px;height:36px;">
@@ -224,7 +221,7 @@
     <div style="font-family:Inter,sans-serif;font-weight:500;font-size:24px;color:#123B1E;opacity:0.75;margin-top:18px;">Attendance, tasks, compliance and training, tracked per person, not buried in spreadsheets.</div>
     <div style="position:relative;flex:1;margin-top:28px;min-height:0;display:flex;align-items:center;justify-content:center;">
       <div style="width:100%;aspect-ratio:743/584;max-height:100%;background:#FFFDF9;border-radius:24px;box-shadow:0 28px 60px rgba(18,59,30,0.2);padding:14px;box-sizing:border-box;">
-        <image-slot id="post11-team" shape="rounded" radius="18" src="uploads/post-1.png" fit="cover" placeholder="Team overview screenshot" style="width:100%;height:100%;"></image-slot>
+        <img id="post11-team" src="uploads/post-1.png" style="width:100%;height:100%;object-fit:cover;border-radius:18px;display:block;">
       </div>
     </div>
     <div style="font-family:Inter,sans-serif;font-weight:500;font-size:24px;color:#123B1E;opacity:0.7;margin-top:28px;">Attendance, tasks, engagement, training. One view.</div>
@@ -234,6 +231,5 @@
 
 </div>
 
-</x-dc>
 </body>
 </html>
